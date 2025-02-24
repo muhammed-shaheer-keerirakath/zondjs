@@ -1,4 +1,4 @@
-import { StatefulVerkleStateManager } from '@ethereumjs/statemanager'
+import { StatefulVerkleStateManager } from "@ethereumjs/statemanager";
 import {
   Account,
   bytesToHex,
@@ -7,47 +7,54 @@ import {
   hexToBigInt,
   hexToBytes,
   setLengthLeft,
-} from '@ethereumjs/util'
+} from "@zondjs/util";
 
-import type { Common } from '@ethereumjs/common'
-import type { GenesisState, PrefixedHexString, StoragePair } from '@ethereumjs/util'
+import type { Common } from "@ethereumjs/common";
+import type {
+  GenesisState,
+  PrefixedHexString,
+  StoragePair,
+} from "@zondjs/util";
 
-export async function generateVKTStateRoot(genesisState: GenesisState, common: Common) {
-  const state = new StatefulVerkleStateManager({ common })
-  await state['_trie'].createRootNode()
-  await state.checkpoint()
+export async function generateVKTStateRoot(
+  genesisState: GenesisState,
+  common: Common,
+) {
+  const state = new StatefulVerkleStateManager({ common });
+  await state["_trie"].createRootNode();
+  await state.checkpoint();
   for (const addressStr of Object.keys(genesisState)) {
-    const addrState = genesisState[addressStr]
-    let nonce, balance, code
-    let storage: StoragePair[] = []
+    const addrState = genesisState[addressStr];
+    let nonce, balance, code;
+    let storage: StoragePair[] = [];
     if (Array.isArray(addrState)) {
-      ;[balance, code, storage, nonce] = addrState
+      [balance, code, storage, nonce] = addrState;
     } else {
-      balance = hexToBigInt(addrState)
-      nonce = '0x1'
-      code = '0x'
+      balance = hexToBigInt(addrState);
+      nonce = "0x1";
+      code = "0x";
     }
-    const address = createAddressFromString(addressStr)
-    await state.putAccount(address, new Account())
-    const codeBuf = hexToBytes((code as string) ?? '0x')
+    const address = createAddressFromString(addressStr);
+    await state.putAccount(address, new Account());
+    const codeBuf = hexToBytes((code as string) ?? "0x");
     if (common.customCrypto?.keccak256 === undefined) {
-      throw Error('keccak256 required')
+      throw Error("keccak256 required");
     }
-    const codeHash = common.customCrypto.keccak256(codeBuf)
+    const codeHash = common.customCrypto.keccak256(codeBuf);
 
     // Set contract storage
     if (storage !== undefined) {
       for (const [storageKey, valHex] of storage) {
-        const val = hexToBytes(valHex)
-        if (['0x', '0x00'].includes(bytesToHex(val))) {
-          continue
+        const val = hexToBytes(valHex);
+        if (["0x", "0x00"].includes(bytesToHex(val))) {
+          continue;
         }
-        const key = setLengthLeft(hexToBytes(storageKey), 32)
-        await state.putStorage(address, key, val)
+        const key = setLengthLeft(hexToBytes(storageKey), 32);
+        await state.putStorage(address, key, val);
       }
     }
     // Put contract code
-    await state.putCode(address, codeBuf)
+    await state.putCode(address, codeBuf);
 
     // Put account data
     const account = createPartialAccount({
@@ -55,10 +62,10 @@ export async function generateVKTStateRoot(genesisState: GenesisState, common: C
       balance: balance as PrefixedHexString,
       codeHash,
       codeSize: codeBuf.byteLength,
-    })
+    });
 
-    await state.putAccount(address, account)
+    await state.putAccount(address, account);
   }
-  await state.commit()
-  return state['_trie'].root()
+  await state.commit();
+  return state["_trie"].root();
 }

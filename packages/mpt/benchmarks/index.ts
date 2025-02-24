@@ -1,6 +1,6 @@
-import { createSuite } from './suite'
-import { LevelDB } from './engines/level'
-import { MapDB } from '@ethereumjs/util'
+import { createSuite } from "./suite";
+import { LevelDB } from "./engines/level";
+import { MapDB } from "@zondjs/util";
 
-createSuite(new MapDB())
-createSuite(new LevelDB())
+createSuite(new MapDB());
+createSuite(new LevelDB());

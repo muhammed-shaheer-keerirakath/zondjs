@@ -1,13 +1,18 @@
-import { RLP } from '@ethereumjs/rlp'
-import { bytesToBigInt, bytesToHex, equalsBytes, validateNoLeadingZeroes } from '@ethereumjs/util'
+import { RLP } from "@ethereumjs/rlp";
+import {
+  bytesToBigInt,
+  bytesToHex,
+  equalsBytes,
+  validateNoLeadingZeroes,
+} from "@zondjs/util";
 
-import { TransactionType } from '../types.js'
-import { txTypeBytes, validateNotArray } from '../util.js'
+import { TransactionType } from "../types.js";
+import { txTypeBytes, validateNotArray } from "../util.js";
 
-import { FeeMarket1559Tx } from './tx.js'
+import { FeeMarket1559Tx } from "./tx.js";
 
-import type { TxOptions } from '../types.js'
-import type { TxData, TxValuesArray } from './tx.js'
+import type { TxOptions } from "../types.js";
+import type { TxData, TxValuesArray } from "./tx.js";
 
 /**
  * Instantiate a transaction from a data dictionary.
@@ -20,7 +25,7 @@ import type { TxData, TxValuesArray } from './tx.js'
  * - All parameters are optional and have some basic default values
  */
 export function createFeeMarket1559Tx(txData: TxData, opts: TxOptions = {}) {
-  return new FeeMarket1559Tx(txData, opts)
+  return new FeeMarket1559Tx(txData, opts);
 }
 
 /**
@@ -29,11 +34,14 @@ export function createFeeMarket1559Tx(txData: TxData, opts: TxOptions = {}) {
  * Format: `[chainId, nonce, maxPriorityFeePerGas, maxFeePerGas, gasLimit, to, value, data,
  * accessList, signatureYParity, signatureR, signatureS]`
  */
-export function create1559FeeMarketTxFromBytesArray(values: TxValuesArray, opts: TxOptions = {}) {
+export function create1559FeeMarketTxFromBytesArray(
+  values: TxValuesArray,
+  opts: TxOptions = {},
+) {
   if (values.length !== 9 && values.length !== 12) {
     throw new Error(
-      'Invalid EIP-1559 transaction. Only expecting 9 values (for unsigned tx) or 12 values (for signed tx).',
-    )
+      "Invalid EIP-1559 transaction. Only expecting 9 values (for unsigned tx) or 12 values (for signed tx).",
+    );
   }
 
   const [
@@ -49,10 +57,19 @@ export function create1559FeeMarketTxFromBytesArray(values: TxValuesArray, opts:
     v,
     r,
     s,
-  ] = values
+  ] = values;
 
-  validateNotArray({ chainId, v })
-  validateNoLeadingZeroes({ nonce, maxPriorityFeePerGas, maxFeePerGas, gasLimit, value, v, r, s })
+  validateNotArray({ chainId, v });
+  validateNoLeadingZeroes({
+    nonce,
+    maxPriorityFeePerGas,
+    maxFeePerGas,
+    gasLimit,
+    value,
+    v,
+    r,
+    s,
+  });
 
   return new FeeMarket1559Tx(
     {
@@ -70,7 +87,7 @@ export function create1559FeeMarketTxFromBytesArray(values: TxValuesArray, opts:
       s,
     },
     opts,
-  )
+  );
 }
 
 /**
@@ -79,22 +96,28 @@ export function create1559FeeMarketTxFromBytesArray(values: TxValuesArray, opts:
  * Format: `0x02 || rlp([chainId, nonce, maxPriorityFeePerGas, maxFeePerGas, gasLimit, to, value, data,
  * accessList, signatureYParity, signatureR, signatureS])`
  */
-export function createFeeMarket1559TxFromRLP(serialized: Uint8Array, opts: TxOptions = {}) {
+export function createFeeMarket1559TxFromRLP(
+  serialized: Uint8Array,
+  opts: TxOptions = {},
+) {
   if (
-    equalsBytes(serialized.subarray(0, 1), txTypeBytes(TransactionType.FeeMarketEIP1559)) === false
+    equalsBytes(
+      serialized.subarray(0, 1),
+      txTypeBytes(TransactionType.FeeMarketEIP1559),
+    ) === false
   ) {
     throw new Error(
       `Invalid serialized tx input: not an EIP-1559 transaction (wrong tx type, expected: ${
         TransactionType.FeeMarketEIP1559
       }, received: ${bytesToHex(serialized.subarray(0, 1))}`,
-    )
+    );
   }
 
-  const values = RLP.decode(serialized.subarray(1))
+  const values = RLP.decode(serialized.subarray(1));
 
   if (!Array.isArray(values)) {
-    throw new Error('Invalid serialized tx input: must be array')
+    throw new Error("Invalid serialized tx input: must be array");
   }
 
-  return create1559FeeMarketTxFromBytesArray(values as TxValuesArray, opts)
+  return create1559FeeMarketTxFromBytesArray(values as TxValuesArray, opts);
 }

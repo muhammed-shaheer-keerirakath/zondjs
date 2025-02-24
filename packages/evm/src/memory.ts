@@ -1,25 +1,25 @@
-import { concatBytes } from '@ethereumjs/util'
+import { concatBytes } from "@zondjs/util";
 
 const ceil = (value: number, ceiling: number): number => {
-  const r = value % ceiling
+  const r = value % ceiling;
   if (r === 0) {
-    return value
+    return value;
   } else {
-    return value + ceiling - r
+    return value + ceiling - r;
   }
-}
+};
 
-const CONTAINER_SIZE = 8192
+const CONTAINER_SIZE = 8192;
 
 /**
  * Memory implements a simple memory model
  * for the ethereum virtual machine.
  */
 export class Memory {
-  _store: Uint8Array
+  _store: Uint8Array;
 
   constructor() {
-    this._store = new Uint8Array(CONTAINER_SIZE)
+    this._store = new Uint8Array(CONTAINER_SIZE);
   }
 
   /**
@@ -28,14 +28,14 @@ export class Memory {
    */
   extend(offset: number, size: number) {
     if (size === 0) {
-      return
+      return;
     }
 
-    const newSize = ceil(offset + size, 32)
-    const sizeDiff = newSize - this._store.length
+    const newSize = ceil(offset + size, 32);
+    const sizeDiff = newSize - this._store.length;
     if (sizeDiff > 0) {
-      const expandBy = Math.ceil(sizeDiff / CONTAINER_SIZE) * CONTAINER_SIZE
-      this._store = concatBytes(this._store, new Uint8Array(expandBy))
+      const expandBy = Math.ceil(sizeDiff / CONTAINER_SIZE) * CONTAINER_SIZE;
+      this._store = concatBytes(this._store, new Uint8Array(expandBy));
     }
   }
 
@@ -47,15 +47,16 @@ export class Memory {
    */
   write(offset: number, size: number, value: Uint8Array) {
     if (size === 0) {
-      return
+      return;
     }
 
-    this.extend(offset, size)
+    this.extend(offset, size);
 
-    if (value.length !== size) throw new Error('Invalid value size')
-    if (offset + size > this._store.length) throw new Error('Value exceeds memory capacity')
+    if (value.length !== size) throw new Error("Invalid value size");
+    if (offset + size > this._store.length)
+      throw new Error("Value exceeds memory capacity");
 
-    this._store.set(value, offset)
+    this._store.set(value, offset);
   }
 
   /**
@@ -66,16 +67,16 @@ export class Memory {
    * @param avoidCopy - Avoid memory copy if possible for performance reasons (optional)
    */
   read(offset: number, size: number, avoidCopy?: boolean): Uint8Array {
-    this.extend(offset, size)
+    this.extend(offset, size);
 
-    const loaded = this._store.subarray(offset, offset + size)
+    const loaded = this._store.subarray(offset, offset + size);
     if (avoidCopy === true) {
-      return loaded
+      return loaded;
     }
-    const returnBytes = new Uint8Array(size)
+    const returnBytes = new Uint8Array(size);
     // Copy the stored "buffer" from memory into the return Uint8Array
-    returnBytes.set(loaded)
+    returnBytes.set(loaded);
 
-    return returnBytes
+    return returnBytes;
   }
 }

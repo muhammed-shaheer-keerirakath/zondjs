@@ -1,19 +1,19 @@
-import { PrioritizedTaskExecutor } from '@ethereumjs/util'
+import { PrioritizedTaskExecutor } from "@zondjs/util";
 
-import { BranchMPTNode, ExtensionMPTNode, LeafMPTNode } from '../node/index.js'
+import { BranchMPTNode, ExtensionMPTNode, LeafMPTNode } from "../node/index.js";
 
-import type { MerklePatriciaTrie } from '../mpt.js'
-import type { FoundNodeFunction, MPTNode, Nibbles } from '../types.js'
+import type { MerklePatriciaTrie } from "../mpt.js";
+import type { FoundNodeFunction, MPTNode, Nibbles } from "../types.js";
 
 /**
  * WalkController is an interface to control how the trie is being traversed.
  */
 export class WalkController {
-  readonly onNode: FoundNodeFunction
-  readonly taskExecutor: PrioritizedTaskExecutor
-  readonly trie: MerklePatriciaTrie
-  private resolve: Function
-  private reject: Function
+  readonly onNode: FoundNodeFunction;
+  readonly taskExecutor: PrioritizedTaskExecutor;
+  readonly trie: MerklePatriciaTrie;
+  private resolve: Function;
+  private reject: Function;
 
   /**
    * Creates a new WalkController
@@ -21,12 +21,16 @@ export class WalkController {
    * @param trie - The `Trie` to walk on.
    * @param poolSize - The size of the task queue.
    */
-  private constructor(onNode: FoundNodeFunction, trie: MerklePatriciaTrie, poolSize: number) {
-    this.onNode = onNode
-    this.taskExecutor = new PrioritizedTaskExecutor(poolSize)
-    this.trie = trie
-    this.resolve = () => {}
-    this.reject = () => {}
+  private constructor(
+    onNode: FoundNodeFunction,
+    trie: MerklePatriciaTrie,
+    poolSize: number,
+  ) {
+    this.onNode = onNode;
+    this.taskExecutor = new PrioritizedTaskExecutor(poolSize);
+    this.trie = trie;
+    this.resolve = () => {};
+    this.reject = () => {};
   }
 
   /**
@@ -42,23 +46,23 @@ export class WalkController {
     root: Uint8Array,
     poolSize?: number,
   ): Promise<void> {
-    const strategy = new WalkController(onNode, trie, poolSize ?? 500)
-    await strategy.startWalk(root)
+    const strategy = new WalkController(onNode, trie, poolSize ?? 500);
+    await strategy.startWalk(root);
   }
 
   private async startWalk(root: Uint8Array): Promise<void> {
     // eslint-disable-next-line no-async-promise-executor
     return new Promise(async (resolve, reject) => {
-      this.resolve = resolve
-      this.reject = reject
-      let node
+      this.resolve = resolve;
+      this.reject = reject;
+      let node;
       try {
-        node = await this.trie.lookupNode(root)
+        node = await this.trie.lookupNode(root);
       } catch (error: any) {
-        return this.reject(error)
+        return this.reject(error);
       }
-      this.processNode(root, node, [])
-    })
+      this.processNode(root, node, []);
+    });
   }
 
   /**
@@ -68,23 +72,23 @@ export class WalkController {
    */
   allChildren(node: MPTNode, key: Nibbles = []) {
     if (node instanceof LeafMPTNode) {
-      return
+      return;
     }
-    let children
+    let children;
     if (node instanceof ExtensionMPTNode) {
-      children = [[node.key(), node.value()]]
+      children = [[node.key(), node.value()]];
     } else if (node instanceof BranchMPTNode) {
-      children = node.getChildren().map((b) => [[b[0]], b[1]])
+      children = node.getChildren().map((b) => [[b[0]], b[1]]);
     }
     if (!children) {
-      return
+      return;
     }
     for (const child of children) {
-      const keyExtension = child[0] as Nibbles
-      const childRef = child[1] as Uint8Array
-      const childKey = key.concat(keyExtension)
-      const priority = childKey.length
-      this.pushNodeToQueue(childRef, childKey, priority)
+      const keyExtension = child[0] as Nibbles;
+      const childRef = child[1] as Uint8Array;
+      const childKey = key.concat(keyExtension);
+      const priority = childKey.length;
+      this.pushNodeToQueue(childRef, childKey, priority);
     }
   }
 
@@ -98,16 +102,16 @@ export class WalkController {
     this.taskExecutor.executeOrQueue(
       priority ?? key.length,
       async (taskFinishedCallback: Function) => {
-        let childNode
+        let childNode;
         try {
-          childNode = await this.trie.lookupNode(nodeRef)
+          childNode = await this.trie.lookupNode(nodeRef);
         } catch (error: any) {
-          return this.reject(error)
+          return this.reject(error);
         }
-        taskFinishedCallback() // this marks the current task as finished. If there are any tasks left in the queue, this will immediately execute the first task.
-        this.processNode(nodeRef as Uint8Array, childNode as MPTNode, key)
+        taskFinishedCallback(); // this marks the current task as finished. If there are any tasks left in the queue, this will immediately execute the first task.
+        this.processNode(nodeRef as Uint8Array, childNode as MPTNode, key);
       },
-    )
+    );
   }
 
   /**
@@ -117,25 +121,34 @@ export class WalkController {
    * @param childIndex - The child index to add to the event queue.
    * @param priority - Optional priority of the event, defaults to the total key length.
    */
-  onlyBranchIndex(node: BranchMPTNode, key: Nibbles = [], childIndex: number, priority?: number) {
+  onlyBranchIndex(
+    node: BranchMPTNode,
+    key: Nibbles = [],
+    childIndex: number,
+    priority?: number,
+  ) {
     if (!(node instanceof BranchMPTNode)) {
-      throw new Error('Expected branch node')
+      throw new Error("Expected branch node");
     }
-    const childRef = node.getBranch(childIndex)
+    const childRef = node.getBranch(childIndex);
     if (!childRef) {
-      throw new Error('Could not get branch of childIndex')
+      throw new Error("Could not get branch of childIndex");
     }
-    const childKey = key.slice() // This copies the key to a new array.
-    childKey.push(childIndex)
-    const prio = priority ?? childKey.length
-    this.pushNodeToQueue(childRef as Uint8Array, childKey, prio)
+    const childKey = key.slice(); // This copies the key to a new array.
+    childKey.push(childIndex);
+    const prio = priority ?? childKey.length;
+    this.pushNodeToQueue(childRef as Uint8Array, childKey, prio);
   }
 
-  private processNode(nodeRef: Uint8Array, node: MPTNode | null, key: Nibbles = []) {
-    this.onNode(nodeRef, node, key, this)
+  private processNode(
+    nodeRef: Uint8Array,
+    node: MPTNode | null,
+    key: Nibbles = [],
+  ) {
+    this.onNode(nodeRef, node, key, this);
     if (this.taskExecutor.finished()) {
       // onNode should schedule new tasks. If no tasks was added and the queue is empty, then we have finished our walk.
-      this.resolve()
+      this.resolve();
     }
   }
 }

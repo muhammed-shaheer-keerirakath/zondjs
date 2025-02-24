@@ -4,16 +4,16 @@ import {
   ValueEncoding,
   bytesToHex,
   unprefixedHexToBytes,
-} from '@ethereumjs/util'
-import { blake3 } from '@noble/hashes/blake3'
+} from "@zondjs/util";
+import { blake3 } from "@noble/hashes/blake3";
 
-import { BinaryTree } from './binaryTree.js'
-import { ROOT_DB_KEY } from './types.js'
+import { BinaryTree } from "./binaryTree.js";
+import { ROOT_DB_KEY } from "./types.js";
 
-import type { BinaryTreeOpts } from './types.js'
+import type { BinaryTreeOpts } from "./types.js";
 
 export async function createBinaryTree(opts?: Partial<BinaryTreeOpts>) {
-  const key = bytesToHex(ROOT_DB_KEY)
+  const key = bytesToHex(ROOT_DB_KEY);
 
   // Provide sensible default options
   const parsedOptions = {
@@ -22,29 +22,29 @@ export async function createBinaryTree(opts?: Partial<BinaryTreeOpts>) {
     useRootPersistence: opts?.useRootPersistence ?? false,
     cacheSize: opts?.cacheSize ?? 0,
     hashFunction: opts?.hashFunction ?? blake3,
-  }
+  };
 
   if (parsedOptions.useRootPersistence === true) {
     if (parsedOptions.root === undefined) {
       const root = await parsedOptions.db.get(key, {
         keyEncoding: KeyEncoding.Bytes,
         valueEncoding: ValueEncoding.Bytes,
-      })
-      if (typeof root === 'string') {
-        parsedOptions.root = unprefixedHexToBytes(root)
+      });
+      if (typeof root === "string") {
+        parsedOptions.root = unprefixedHexToBytes(root);
       } else {
-        parsedOptions.root = root
+        parsedOptions.root = root;
       }
     } else {
       await parsedOptions.db.put(key, parsedOptions.root, {
         keyEncoding: KeyEncoding.Bytes,
         valueEncoding: ValueEncoding.Bytes,
-      })
+      });
     }
   }
 
-  const tree = new BinaryTree(parsedOptions)
+  const tree = new BinaryTree(parsedOptions);
   // If the root node does not exist, initialize the empty root node
-  if (parsedOptions.root === undefined) await tree.createRootNode()
-  return tree
+  if (parsedOptions.root === undefined) await tree.createRootNode();
+  return tree;
 }

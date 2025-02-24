@@ -2,10 +2,15 @@
  * External Interfaces for other EthereumJS libraries
  */
 
-import type { Account, Address, PrefixedHexString, VerkleExecutionWitness } from '@ethereumjs/util'
+import type {
+  Account,
+  Address,
+  PrefixedHexString,
+  VerkleExecutionWitness,
+} from "@zondjs/util";
 
 export interface StorageDump {
-  [key: string]: string
+  [key: string]: string;
 }
 
 /**
@@ -20,36 +25,36 @@ export interface StorageRange {
    */
   storage: {
     [key: string]: {
-      key: string | null
-      value: string
-    }
-  }
+      key: string | null;
+      value: string;
+    };
+  };
   /**
    * The next (hashed) storage key after the greatest storage key
    * contained in `storage`.
    */
-  nextKey: string | null
+  nextKey: string | null;
 }
 
 export type AccountFields = Partial<
-  Pick<Account, 'nonce' | 'balance' | 'storageRoot' | 'codeHash' | 'codeSize'>
->
+  Pick<Account, "nonce" | "balance" | "storageRoot" | "codeHash" | "codeSize">
+>;
 
 export type StorageProof = {
-  key: PrefixedHexString
-  proof: PrefixedHexString[]
-  value: PrefixedHexString
-}
+  key: PrefixedHexString;
+  proof: PrefixedHexString[];
+  value: PrefixedHexString;
+};
 
 export type Proof = {
-  address: PrefixedHexString
-  balance: PrefixedHexString
-  codeHash: PrefixedHexString
-  nonce: PrefixedHexString
-  storageHash: PrefixedHexString
-  accountProof: PrefixedHexString[]
-  storageProof: StorageProof[]
-}
+  address: PrefixedHexString;
+  balance: PrefixedHexString;
+  codeHash: PrefixedHexString;
+  nonce: PrefixedHexString;
+  storageHash: PrefixedHexString;
+  accountProof: PrefixedHexString[];
+  storageProof: StorageProof[];
+};
 
 /**
  * Verkle related
@@ -57,12 +62,12 @@ export type Proof = {
  * Experimental (do not implement)
  */
 export type AccessEventFlags = {
-  stemRead: boolean
-  stemWrite: boolean
-  chunkRead: boolean
-  chunkWrite: boolean
-  chunkFill: boolean
-}
+  stemRead: boolean;
+  stemWrite: boolean;
+  chunkRead: boolean;
+  chunkWrite: boolean;
+  chunkFill: boolean;
+};
 
 /**
  * Verkle related
@@ -71,50 +76,58 @@ export type AccessEventFlags = {
  */
 
 export enum VerkleAccessedStateType {
-  BasicData = 'basicData',
-  CodeHash = 'codeHash',
-  Code = 'code',
-  Storage = 'storage',
+  BasicData = "basicData",
+  CodeHash = "codeHash",
+  Code = "code",
+  Storage = "storage",
 }
 
 export type RawVerkleAccessedState = {
-  address: Address
-  treeIndex: number | bigint
-  chunkIndex: number
-  chunkKey: PrefixedHexString
-}
+  address: Address;
+  treeIndex: number | bigint;
+  chunkIndex: number;
+  chunkKey: PrefixedHexString;
+};
 
 export type VerkleAccessedState =
   | {
       type: Exclude<
         VerkleAccessedStateType,
         VerkleAccessedStateType.Code | VerkleAccessedStateType.Storage
-      >
+      >;
     }
   | { type: VerkleAccessedStateType.Code; codeOffset: number }
-  | { type: VerkleAccessedStateType.Storage; slot: bigint }
+  | { type: VerkleAccessedStateType.Storage; slot: bigint };
 
 export type VerkleAccessedStateWithAddress = VerkleAccessedState & {
-  address: Address
-  chunkKey: PrefixedHexString
-}
+  address: Address;
+  chunkKey: PrefixedHexString;
+};
 export interface VerkleAccessWitnessInterface {
-  accesses(): Generator<VerkleAccessedStateWithAddress>
-  rawAccesses(): Generator<RawVerkleAccessedState>
-  debugWitnessCost(): void
-  readAccountBasicData(address: Address): bigint
-  writeAccountBasicData(address: Address): bigint
-  readAccountCodeHash(address: Address): bigint
-  writeAccountCodeHash(address: Address): bigint
-  readAccountHeader(address: Address): bigint
-  writeAccountHeader(address: Address): bigint
-  readAccountCodeChunks(contract: Address, startPc: number, endPc: number): bigint
-  writeAccountCodeChunks(contract: Address, startPc: number, endPc: number): bigint
-  readAccountStorage(contract: Address, storageSlot: bigint): bigint
-  writeAccountStorage(contract: Address, storageSlot: bigint): bigint
-  merge(accessWitness: VerkleAccessWitnessInterface): void
-  commit(): void
-  revert(): void
+  accesses(): Generator<VerkleAccessedStateWithAddress>;
+  rawAccesses(): Generator<RawVerkleAccessedState>;
+  debugWitnessCost(): void;
+  readAccountBasicData(address: Address): bigint;
+  writeAccountBasicData(address: Address): bigint;
+  readAccountCodeHash(address: Address): bigint;
+  writeAccountCodeHash(address: Address): bigint;
+  readAccountHeader(address: Address): bigint;
+  writeAccountHeader(address: Address): bigint;
+  readAccountCodeChunks(
+    contract: Address,
+    startPc: number,
+    endPc: number,
+  ): bigint;
+  writeAccountCodeChunks(
+    contract: Address,
+    startPc: number,
+    endPc: number,
+  ): bigint;
+  readAccountStorage(contract: Address, storageSlot: bigint): bigint;
+  writeAccountStorage(contract: Address, storageSlot: bigint): bigint;
+  merge(accessWitness: VerkleAccessWitnessInterface): void;
+  commit(): void;
+  revert(): void;
 }
 
 /*
@@ -126,34 +139,41 @@ export interface StateManagerInterface {
    * Core Access Functionality
    */
   // Account methods
-  getAccount(address: Address): Promise<Account | undefined>
-  putAccount(address: Address, account?: Account): Promise<void>
-  deleteAccount(address: Address): Promise<void>
-  modifyAccountFields(address: Address, accountFields: AccountFields): Promise<void>
+  getAccount(address: Address): Promise<Account | undefined>;
+  putAccount(address: Address, account?: Account): Promise<void>;
+  deleteAccount(address: Address): Promise<void>;
+  modifyAccountFields(
+    address: Address,
+    accountFields: AccountFields,
+  ): Promise<void>;
 
   // Code methods
-  putCode(address: Address, value: Uint8Array): Promise<void>
-  getCode(address: Address): Promise<Uint8Array>
-  getCodeSize(address: Address): Promise<number>
+  putCode(address: Address, value: Uint8Array): Promise<void>;
+  getCode(address: Address): Promise<Uint8Array>;
+  getCodeSize(address: Address): Promise<number>;
 
   // Storage methods
-  getStorage(address: Address, key: Uint8Array): Promise<Uint8Array>
-  putStorage(address: Address, key: Uint8Array, value: Uint8Array): Promise<void>
-  clearStorage(address: Address): Promise<void>
+  getStorage(address: Address, key: Uint8Array): Promise<Uint8Array>;
+  putStorage(
+    address: Address,
+    key: Uint8Array,
+    value: Uint8Array,
+  ): Promise<void>;
+  clearStorage(address: Address): Promise<void>;
 
   /*
    * Checkpointing Functionality
    */
-  checkpoint(): Promise<void>
-  commit(): Promise<void>
-  revert(): Promise<void>
+  checkpoint(): Promise<void>;
+  commit(): Promise<void>;
+  revert(): Promise<void>;
 
   /*
    * State Root Functionality
    */
-  getStateRoot(): Promise<Uint8Array>
-  setStateRoot(stateRoot: Uint8Array, clearCache?: boolean): Promise<void>
-  hasStateRoot(root: Uint8Array): Promise<boolean> // only used in client
+  getStateRoot(): Promise<Uint8Array>;
+  setStateRoot(stateRoot: Uint8Array, clearCache?: boolean): Promise<void>;
+  hasStateRoot(root: Uint8Array): Promise<boolean>; // only used in client
 
   /*
    * Extra Functionality
@@ -162,28 +182,37 @@ export interface StateManagerInterface {
    * on usage (check for existence)
    */
   // Client RPC
-  dumpStorage?(address: Address): Promise<StorageDump>
-  dumpStorageRange?(address: Address, startKey: bigint, limit: number): Promise<StorageRange>
+  dumpStorage?(address: Address): Promise<StorageDump>;
+  dumpStorageRange?(
+    address: Address,
+    startKey: bigint,
+    limit: number,
+  ): Promise<StorageRange>;
 
   /*
    * EVM/VM Specific Functionality
    */
   originalStorageCache: {
-    get(address: Address, key: Uint8Array): Promise<Uint8Array>
-    clear(): void
-  }
-  generateCanonicalGenesis?(initState: any): Promise<void> // TODO make input more typesafe
+    get(address: Address, key: Uint8Array): Promise<Uint8Array>;
+    clear(): void;
+  };
+  generateCanonicalGenesis?(initState: any): Promise<void>; // TODO make input more typesafe
   initVerkleExecutionWitness?(
     blockNum: bigint,
     executionWitness?: VerkleExecutionWitness | null,
-  ): void
-  verifyPostState?(accessWitness: VerkleAccessWitnessInterface): Promise<boolean>
-  checkChunkWitnessPresent?(contract: Address, programCounter: number): Promise<boolean>
-  getAppliedKey?(address: Uint8Array): Uint8Array // only for preimages
+  ): void;
+  verifyPostState?(
+    accessWitness: VerkleAccessWitnessInterface,
+  ): Promise<boolean>;
+  checkChunkWitnessPresent?(
+    contract: Address,
+    programCounter: number,
+  ): Promise<boolean>;
+  getAppliedKey?(address: Uint8Array): Uint8Array; // only for preimages
 
   /*
    * Utility
    */
-  clearCaches(): void
-  shallowCopy(downlevelCaches?: boolean): StateManagerInterface
+  clearCaches(): void;
+  shallowCopy(downlevelCaches?: boolean): StateManagerInterface;
 }

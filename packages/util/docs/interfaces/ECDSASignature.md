@@ -1,4 +1,4 @@
-[@ethereumjs/util](../README.md) / ECDSASignature
+[@zondjs/util](../README.md) / ECDSASignature
 
 # Interface: ECDSASignature
 
@@ -20,7 +20,7 @@
 
 [packages/util/src/signature.ts:25](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/signature.ts#L25)
 
-___
+---
 
 ### s
 
@@ -30,7 +30,7 @@ ___
 
 [packages/util/src/signature.ts:26](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/signature.ts#L26)
 
-___
+---
 
 ### v
 

@@ -1,4 +1,4 @@
-[@ethereumjs/util](../README.md) / KeyEncoding
+[@zondjs/util](../README.md) / KeyEncoding
 
 # Enumeration: KeyEncoding
 
@@ -14,27 +14,27 @@
 
 ### Bytes
 
-• **Bytes** = ``"view"``
+• **Bytes** = `"view"`
 
 #### Defined in
 
 [packages/util/src/db.ts:11](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/db.ts#L11)
 
-___
+---
 
 ### Number
 
-• **Number** = ``"number"``
+• **Number** = `"number"`
 
 #### Defined in
 
 [packages/util/src/db.ts:12](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/db.ts#L12)
 
-___
+---
 
 ### String
 
-• **String** = ``"string"``
+• **String** = `"string"`
 
 #### Defined in
 

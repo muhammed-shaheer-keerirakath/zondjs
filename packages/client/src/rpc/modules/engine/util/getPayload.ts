@@ -1,9 +1,9 @@
-import { bigIntToHex, bytesToHex } from '@ethereumjs/util'
+import { bigIntToHex, bytesToHex } from "@zondjs/util";
 
-import type { BlobsBundle } from '../../../../miner/index.js'
-import type { BlobsBundleV1 } from '../types.js'
-import type { Block, ExecutionPayload } from '@ethereumjs/block'
-import type { CLRequest, CLRequestType } from '@ethereumjs/util'
+import type { BlobsBundle } from "../../../../miner/index.js";
+import type { BlobsBundleV1 } from "../types.js";
+import type { Block, ExecutionPayload } from "@ethereumjs/block";
+import type { CLRequest, CLRequestType } from "@zondjs/util";
 
 /**
  * Formats a block to {@link ExecutionPayloadV1}.
@@ -14,24 +14,24 @@ export const blockToExecutionPayload = (
   bundle?: BlobsBundle,
   requests?: CLRequest<CLRequestType>[],
 ) => {
-  const executionPayload: ExecutionPayload = block.toExecutionPayload()
+  const executionPayload: ExecutionPayload = block.toExecutionPayload();
   // parentBeaconBlockRoot is not part of the CL payload
   if (executionPayload.parentBeaconBlockRoot !== undefined) {
-    delete executionPayload.parentBeaconBlockRoot
+    delete executionPayload.parentBeaconBlockRoot;
   }
 
-  const blobsBundle: BlobsBundleV1 | undefined = bundle ? bundle : undefined
+  const blobsBundle: BlobsBundleV1 | undefined = bundle ? bundle : undefined;
 
   // ethereumjs does not provide any transaction censoring detection (yet) to suggest
   // overriding builder/mev-boost blocks
-  const shouldOverrideBuilder = false
+  const shouldOverrideBuilder = false;
 
-  let executionRequests = undefined
+  let executionRequests = undefined;
   if (requests !== undefined) {
-    executionRequests = []
+    executionRequests = [];
     for (const request of requests) {
       if (request.bytes.length > 1) {
-        executionRequests.push(bytesToHex(request.bytes))
+        executionRequests.push(bytesToHex(request.bytes));
       }
     }
   }
@@ -42,5 +42,5 @@ export const blockToExecutionPayload = (
     blockValue: bigIntToHex(value),
     blobsBundle,
     shouldOverrideBuilder,
-  }
-}
+  };
+};

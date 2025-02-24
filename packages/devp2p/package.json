@@ -39,7 +39,10 @@
       "require": "./dist/cjs/index.js"
     }
   },
-  "files": ["dist", "src"],
+  "files": [
+    "dist",
+    "src"
+  ],
   "scripts": {
     "biome": "npx @biomejs/biome check",
     "biome:fix": "npx @biomejs/biome check --write",
@@ -59,7 +62,7 @@
   "dependencies": {
     "@ethereumjs/common": "^5.0.0-alpha.1",
     "@ethereumjs/rlp": "^6.0.0-alpha.1",
-    "@ethereumjs/util": "^10.0.0-alpha.1",
+    "@zondjs/util": "^10.0.0-alpha.1",
     "@scure/base": "^1.1.7",
     "debug": "^4.3.3",
     "ethereum-cryptography": "^3.1.0",

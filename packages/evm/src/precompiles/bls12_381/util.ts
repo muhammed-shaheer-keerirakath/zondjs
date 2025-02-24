@@ -1,8 +1,8 @@
-import { equalsBytes } from '@ethereumjs/util'
+import { equalsBytes } from "@zondjs/util";
 
-import type { PrecompileInput } from '../types.js'
+import type { PrecompileInput } from "../types.js";
 
-const ZERO_BYTES_16 = new Uint8Array(16)
+const ZERO_BYTES_16 = new Uint8Array(16);
 
 /**
  * Calculates the gas used for the MSM precompiles based on the number of pairs and
@@ -17,21 +17,24 @@ export const msmGasUsed = (
   gasUsedPerPair: bigint,
   discountTable: [number, number][],
 ) => {
-  const gasDiscountMax = discountTable[discountTable.length - 1][1]
-  let gasDiscountMultiplier
+  const gasDiscountMax = discountTable[discountTable.length - 1][1];
+  let gasDiscountMultiplier;
 
   if (numPairs <= discountTable.length) {
     if (numPairs === 0) {
-      gasDiscountMultiplier = 0 // this implicitly sets gasUsed to 0 as per the EIP.
+      gasDiscountMultiplier = 0; // this implicitly sets gasUsed to 0 as per the EIP.
     } else {
-      gasDiscountMultiplier = discountTable[numPairs - 1][1]
+      gasDiscountMultiplier = discountTable[numPairs - 1][1];
     }
   } else {
-    gasDiscountMultiplier = gasDiscountMax
+    gasDiscountMultiplier = gasDiscountMax;
   }
   // (numPairs * multiplication_cost * discount) / multiplier
-  return (BigInt(numPairs) * gasUsedPerPair * BigInt(gasDiscountMultiplier)) / BigInt(1000)
-}
+  return (
+    (BigInt(numPairs) * gasUsedPerPair * BigInt(gasDiscountMultiplier)) /
+    BigInt(1000)
+  );
+};
 
 /**
  * BLS-specific zero check to check that the top 16 bytes of a 64 byte field element provided
@@ -65,13 +68,13 @@ export const leading16ZeroBytesCheck = (
     const slicedBuffer = opts.data.subarray(
       zeroByteRanges[index][0] + pairStart,
       zeroByteRanges[index][1] + pairStart,
-    )
+    );
     if (!(equalsBytes(slicedBuffer, ZERO_BYTES_16) === true)) {
       if (opts._debug !== undefined) {
-        opts._debug(`${pName} failed: Point not on curve`)
+        opts._debug(`${pName} failed: Point not on curve`);
       }
-      return false
+      return false;
     }
   }
-  return true
-}
+  return true;
+};

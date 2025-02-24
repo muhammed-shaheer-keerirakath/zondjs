@@ -1,37 +1,39 @@
-import { RLP, utils } from '@ethereumjs/rlp'
-import { bytesToHex } from '@ethereumjs/util'
-import * as snappy from 'snappyjs'
+import { RLP, utils } from "@ethereumjs/rlp";
+import { bytesToHex } from "@zondjs/util";
+import * as snappy from "snappyjs";
 
-import { ProtocolType } from '../types.js'
-import { formatLogData } from '../util.js'
+import { ProtocolType } from "../types.js";
+import { formatLogData } from "../util.js";
 
-import { Protocol } from './protocol.js'
+import { Protocol } from "./protocol.js";
 
-import type { Peer } from '../rlpx/peer.js'
-import type { SendMethod } from '../types.js'
+import type { Peer } from "../rlpx/peer.js";
+import type { SendMethod } from "../types.js";
 
 export class SNAP extends Protocol {
-  private DEBUG: boolean
+  private DEBUG: boolean;
 
   constructor(version: number, peer: Peer, send: SendMethod) {
-    super(peer, send, ProtocolType.SNAP, version, SNAP.MESSAGE_CODES)
+    super(peer, send, ProtocolType.SNAP, version, SNAP.MESSAGE_CODES);
     this.DEBUG =
-      typeof window === 'undefined' ? (process?.env?.DEBUG?.includes('ethjs') ?? false) : false
+      typeof window === "undefined"
+        ? (process?.env?.DEBUG?.includes("ethjs") ?? false)
+        : false;
   }
 
-  static snap = { name: 'snap', version: 1, length: 8, constructor: SNAP }
+  static snap = { name: "snap", version: 1, length: 8, constructor: SNAP };
 
   _handleMessage(code: SNAP.MESSAGE_CODES, data: Uint8Array) {
-    const payload = RLP.decode(data)
+    const payload = RLP.decode(data);
 
     // Note, this needs optimization, see issue #1882
     if (this.DEBUG) {
       this.debug(
         this.getMsgPrefix(code),
-        `Received ${this.getMsgPrefix(code)} message from ${this._peer['_socket'].remoteAddress}:${
-          this._peer['_socket'].remotePort
+        `Received ${this.getMsgPrefix(code)} message from ${this._peer["_socket"].remoteAddress}:${
+          this._peer["_socket"].remotePort
         }: ${formatLogData(bytesToHex(data), this._verbose)}`,
-      )
+      );
     }
 
     switch (code) {
@@ -43,16 +45,16 @@ export class SNAP extends Protocol {
       case SNAP.MESSAGE_CODES.BYTE_CODES:
       case SNAP.MESSAGE_CODES.GET_TRIE_NODES:
       case SNAP.MESSAGE_CODES.TRIE_NODES:
-        break
+        break;
       default:
-        return
+        return;
     }
 
-    this.events.emit('message', code, payload)
+    this.events.emit("message", code, payload);
   }
 
   sendStatus() {
-    throw Error('SNAP protocol does not support status handshake')
+    throw Error("SNAP protocol does not support status handshake");
   }
 
   /**
@@ -64,10 +66,10 @@ export class SNAP extends Protocol {
     if (this.DEBUG) {
       this.debug(
         this.getMsgPrefix(code),
-        `Send ${this.getMsgPrefix(code)} message to ${this._peer['_socket'].remoteAddress}:${
-          this._peer['_socket'].remotePort
+        `Send ${this.getMsgPrefix(code)} message to ${this._peer["_socket"].remoteAddress}:${
+          this._peer["_socket"].remotePort
         }: ${formatLogData(utils.bytesToHex(RLP.encode(payload)), this._verbose)}`,
-      )
+      );
     }
 
     switch (code) {
@@ -79,28 +81,28 @@ export class SNAP extends Protocol {
       case SNAP.MESSAGE_CODES.BYTE_CODES:
       case SNAP.MESSAGE_CODES.GET_TRIE_NODES:
       case SNAP.MESSAGE_CODES.TRIE_NODES:
-        break
+        break;
       default:
-        throw new Error(`Unknown code ${code}`)
+        throw new Error(`Unknown code ${code}`);
     }
 
-    payload = RLP.encode(payload)
+    payload = RLP.encode(payload);
 
     // Use snappy compression if peer supports DevP2P >=v5
-    const protocolVersion = this._peer['_hello']?.protocolVersion
+    const protocolVersion = this._peer["_hello"]?.protocolVersion;
     if (protocolVersion !== undefined && protocolVersion >= 5) {
-      payload = snappy.compress(payload)
+      payload = snappy.compress(payload);
     }
 
-    this._send(code, payload)
+    this._send(code, payload);
   }
 
   getMsgPrefix(msgCode: SNAP.MESSAGE_CODES): string {
-    return SNAP.MESSAGE_CODES[msgCode]
+    return SNAP.MESSAGE_CODES[msgCode];
   }
 
   getVersion() {
-    return this._version
+    return this._version;
   }
 }
 

@@ -1,14 +1,14 @@
-import { RLP } from '@ethereumjs/rlp'
-import { bytesToHex, equalsBytes } from '@ethereumjs/util'
+import { RLP } from "@ethereumjs/rlp";
+import { bytesToHex, equalsBytes } from "@zondjs/util";
 
-import { BranchMPTNode } from '../node/branch.js'
-import { ExtensionMPTNode } from '../node/extension.js'
+import { BranchMPTNode } from "../node/branch.js";
+import { ExtensionMPTNode } from "../node/extension.js";
 
-import type { MerklePatriciaTrie } from '../mpt.js'
-import type { MPTNode } from '../types.js'
+import type { MerklePatriciaTrie } from "../mpt.js";
+import type { MPTNode } from "../types.js";
 
-export type NodeFilter = (node: MPTNode, key: number[]) => Promise<boolean>
-export type OnFound = (node: MPTNode, key: number[]) => Promise<any>
+export type NodeFilter = (node: MPTNode, key: number[]) => Promise<boolean>;
+export type OnFound = (node: MPTNode, key: number[]) => Promise<any>;
 
 /**
  * Walk MerklePatriciaTrie via async generator
@@ -30,31 +30,42 @@ export async function* _walkTrie(
   visited: Set<string> = new Set<string>(),
 ): AsyncIterable<{ node: MPTNode; currentKey: number[] }> {
   if (equalsBytes(nodeHash, this.EMPTY_TRIE_ROOT)) {
-    return
+    return;
   }
   try {
-    const node = await this.lookupNode(nodeHash)
-    if (node === undefined || visited.has(bytesToHex(this.hash(node!.serialize())))) {
-      return
+    const node = await this.lookupNode(nodeHash);
+    if (
+      node === undefined ||
+      visited.has(bytesToHex(this.hash(node!.serialize())))
+    ) {
+      return;
     }
-    visited.add(bytesToHex(this.hash(node!.serialize())))
-    await onFound(node!, currentKey)
+    visited.add(bytesToHex(this.hash(node!.serialize())));
+    await onFound(node!, currentKey);
     if (await filter(node!, currentKey)) {
-      yield { node: node!, currentKey }
+      yield { node: node!, currentKey };
     }
     if (node instanceof BranchMPTNode) {
       for (const [nibble, childNode] of node._branches.entries()) {
-        const nextKey = [...currentKey, nibble]
+        const nextKey = [...currentKey, nibble];
         const _childNode: Uint8Array =
-          childNode instanceof Uint8Array ? childNode : this.hash(RLP.encode(childNode))
-        yield* _walkTrie.bind(this)(_childNode, nextKey, onFound, filter, visited)
+          childNode instanceof Uint8Array
+            ? childNode
+            : this.hash(RLP.encode(childNode));
+        yield* _walkTrie.bind(this)(
+          _childNode,
+          nextKey,
+          onFound,
+          filter,
+          visited,
+        );
       }
     } else if (node instanceof ExtensionMPTNode) {
-      const childNode = node.value()
-      const nextKey = [...currentKey, ...node._nibbles]
-      yield* _walkTrie.bind(this)(childNode, nextKey, onFound, filter, visited)
+      const childNode = node.value();
+      const nextKey = [...currentKey, ...node._nibbles];
+      yield* _walkTrie.bind(this)(childNode, nextKey, onFound, filter, visited);
     }
   } catch (e) {
-    return
+    return;
   }
 }

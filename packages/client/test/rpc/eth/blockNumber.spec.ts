@@ -1,26 +1,31 @@
-import { bigIntToHex } from '@ethereumjs/util'
-import { assert, describe, it } from 'vitest'
+import { bigIntToHex } from "@zondjs/util";
+import { assert, describe, it } from "vitest";
 
-import { createClient, createManager, getRPCClient, startRPC } from '../helpers.js'
+import {
+  createClient,
+  createManager,
+  getRPCClient,
+  startRPC,
+} from "../helpers.js";
 
-const method = 'eth_blockNumber'
+const method = "eth_blockNumber";
 
 describe(method, () => {
-  it('call with valid arguments', async () => {
-    const mockBlockNumber = BigInt(123)
+  it("call with valid arguments", async () => {
+    const mockBlockNumber = BigInt(123);
     const mockChain = {
       headers: { latest: { number: mockBlockNumber } },
       async getCanonicalHeadHeader(): Promise<any> {
         return {
           number: mockBlockNumber,
-        }
+        };
       },
-    }
-    const manager = createManager(await createClient({ chain: mockChain }))
-    const rpc = getRPCClient(startRPC(manager.getMethods()))
+    };
+    const manager = createManager(await createClient({ chain: mockChain }));
+    const rpc = getRPCClient(startRPC(manager.getMethods()));
 
-    const res = await rpc.request(method, [])
+    const res = await rpc.request(method, []);
 
-    assert.equal(res.result, bigIntToHex(mockBlockNumber))
-  })
-})
+    assert.equal(res.result, bigIntToHex(mockBlockNumber));
+  });
+});

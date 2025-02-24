@@ -1,6 +1,6 @@
-import { bytesToBigInt } from '@ethereumjs/util'
+import { bytesToBigInt } from "@zondjs/util";
 
-const bytesValue = new Uint8Array([97])
-const bigIntValue = bytesToBigInt(bytesValue)
+const bytesValue = new Uint8Array([97]);
+const bigIntValue = bytesToBigInt(bytesValue);
 
-console.log(`Converted value: ${bigIntValue}`)
+console.log(`Converted value: ${bigIntValue}`);

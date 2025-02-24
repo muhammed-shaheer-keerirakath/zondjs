@@ -36,7 +36,10 @@
       "require": "./dist/cjs/index.js"
     }
   },
-  "files": ["dist", "src"],
+  "files": [
+    "dist",
+    "src"
+  ],
   "scripts": {
     "biome": "npx @biomejs/biome check",
     "biome:fix": "npx @biomejs/biome check --write",
@@ -55,7 +58,7 @@
     "tsc": "../../config/cli/ts-compile.sh"
   },
   "dependencies": {
-    "@ethereumjs/util": "^10.0.0-alpha.1",
+    "@zondjs/util": "^10.0.0-alpha.1",
     "eventemitter3": "^5.0.1"
   },
   "devDependencies": {

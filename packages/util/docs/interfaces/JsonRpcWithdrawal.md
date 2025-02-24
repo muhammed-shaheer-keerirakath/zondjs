@@ -1,4 +1,4 @@
-[@ethereumjs/util](../README.md) / JsonRpcWithdrawal
+[@zondjs/util](../README.md) / JsonRpcWithdrawal
 
 # Interface: JsonRpcWithdrawal
 
@@ -24,7 +24,7 @@ match CL representation and for eventual ssz withdrawalsRoot
 
 [packages/util/src/withdrawal.ts:26](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/withdrawal.ts#L26)
 
-___
+---
 
 ### amount
 
@@ -34,7 +34,7 @@ ___
 
 [packages/util/src/withdrawal.ts:27](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/withdrawal.ts#L27)
 
-___
+---
 
 ### index
 
@@ -44,7 +44,7 @@ ___
 
 [packages/util/src/withdrawal.ts:24](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/withdrawal.ts#L24)
 
-___
+---
 
 ### validatorIndex
 

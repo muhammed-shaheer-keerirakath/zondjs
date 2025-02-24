@@ -1,12 +1,12 @@
-[@ethereumjs/util](../README.md) / AsyncEventEmitter
+[@zondjs/util](../README.md) / AsyncEventEmitter
 
 # Class: AsyncEventEmitter<T\>
 
 ## Type parameters
 
-| Name | Type |
-| :------ | :------ |
-| `T` | extends [`EventMap`](../interfaces/EventMap.md) |
+| Name | Type                                            |
+| :--- | :---------------------------------------------- |
+| `T`  | extends [`EventMap`](../interfaces/EventMap.md) |
 
 ## Hierarchy
 
@@ -61,14 +61,14 @@
 
 #### Type parameters
 
-| Name | Type |
-| :------ | :------ |
-| `T` | extends [`EventMap`](../interfaces/EventMap.md) |
+| Name | Type                                            |
+| :--- | :---------------------------------------------- |
+| `T`  | extends [`EventMap`](../interfaces/EventMap.md) |
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name       | Type                  |
+| :--------- | :-------------------- |
 | `options?` | `EventEmitterOptions` |
 
 #### Inherited from
@@ -93,7 +93,7 @@ EventEmitter.captureRejectionSymbol
 
 node_modules/@types/node/ts4.8/events.d.ts:328
 
-___
+---
 
 ### captureRejections
 
@@ -109,7 +109,7 @@ EventEmitter.captureRejections
 
 node_modules/@types/node/ts4.8/events.d.ts:333
 
-___
+---
 
 ### defaultMaxListeners
 
@@ -123,7 +123,7 @@ EventEmitter.defaultMaxListeners
 
 node_modules/@types/node/ts4.8/events.d.ts:334
 
-___
+---
 
 ### errorMonitor
 
@@ -153,16 +153,16 @@ node_modules/@types/node/ts4.8/events.d.ts:327
 
 #### Type parameters
 
-| Name | Type |
-| :------ | :------ |
-| `E` | extends `string` \| `number` \| `symbol` |
+| Name | Type                                     |
+| :--- | :--------------------------------------- |
+| `E`  | extends `string` \| `number` \| `symbol` |
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `event` | `E` & `string` |
-| `listener` | `T`[`E`] |
+| Name       | Type           |
+| :--------- | :------------- |
+| `event`    | `E` & `string` |
+| `listener` | `T`[`E`]       |
 
 #### Returns
 
@@ -176,7 +176,7 @@ EventEmitter.addListener
 
 [packages/util/src/asyncEventEmitter.ts:173](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/asyncEventEmitter.ts#L173)
 
-___
+---
 
 ### after
 
@@ -184,17 +184,17 @@ ___
 
 #### Type parameters
 
-| Name | Type |
-| :------ | :------ |
-| `E` | extends `string` \| `number` \| `symbol` |
+| Name | Type                                     |
+| :--- | :--------------------------------------- |
+| `E`  | extends `string` \| `number` \| `symbol` |
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `event` | `E` & `string` |
-| `target` | `T`[`E`] |
-| `listener` | `T`[`E`] |
+| Name       | Type           |
+| :--------- | :------------- |
+| `event`    | `E` & `string` |
+| `target`   | `T`[`E`]       |
+| `listener` | `T`[`E`]       |
 
 #### Returns
 
@@ -204,7 +204,7 @@ ___
 
 [packages/util/src/asyncEventEmitter.ts:127](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/asyncEventEmitter.ts#L127)
 
-___
+---
 
 ### before
 
@@ -212,17 +212,17 @@ ___
 
 #### Type parameters
 
-| Name | Type |
-| :------ | :------ |
-| `E` | extends `string` \| `number` \| `symbol` |
+| Name | Type                                     |
+| :--- | :--------------------------------------- |
+| `E`  | extends `string` \| `number` \| `symbol` |
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `event` | `E` & `string` |
-| `target` | `T`[`E`] |
-| `listener` | `T`[`E`] |
+| Name       | Type           |
+| :--------- | :------------- |
+| `event`    | `E` & `string` |
+| `target`   | `T`[`E`]       |
+| `listener` | `T`[`E`]       |
 
 #### Returns
 
@@ -232,7 +232,7 @@ ___
 
 [packages/util/src/asyncEventEmitter.ts:123](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/asyncEventEmitter.ts#L123)
 
-___
+---
 
 ### emit
 
@@ -240,15 +240,15 @@ ___
 
 #### Type parameters
 
-| Name | Type |
-| :------ | :------ |
-| `E` | extends `string` \| `number` \| `symbol` |
+| Name | Type                                     |
+| :--- | :--------------------------------------- |
+| `E`  | extends `string` \| `number` \| `symbol` |
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `event` | `E` & `string` |
+| Name      | Type                    |
+| :-------- | :---------------------- |
+| `event`   | `E` & `string`          |
 | `...args` | `Parameters`<`T`[`E`]\> |
 
 #### Returns
@@ -263,7 +263,7 @@ EventEmitter.emit
 
 [packages/util/src/asyncEventEmitter.ts:50](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/asyncEventEmitter.ts#L50)
 
-___
+---
 
 ### eventNames
 
@@ -281,7 +281,7 @@ EventEmitter.eventNames
 
 [packages/util/src/asyncEventEmitter.ts:193](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/asyncEventEmitter.ts#L193)
 
-___
+---
 
 ### first
 
@@ -289,16 +289,16 @@ ___
 
 #### Type parameters
 
-| Name | Type |
-| :------ | :------ |
-| `E` | extends `string` \| `number` \| `symbol` |
+| Name | Type                                     |
+| :--- | :--------------------------------------- |
+| `E`  | extends `string` \| `number` \| `symbol` |
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `event` | `E` & `string` |
-| `listener` | `T`[`E`] |
+| Name       | Type           |
+| :--------- | :------------- |
+| `event`    | `E` & `string` |
+| `listener` | `T`[`E`]       |
 
 #### Returns
 
@@ -308,7 +308,7 @@ ___
 
 [packages/util/src/asyncEventEmitter.ts:105](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/asyncEventEmitter.ts#L105)
 
-___
+---
 
 ### getMaxListeners
 
@@ -326,7 +326,7 @@ EventEmitter.getMaxListeners
 
 [packages/util/src/asyncEventEmitter.ts:205](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/asyncEventEmitter.ts#L205)
 
-___
+---
 
 ### listenerCount
 
@@ -334,8 +334,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name    | Type                 |
+| :------ | :------------------- |
 | `event` | keyof `T` & `string` |
 
 #### Returns
@@ -350,7 +350,7 @@ EventEmitter.listenerCount
 
 [packages/util/src/asyncEventEmitter.ts:201](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/asyncEventEmitter.ts#L201)
 
-___
+---
 
 ### listeners
 
@@ -358,14 +358,14 @@ ___
 
 #### Type parameters
 
-| Name | Type |
-| :------ | :------ |
-| `E` | extends `string` \| `number` \| `symbol` |
+| Name | Type                                     |
+| :--- | :--------------------------------------- |
+| `E`  | extends `string` \| `number` \| `symbol` |
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name    | Type           |
+| :------ | :------------- |
 | `event` | `E` & `string` |
 
 #### Returns
@@ -380,7 +380,7 @@ EventEmitter.listeners
 
 [packages/util/src/asyncEventEmitter.ts:197](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/asyncEventEmitter.ts#L197)
 
-___
+---
 
 ### off
 
@@ -394,10 +394,10 @@ v10.0.0
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `eventName` | `string` \| `symbol` |
-| `listener` | (...`args`: `any`[]) => `void` |
+| Name        | Type                           |
+| :---------- | :----------------------------- |
+| `eventName` | `string` \| `symbol`           |
+| `listener`  | (...`args`: `any`[]) => `void` |
 
 #### Returns
 
@@ -411,7 +411,7 @@ EventEmitter.off
 
 node_modules/@types/node/ts4.8/events.d.ts:499
 
-___
+---
 
 ### on
 
@@ -419,16 +419,16 @@ ___
 
 #### Type parameters
 
-| Name | Type |
-| :------ | :------ |
-| `E` | extends `string` \| `number` \| `symbol` |
+| Name | Type                                     |
+| :--- | :--------------------------------------- |
+| `E`  | extends `string` \| `number` \| `symbol` |
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `event` | `E` & `string` |
-| `listener` | `T`[`E`] |
+| Name       | Type           |
+| :--------- | :------------- |
+| `event`    | `E` & `string` |
+| `listener` | `T`[`E`]       |
 
 #### Returns
 
@@ -442,7 +442,7 @@ EventEmitter.on
 
 [packages/util/src/asyncEventEmitter.ts:169](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/asyncEventEmitter.ts#L169)
 
-___
+---
 
 ### once
 
@@ -450,16 +450,16 @@ ___
 
 #### Type parameters
 
-| Name | Type |
-| :------ | :------ |
-| `E` | extends `string` \| `number` \| `symbol` |
+| Name | Type                                     |
+| :--- | :--------------------------------------- |
+| `E`  | extends `string` \| `number` \| `symbol` |
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `event` | `E` & `string` |
-| `listener` | `T`[`E`] |
+| Name       | Type           |
+| :--------- | :------------- |
+| `event`    | `E` & `string` |
+| `listener` | `T`[`E`]       |
 
 #### Returns
 
@@ -473,7 +473,7 @@ EventEmitter.once
 
 [packages/util/src/asyncEventEmitter.ts:79](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/asyncEventEmitter.ts#L79)
 
-___
+---
 
 ### prependListener
 
@@ -481,16 +481,16 @@ ___
 
 #### Type parameters
 
-| Name | Type |
-| :------ | :------ |
-| `E` | extends `string` \| `number` \| `symbol` |
+| Name | Type                                     |
+| :--- | :--------------------------------------- |
+| `E`  | extends `string` \| `number` \| `symbol` |
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `event` | `E` & `string` |
-| `listener` | `T`[`E`] |
+| Name       | Type           |
+| :--------- | :------------- |
+| `event`    | `E` & `string` |
+| `listener` | `T`[`E`]       |
 
 #### Returns
 
@@ -504,7 +504,7 @@ EventEmitter.prependListener
 
 [packages/util/src/asyncEventEmitter.ts:177](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/asyncEventEmitter.ts#L177)
 
-___
+---
 
 ### prependOnceListener
 
@@ -512,16 +512,16 @@ ___
 
 #### Type parameters
 
-| Name | Type |
-| :------ | :------ |
-| `E` | extends `string` \| `number` \| `symbol` |
+| Name | Type                                     |
+| :--- | :--------------------------------------- |
+| `E`  | extends `string` \| `number` \| `symbol` |
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `event` | `E` & `string` |
-| `listener` | `T`[`E`] |
+| Name       | Type           |
+| :--------- | :------------- |
+| `event`    | `E` & `string` |
+| `listener` | `T`[`E`]       |
 
 #### Returns
 
@@ -535,7 +535,7 @@ EventEmitter.prependOnceListener
 
 [packages/util/src/asyncEventEmitter.ts:181](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/asyncEventEmitter.ts#L181)
 
-___
+---
 
 ### rawListeners
 
@@ -546,11 +546,11 @@ including any wrappers (such as those created by `.once()`).
 
 ```js
 const emitter = new EventEmitter();
-emitter.once('log', () => console.log('log once'));
+emitter.once("log", () => console.log("log once"));
 
 // Returns a new Array with a function `onceWrapper` which has a property
 // `listener` which contains the original listener bound above
-const listeners = emitter.rawListeners('log');
+const listeners = emitter.rawListeners("log");
 const logFnWrapper = listeners[0];
 
 // Logs "log once" to the console and does not unbind the `once` event
@@ -559,13 +559,13 @@ logFnWrapper.listener();
 // Logs "log once" to the console and removes the listener
 logFnWrapper();
 
-emitter.on('log', () => console.log('log persistently'));
+emitter.on("log", () => console.log("log persistently"));
 // Will return a new Array with a single function bound by `.on()` above
-const newListeners = emitter.rawListeners('log');
+const newListeners = emitter.rawListeners("log");
 
 // Logs "log persistently" twice
 newListeners[0]();
-emitter.emit('log');
+emitter.emit("log");
 ```
 
 **`Since`**
@@ -574,8 +574,8 @@ v9.4.0
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name        | Type                 |
+| :---------- | :------------------- |
 | `eventName` | `string` \| `symbol` |
 
 #### Returns
@@ -590,7 +590,7 @@ EventEmitter.rawListeners
 
 node_modules/@types/node/ts4.8/events.d.ts:569
 
-___
+---
 
 ### removeAllListeners
 
@@ -598,8 +598,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name     | Type                 |
+| :------- | :------------------- |
 | `event?` | keyof `T` & `string` |
 
 #### Returns
@@ -614,7 +614,7 @@ EventEmitter.removeAllListeners
 
 [packages/util/src/asyncEventEmitter.ts:185](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/asyncEventEmitter.ts#L185)
 
-___
+---
 
 ### removeListener
 
@@ -622,16 +622,16 @@ ___
 
 #### Type parameters
 
-| Name | Type |
-| :------ | :------ |
-| `E` | extends `string` \| `number` \| `symbol` |
+| Name | Type                                     |
+| :--- | :--------------------------------------- |
+| `E`  | extends `string` \| `number` \| `symbol` |
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `event` | `E` & `string` |
-| `listener` | `T`[`E`] |
+| Name       | Type           |
+| :--------- | :------------- |
+| `event`    | `E` & `string` |
+| `listener` | `T`[`E`]       |
 
 #### Returns
 
@@ -645,7 +645,7 @@ EventEmitter.removeListener
 
 [packages/util/src/asyncEventEmitter.ts:189](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/asyncEventEmitter.ts#L189)
 
-___
+---
 
 ### setMaxListeners
 
@@ -653,8 +653,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name           | Type     |
+| :------------- | :------- |
 | `maxListeners` | `number` |
 
 #### Returns
@@ -669,7 +669,7 @@ EventEmitter.setMaxListeners
 
 [packages/util/src/asyncEventEmitter.ts:209](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/asyncEventEmitter.ts#L209)
 
-___
+---
 
 ### getEventListeners
 
@@ -684,19 +684,19 @@ For `EventTarget`s this is the only way to get the event listeners for the
 event target. This is useful for debugging and diagnostic purposes.
 
 ```js
-const { getEventListeners, EventEmitter } = require('events');
+const { getEventListeners, EventEmitter } = require("events");
 
 {
   const ee = new EventEmitter();
-  const listener = () => console.log('Events are fun');
-  ee.on('foo', listener);
-  getEventListeners(ee, 'foo'); // [listener]
+  const listener = () => console.log("Events are fun");
+  ee.on("foo", listener);
+  getEventListeners(ee, "foo"); // [listener]
 }
 {
   const et = new EventTarget();
-  const listener = () => console.log('Events are fun');
-  et.addEventListener('foo', listener);
-  getEventListeners(et, 'foo'); // [listener]
+  const listener = () => console.log("Events are fun");
+  et.addEventListener("foo", listener);
+  getEventListeners(et, "foo"); // [listener]
 }
 ```
 
@@ -706,10 +706,10 @@ v15.2.0, v14.17.0
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name      | Type                                |
+| :-------- | :---------------------------------- |
 | `emitter` | `EventEmitter` \| `_DOMEventTarget` |
-| `name` | `string` \| `symbol` |
+| `name`    | `string` \| `symbol`                |
 
 #### Returns
 
@@ -723,7 +723,7 @@ EventEmitter.getEventListeners
 
 node_modules/@types/node/ts4.8/events.d.ts:299
 
-___
+---
 
 ### listenerCount
 
@@ -732,11 +732,11 @@ ___
 A class method that returns the number of listeners for the given `eventName`registered on the given `emitter`.
 
 ```js
-const { EventEmitter, listenerCount } = require('events');
+const { EventEmitter, listenerCount } = require("events");
 const myEmitter = new EventEmitter();
-myEmitter.on('event', () => {});
-myEmitter.on('event', () => {});
-console.log(listenerCount(myEmitter, 'event'));
+myEmitter.on("event", () => {});
+myEmitter.on("event", () => {});
+console.log(listenerCount(myEmitter, "event"));
 // Prints: 2
 ```
 
@@ -750,10 +750,10 @@ Since v3.2.0 - Use `listenerCount` instead.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `emitter` | `EventEmitter` | The emitter to query |
-| `eventName` | `string` \| `symbol` | The event name |
+| Name        | Type                 | Description          |
+| :---------- | :------------------- | :------------------- |
+| `emitter`   | `EventEmitter`       | The emitter to query |
+| `eventName` | `string` \| `symbol` | The event name       |
 
 #### Returns
 
@@ -767,25 +767,25 @@ EventEmitter.listenerCount
 
 node_modules/@types/node/ts4.8/events.d.ts:271
 
-___
+---
 
 ### on
 
 ▸ `Static` **on**(`emitter`, `eventName`, `options?`): `AsyncIterableIterator`<`any`\>
 
 ```js
-const { on, EventEmitter } = require('events');
+const { on, EventEmitter } = require("events");
 
 (async () => {
   const ee = new EventEmitter();
 
   // Emit later on
   process.nextTick(() => {
-    ee.emit('foo', 'bar');
-    ee.emit('foo', 42);
+    ee.emit("foo", "bar");
+    ee.emit("foo", 42);
   });
 
-  for await (const event of on(ee, 'foo')) {
+  for await (const event of on(ee, "foo")) {
     // The execution of this inner block is synchronous and it
     // processes one event at a time (even with await). Do not use
     // if concurrent execution is required.
@@ -803,7 +803,7 @@ composed of the emitted event arguments.
 An `AbortSignal` can be used to cancel waiting on events:
 
 ```js
-const { on, EventEmitter } = require('events');
+const { on, EventEmitter } = require("events");
 const ac = new AbortController();
 
 (async () => {
@@ -811,11 +811,11 @@ const ac = new AbortController();
 
   // Emit later on
   process.nextTick(() => {
-    ee.emit('foo', 'bar');
-    ee.emit('foo', 42);
+    ee.emit("foo", "bar");
+    ee.emit("foo", 42);
   });
 
-  for await (const event of on(ee, 'foo', { signal: ac.signal })) {
+  for await (const event of on(ee, "foo", { signal: ac.signal })) {
     // The execution of this inner block is synchronous and it
     // processes one event at a time (even with await). Do not use
     // if concurrent execution is required.
@@ -833,11 +833,11 @@ v13.6.0, v12.16.0
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `emitter` | `EventEmitter` | - |
-| `eventName` | `string` | The name of the event being listened for |
-| `options?` | `StaticEventEmitterOptions` | - |
+| Name        | Type                        | Description                              |
+| :---------- | :-------------------------- | :--------------------------------------- |
+| `emitter`   | `EventEmitter`              | -                                        |
+| `eventName` | `string`                    | The name of the event being listened for |
+| `options?`  | `StaticEventEmitterOptions` | -                                        |
 
 #### Returns
 
@@ -853,7 +853,7 @@ EventEmitter.on
 
 node_modules/@types/node/ts4.8/events.d.ts:254
 
-___
+---
 
 ### once
 
@@ -868,27 +868,27 @@ This method is intentionally generic and works with the web platform [EventTarge
 semantics and does not listen to the `'error'` event.
 
 ```js
-const { once, EventEmitter } = require('events');
+const { once, EventEmitter } = require("events");
 
 async function run() {
   const ee = new EventEmitter();
 
   process.nextTick(() => {
-    ee.emit('myevent', 42);
+    ee.emit("myevent", 42);
   });
 
-  const [value] = await once(ee, 'myevent');
+  const [value] = await once(ee, "myevent");
   console.log(value);
 
-  const err = new Error('kaboom');
+  const err = new Error("kaboom");
   process.nextTick(() => {
-    ee.emit('error', err);
+    ee.emit("error", err);
   });
 
   try {
-    await once(ee, 'myevent');
+    await once(ee, "myevent");
   } catch (err) {
-    console.log('error happened', err);
+    console.log("error happened", err);
   }
 }
 
@@ -900,15 +900,15 @@ The special handling of the `'error'` event is only used when `events.once()`is 
 special handling:
 
 ```js
-const { EventEmitter, once } = require('events');
+const { EventEmitter, once } = require("events");
 
 const ee = new EventEmitter();
 
-once(ee, 'error')
-  .then(([err]) => console.log('ok', err.message))
-  .catch((err) => console.log('error', err.message));
+once(ee, "error")
+  .then(([err]) => console.log("ok", err.message))
+  .catch((err) => console.log("error", err.message));
 
-ee.emit('error', new Error('boom'));
+ee.emit("error", new Error("boom"));
 
 // Prints: ok boom
 ```
@@ -916,7 +916,7 @@ ee.emit('error', new Error('boom'));
 An `AbortSignal` can be used to cancel waiting for the event:
 
 ```js
-const { EventEmitter, once } = require('events');
+const { EventEmitter, once } = require("events");
 
 const ee = new EventEmitter();
 const ac = new AbortController();
@@ -924,19 +924,19 @@ const ac = new AbortController();
 async function foo(emitter, event, signal) {
   try {
     await once(emitter, event, { signal });
-    console.log('event emitted!');
+    console.log("event emitted!");
   } catch (error) {
-    if (error.name === 'AbortError') {
-      console.error('Waiting for the event was canceled!');
+    if (error.name === "AbortError") {
+      console.error("Waiting for the event was canceled!");
     } else {
-      console.error('There was an error', error.message);
+      console.error("There was an error", error.message);
     }
   }
 }
 
-foo(ee, 'foo', ac.signal);
+foo(ee, "foo", ac.signal);
 ac.abort(); // Abort waiting for the event
-ee.emit('foo'); // Prints: Waiting for the event was canceled!
+ee.emit("foo"); // Prints: Waiting for the event was canceled!
 ```
 
 **`Since`**
@@ -945,11 +945,11 @@ v11.13.0, v10.16.0
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `emitter` | `_NodeEventTarget` |
-| `eventName` | `string` \| `symbol` |
-| `options?` | `StaticEventEmitterOptions` |
+| Name        | Type                        |
+| :---------- | :-------------------------- |
+| `emitter`   | `_NodeEventTarget`          |
+| `eventName` | `string` \| `symbol`        |
+| `options?`  | `StaticEventEmitterOptions` |
 
 #### Returns
 
@@ -967,11 +967,11 @@ node_modules/@types/node/ts4.8/events.d.ts:194
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `emitter` | `_DOMEventTarget` |
-| `eventName` | `string` |
-| `options?` | `StaticEventEmitterOptions` |
+| Name        | Type                        |
+| :---------- | :-------------------------- |
+| `emitter`   | `_DOMEventTarget`           |
+| `eventName` | `string`                    |
+| `options?`  | `StaticEventEmitterOptions` |
 
 #### Returns
 
@@ -985,17 +985,14 @@ EventEmitter.once
 
 node_modules/@types/node/ts4.8/events.d.ts:195
 
-___
+---
 
 ### setMaxListeners
 
 ▸ `Static` **setMaxListeners**(`n?`, ...`eventTargets`): `void`
 
 ```js
-const {
-  setMaxListeners,
-  EventEmitter
-} = require('events');
+const { setMaxListeners, EventEmitter } = require("events");
 
 const target = new EventTarget();
 const emitter = new EventEmitter();
@@ -1009,10 +1006,10 @@ v15.4.0
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `n?` | `number` | A non-negative number. The maximum number of listeners per `EventTarget` event. |
-| `...eventTargets` | (`EventEmitter` \| `_DOMEventTarget`)[] | - |
+| Name              | Type                                    | Description                                                                     |
+| :---------------- | :-------------------------------------- | :------------------------------------------------------------------------------ |
+| `n?`              | `number`                                | A non-negative number. The maximum number of listeners per `EventTarget` event. |
+| `...eventTargets` | (`EventEmitter` \| `_DOMEventTarget`)[] | -                                                                               |
 
 #### Returns
 

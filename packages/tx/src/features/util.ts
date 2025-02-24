@@ -1,4 +1,4 @@
-import { Common, Mainnet } from '@ethereumjs/common'
+import { Common, Mainnet } from "@ethereumjs/common";
 import {
   Address,
   MAX_INTEGER,
@@ -7,15 +7,20 @@ import {
   bytesToBigInt,
   bytesToHex,
   toBytes,
-} from '@ethereumjs/util'
+} from "@zondjs/util";
 
-import { paramsTx } from '../params.js'
-import { checkMaxInitCodeSize, validateNotArray } from '../util.js'
+import { paramsTx } from "../params.js";
+import { checkMaxInitCodeSize, validateNotArray } from "../util.js";
 
-import type { TransactionInterface, TransactionType, TxData, TxOptions } from '../types.js'
+import type {
+  TransactionInterface,
+  TransactionType,
+  TxData,
+  TxOptions,
+} from "../types.js";
 
 export function getCommon(common?: Common): Common {
-  return common?.copy() ?? new Common({ chain: Mainnet })
+  return common?.copy() ?? new Common({ chain: Mainnet });
 }
 
 /**
@@ -36,35 +41,43 @@ export function valueBoundaryCheck(
         if (cannotEqual) {
           if (value !== undefined && value >= MAX_UINT64) {
             // TODO: error msgs got raised to a error string handler first, now throws "generic" error
-            throw new Error(`${key} cannot equal or exceed MAX_UINT64 (2^64-1), given ${value}`)
+            throw new Error(
+              `${key} cannot equal or exceed MAX_UINT64 (2^64-1), given ${value}`,
+            );
           }
         } else {
           if (value !== undefined && value > MAX_UINT64) {
-            throw new Error(`${key} cannot exceed MAX_UINT64 (2^64-1), given ${value}`)
+            throw new Error(
+              `${key} cannot exceed MAX_UINT64 (2^64-1), given ${value}`,
+            );
           }
         }
-        break
+        break;
       case 256:
         if (cannotEqual) {
           if (value !== undefined && value >= MAX_INTEGER) {
-            throw new Error(`${key} cannot equal or exceed MAX_INTEGER (2^256-1), given ${value}`)
+            throw new Error(
+              `${key} cannot equal or exceed MAX_INTEGER (2^256-1), given ${value}`,
+            );
           }
         } else {
           if (value !== undefined && value > MAX_INTEGER) {
-            throw new Error(`${key} cannot exceed MAX_INTEGER (2^256-1), given ${value}`)
+            throw new Error(
+              `${key} cannot exceed MAX_INTEGER (2^256-1), given ${value}`,
+            );
           }
         }
-        break
+        break;
       default: {
-        throw new Error('unimplemented bits value')
+        throw new Error("unimplemented bits value");
       }
     }
   }
 }
 
 type Mutable<T> = {
-  -readonly [P in keyof T]: T[P]
-}
+  -readonly [P in keyof T]: T[P];
+};
 
 // This is (temp) a shared method which reflects `super` logic which were called from all txs and thus
 // represents the constructor of baseTransaction
@@ -75,50 +88,54 @@ export function sharedConstructor(
   opts: TxOptions = {},
 ) {
   // LOAD base tx super({ ...txData, type: TransactionType.Legacy }, opts)
-  tx.common = getCommon(opts.common)
-  tx.common.updateParams(opts.params ?? paramsTx)
+  tx.common = getCommon(opts.common);
+  tx.common.updateParams(opts.params ?? paramsTx);
 
-  validateNotArray(txData) // is this necessary?
+  validateNotArray(txData); // is this necessary?
 
-  const { nonce, gasLimit, to, value, data, v, r, s } = txData
+  const { nonce, gasLimit, to, value, data, v, r, s } = txData;
 
-  tx.txOptions = opts // TODO: freeze?
+  tx.txOptions = opts; // TODO: freeze?
 
   // Set the tx properties
-  const toB = toBytes(to === '' ? '0x' : to)
-  tx.to = toB.length > 0 ? new Address(toB) : undefined // TODO mark this explicitly as null if create-contract-tx?
+  const toB = toBytes(to === "" ? "0x" : to);
+  tx.to = toB.length > 0 ? new Address(toB) : undefined; // TODO mark this explicitly as null if create-contract-tx?
 
-  const vB = toBytes(v)
-  const rB = toBytes(r)
-  const sB = toBytes(s)
+  const vB = toBytes(v);
+  const rB = toBytes(r);
+  const sB = toBytes(s);
 
-  tx.nonce = bytesToBigInt(toBytes(nonce))
-  tx.gasLimit = bytesToBigInt(toBytes(gasLimit))
-  tx.to = toB.length > 0 ? new Address(toB) : undefined
-  tx.value = bytesToBigInt(toBytes(value))
-  tx.data = toBytes(data === '' ? '0x' : data)
+  tx.nonce = bytesToBigInt(toBytes(nonce));
+  tx.gasLimit = bytesToBigInt(toBytes(gasLimit));
+  tx.to = toB.length > 0 ? new Address(toB) : undefined;
+  tx.value = bytesToBigInt(toBytes(value));
+  tx.data = toBytes(data === "" ? "0x" : data);
 
   // Set signature values (if the tx is signed)
-  tx.v = vB.length > 0 ? bytesToBigInt(vB) : undefined
-  tx.r = rB.length > 0 ? bytesToBigInt(rB) : undefined
-  tx.s = sB.length > 0 ? bytesToBigInt(sB) : undefined
+  tx.v = vB.length > 0 ? bytesToBigInt(vB) : undefined;
+  tx.r = rB.length > 0 ? bytesToBigInt(rB) : undefined;
+  tx.s = sB.length > 0 ? bytesToBigInt(sB) : undefined;
 
   // Start validating the data
 
   // Validate value/r/s
-  valueBoundaryCheck({ value: tx.value, r: tx.r, s: tx.s })
+  valueBoundaryCheck({ value: tx.value, r: tx.r, s: tx.s });
 
   // geth limits gasLimit to 2^64-1
-  valueBoundaryCheck({ gasLimit: tx.gasLimit }, 64)
+  valueBoundaryCheck({ gasLimit: tx.gasLimit }, 64);
 
   // EIP-2681 limits nonce to 2^64-1 (cannot equal 2^64-1)
-  valueBoundaryCheck({ nonce: tx.nonce }, 64, true)
+  valueBoundaryCheck({ nonce: tx.nonce }, 64, true);
 
-  const createContract = tx.to === undefined || tx.to === null
-  const allowUnlimitedInitCodeSize = opts.allowUnlimitedInitCodeSize ?? false
+  const createContract = tx.to === undefined || tx.to === null;
+  const allowUnlimitedInitCodeSize = opts.allowUnlimitedInitCodeSize ?? false;
 
-  if (createContract && tx.common.isActivatedEIP(3860) && allowUnlimitedInitCodeSize === false) {
-    checkMaxInitCodeSize(tx.common, tx.data.length)
+  if (
+    createContract &&
+    tx.common.isActivatedEIP(3860) &&
+    allowUnlimitedInitCodeSize === false
+  ) {
+    checkMaxInitCodeSize(tx.common, tx.data.length);
   }
 }
 
@@ -135,5 +152,5 @@ export function getBaseJSON(tx: TransactionInterface) {
     s: tx.s !== undefined ? bigIntToHex(tx.s) : undefined,
     chainId: bigIntToHex(tx.common.chainId()),
     yParity: tx.v === 0n || tx.v === 1n ? bigIntToHex(tx.v) : undefined,
-  }
+  };
 }

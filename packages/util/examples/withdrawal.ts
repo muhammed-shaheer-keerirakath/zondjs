@@ -1,11 +1,11 @@
-import { createWithdrawal } from '@ethereumjs/util'
+import { createWithdrawal } from "@zondjs/util";
 
 const withdrawal = createWithdrawal({
   index: 0n,
   validatorIndex: 65535n,
-  address: '0x0000000000000000000000000000000000000000',
+  address: "0x0000000000000000000000000000000000000000",
   amount: 0n,
-})
+});
 
-console.log('Withdrawal object created:')
-console.log(withdrawal.toJSON())
+console.log("Withdrawal object created:");
+console.log(withdrawal.toJSON());

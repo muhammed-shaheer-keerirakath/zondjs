@@ -1,10 +1,10 @@
-import { createBlock } from '@ethereumjs/block'
-import { createTx } from '@ethereumjs/tx'
-import { bytesToHex } from '@ethereumjs/util'
-import { assert, describe, expect, expectTypeOf, it } from 'vitest'
+import { createBlock } from "@ethereumjs/block";
+import { createTx } from "@ethereumjs/tx";
+import { bytesToHex } from "@zondjs/util";
+import { assert, describe, expect, expectTypeOf, it } from "vitest";
 
-import { toRPCTx } from '../../../src/rpc/types.js'
-import { debugData } from '../../testdata/geth-genesis/debug.js'
+import { toRPCTx } from "../../../src/rpc/types.js";
+import { debugData } from "../../testdata/geth-genesis/debug.js";
 import {
   createClient,
   createManager,
@@ -13,43 +13,51 @@ import {
   runBlockWithTxs,
   setupChain,
   startRPC,
-} from '../helpers.js'
+} from "../helpers.js";
 
-import type { RPCTx } from '../../../src/rpc/types.js'
+import type { RPCTx } from "../../../src/rpc/types.js";
 
-const method = 'debug_traceCall'
+const method = "debug_traceCall";
 
 describe(method, async () => {
-  const manager = createManager(await createClient({ opened: true }))
-  const methods = manager.getMethods()
-  const server = startRPC(methods)
-  const rpc = getRPCClient(server)
+  const manager = createManager(await createClient({ opened: true }));
+  const methods = manager.getMethods();
+  const server = startRPC(methods);
+  const rpc = getRPCClient(server);
 
-  it('debug_traceCall method exists', async () => {
-    expect(Object.keys(methods)).toContain(method)
-  })
+  it("debug_traceCall method exists", async () => {
+    expect(Object.keys(methods)).toContain(method);
+  });
   it(`expects param[0] to be type "object"`, async () => {
-    const res = await rpc.request(method, ['', ''])
+    const res = await rpc.request(method, ["", ""]);
 
-    expect(res.error.message).toBe('invalid argument 0: argument must be an object')
-  })
+    expect(res.error.message).toBe(
+      "invalid argument 0: argument must be an object",
+    );
+  });
   it(`expects param[1] to be type "string"`, async () => {
-    const res = await rpc.request(method, [{}, 0])
+    const res = await rpc.request(method, [{}, 0]);
 
-    expect(res.error.message).toBe('invalid argument 1: argument must be a string')
-  })
+    expect(res.error.message).toBe(
+      "invalid argument 1: argument must be a string",
+    );
+  });
   it(`expects receiptManager`, async () => {
-    const res = await rpc.request(method, [{}, '0x0'])
+    const res = await rpc.request(method, [{}, "0x0"]);
 
-    expect(res.error.message).toBe('missing receiptsManager')
-  })
-})
+    expect(res.error.message).toBe("missing receiptsManager");
+  });
+});
 
-describe('trace a call', async () => {
-  const { chain, common, execution, server } = await setupChain(debugData, 'post-merge', {
-    txLookupLimit: 0,
-  })
-  const rpc = getRPCClient(server)
+describe("trace a call", async () => {
+  const { chain, common, execution, server } = await setupChain(
+    debugData,
+    "post-merge",
+    {
+      txLookupLimit: 0,
+    },
+  );
+  const rpc = getRPCClient(server);
   // construct block with tx
   const tx = createTx(
     {
@@ -58,41 +66,43 @@ describe('trace a call', async () => {
       maxFeePerGas: 10,
       maxPriorityFeePerGas: 1,
       value: 10000,
-      data: '0x60AA',
+      data: "0x60AA",
     },
     { common, freeze: false },
-  ).sign(dummy.privKey)
+  ).sign(dummy.privKey);
   tx.getSenderAddress = () => {
-    return dummy.addr
-  }
-  const block = createBlock({}, { common })
-  block.transactions[0] = tx
-  await runBlockWithTxs(chain, execution, [tx], true)
+    return dummy.addr;
+  };
+  const block = createBlock({}, { common });
+  block.transactions[0] = tx;
+  await runBlockWithTxs(chain, execution, [tx], true);
 
-  it('call debug_traceCall with valid parameters', async () => {
-    const rpcTxReq = await rpc.request('eth_getTransactionByHash', [bytesToHex(tx.hash())])
-    let rpcTx: RPCTx = {}
+  it("call debug_traceCall with valid parameters", async () => {
+    const rpcTxReq = await rpc.request("eth_getTransactionByHash", [
+      bytesToHex(tx.hash()),
+    ]);
+    let rpcTx: RPCTx = {};
 
-    const t = rpcTxReq.result
-    rpcTx = toRPCTx(t)
+    const t = rpcTxReq.result;
+    rpcTx = toRPCTx(t);
 
-    const res2 = await rpc.request('debug_traceCall', [rpcTx, '0x1', {}])
+    const res2 = await rpc.request("debug_traceCall", [rpcTx, "0x1", {}]);
     expectTypeOf(res2.result)
-      .toHaveProperty('gas')
-      .toHaveProperty('returnValue')
-      .toHaveProperty('failed')
-      .toHaveProperty('structLogs')
+      .toHaveProperty("gas")
+      .toHaveProperty("returnValue")
+      .toHaveProperty("failed")
+      .toHaveProperty("structLogs");
 
     assert.deepEqual(
       res2.result,
       {
-        gas: '0x3',
-        returnValue: '0x',
+        gas: "0x3",
+        returnValue: "0x",
         failed: false,
         structLogs: [
           {
             pc: 0,
-            op: 'PUSH1',
+            op: "PUSH1",
             gasCost: 6,
             gas: 1048575,
             depth: 0,
@@ -103,7 +113,7 @@ describe('trace a call', async () => {
           },
         ],
       },
-      'produced a correct trace',
-    )
-  })
-})
+      "produced a correct trace",
+    );
+  });
+});

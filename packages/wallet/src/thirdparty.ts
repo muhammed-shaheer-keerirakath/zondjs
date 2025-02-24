@@ -1,39 +1,44 @@
 // cspell:ignore ivsize cryptojs
-import { bytesToUtf8, concatBytes, unprefixedHexToBytes, utf8ToBytes } from '@ethereumjs/util'
-import { base64 } from '@scure/base'
-import { decrypt } from 'ethereum-cryptography/aes.js'
-import { keccak256 } from 'ethereum-cryptography/keccak.js'
-import { pbkdf2Sync } from 'ethereum-cryptography/pbkdf2.js'
-import { md5 } from 'js-md5'
+import {
+  bytesToUtf8,
+  concatBytes,
+  unprefixedHexToBytes,
+  utf8ToBytes,
+} from "@zondjs/util";
+import { base64 } from "@scure/base";
+import { decrypt } from "ethereum-cryptography/aes.js";
+import { keccak256 } from "ethereum-cryptography/keccak.js";
+import { pbkdf2Sync } from "ethereum-cryptography/pbkdf2.js";
+import { md5 } from "js-md5";
 
-import { Wallet } from './wallet.js'
+import { Wallet } from "./wallet.js";
 
 // evp_kdf
 
 export interface EvpKdfOpts {
-  count: number
-  keysize: number
-  ivsize: number
-  digest: string
+  count: number;
+  keysize: number;
+  ivsize: number;
+  digest: string;
 }
 
 const evpKdfDefaults: EvpKdfOpts = {
   count: 1,
   keysize: 16,
   ivsize: 16,
-  digest: 'md5',
-}
+  digest: "md5",
+};
 
 function mergeEvpKdfOptsWithDefaults(opts?: Partial<EvpKdfOpts>): EvpKdfOpts {
   if (!opts) {
-    return evpKdfDefaults
+    return evpKdfDefaults;
   }
   return {
     count: opts.count ?? evpKdfDefaults.count,
     keysize: opts.keysize ?? evpKdfDefaults.keysize,
     ivsize: opts.ivsize ?? evpKdfDefaults.ivsize,
     digest: opts.digest ?? evpKdfDefaults.digest,
-  }
+  };
 }
 
 /*
@@ -47,50 +52,58 @@ function mergeEvpKdfOptsWithDefaults(opts?: Partial<EvpKdfOpts>): EvpKdfOpts {
  *
  * FIXME: not optimized at all
  */
-function evp_kdf(data: Uint8Array, salt: Uint8Array, opts?: Partial<EvpKdfOpts>) {
-  const params = mergeEvpKdfOptsWithDefaults(opts)
+function evp_kdf(
+  data: Uint8Array,
+  salt: Uint8Array,
+  opts?: Partial<EvpKdfOpts>,
+) {
+  const params = mergeEvpKdfOptsWithDefaults(opts);
 
   // A single EVP iteration, returns `D_i`, where block equals to `D_(i-1)`
   function iter(block: Uint8Array) {
-    if (params.digest !== 'md5') throw new Error('Only md5 is supported in evp_kdf')
-    let hash = md5.create()
-    hash.update(block)
-    hash.update(data)
-    hash.update(salt)
-    block = Uint8Array.from(hash.array())
+    if (params.digest !== "md5")
+      throw new Error("Only md5 is supported in evp_kdf");
+    let hash = md5.create();
+    hash.update(block);
+    hash.update(data);
+    hash.update(salt);
+    block = Uint8Array.from(hash.array());
 
     for (let i = 1, len = params.count; i < len; i++) {
-      hash = md5.create()
-      hash.update(block)
-      block = new Uint8Array(hash.arrayBuffer())
+      hash = md5.create();
+      hash.update(block);
+      block = new Uint8Array(hash.arrayBuffer());
     }
-    return block
+    return block;
   }
 
-  const ret: Uint8Array[] = []
-  let i = 0
+  const ret: Uint8Array[] = [];
+  let i = 0;
   while (concatBytes(...ret).length < params.keysize + params.ivsize) {
-    ret[i] = iter(i === 0 ? new Uint8Array() : ret[i - 1])
-    i++
+    ret[i] = iter(i === 0 ? new Uint8Array() : ret[i - 1]);
+    i++;
   }
-  const tmp = concatBytes(...ret)
+  const tmp = concatBytes(...ret);
 
   return {
     key: tmp.subarray(0, params.keysize),
     iv: tmp.subarray(params.keysize, params.keysize + params.ivsize),
-  }
+  };
 }
 
 // http://stackoverflow.com/questions/25288311/cryptojs-aes-pattern-always-ends-with
-function decodeCryptojsSalt(input: string): { ciphertext: Uint8Array; salt?: Uint8Array } {
-  const ciphertext = base64.decode(input)
-  if (bytesToUtf8(ciphertext.subarray(0, 8)) === 'Salted__') {
+function decodeCryptojsSalt(input: string): {
+  ciphertext: Uint8Array;
+  salt?: Uint8Array;
+} {
+  const ciphertext = base64.decode(input);
+  if (bytesToUtf8(ciphertext.subarray(0, 8)) === "Salted__") {
     return {
       salt: ciphertext.subarray(8, 16),
       ciphertext: ciphertext.subarray(16),
-    }
+    };
   }
-  return { ciphertext }
+  return { ciphertext };
 }
 
 // {
@@ -103,12 +116,12 @@ function decodeCryptojsSalt(input: string): { ciphertext: Uint8Array; salt?: Uin
 // }
 
 export interface EtherWalletOptions {
-  address: string
-  encrypted: boolean
-  locked: boolean
-  hash: string
-  private: string
-  public: string
+  address: string;
+  encrypted: boolean;
+  locked: boolean;
+  hash: string;
+  private: string;
+  public: string;
 }
 
 /*
@@ -120,53 +133,57 @@ export async function fromEtherWallet(
   input: string | EtherWalletOptions,
   password: string,
 ): Promise<Wallet> {
-  const json: EtherWalletOptions = typeof input === 'object' ? input : JSON.parse(input)
+  const json: EtherWalletOptions =
+    typeof input === "object" ? input : JSON.parse(input);
 
-  let privateKey: Uint8Array
+  let privateKey: Uint8Array;
   if (!json.locked) {
     if (json.private.length !== 64) {
-      throw new Error('Invalid private key length')
+      throw new Error("Invalid private key length");
     }
-    privateKey = unprefixedHexToBytes(json.private)
+    privateKey = unprefixedHexToBytes(json.private);
   } else {
-    if (typeof password !== 'string') {
-      throw new Error('Password required')
+    if (typeof password !== "string") {
+      throw new Error("Password required");
     }
 
     if (password.length < 7) {
-      throw new Error('Password must be at least 7 characters')
+      throw new Error("Password must be at least 7 characters");
     }
 
     // the "encrypted" version has the low 4 bytes
     // of the hash of the address appended
-    const hash = json.encrypted ? json.private.slice(0, 128) : json.private
+    const hash = json.encrypted ? json.private.slice(0, 128) : json.private;
 
     // decode openssl ciphertext + salt encoding
-    const cipher = decodeCryptojsSalt(hash)
+    const cipher = decodeCryptojsSalt(hash);
     if (!cipher.salt) {
-      throw new Error('Unsupported EtherWallet key format')
+      throw new Error("Unsupported EtherWallet key format");
     }
 
     // derive key/iv using OpenSSL EVP as implemented in CryptoJS
-    const evp = evp_kdf(utf8ToBytes(password), cipher.salt, { keysize: 32, ivsize: 16 })
+    const evp = evp_kdf(utf8ToBytes(password), cipher.salt, {
+      keysize: 32,
+      ivsize: 16,
+    });
 
-    const pr = decrypt(cipher.ciphertext, evp.key, evp.iv, 'aes-256-cbc')
+    const pr = decrypt(cipher.ciphertext, evp.key, evp.iv, "aes-256-cbc");
 
     // NOTE: yes, they've run it through UTF8
-    privateKey = unprefixedHexToBytes(bytesToUtf8(pr))
+    privateKey = unprefixedHexToBytes(bytesToUtf8(pr));
   }
-  const wallet = new Wallet(privateKey)
+  const wallet = new Wallet(privateKey);
   if (wallet.getAddressString() !== json.address) {
-    throw new Error('Invalid private key or address')
+    throw new Error("Invalid private key or address");
   }
-  return wallet
+  return wallet;
 }
 
 /**
  * Third Party API: Import a brain wallet used by Ether.Camp
  */
 export function fromEtherCamp(passphrase: string): Wallet {
-  return new Wallet(keccak256(utf8ToBytes(passphrase)))
+  return new Wallet(keccak256(utf8ToBytes(passphrase)));
 }
 
 /**
@@ -174,19 +191,19 @@ export function fromEtherCamp(passphrase: string): Wallet {
  */
 export function fromQuorumWallet(passphrase: string, userid: string): Wallet {
   if (passphrase.length < 10) {
-    throw new Error('Passphrase must be at least 10 characters')
+    throw new Error("Passphrase must be at least 10 characters");
   }
   if (userid.length < 10) {
-    throw new Error('User id must be at least 10 characters')
+    throw new Error("User id must be at least 10 characters");
   }
 
-  const merged = utf8ToBytes(passphrase + userid)
-  const seed = pbkdf2Sync(merged, merged, 2000, 32, 'sha256')
-  return new Wallet(seed)
+  const merged = utf8ToBytes(passphrase + userid);
+  const seed = pbkdf2Sync(merged, merged, 2000, 32, "sha256");
+  return new Wallet(seed);
 }
 
 export const Thirdparty = {
   fromEtherWallet,
   fromEtherCamp,
   fromQuorumWallet,
-}
+};

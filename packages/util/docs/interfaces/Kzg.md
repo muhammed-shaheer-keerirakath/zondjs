@@ -1,4 +1,4 @@
-[@ethereumjs/util](../README.md) / Kzg
+[@zondjs/util](../README.md) / Kzg
 
 # Interface: Kzg
 
@@ -22,8 +22,8 @@ Interface for an externally provided kzg library used when creating blob transac
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name   | Type         |
+| :----- | :----------- |
 | `blob` | `Uint8Array` |
 
 #### Returns
@@ -34,7 +34,7 @@ Interface for an externally provided kzg library used when creating blob transac
 
 [packages/util/src/kzg.ts:6](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/kzg.ts#L6)
 
-___
+---
 
 ### computeBlobKzgProof
 
@@ -42,9 +42,9 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `blob` | `Uint8Array` |
+| Name         | Type         |
+| :----------- | :----------- |
+| `blob`       | `Uint8Array` |
 | `commitment` | `Uint8Array` |
 
 #### Returns
@@ -55,7 +55,7 @@ ___
 
 [packages/util/src/kzg.ts:7](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/kzg.ts#L7)
 
-___
+---
 
 ### loadTrustedSetup
 
@@ -63,8 +63,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name        | Type     |
+| :---------- | :------- |
 | `filePath?` | `string` |
 
 #### Returns
@@ -75,7 +75,7 @@ ___
 
 [packages/util/src/kzg.ts:5](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/kzg.ts#L5)
 
-___
+---
 
 ### verifyBlobKzgProofBatch
 
@@ -83,11 +83,11 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `blobs` | `Uint8Array`[] |
+| Name                     | Type           |
+| :----------------------- | :------------- |
+| `blobs`                  | `Uint8Array`[] |
 | `expectedKzgCommitments` | `Uint8Array`[] |
-| `kzgProofs` | `Uint8Array`[] |
+| `kzgProofs`              | `Uint8Array`[] |
 
 #### Returns
 
@@ -97,7 +97,7 @@ ___
 
 [packages/util/src/kzg.ts:14](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/kzg.ts#L14)
 
-___
+---
 
 ### verifyKzgProof
 
@@ -105,12 +105,12 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name            | Type         |
+| :-------------- | :----------- |
 | `polynomialKzg` | `Uint8Array` |
-| `z` | `Uint8Array` |
-| `y` | `Uint8Array` |
-| `kzgProof` | `Uint8Array` |
+| `z`             | `Uint8Array` |
+| `y`             | `Uint8Array` |
+| `kzgProof`      | `Uint8Array` |
 
 #### Returns
 

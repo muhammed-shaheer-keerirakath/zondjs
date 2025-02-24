@@ -9,23 +9,23 @@ import {
   ecsign,
   publicToAddress,
   unpadBytes,
-} from '@ethereumjs/util'
-import { keccak256 } from 'ethereum-cryptography/keccak.js'
+} from "@zondjs/util";
+import { keccak256 } from "ethereum-cryptography/keccak.js";
 
-import { Capability, TransactionType } from '../types.js'
+import { Capability, TransactionType } from "../types.js";
 
-import type { LegacyTxInterface, Transaction } from '../types.js'
+import type { LegacyTxInterface, Transaction } from "../types.js";
 
 export function errorMsg(tx: LegacyTxInterface, msg: string) {
-  return `${msg} (${tx.errorStr()})`
+  return `${msg} (${tx.errorStr()})`;
 }
 
 export function isSigned(tx: LegacyTxInterface): boolean {
-  const { v, r, s } = tx
+  const { v, r, s } = tx;
   if (v === undefined || r === undefined || s === undefined) {
-    return false
+    return false;
   } else {
-    return true
+    return true;
   }
 }
 
@@ -34,31 +34,34 @@ export function isSigned(tx: LegacyTxInterface): boolean {
  */
 export function getDataGas(tx: LegacyTxInterface, extraCost?: bigint): bigint {
   if (tx.cache.dataFee && tx.cache.dataFee.hardfork === tx.common.hardfork()) {
-    return tx.cache.dataFee.value
+    return tx.cache.dataFee.value;
   }
 
-  const txDataZero = tx.common.param('txDataZeroGas')
-  const txDataNonZero = tx.common.param('txDataNonZeroGas')
+  const txDataZero = tx.common.param("txDataZeroGas");
+  const txDataNonZero = tx.common.param("txDataNonZeroGas");
 
-  let cost = extraCost ?? BIGINT_0
+  let cost = extraCost ?? BIGINT_0;
   for (let i = 0; i < tx.data.length; i++) {
-    tx.data[i] === 0 ? (cost += txDataZero) : (cost += txDataNonZero)
+    tx.data[i] === 0 ? (cost += txDataZero) : (cost += txDataNonZero);
   }
 
-  if ((tx.to === undefined || tx.to === null) && tx.common.isActivatedEIP(3860)) {
-    const dataLength = BigInt(Math.ceil(tx.data.length / 32))
-    const initCodeCost = tx.common.param('initCodeWordGas') * dataLength
-    cost += initCodeCost
+  if (
+    (tx.to === undefined || tx.to === null) &&
+    tx.common.isActivatedEIP(3860)
+  ) {
+    const dataLength = BigInt(Math.ceil(tx.data.length / 32));
+    const initCodeCost = tx.common.param("initCodeWordGas") * dataLength;
+    cost += initCodeCost;
   }
 
   if (Object.isFrozen(tx)) {
     tx.cache.dataFee = {
       value: cost,
       hardfork: tx.common.hardfork(),
-    }
+    };
   }
 
-  return cost
+  return cost;
 }
 
 /**
@@ -68,36 +71,39 @@ export function getDataGas(tx: LegacyTxInterface, extraCost?: bigint): bigint {
  * to be paid for access lists (EIP-2930) and authority lists (EIP-7702).
  */
 export function getIntrinsicGas(tx: LegacyTxInterface): bigint {
-  const txFee = tx.common.param('txGas')
-  let fee = tx.getDataGas()
-  if (txFee) fee += txFee
-  if (tx.common.gteHardfork('homestead') && tx.toCreationAddress()) {
-    const txCreationFee = tx.common.param('txCreationGas')
-    if (txCreationFee) fee += txCreationFee
+  const txFee = tx.common.param("txGas");
+  let fee = tx.getDataGas();
+  if (txFee) fee += txFee;
+  if (tx.common.gteHardfork("homestead") && tx.toCreationAddress()) {
+    const txCreationFee = tx.common.param("txCreationGas");
+    if (txCreationFee) fee += txCreationFee;
   }
-  return fee
+  return fee;
 }
 
 export function toCreationAddress(tx: LegacyTxInterface): boolean {
-  return tx.to === undefined || tx.to.bytes.length === 0
+  return tx.to === undefined || tx.to.bytes.length === 0;
 }
 
 export function hash(tx: LegacyTxInterface): Uint8Array {
   if (!tx.isSigned()) {
-    const msg = errorMsg(tx, 'Cannot call hash method if transaction is not signed')
-    throw new Error(msg)
+    const msg = errorMsg(
+      tx,
+      "Cannot call hash method if transaction is not signed",
+    );
+    throw new Error(msg);
   }
 
-  const keccakFunction = tx.common.customCrypto.keccak256 ?? keccak256
+  const keccakFunction = tx.common.customCrypto.keccak256 ?? keccak256;
 
   if (Object.isFrozen(tx)) {
     if (!tx.cache.hash) {
-      tx.cache.hash = keccakFunction(tx.serialize())
+      tx.cache.hash = keccakFunction(tx.serialize());
     }
-    return tx.cache.hash
+    return tx.cache.hash;
   }
 
-  return keccakFunction(tx.serialize())
+  return keccakFunction(tx.serialize());
 }
 
 /**
@@ -105,56 +111,65 @@ export function hash(tx: LegacyTxInterface): Uint8Array {
  * Reasoning: https://ethereum.stackexchange.com/a/55728
  */
 export function validateHighS(tx: LegacyTxInterface): void {
-  const { s } = tx
-  if (tx.common.gteHardfork('homestead') && s !== undefined && s > SECP256K1_ORDER_DIV_2) {
+  const { s } = tx;
+  if (
+    tx.common.gteHardfork("homestead") &&
+    s !== undefined &&
+    s > SECP256K1_ORDER_DIV_2
+  ) {
     const msg = errorMsg(
       tx,
-      'Invalid Signature: s-values greater than secp256k1n/2 are considered invalid',
-    )
-    throw new Error(msg)
+      "Invalid Signature: s-values greater than secp256k1n/2 are considered invalid",
+    );
+    throw new Error(msg);
   }
 }
 
 export function getSenderPublicKey(tx: LegacyTxInterface): Uint8Array {
   if (tx.cache.senderPubKey !== undefined) {
-    return tx.cache.senderPubKey
+    return tx.cache.senderPubKey;
   }
 
-  const msgHash = tx.getMessageToVerifySignature()
+  const msgHash = tx.getMessageToVerifySignature();
 
-  const { v, r, s } = tx
+  const { v, r, s } = tx;
 
-  validateHighS(tx)
+  validateHighS(tx);
 
   try {
-    const ecrecoverFunction = tx.common.customCrypto.ecrecover ?? ecrecover
+    const ecrecoverFunction = tx.common.customCrypto.ecrecover ?? ecrecover;
     const sender = ecrecoverFunction(
       msgHash,
       v!,
       bigIntToUnpaddedBytes(r!),
       bigIntToUnpaddedBytes(s!),
-      tx.supports(Capability.EIP155ReplayProtection) ? tx.common.chainId() : undefined,
-    )
+      tx.supports(Capability.EIP155ReplayProtection)
+        ? tx.common.chainId()
+        : undefined,
+    );
     if (Object.isFrozen(tx)) {
-      tx.cache.senderPubKey = sender
+      tx.cache.senderPubKey = sender;
     }
-    return sender
+    return sender;
   } catch (e: any) {
-    const msg = errorMsg(tx, 'Invalid Signature')
-    throw new Error(msg)
+    const msg = errorMsg(tx, "Invalid Signature");
+    throw new Error(msg);
   }
 }
 
-export function getEffectivePriorityFee(gasPrice: bigint, baseFee: bigint | undefined): bigint {
+export function getEffectivePriorityFee(
+  gasPrice: bigint,
+  baseFee: bigint | undefined,
+): bigint {
   if (baseFee !== undefined && baseFee > gasPrice) {
-    throw new Error('Tx cannot pay baseFee')
+    throw new Error("Tx cannot pay baseFee");
   }
 
   if (baseFee === undefined) {
-    return gasPrice
+    return gasPrice;
   }
 
-  return gasPrice - baseFee
+  return gasPrice - baseFee;
 }
 
 /**
@@ -162,29 +177,30 @@ export function getEffectivePriorityFee(gasPrice: bigint, baseFee: bigint | unde
  * @returns {string[]} an array of error strings
  */
 export function getValidationErrors(tx: LegacyTxInterface): string[] {
-  const errors = []
+  const errors = [];
 
   if (tx.isSigned() && !tx.verifySignature()) {
-    errors.push('Invalid Signature')
+    errors.push("Invalid Signature");
   }
 
-  let intrinsicGas = tx.getIntrinsicGas()
+  let intrinsicGas = tx.getIntrinsicGas();
   if (tx.common.isActivatedEIP(7623)) {
-    let tokens = 0
+    let tokens = 0;
     for (let i = 0; i < tx.data.length; i++) {
-      tokens += tx.data[i] === 0 ? 1 : 4
+      tokens += tx.data[i] === 0 ? 1 : 4;
     }
     const floorCost =
-      tx.common.param('txGas') + tx.common.param('totalCostFloorPerToken') * BigInt(tokens)
-    intrinsicGas = bigIntMax(intrinsicGas, floorCost)
+      tx.common.param("txGas") +
+      tx.common.param("totalCostFloorPerToken") * BigInt(tokens);
+    intrinsicGas = bigIntMax(intrinsicGas, floorCost);
   }
   if (intrinsicGas > tx.gasLimit) {
     errors.push(
       `gasLimit is too low. The gasLimit is lower than the minimum gas limit of ${tx.getIntrinsicGas()}, the gas limit is: ${tx.gasLimit}`,
-    )
+    );
   }
 
-  return errors
+  return errors;
 }
 
 /**
@@ -192,9 +208,9 @@ export function getValidationErrors(tx: LegacyTxInterface): string[] {
  * @returns {boolean} true if the transaction is valid, false otherwise
  */
 export function isValid(tx: LegacyTxInterface): boolean {
-  const errors = tx.getValidationErrors()
+  const errors = tx.getValidationErrors();
 
-  return errors.length === 0
+  return errors.length === 0;
 }
 
 /**
@@ -203,10 +219,10 @@ export function isValid(tx: LegacyTxInterface): boolean {
 export function verifySignature(tx: LegacyTxInterface): boolean {
   try {
     // Main signature verification is done in `getSenderPublicKey()`
-    const publicKey = tx.getSenderPublicKey()
-    return unpadBytes(publicKey).length !== 0
+    const publicKey = tx.getSenderPublicKey();
+    return unpadBytes(publicKey).length !== 0;
   } catch (e: any) {
-    return false
+    return false;
   }
 }
 
@@ -214,7 +230,7 @@ export function verifySignature(tx: LegacyTxInterface): boolean {
  * Returns the sender's address
  */
 export function getSenderAddress(tx: LegacyTxInterface): Address {
-  return new Address(publicToAddress(tx.getSenderPublicKey()))
+  return new Address(publicToAddress(tx.getSenderPublicKey()));
 }
 
 /**
@@ -233,8 +249,8 @@ export function sign(
 ): Transaction[TransactionType] {
   if (privateKey.length !== 32) {
     // TODO figure out this errorMsg logic how this diverges on other txs
-    const msg = errorMsg(tx, 'Private key must be 32 bytes in length.')
-    throw new Error(msg)
+    const msg = errorMsg(tx, "Private key must be 32 bytes in length.");
+    throw new Error(msg);
   }
 
   // TODO (Jochem, 05 nov 2024): figure out what this hack does and clean it up
@@ -243,58 +259,60 @@ export function sign(
   // and want to recreate a signature (where EIP155 should be applied)
   // Leaving this hack lets the legacy.spec.ts -> sign(), verifySignature() test fail
   // 2021-06-23
-  let hackApplied = false
+  let hackApplied = false;
   if (
     tx.type === TransactionType.Legacy &&
-    tx.common.gteHardfork('spuriousDragon') &&
+    tx.common.gteHardfork("spuriousDragon") &&
     !tx.supports(Capability.EIP155ReplayProtection)
   ) {
     // cast as any to edit the protected `activeCapabilities`
-    ;(tx as any).activeCapabilities.push(Capability.EIP155ReplayProtection)
-    hackApplied = true
+    (tx as any).activeCapabilities.push(Capability.EIP155ReplayProtection);
+    hackApplied = true;
   }
 
-  const msgHash = tx.getHashedMessageToSign()
-  const ecSignFunction = tx.common.customCrypto?.ecsign ?? ecsign
-  const { v, r, s } = ecSignFunction(msgHash, privateKey, { extraEntropy })
-  const signedTx = tx.addSignature(v, r, s, true)
+  const msgHash = tx.getHashedMessageToSign();
+  const ecSignFunction = tx.common.customCrypto?.ecsign ?? ecsign;
+  const { v, r, s } = ecSignFunction(msgHash, privateKey, { extraEntropy });
+  const signedTx = tx.addSignature(v, r, s, true);
 
   // Hack part 2
   if (hackApplied) {
     // cast as any to edit the protected `activeCapabilities`
-    const index = (<any>tx).activeCapabilities.indexOf(Capability.EIP155ReplayProtection)
+    const index = (<any>tx).activeCapabilities.indexOf(
+      Capability.EIP155ReplayProtection,
+    );
     if (index > -1) {
       // cast as any to edit the protected `activeCapabilities`
-      ;(<any>tx).activeCapabilities.splice(index, 1)
+      (<any>tx).activeCapabilities.splice(index, 1);
     }
   }
 
-  return signedTx
+  return signedTx;
 }
 
 // TODO maybe move this to shared methods (util.ts in features)
 export function getSharedErrorPostfix(tx: LegacyTxInterface) {
-  let hash = ''
+  let hash = "";
   try {
-    hash = tx.isSigned() ? bytesToHex(tx.hash()) : 'not available (unsigned)'
+    hash = tx.isSigned() ? bytesToHex(tx.hash()) : "not available (unsigned)";
   } catch (e: any) {
-    hash = 'error'
+    hash = "error";
   }
-  let isSigned = ''
+  let isSigned = "";
   try {
-    isSigned = tx.isSigned().toString()
+    isSigned = tx.isSigned().toString();
   } catch (e: any) {
-    hash = 'error'
+    hash = "error";
   }
-  let hf = ''
+  let hf = "";
   try {
-    hf = tx.common.hardfork()
+    hf = tx.common.hardfork();
   } catch (e: any) {
-    hf = 'error'
+    hf = "error";
   }
 
-  let postfix = `tx type=${tx.type} hash=${hash} nonce=${tx.nonce} value=${tx.value} `
-  postfix += `signed=${isSigned} hf=${hf}`
+  let postfix = `tx type=${tx.type} hash=${hash} nonce=${tx.nonce} value=${tx.value} `;
+  postfix += `signed=${isSigned} hf=${hf}`;
 
-  return postfix
+  return postfix;
 }

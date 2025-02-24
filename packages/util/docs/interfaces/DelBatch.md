@@ -1,11 +1,11 @@
-[@ethereumjs/util](../README.md) / DelBatch
+[@zondjs/util](../README.md) / DelBatch
 
 # Interface: DelBatch<TKey\>
 
 ## Type parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name   | Type                                                        |
+| :----- | :---------------------------------------------------------- |
 | `TKey` | extends `Uint8Array` \| `string` \| `number` = `Uint8Array` |
 
 ## Table of contents
@@ -26,7 +26,7 @@
 
 [packages/util/src/db.ts:37](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/db.ts#L37)
 
-___
+---
 
 ### opts
 
@@ -36,11 +36,11 @@ ___
 
 [packages/util/src/db.ts:38](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/db.ts#L38)
 
-___
+---
 
 ### type
 
-• **type**: ``"del"``
+• **type**: `"del"`
 
 #### Defined in
 

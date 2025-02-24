@@ -1,13 +1,18 @@
-import { RLP } from '@ethereumjs/rlp'
-import { bytesToBigInt, bytesToHex, equalsBytes, validateNoLeadingZeroes } from '@ethereumjs/util'
+import { RLP } from "@ethereumjs/rlp";
+import {
+  bytesToBigInt,
+  bytesToHex,
+  equalsBytes,
+  validateNoLeadingZeroes,
+} from "@zondjs/util";
 
-import { TransactionType } from '../types.js'
-import { txTypeBytes, validateNotArray } from '../util.js'
+import { TransactionType } from "../types.js";
+import { txTypeBytes, validateNotArray } from "../util.js";
 
-import { EOACode7702Tx } from './tx.js'
+import { EOACode7702Tx } from "./tx.js";
 
-import type { TxOptions } from '../types.js'
-import type { TxData, TxValuesArray } from './tx.js'
+import type { TxOptions } from "../types.js";
+import type { TxData, TxValuesArray } from "./tx.js";
 
 /**
  * Instantiate a transaction from a data dictionary.
@@ -20,7 +25,7 @@ import type { TxData, TxValuesArray } from './tx.js'
  * - All parameters are optional and have some basic default values
  */
 export function createEOACode7702Tx(txData: TxData, opts: TxOptions = {}) {
-  return new EOACode7702Tx(txData, opts)
+  return new EOACode7702Tx(txData, opts);
 }
 
 /**
@@ -29,11 +34,14 @@ export function createEOACode7702Tx(txData: TxData, opts: TxOptions = {}) {
  * Format: `[chainId, nonce, maxPriorityFeePerGas, maxFeePerGas, gasLimit, to, value, data,
  * accessList, signatureYParity, signatureR, signatureS]`
  */
-export function createEOACode7702TxFromBytesArray(values: TxValuesArray, opts: TxOptions = {}) {
+export function createEOACode7702TxFromBytesArray(
+  values: TxValuesArray,
+  opts: TxOptions = {},
+) {
   if (values.length !== 10 && values.length !== 13) {
     throw new Error(
-      'Invalid EIP-7702 transaction. Only expecting 10 values (for unsigned tx) or 13 values (for signed tx).',
-    )
+      "Invalid EIP-7702 transaction. Only expecting 10 values (for unsigned tx) or 13 values (for signed tx).",
+    );
   }
 
   const [
@@ -50,10 +58,19 @@ export function createEOACode7702TxFromBytesArray(values: TxValuesArray, opts: T
     v,
     r,
     s,
-  ] = values
+  ] = values;
 
-  validateNotArray({ chainId, v })
-  validateNoLeadingZeroes({ nonce, maxPriorityFeePerGas, maxFeePerGas, gasLimit, value, v, r, s })
+  validateNotArray({ chainId, v });
+  validateNoLeadingZeroes({
+    nonce,
+    maxPriorityFeePerGas,
+    maxFeePerGas,
+    gasLimit,
+    value,
+    v,
+    r,
+    s,
+  });
 
   return new EOACode7702Tx(
     {
@@ -72,7 +89,7 @@ export function createEOACode7702TxFromBytesArray(values: TxValuesArray, opts: T
       s,
     },
     opts,
-  )
+  );
 }
 
 /**
@@ -81,22 +98,28 @@ export function createEOACode7702TxFromBytesArray(values: TxValuesArray, opts: T
  * Format: `0x04 || rlp([chainId, nonce, maxPriorityFeePerGas, maxFeePerGas, gasLimit, to, value, data,
  * accessList, signatureYParity, signatureR, signatureS])`
  */
-export function createEOACode7702TxFromRLP(serialized: Uint8Array, opts: TxOptions = {}) {
+export function createEOACode7702TxFromRLP(
+  serialized: Uint8Array,
+  opts: TxOptions = {},
+) {
   if (
-    equalsBytes(serialized.subarray(0, 1), txTypeBytes(TransactionType.EOACodeEIP7702)) === false
+    equalsBytes(
+      serialized.subarray(0, 1),
+      txTypeBytes(TransactionType.EOACodeEIP7702),
+    ) === false
   ) {
     throw new Error(
       `Invalid serialized tx input: not an EIP-7702 transaction (wrong tx type, expected: ${
         TransactionType.EOACodeEIP7702
       }, received: ${bytesToHex(serialized.subarray(0, 1))}`,
-    )
+    );
   }
 
-  const values = RLP.decode(serialized.subarray(1))
+  const values = RLP.decode(serialized.subarray(1));
 
   if (!Array.isArray(values)) {
-    throw new Error('Invalid serialized tx input: must be array')
+    throw new Error("Invalid serialized tx input: must be array");
   }
 
-  return createEOACode7702TxFromBytesArray(values as TxValuesArray, opts)
+  return createEOACode7702TxFromBytesArray(values as TxValuesArray, opts);
 }

@@ -4,26 +4,34 @@ import {
   bytesToUnprefixedHex,
   concatBytes,
   unprefixedHexToBytes,
-} from '@ethereumjs/util'
-import { keccak256 } from 'ethereum-cryptography/keccak'
+} from "@zondjs/util";
+import { keccak256 } from "ethereum-cryptography/keccak";
 
-import { MerklePatriciaTrie, ROOT_DB_KEY, updateMPTFromMerkleProof } from './index.js'
+import {
+  MerklePatriciaTrie,
+  ROOT_DB_KEY,
+  updateMPTFromMerkleProof,
+} from "./index.js";
 
-import type { MPTOpts, Proof } from './index.js'
+import type { MPTOpts, Proof } from "./index.js";
 
 export async function createMPT(opts?: MPTOpts) {
   const keccakFunction =
-    opts?.common?.customCrypto.keccak256 ?? opts?.useKeyHashingFunction ?? keccak256
-  let key = ROOT_DB_KEY
+    opts?.common?.customCrypto.keccak256 ??
+    opts?.useKeyHashingFunction ??
+    keccak256;
+  let key = ROOT_DB_KEY;
 
   const encoding =
-    opts?.valueEncoding === ValueEncoding.Bytes ? ValueEncoding.Bytes : ValueEncoding.String
+    opts?.valueEncoding === ValueEncoding.Bytes
+      ? ValueEncoding.Bytes
+      : ValueEncoding.String;
 
   if (opts?.useKeyHashing === true) {
-    key = keccakFunction.call(undefined, ROOT_DB_KEY) as Uint8Array
+    key = keccakFunction.call(undefined, ROOT_DB_KEY) as Uint8Array;
   }
   if (opts?.keyPrefix !== undefined) {
-    key = concatBytes(opts.keyPrefix, key)
+    key = concatBytes(opts.keyPrefix, key);
   }
 
   if (opts?.db !== undefined && opts?.useRootPersistence === true) {
@@ -31,25 +39,29 @@ export async function createMPT(opts?: MPTOpts) {
       const root = await opts?.db.get(bytesToUnprefixedHex(key), {
         keyEncoding: KeyEncoding.String,
         valueEncoding: encoding,
-      })
-      if (typeof root === 'string') {
-        opts.root = unprefixedHexToBytes(root)
+      });
+      if (typeof root === "string") {
+        opts.root = unprefixedHexToBytes(root);
       } else {
-        opts.root = root
+        opts.root = root;
       }
     } else {
       await opts?.db.put(
         bytesToUnprefixedHex(key),
-        <any>(encoding === ValueEncoding.Bytes ? opts.root : bytesToUnprefixedHex(opts.root)),
+        <any>(
+          (encoding === ValueEncoding.Bytes
+            ? opts.root
+            : bytesToUnprefixedHex(opts.root))
+        ),
         {
           keyEncoding: KeyEncoding.String,
           valueEncoding: encoding,
         },
-      )
+      );
     }
   }
 
-  return new MerklePatriciaTrie(opts)
+  return new MerklePatriciaTrie(opts);
 }
 
 /**
@@ -60,10 +72,10 @@ export async function createMPT(opts?: MPTOpts) {
  * @returns new trie created from given proof
  */
 export async function createMPTFromProof(proof: Proof, trieOpts?: MPTOpts) {
-  const shouldVerifyRoot = trieOpts?.root !== undefined
-  const trie = new MerklePatriciaTrie(trieOpts)
-  const root = await updateMPTFromMerkleProof(trie, proof, shouldVerifyRoot)
-  trie.root(root)
-  await trie.persistRoot()
-  return trie
+  const shouldVerifyRoot = trieOpts?.root !== undefined;
+  const trie = new MerklePatriciaTrie(trieOpts);
+  const root = await updateMPTFromMerkleProof(trie, proof, shouldVerifyRoot);
+  trie.root(root);
+  await trie.persistRoot();
+  return trie;
 }

@@ -1,4 +1,4 @@
-[@ethereumjs/util](../README.md) / GenesisState
+[@zondjs/util](../README.md) / GenesisState
 
 # Interface: GenesisState
 

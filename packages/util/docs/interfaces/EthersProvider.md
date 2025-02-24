@@ -1,4 +1,4 @@
-[@ethereumjs/util](../README.md) / EthersProvider
+[@zondjs/util](../README.md) / EthersProvider
 
 # Interface: EthersProvider
 
@@ -16,7 +16,7 @@ retrieve the necessary data
 
 ### \_getConnection
 
-• **\_getConnection**: () => { `url`: `string`  }
+• **\_getConnection**: () => { `url`: `string` }
 
 #### Type declaration
 
@@ -26,8 +26,8 @@ retrieve the necessary data
 
 `Object`
 
-| Name | Type |
-| :------ | :------ |
+| Name  | Type     |
+| :---- | :------- |
 | `url` | `string` |
 
 #### Defined in

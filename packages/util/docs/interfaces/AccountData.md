@@ -1,4 +1,4 @@
-[@ethereumjs/util](../README.md) / AccountData
+[@zondjs/util](../README.md) / AccountData
 
 # Interface: AccountData
 
@@ -21,7 +21,7 @@
 
 [packages/util/src/account.ts:24](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/account.ts#L24)
 
-___
+---
 
 ### codeHash
 
@@ -31,7 +31,7 @@ ___
 
 [packages/util/src/account.ts:26](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/account.ts#L26)
 
-___
+---
 
 ### nonce
 
@@ -41,7 +41,7 @@ ___
 
 [packages/util/src/account.ts:23](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/account.ts#L23)
 
-___
+---
 
 ### storageRoot
 

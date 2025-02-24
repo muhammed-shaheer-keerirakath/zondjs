@@ -1,4 +1,4 @@
-[@ethereumjs/util](../README.md) / Account
+[@zondjs/util](../README.md) / Account
 
 # Class: Account
 
@@ -36,12 +36,12 @@ Use the static factory methods to assist in creating an Account from varying dat
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `nonce` | `bigint` | `BIGINT_0` |
-| `balance` | `bigint` | `BIGINT_0` |
-| `storageRoot` | `Uint8Array` | `KECCAK256_RLP` |
-| `codeHash` | `Uint8Array` | `KECCAK256_NULL` |
+| Name          | Type         | Default value    |
+| :------------ | :----------- | :--------------- |
+| `nonce`       | `bigint`     | `BIGINT_0`       |
+| `balance`     | `bigint`     | `BIGINT_0`       |
+| `storageRoot` | `Uint8Array` | `KECCAK256_RLP`  |
+| `codeHash`    | `Uint8Array` | `KECCAK256_NULL` |
 
 #### Defined in
 
@@ -57,7 +57,7 @@ Use the static factory methods to assist in creating an Account from varying dat
 
 [packages/util/src/account.ts:33](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/account.ts#L33)
 
-___
+---
 
 ### codeHash
 
@@ -67,7 +67,7 @@ ___
 
 [packages/util/src/account.ts:35](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/account.ts#L35)
 
-___
+---
 
 ### nonce
 
@@ -77,7 +77,7 @@ ___
 
 [packages/util/src/account.ts:32](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/account.ts#L32)
 
-___
+---
 
 ### storageRoot
 
@@ -103,7 +103,7 @@ Returns a `Boolean` determining if the account is a contract.
 
 [packages/util/src/account.ts:119](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/account.ts#L119)
 
-___
+---
 
 ### isEmpty
 
@@ -121,7 +121,7 @@ account emptiness in [EIP-161](https://eips.ethereum.org/EIPS/eip-161):
 
 [packages/util/src/account.ts:128](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/account.ts#L128)
 
-___
+---
 
 ### raw
 
@@ -137,7 +137,7 @@ Returns an array of Uint8Arrays of the raw bytes for the account, in order.
 
 [packages/util/src/account.ts:100](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/account.ts#L100)
 
-___
+---
 
 ### serialize
 
@@ -153,7 +153,7 @@ Returns the RLP serialization of the account as a `Uint8Array`.
 
 [packages/util/src/account.ts:112](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/account.ts#L112)
 
-___
+---
 
 ### fromAccountData
 
@@ -161,8 +161,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name          | Type                                          |
+| :------------ | :-------------------------------------------- |
 | `accountData` | [`AccountData`](../interfaces/AccountData.md) |
 
 #### Returns
@@ -173,7 +173,7 @@ ___
 
 [packages/util/src/account.ts:37](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/account.ts#L37)
 
-___
+---
 
 ### fromRlpSerializedAccount
 
@@ -181,8 +181,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name         | Type         |
+| :----------- | :----------- |
 | `serialized` | `Uint8Array` |
 
 #### Returns
@@ -193,7 +193,7 @@ ___
 
 [packages/util/src/account.ts:48](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/account.ts#L48)
 
-___
+---
 
 ### fromValuesArray
 
@@ -201,8 +201,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name     | Type           |
+| :------- | :------------- |
 | `values` | `Uint8Array`[] |
 
 #### Returns

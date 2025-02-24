@@ -1,10 +1,10 @@
-import { Chain } from '@ethereumjs/common'
+import { Chain } from "@ethereumjs/common";
 
-import { holeskyGenesis } from './genesisStates/holesky.js'
-import { mainnetGenesis } from './genesisStates/mainnet.js'
-import { sepoliaGenesis } from './genesisStates/sepolia.js'
+import { holeskyGenesis } from "./genesisStates/holesky.js";
+import { mainnetGenesis } from "./genesisStates/mainnet.js";
+import { sepoliaGenesis } from "./genesisStates/sepolia.js";
 
-import type { GenesisState } from '@ethereumjs/util'
+import type { GenesisState } from "@zondjs/util";
 
 /**
  * Utility to get the genesisState of a well known network
@@ -14,13 +14,13 @@ import type { GenesisState } from '@ethereumjs/util'
 export function getGenesis(chainId: number): GenesisState | undefined {
   switch (chainId) {
     case Chain.Mainnet:
-      return mainnetGenesis
+      return mainnetGenesis;
     case Chain.Sepolia:
-      return sepoliaGenesis
+      return sepoliaGenesis;
     case Chain.Holesky:
-      return holeskyGenesis
+      return holeskyGenesis;
 
     default:
-      return undefined
+      return undefined;
   }
 }

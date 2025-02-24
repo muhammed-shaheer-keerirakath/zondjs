@@ -1,12 +1,12 @@
-[@ethereumjs/util](../README.md) / MapDB
+[@zondjs/util](../README.md) / MapDB
 
 # Class: MapDB<TKey, TValue\>
 
 ## Type parameters
 
-| Name | Type |
-| :------ | :------ |
-| `TKey` | extends `Uint8Array` \| `string` \| `number` |
+| Name     | Type                                                                    |
+| :------- | :---------------------------------------------------------------------- |
+| `TKey`   | extends `Uint8Array` \| `string` \| `number`                            |
 | `TValue` | extends `Uint8Array` \| `string` \| [`DBObject`](../README.md#dbobject) |
 
 ## Implements
@@ -40,15 +40,15 @@
 
 #### Type parameters
 
-| Name | Type |
-| :------ | :------ |
-| `TKey` | extends `string` \| `number` \| `Uint8Array` |
+| Name     | Type                                                                    |
+| :------- | :---------------------------------------------------------------------- |
+| `TKey`   | extends `string` \| `number` \| `Uint8Array`                            |
 | `TValue` | extends `string` \| `Uint8Array` \| [`DBObject`](../README.md#dbobject) |
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name        | Type                     |
+| :---------- | :----------------------- |
 | `database?` | `Map`<`TKey`, `TValue`\> |
 
 #### Defined in
@@ -75,8 +75,8 @@ Performs a batch operation on db.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name      | Type                                                       | Description                   |
+| :-------- | :--------------------------------------------------------- | :---------------------------- |
 | `opStack` | [`BatchDBOp`](../README.md#batchdbop)<`TKey`, `TValue`\>[] | A stack of levelup operations |
 
 #### Returns
@@ -91,7 +91,7 @@ Performs a batch operation on db.
 
 [packages/util/src/mapDB.ts:31](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/mapDB.ts#L31)
 
-___
+---
 
 ### del
 
@@ -101,8 +101,8 @@ Removes a raw value in the underlying db.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name  | Type   |
+| :---- | :----- |
 | `key` | `TKey` |
 
 #### Returns
@@ -117,7 +117,7 @@ Removes a raw value in the underlying db.
 
 [packages/util/src/mapDB.ts:26](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/mapDB.ts#L26)
 
-___
+---
 
 ### get
 
@@ -127,8 +127,8 @@ Retrieves a raw value from db.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name  | Type   |
+| :---- | :----- |
 | `key` | `TKey` |
 
 #### Returns
@@ -145,7 +145,7 @@ A Promise that resolves to `Uint8Array` if a value is found or `undefined` if no
 
 [packages/util/src/mapDB.ts:16](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/mapDB.ts#L16)
 
-___
+---
 
 ### open
 
@@ -165,7 +165,7 @@ Opens the database -- if applicable
 
 [packages/util/src/mapDB.ts:52](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/mapDB.ts#L52)
 
-___
+---
 
 ### put
 
@@ -175,10 +175,10 @@ Writes a value directly to db.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `key` | `TKey` | The key as a `TValue` |
-| `val` | `TValue` | - |
+| Name  | Type     | Description           |
+| :---- | :------- | :-------------------- |
+| `key` | `TKey`   | The key as a `TValue` |
+| `val` | `TValue` | -                     |
 
 #### Returns
 
@@ -192,7 +192,7 @@ Writes a value directly to db.
 
 [packages/util/src/mapDB.ts:21](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/mapDB.ts#L21)
 
-___
+---
 
 ### shallowCopy
 

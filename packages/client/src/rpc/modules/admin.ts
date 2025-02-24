@@ -1,47 +1,54 @@
-import { bytesToHex } from '@ethereumjs/util'
+import { bytesToHex } from "@zondjs/util";
 
-import { Config } from '../../index.js'
-import { RlpxPeer } from '../../net/peer/rlpxpeer.js'
-import { getClientVersion } from '../../util/index.js'
-import { INTERNAL_ERROR } from '../error-code.js'
-import { callWithStackTrace } from '../helpers.js'
-import { middleware, validators } from '../validation.js'
+import { Config } from "../../index.js";
+import { RlpxPeer } from "../../net/peer/rlpxpeer.js";
+import { getClientVersion } from "../../util/index.js";
+import { INTERNAL_ERROR } from "../error-code.js";
+import { callWithStackTrace } from "../helpers.js";
+import { middleware, validators } from "../validation.js";
 
-import type { Chain } from '../../blockchain/index.js'
-import type { EthereumClient } from '../../client.js'
-import type { RlpxServer } from '../../net/server/rlpxserver.js'
-import type { FullEthereumService } from '../../service/index.js'
+import type { Chain } from "../../blockchain/index.js";
+import type { EthereumClient } from "../../client.js";
+import type { RlpxServer } from "../../net/server/rlpxserver.js";
+import type { FullEthereumService } from "../../service/index.js";
 
 /**
  * admin_* RPC module
  * @memberof module:rpc/modules
  */
 export class Admin {
-  readonly _chain: Chain
-  readonly _client: EthereumClient
-  private _rpcDebug: boolean
+  readonly _chain: Chain;
+  readonly _client: EthereumClient;
+  private _rpcDebug: boolean;
 
   /**
    * Create admin_* RPC module
    * @param client Client to which the module binds
    */
   constructor(client: EthereumClient, rpcDebug: boolean) {
-    const service = client.service as FullEthereumService
-    this._chain = service.chain
-    this._client = client
-    this._rpcDebug = rpcDebug
+    const service = client.service as FullEthereumService;
+    this._chain = service.chain;
+    this._client = client;
+    this._rpcDebug = rpcDebug;
 
-    this.nodeInfo = callWithStackTrace(this.nodeInfo.bind(this), this._rpcDebug)
-    this.peers = callWithStackTrace(this.peers.bind(this), this._rpcDebug)
-    this.addPeer = middleware(callWithStackTrace(this.addPeer.bind(this), this._rpcDebug), 1, [
+    this.nodeInfo = callWithStackTrace(
+      this.nodeInfo.bind(this),
+      this._rpcDebug,
+    );
+    this.peers = callWithStackTrace(this.peers.bind(this), this._rpcDebug);
+    this.addPeer = middleware(
+      callWithStackTrace(this.addPeer.bind(this), this._rpcDebug),
+      1,
       [
-        validators.object({
-          address: validators.ipv4Address,
-          udpPort: validators.unsignedInteger,
-          tcpPort: validators.unsignedInteger,
-        }),
+        [
+          validators.object({
+            address: validators.ipv4Address,
+            udpPort: validators.unsignedInteger,
+            tcpPort: validators.unsignedInteger,
+          }),
+        ],
       ],
-    ])
+    );
   }
 
   /**
@@ -49,16 +56,16 @@ export class Admin {
    * see for reference: https://geth.ethereum.org/docs/interacting-with-geth/rpc/ns-admin#admin_peers
    */
   async nodeInfo() {
-    const rlpxInfo = this._client.config.server!.getRlpxInfo()
-    const { enode, id, ip, listenAddr, ports } = rlpxInfo
-    const { discovery, listener } = ports
-    const clientName = getClientVersion()
+    const rlpxInfo = this._client.config.server!.getRlpxInfo();
+    const { enode, id, ip, listenAddr, ports } = rlpxInfo;
+    const { discovery, listener } = ports;
+    const clientName = getClientVersion();
 
-    const latestHeader = this._chain.headers.latest!
-    const difficulty = latestHeader.difficulty.toString()
-    const genesis = bytesToHex(this._chain.genesis.hash())
-    const head = bytesToHex(latestHeader.mixHash)
-    const network = this._chain.chainId.toString()
+    const latestHeader = this._chain.headers.latest!;
+    const difficulty = latestHeader.difficulty.toString();
+    const genesis = bytesToHex(this._chain.genesis.hash());
+    const head = bytesToHex(latestHeader.mixHash);
+    const network = this._chain.chainId.toString();
 
     const nodeInfo = {
       name: clientName,
@@ -78,8 +85,8 @@ export class Admin {
           network,
         },
       },
-    }
-    return nodeInfo
+    };
+    return nodeInfo;
   }
 
   /**
@@ -87,27 +94,27 @@ export class Admin {
    * @returns an array of objects containing information about peers (including id, eth protocol versions supported, client name, etc.)
    */
   async peers() {
-    const peers = this._client.service!.pool.peers as RlpxPeer[]
+    const peers = this._client.service!.pool.peers as RlpxPeer[];
 
     return peers?.map((peer) => {
       return {
         id: peer.id,
-        name: peer.rlpxPeer?.['_hello']?.clientId ?? null,
+        name: peer.rlpxPeer?.["_hello"]?.clientId ?? null,
         protocols: {
           eth: {
             head: peer.eth?.updatedBestHeader
               ? bytesToHex(peer.eth.updatedBestHeader?.hash())
               : bytesToHex(peer.eth?.status.bestHash),
             difficulty: peer.eth?.status.td.toString(10),
-            version: peer.eth?.['versions'].slice(-1)[0] ?? null,
+            version: peer.eth?.["versions"].slice(-1)[0] ?? null,
           },
         },
-        caps: peer.eth?.['versions'].map((ver) => 'eth/' + ver),
+        caps: peer.eth?.["versions"].map((ver) => "eth/" + ver),
         network: {
           remoteAddress: peer.address,
         },
-      }
-    })
+      };
+    });
   }
 
   /**
@@ -116,28 +123,28 @@ export class Admin {
    * @param params An object containing an address, tcpPort, and udpPort for target server to connect to
    */
   async addPeer(params: [Object]) {
-    const service = this._client.service as any as FullEthereumService
-    const server = service.pool.config.server as RlpxServer
-    const dpt = server.dpt
+    const service = this._client.service as any as FullEthereumService;
+    const server = service.pool.config.server as RlpxServer;
+    const dpt = server.dpt;
 
-    let peerInfo
+    let peerInfo;
     try {
-      peerInfo = await dpt!.addPeer(params[0])
+      peerInfo = await dpt!.addPeer(params[0]);
       const rlpxPeer = new RlpxPeer({
         config: new Config(),
         id: bytesToHex(peerInfo.id!),
         host: peerInfo.address!,
         port: peerInfo.tcpPort as number,
-      })
-      service.pool.add(rlpxPeer)
+      });
+      service.pool.add(rlpxPeer);
     } catch (err: any) {
       throw {
         code: INTERNAL_ERROR,
         message: `failed to add peer: ${JSON.stringify(params)}`,
         stack: err?.stack,
-      }
+      };
     }
 
-    return peerInfo !== undefined
+    return peerInfo !== undefined;
   }
 }

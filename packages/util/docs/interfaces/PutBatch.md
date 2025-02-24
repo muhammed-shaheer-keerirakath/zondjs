@@ -1,12 +1,12 @@
-[@ethereumjs/util](../README.md) / PutBatch
+[@zondjs/util](../README.md) / PutBatch
 
 # Interface: PutBatch<TKey, TValue\>
 
 ## Type parameters
 
-| Name | Type |
-| :------ | :------ |
-| `TKey` | extends `Uint8Array` \| `string` \| `number` = `Uint8Array` |
+| Name     | Type                                                                                   |
+| :------- | :------------------------------------------------------------------------------------- |
+| `TKey`   | extends `Uint8Array` \| `string` \| `number` = `Uint8Array`                            |
 | `TValue` | extends `Uint8Array` \| `string` \| [`DBObject`](../README.md#dbobject) = `Uint8Array` |
 
 ## Table of contents
@@ -28,7 +28,7 @@
 
 [packages/util/src/db.ts:30](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/db.ts#L30)
 
-___
+---
 
 ### opts
 
@@ -38,17 +38,17 @@ ___
 
 [packages/util/src/db.ts:32](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/db.ts#L32)
 
-___
+---
 
 ### type
 
-• **type**: ``"put"``
+• **type**: `"put"`
 
 #### Defined in
 
 [packages/util/src/db.ts:29](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/db.ts#L29)
 
-___
+---
 
 ### value
 

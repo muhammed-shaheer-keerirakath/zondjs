@@ -1,58 +1,67 @@
-import { RLP } from '@ethereumjs/rlp'
-import { bitsToBytes, bytesToBits } from '@ethereumjs/util'
+import { RLP } from "@ethereumjs/rlp";
+import { bitsToBytes, bytesToBits } from "@zondjs/util";
 
-import { BinaryNodeType } from './types.js'
+import { BinaryNodeType } from "./types.js";
 
-import type { BinaryNodeOptions, ChildBinaryNode } from './types.js'
+import type { BinaryNodeOptions, ChildBinaryNode } from "./types.js";
 
 export class InternalBinaryNode {
-  public children: Array<ChildBinaryNode | null>
+  public children: Array<ChildBinaryNode | null>;
 
-  public type = BinaryNodeType.Internal
+  public type = BinaryNodeType.Internal;
 
   constructor(options: BinaryNodeOptions[BinaryNodeType.Internal]) {
-    this.children = options.children ?? Array(2).fill(null)
+    this.children = options.children ?? Array(2).fill(null);
   }
 
   static fromRawNode(rawNode: Uint8Array[]): InternalBinaryNode {
-    const nodeType = rawNode[0][0]
+    const nodeType = rawNode[0][0];
     if (nodeType !== BinaryNodeType.Internal) {
-      throw new Error('Invalid node type')
+      throw new Error("Invalid node type");
     }
 
     // The length of the rawNode should be the # of children * 2 (for hash and path) + 1 for the node type
 
     if (rawNode.length !== 2 * 2 + 1) {
-      throw new Error('Invalid node length')
+      throw new Error("Invalid node length");
     }
-    const [, leftChildHash, rightChildHash, leftChildRawPath, rightChildRawPath] = rawNode
+    const [
+      ,
+      leftChildHash,
+      rightChildHash,
+      leftChildRawPath,
+      rightChildRawPath,
+    ] = rawNode;
 
-    const decodeChild = (hash: Uint8Array, rawPath: Uint8Array): ChildBinaryNode | null => {
-      if (hash.length === 0) return null
-      const decoded = RLP.decode(rawPath)
+    const decodeChild = (
+      hash: Uint8Array,
+      rawPath: Uint8Array,
+    ): ChildBinaryNode | null => {
+      if (hash.length === 0) return null;
+      const decoded = RLP.decode(rawPath);
 
       if (!Array.isArray(decoded) || decoded.length !== 2) {
-        throw new Error('Invalid RLP encoding for child path')
+        throw new Error("Invalid RLP encoding for child path");
       }
 
-      const [encodedLength, encodedPath] = decoded as Uint8Array[]
+      const [encodedLength, encodedPath] = decoded as Uint8Array[];
 
       if (encodedLength.length !== 1) {
-        throw new Error('Invalid path length encoding')
+        throw new Error("Invalid path length encoding");
       }
 
-      const pathLength = encodedLength[0]
-      const path = bytesToBits(encodedPath, pathLength)
+      const pathLength = encodedLength[0];
+      const path = bytesToBits(encodedPath, pathLength);
 
-      return { hash, path }
-    }
+      return { hash, path };
+    };
 
     const children = [
       decodeChild(leftChildHash, leftChildRawPath),
       decodeChild(rightChildHash, rightChildRawPath),
-    ]
+    ];
 
-    return new InternalBinaryNode({ children })
+    return new InternalBinaryNode({ children });
   }
 
   /**
@@ -62,24 +71,24 @@ export class InternalBinaryNode {
    */
   static create(children?: (ChildBinaryNode | null)[]): InternalBinaryNode {
     if (children !== undefined && children.length !== 2) {
-      throw new Error('Internal node must have 2 children')
+      throw new Error("Internal node must have 2 children");
     }
-    return new InternalBinaryNode({ children })
+    return new InternalBinaryNode({ children });
   }
 
   getChild(index: number): ChildBinaryNode | null {
-    return this.children[index]
+    return this.children[index];
   }
 
   setChild(index: number, child: ChildBinaryNode | null): void {
-    this.children[index] = child
+    this.children[index] = child;
   }
 
   /**
    * @returns the RLP serialized node
    */
   serialize(): Uint8Array {
-    return RLP.encode(this.raw())
+    return RLP.encode(this.raw());
   }
 
   /**
@@ -101,12 +110,17 @@ export class InternalBinaryNode {
   raw(): Uint8Array[] {
     return [
       new Uint8Array([BinaryNodeType.Internal]),
-      ...this.children.map((child) => (child !== null ? child.hash : new Uint8Array())),
+      ...this.children.map((child) =>
+        child !== null ? child.hash : new Uint8Array(),
+      ),
       ...this.children.map((child) =>
         child !== null
-          ? RLP.encode([new Uint8Array([child.path.length]), bitsToBytes(child.path)])
+          ? RLP.encode([
+              new Uint8Array([child.path.length]),
+              bitsToBytes(child.path),
+            ])
           : new Uint8Array(),
       ),
-    ]
+    ];
   }
 }

@@ -2,7 +2,10 @@
   "name": "@ethereumjs/block",
   "version": "6.0.0-alpha.1",
   "description": "Provides Block serialization and help functions",
-  "keywords": ["ethereum", "block"],
+  "keywords": [
+    "ethereum",
+    "block"
+  ],
   "homepage": "https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/block#readme",
   "bugs": {
     "url": "https://github.com/ethereumjs/ethereumjs-monorepo/issues?q=is%3Aissue+label%3A%22package%3A+block%22"
@@ -23,7 +26,10 @@
       "require": "./dist/cjs/index.js"
     }
   },
-  "files": ["dist", "src"],
+  "files": [
+    "dist",
+    "src"
+  ],
   "scripts": {
     "biome": "npx @biomejs/biome check",
     "biome:fix": "npx @biomejs/biome check --write",
@@ -46,7 +52,7 @@
     "@ethereumjs/rlp": "^6.0.0-alpha.1",
     "@ethereumjs/mpt": "^7.0.0-alpha.1",
     "@ethereumjs/tx": "^6.0.0-alpha.1",
-    "@ethereumjs/util": "^10.0.0-alpha.1",
+    "@zondjs/util": "^10.0.0-alpha.1",
     "ethereum-cryptography": "^3.1.0"
   },
   "devDependencies": {

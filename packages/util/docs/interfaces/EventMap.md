@@ -1,4 +1,4 @@
-[@ethereumjs/util](../README.md) / EventMap
+[@zondjs/util](../README.md) / EventMap
 
 # Interface: EventMap
 

@@ -1,4 +1,4 @@
-[@ethereumjs/util](../README.md) / Lock
+[@zondjs/util](../README.md) / Lock
 
 # Class: Lock
 
@@ -37,7 +37,7 @@ A promise that gets resolved when execution is allowed to proceed.
 
 [packages/util/src/lock.ts:10](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/lock.ts#L10)
 
-___
+---
 
 ### release
 

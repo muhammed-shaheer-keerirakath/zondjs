@@ -1,4 +1,4 @@
-[@ethereumjs/util](../README.md) / ValueEncoding
+[@zondjs/util](../README.md) / ValueEncoding
 
 # Enumeration: ValueEncoding
 
@@ -14,27 +14,27 @@
 
 ### Bytes
 
-• **Bytes** = ``"view"``
+• **Bytes** = `"view"`
 
 #### Defined in
 
 [packages/util/src/db.ts:17](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/db.ts#L17)
 
-___
+---
 
 ### JSON
 
-• **JSON** = ``"json"``
+• **JSON** = `"json"`
 
 #### Defined in
 
 [packages/util/src/db.ts:18](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/db.ts#L18)
 
-___
+---
 
 ### String
 
-• **String** = ``"string"``
+• **String** = `"string"`
 
 #### Defined in
 

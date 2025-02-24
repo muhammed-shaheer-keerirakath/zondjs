@@ -1,32 +1,39 @@
-import { Address, createZeroAddress, hexToBytes, utf8ToBytes } from '@ethereumjs/util'
-import { assert, describe, it } from 'vitest'
+import {
+  Address,
+  createZeroAddress,
+  hexToBytes,
+  utf8ToBytes,
+} from "@zondjs/util";
+import { assert, describe, it } from "vitest";
 
-import { type PrecompileInput, createEVM } from '../src/index.js'
+import { type PrecompileInput, createEVM } from "../src/index.js";
 
-import type { ExecResult } from '../src/types.js'
+import type { ExecResult } from "../src/types.js";
 
-const sender = new Address(hexToBytes(`0x${'44'.repeat(20)}`))
-const newPrecompile = new Address(hexToBytes(`0x${'ff'.repeat(20)}`))
-const shaAddress = new Address(hexToBytes('0x0000000000000000000000000000000000000002'))
-const expectedReturn = utf8ToBytes('1337')
-const expectedGas = BigInt(10)
+const sender = new Address(hexToBytes(`0x${"44".repeat(20)}`));
+const newPrecompile = new Address(hexToBytes(`0x${"ff".repeat(20)}`));
+const shaAddress = new Address(
+  hexToBytes("0x0000000000000000000000000000000000000002"),
+);
+const expectedReturn = utf8ToBytes("1337");
+const expectedGas = BigInt(10);
 
 function customPrecompile(_input: PrecompileInput): ExecResult {
   return {
     executionGasUsed: expectedGas,
     returnValue: expectedReturn,
-  }
+  };
 }
 
 function customPrecompileNoInput(): ExecResult {
   return {
     executionGasUsed: expectedGas,
     returnValue: expectedReturn,
-  }
+  };
 }
 
-describe('EVM -> custom precompiles', () => {
-  it('should work on precompiles without input arguments', async () => {
+describe("EVM -> custom precompiles", () => {
+  it("should work on precompiles without input arguments", async () => {
     const EVMOverride = await createEVM({
       customPrecompiles: [
         {
@@ -34,18 +41,26 @@ describe('EVM -> custom precompiles', () => {
           function: customPrecompileNoInput,
         },
       ],
-    })
+    });
     const result = await EVMOverride.runCall({
       to: createZeroAddress(),
       gasLimit: BigInt(30000),
-      data: utf8ToBytes(''),
+      data: utf8ToBytes(""),
       caller: sender,
-    })
+    });
 
-    assert.deepEqual(result.execResult.returnValue, expectedReturn, 'return value is correct')
-    assert.equal(result.execResult.executionGasUsed, expectedGas, 'gas used is correct')
-  })
-  it('should override existing precompiles', async () => {
+    assert.deepEqual(
+      result.execResult.returnValue,
+      expectedReturn,
+      "return value is correct",
+    );
+    assert.equal(
+      result.execResult.executionGasUsed,
+      expectedGas,
+      "gas used is correct",
+    );
+  });
+  it("should override existing precompiles", async () => {
     const EVMOverride = await createEVM({
       customPrecompiles: [
         {
@@ -53,37 +68,53 @@ describe('EVM -> custom precompiles', () => {
           function: customPrecompile,
         },
       ],
-    })
+    });
     const result = await EVMOverride.runCall({
       to: shaAddress,
       gasLimit: BigInt(30000),
-      data: utf8ToBytes(''),
+      data: utf8ToBytes(""),
       caller: sender,
-    })
+    });
 
-    assert.deepEqual(result.execResult.returnValue, expectedReturn, 'return value is correct')
-    assert.equal(result.execResult.executionGasUsed, expectedGas, 'gas used is correct')
-  })
+    assert.deepEqual(
+      result.execResult.returnValue,
+      expectedReturn,
+      "return value is correct",
+    );
+    assert.equal(
+      result.execResult.executionGasUsed,
+      expectedGas,
+      "gas used is correct",
+    );
+  });
 
-  it('should delete existing precompiles', async () => {
+  it("should delete existing precompiles", async () => {
     const EVMOverride = await createEVM({
       customPrecompiles: [
         {
           address: shaAddress,
         },
       ],
-    })
+    });
     const result = await EVMOverride.runCall({
       to: shaAddress,
       gasLimit: BigInt(30000),
-      data: hexToBytes('0x'),
+      data: hexToBytes("0x"),
       caller: sender,
-    })
-    assert.deepEqual(result.execResult.returnValue, utf8ToBytes(''), 'return value is correct')
-    assert.equal(result.execResult.executionGasUsed, BigInt(0), 'gas used is correct')
-  })
+    });
+    assert.deepEqual(
+      result.execResult.returnValue,
+      utf8ToBytes(""),
+      "return value is correct",
+    );
+    assert.equal(
+      result.execResult.executionGasUsed,
+      BigInt(0),
+      "gas used is correct",
+    );
+  });
 
-  it('should add precompiles', async () => {
+  it("should add precompiles", async () => {
     const EVMOverride = await createEVM({
       customPrecompiles: [
         {
@@ -91,25 +122,33 @@ describe('EVM -> custom precompiles', () => {
           function: customPrecompile,
         },
       ],
-    })
+    });
     const result = await EVMOverride.runCall({
       to: newPrecompile,
       gasLimit: BigInt(30000),
-      data: hexToBytes('0x'),
+      data: hexToBytes("0x"),
       caller: sender,
-    })
-    assert.deepEqual(result.execResult.returnValue, expectedReturn, 'return value is correct')
-    assert.equal(result.execResult.executionGasUsed, expectedGas, 'gas used is correct')
-  })
+    });
+    assert.deepEqual(
+      result.execResult.returnValue,
+      expectedReturn,
+      "return value is correct",
+    );
+    assert.equal(
+      result.execResult.executionGasUsed,
+      expectedGas,
+      "gas used is correct",
+    );
+  });
 
-  it('should not persist changes to precompiles', async () => {
-    let EVMSha = await createEVM()
+  it("should not persist changes to precompiles", async () => {
+    let EVMSha = await createEVM();
     const shaResult = await EVMSha.runCall({
       to: shaAddress,
       gasLimit: BigInt(30000),
-      data: hexToBytes('0x'),
+      data: hexToBytes("0x"),
       caller: sender,
-    })
+    });
     const EVMOverride = await createEVM({
       customPrecompiles: [
         {
@@ -117,35 +156,42 @@ describe('EVM -> custom precompiles', () => {
           function: customPrecompile,
         },
       ],
-    })
+    });
     const result = await EVMOverride.runCall({
       to: shaAddress,
       gasLimit: BigInt(30000),
-      data: hexToBytes('0x'),
+      data: hexToBytes("0x"),
       caller: sender,
-    })
+    });
     // sanity: check we have overridden
-    assert.deepEqual(result.execResult.returnValue, expectedReturn, 'return value is correct')
-    assert.ok(result.execResult.executionGasUsed === expectedGas, 'gas used is correct')
-    EVMSha = await createEVM()
+    assert.deepEqual(
+      result.execResult.returnValue,
+      expectedReturn,
+      "return value is correct",
+    );
+    assert.ok(
+      result.execResult.executionGasUsed === expectedGas,
+      "gas used is correct",
+    );
+    EVMSha = await createEVM();
     const shaResult2 = await EVMSha.runCall({
       to: shaAddress,
       gasLimit: BigInt(30000),
-      data: hexToBytes('0x'),
+      data: hexToBytes("0x"),
       caller: sender,
-    })
+    });
     assert.deepEqual(
       shaResult.execResult.returnValue,
       shaResult2.execResult.returnValue,
-      'restored sha precompile - returndata correct',
-    )
+      "restored sha precompile - returndata correct",
+    );
     assert.equal(
       shaResult.execResult.executionGasUsed,
       shaResult2.execResult.executionGasUsed,
-      'restored sha precompile - gas correct',
-    )
-  })
-  it('should copy custom precompiles', async () => {
+      "restored sha precompile - gas correct",
+    );
+  });
+  it("should copy custom precompiles", async () => {
     const evm = await createEVM({
       customPrecompiles: [
         {
@@ -153,12 +199,12 @@ describe('EVM -> custom precompiles', () => {
           function: customPrecompile,
         },
       ],
-    })
-    const evmCopy = evm.shallowCopy()
+    });
+    const evmCopy = evm.shallowCopy();
     assert.deepEqual(
       (evm as any)._customPrecompiles,
       (evmCopy as any)._customPrecompiles,
-      'evm.shallowCopy() successfully copied customPrecompiles option',
-    )
-  })
-})
+      "evm.shallowCopy() successfully copied customPrecompiles option",
+    );
+  });
+});

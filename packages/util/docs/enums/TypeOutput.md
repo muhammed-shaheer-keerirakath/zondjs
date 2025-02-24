@@ -1,4 +1,4 @@
-[@ethereumjs/util](../README.md) / TypeOutput
+[@zondjs/util](../README.md) / TypeOutput
 
 # Enumeration: TypeOutput
 
@@ -17,37 +17,37 @@ Type output options
 
 ### BigInt
 
-• **BigInt** = ``1``
+• **BigInt** = `1`
 
 #### Defined in
 
 [packages/util/src/types.ts:44](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/types.ts#L44)
 
-___
+---
 
 ### Number
 
-• **Number** = ``0``
+• **Number** = `0`
 
 #### Defined in
 
 [packages/util/src/types.ts:43](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/types.ts#L43)
 
-___
+---
 
 ### PrefixedHexString
 
-• **PrefixedHexString** = ``3``
+• **PrefixedHexString** = `3`
 
 #### Defined in
 
 [packages/util/src/types.ts:46](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/types.ts#L46)
 
-___
+---
 
 ### Uint8Array
 
-• **Uint8Array** = ``2``
+• **Uint8Array** = `2`
 
 #### Defined in
 

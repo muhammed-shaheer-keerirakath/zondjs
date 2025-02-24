@@ -5,16 +5,20 @@ import {
   bigIntToUnpaddedBytes,
   bytesToBigInt,
   toBytes,
-} from '@ethereumjs/util'
+} from "@zondjs/util";
 
-import * as EIP2718 from '../capabilities/eip2718.js'
-import * as EIP2930 from '../capabilities/eip2930.js'
-import * as Legacy from '../capabilities/legacy.js'
-import { getBaseJSON, sharedConstructor, valueBoundaryCheck } from '../features/util.js'
-import { TransactionType } from '../types.js'
-import { AccessLists } from '../util.js'
+import * as EIP2718 from "../capabilities/eip2718.js";
+import * as EIP2930 from "../capabilities/eip2930.js";
+import * as Legacy from "../capabilities/legacy.js";
+import {
+  getBaseJSON,
+  sharedConstructor,
+  valueBoundaryCheck,
+} from "../features/util.js";
+import { TransactionType } from "../types.js";
+import { AccessLists } from "../util.js";
 
-import { createAccessList2930Tx } from './constructors.js'
+import { createAccessList2930Tx } from "./constructors.js";
 
 import type {
   AccessList,
@@ -26,12 +30,13 @@ import type {
   TransactionCache,
   TransactionInterface,
   TxOptions,
-} from '../types.js'
-import type { Common } from '@ethereumjs/common'
-import type { Address } from '@ethereumjs/util'
+} from "../types.js";
+import type { Common } from "@ethereumjs/common";
+import type { Address } from "@zondjs/util";
 
-export type TxData = AllTypesTxData[TransactionType.AccessListEIP2930]
-export type TxValuesArray = AllTypesTxValuesArray[TransactionType.AccessListEIP2930]
+export type TxData = AllTypesTxData[TransactionType.AccessListEIP2930];
+export type TxValuesArray =
+  AllTypesTxValuesArray[TransactionType.AccessListEIP2930];
 
 /**
  * Typed transaction with optional access lists
@@ -39,40 +44,42 @@ export type TxValuesArray = AllTypesTxValuesArray[TransactionType.AccessListEIP2
  * - TransactionType: 1
  * - EIP: [EIP-2930](https://eips.ethereum.org/EIPS/eip-2930)
  */
-export class AccessList2930Tx implements TransactionInterface<TransactionType.AccessListEIP2930> {
-  public type: number = TransactionType.AccessListEIP2930 // 2930 tx type
+export class AccessList2930Tx
+  implements TransactionInterface<TransactionType.AccessListEIP2930>
+{
+  public type: number = TransactionType.AccessListEIP2930; // 2930 tx type
 
   // Tx data part (part of the RLP)
-  public readonly gasPrice: bigint
-  public readonly nonce!: bigint
-  public readonly gasLimit!: bigint
-  public readonly value!: bigint
-  public readonly data!: Uint8Array
-  public readonly to?: Address
-  public readonly accessList: AccessListBytes
-  public readonly chainId: bigint
+  public readonly gasPrice: bigint;
+  public readonly nonce!: bigint;
+  public readonly gasLimit!: bigint;
+  public readonly value!: bigint;
+  public readonly data!: Uint8Array;
+  public readonly to?: Address;
+  public readonly accessList: AccessListBytes;
+  public readonly chainId: bigint;
 
   // Props only for signed txs
-  public readonly v?: bigint
-  public readonly r?: bigint
-  public readonly s?: bigint
+  public readonly v?: bigint;
+  public readonly r?: bigint;
+  public readonly s?: bigint;
 
   // End of Tx data part
 
-  public readonly AccessListJSON: AccessList
+  public readonly AccessListJSON: AccessList;
 
-  public readonly common!: Common
+  public readonly common!: Common;
 
-  readonly txOptions!: TxOptions
+  readonly txOptions!: TxOptions;
 
-  readonly cache: TransactionCache = {}
+  readonly cache: TransactionCache = {};
 
   /**
    * List of tx type defining EIPs,
    * e.g. 1559 (fee market) and 2930 (access lists)
    * for FeeMarket1559Tx objects
    */
-  protected activeCapabilities: number[] = []
+  protected activeCapabilities: number[] = [];
 
   /**
    * This constructor takes the values, validates them, assigns them and freezes the object.
@@ -82,44 +89,54 @@ export class AccessList2930Tx implements TransactionInterface<TransactionType.Ac
    * varying data types.
    */
   public constructor(txData: TxData, opts: TxOptions = {}) {
-    sharedConstructor(this, { ...txData, type: TransactionType.AccessListEIP2930 }, opts)
-    const { chainId, accessList, gasPrice } = txData
+    sharedConstructor(
+      this,
+      { ...txData, type: TransactionType.AccessListEIP2930 },
+      opts,
+    );
+    const { chainId, accessList, gasPrice } = txData;
 
-    if (chainId !== undefined && bytesToBigInt(toBytes(chainId)) !== this.common.chainId()) {
+    if (
+      chainId !== undefined &&
+      bytesToBigInt(toBytes(chainId)) !== this.common.chainId()
+    ) {
       throw new Error(
         `Common chain ID ${this.common.chainId} not matching the derived chain ID ${chainId}`,
-      )
+      );
     }
-    this.chainId = this.common.chainId()
+    this.chainId = this.common.chainId();
 
     // EIP-2718 check is done in Common
     if (!this.common.isActivatedEIP(2930)) {
-      throw new Error('EIP-2930 not enabled on Common')
+      throw new Error("EIP-2930 not enabled on Common");
     }
-    this.activeCapabilities = this.activeCapabilities.concat([2718, 2930])
+    this.activeCapabilities = this.activeCapabilities.concat([2718, 2930]);
 
     // Populate the access list fields
-    const accessListData = AccessLists.getAccessListData(accessList ?? [])
-    this.accessList = accessListData.accessList
-    this.AccessListJSON = accessListData.AccessListJSON
+    const accessListData = AccessLists.getAccessListData(accessList ?? []);
+    this.accessList = accessListData.accessList;
+    this.AccessListJSON = accessListData.AccessListJSON;
     // Verify the access list format.
-    AccessLists.verifyAccessList(this.accessList)
+    AccessLists.verifyAccessList(this.accessList);
 
-    this.gasPrice = bytesToBigInt(toBytes(gasPrice))
+    this.gasPrice = bytesToBigInt(toBytes(gasPrice));
 
-    valueBoundaryCheck({ gasPrice: this.gasPrice })
+    valueBoundaryCheck({ gasPrice: this.gasPrice });
 
     if (this.gasPrice * this.gasLimit > MAX_INTEGER) {
-      const msg = Legacy.errorMsg(this, 'gasLimit * gasPrice cannot exceed MAX_INTEGER')
-      throw new Error(msg)
+      const msg = Legacy.errorMsg(
+        this,
+        "gasLimit * gasPrice cannot exceed MAX_INTEGER",
+      );
+      throw new Error(msg);
     }
 
-    EIP2718.validateYParity(this)
-    Legacy.validateHighS(this)
+    EIP2718.validateYParity(this);
+    Legacy.validateHighS(this);
 
-    const freeze = opts?.freeze ?? true
+    const freeze = opts?.freeze ?? true;
     if (freeze) {
-      Object.freeze(this)
+      Object.freeze(this);
     }
   }
 
@@ -140,25 +157,25 @@ export class AccessList2930Tx implements TransactionInterface<TransactionType.Ac
    * on all supported capabilities.
    */
   supports(capability: Capability) {
-    return this.activeCapabilities.includes(capability)
+    return this.activeCapabilities.includes(capability);
   }
 
   getEffectivePriorityFee(baseFee?: bigint): bigint {
-    return Legacy.getEffectivePriorityFee(this.gasPrice, baseFee)
+    return Legacy.getEffectivePriorityFee(this.gasPrice, baseFee);
   }
 
   /**
    * The amount of gas paid for the data in this tx
    */
   getDataGas(): bigint {
-    return EIP2930.getDataGas(this)
+    return EIP2930.getDataGas(this);
   }
 
   /**
    * The up front amount that an account must have for this transaction to be valid
    */
   getUpfrontCost(): bigint {
-    return this.gasLimit * this.gasPrice + this.value
+    return this.gasLimit * this.gasPrice + this.value;
   }
 
   /**
@@ -168,7 +185,7 @@ export class AccessList2930Tx implements TransactionInterface<TransactionType.Ac
    * to be paid for access lists (EIP-2930) and authority lists (EIP-7702).
    */
   getIntrinsicGas(): bigint {
-    return Legacy.getIntrinsicGas(this)
+    return Legacy.getIntrinsicGas(this);
   }
 
   // TODO figure out if this is necessary
@@ -176,7 +193,7 @@ export class AccessList2930Tx implements TransactionInterface<TransactionType.Ac
    * If the tx's `to` is to the creation address
    */
   toCreationAddress(): boolean {
-    return Legacy.toCreationAddress(this)
+    return Legacy.toCreationAddress(this);
   }
 
   /**
@@ -205,7 +222,7 @@ export class AccessList2930Tx implements TransactionInterface<TransactionType.Ac
       this.v !== undefined ? bigIntToUnpaddedBytes(this.v) : new Uint8Array(0),
       this.r !== undefined ? bigIntToUnpaddedBytes(this.r) : new Uint8Array(0),
       this.s !== undefined ? bigIntToUnpaddedBytes(this.s) : new Uint8Array(0),
-    ]
+    ];
   }
 
   /**
@@ -219,7 +236,7 @@ export class AccessList2930Tx implements TransactionInterface<TransactionType.Ac
    * the RLP encoding of the values.
    */
   serialize(): Uint8Array {
-    return EIP2718.serialize(this)
+    return EIP2718.serialize(this);
   }
 
   /**
@@ -234,7 +251,7 @@ export class AccessList2930Tx implements TransactionInterface<TransactionType.Ac
    * ```
    */
   getMessageToSign(): Uint8Array {
-    return EIP2718.serialize(this, this.raw().slice(0, 8))
+    return EIP2718.serialize(this, this.raw().slice(0, 8));
   }
 
   /**
@@ -245,7 +262,7 @@ export class AccessList2930Tx implements TransactionInterface<TransactionType.Ac
    * serialized and doesn't need to be RLP encoded any more.
    */
   getHashedMessageToSign(): Uint8Array {
-    return EIP2718.getHashedMessageToSign(this)
+    return EIP2718.getHashedMessageToSign(this);
   }
 
   /**
@@ -255,21 +272,21 @@ export class AccessList2930Tx implements TransactionInterface<TransactionType.Ac
    * Use {@link Transaction.getMessageToSign} to get a tx hash for the purpose of signing.
    */
   hash(): Uint8Array {
-    return Legacy.hash(this)
+    return Legacy.hash(this);
   }
 
   /**
    * Computes a sha3-256 hash which can be used to verify the signature
    */
   public getMessageToVerifySignature(): Uint8Array {
-    return this.getHashedMessageToSign()
+    return this.getHashedMessageToSign();
   }
 
   /**
    * Returns the public key of the sender
    */
   public getSenderPublicKey(): Uint8Array {
-    return Legacy.getSenderPublicKey(this)
+    return Legacy.getSenderPublicKey(this);
   }
 
   addSignature(
@@ -278,9 +295,9 @@ export class AccessList2930Tx implements TransactionInterface<TransactionType.Ac
     s: Uint8Array | bigint,
     convertV: boolean = false,
   ): AccessList2930Tx {
-    r = toBytes(r)
-    s = toBytes(s)
-    const opts = { ...this.txOptions, common: this.common }
+    r = toBytes(r);
+    s = toBytes(s);
+    const opts = { ...this.txOptions, common: this.common };
 
     return createAccessList2930Tx(
       {
@@ -292,60 +309,63 @@ export class AccessList2930Tx implements TransactionInterface<TransactionType.Ac
         value: this.value,
         data: this.data,
         accessList: this.accessList,
-        v: convertV ? v - BIGINT_27 : v, // This looks extremely hacky: @ethereumjs/util actually adds 27 to the value, the recovery bit is either 0 or 1.
+        v: convertV ? v - BIGINT_27 : v, // This looks extremely hacky: @zondjs/util actually adds 27 to the value, the recovery bit is either 0 or 1.
         r: bytesToBigInt(r),
         s: bytesToBigInt(s),
       },
       opts,
-    )
+    );
   }
 
   /**
    * Returns an object with the JSON representation of the transaction
    */
   toJSON(): JSONTx {
-    const accessListJSON = AccessLists.getAccessListJSON(this.accessList)
-    const baseJSON = getBaseJSON(this)
+    const accessListJSON = AccessLists.getAccessListJSON(this.accessList);
+    const baseJSON = getBaseJSON(this);
 
     return {
       ...baseJSON,
       chainId: bigIntToHex(this.chainId),
       gasPrice: bigIntToHex(this.gasPrice),
       accessList: accessListJSON,
-    }
+    };
   }
 
   getValidationErrors(): string[] {
-    return Legacy.getValidationErrors(this)
+    return Legacy.getValidationErrors(this);
   }
 
   isValid(): boolean {
-    return Legacy.isValid(this)
+    return Legacy.isValid(this);
   }
 
   verifySignature(): boolean {
-    return Legacy.verifySignature(this)
+    return Legacy.verifySignature(this);
   }
 
   getSenderAddress(): Address {
-    return Legacy.getSenderAddress(this)
+    return Legacy.getSenderAddress(this);
   }
 
-  sign(privateKey: Uint8Array, extraEntropy: Uint8Array | boolean = true): AccessList2930Tx {
-    return <AccessList2930Tx>Legacy.sign(this, privateKey, extraEntropy)
+  sign(
+    privateKey: Uint8Array,
+    extraEntropy: Uint8Array | boolean = true,
+  ): AccessList2930Tx {
+    return <AccessList2930Tx>Legacy.sign(this, privateKey, extraEntropy);
   }
 
   isSigned(): boolean {
-    return Legacy.isSigned(this)
+    return Legacy.isSigned(this);
   }
 
   /**
    * Return a compact error string representation of the object
    */
   public errorStr() {
-    let errorStr = Legacy.getSharedErrorPostfix(this)
+    let errorStr = Legacy.getSharedErrorPostfix(this);
     // Keep ? for this.accessList since this otherwise causes Hardhat E2E tests to fail
-    errorStr += ` gasPrice=${this.gasPrice} accessListCount=${this.accessList?.length ?? 0}`
-    return errorStr
+    errorStr += ` gasPrice=${this.gasPrice} accessListCount=${this.accessList?.length ?? 0}`;
+    return errorStr;
   }
 }

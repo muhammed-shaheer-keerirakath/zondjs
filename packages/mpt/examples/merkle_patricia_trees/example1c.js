@@ -1,20 +1,20 @@
 /* Example 1c - Creating an empty Merkle Patricia Tree and updating it with a single key-value pair */
-const { bytesToHex, bytesToUtf8, utf8ToBytes } = require('@ethereumjs/util')
+const { bytesToHex, bytesToUtf8, utf8ToBytes } = require("@zondjs/util");
 
-const { MerklePatriciaTrie } = require('../../dist/cjs/index.js')
+const { MerklePatriciaTrie } = require("../../dist/cjs/index.js");
 
-const trie = new MerklePatriciaTrie({ useKeyHashing: true }) // We create an empty Merkle Patricia Tree with key hashing enabled
-console.log('Empty trie root (Bytes): ', bytesToHex(trie.root())) // The trie root (32 bytes)
+const trie = new MerklePatriciaTrie({ useKeyHashing: true }); // We create an empty Merkle Patricia Tree with key hashing enabled
+console.log("Empty trie root (Bytes): ", bytesToHex(trie.root())); // The trie root (32 bytes)
 
 async function test() {
-  await trie.put(utf8ToBytes('testKey'), utf8ToBytes('testValue')) // We update (using "put") the trie with the key-value pair "testKey": "testValue"
-  const value = await trie.get(utf8ToBytes('testKey')) // We retrieve (using "get") the value at key "testKey"
-  console.log('Value (Bytes): ', bytesToHex(value))
-  console.log('Value (String): ', bytesToUtf8(value))
-  console.log('Updated trie root:', bytesToHex(trie.root())) // The new trie root (32 bytes)
+  await trie.put(utf8ToBytes("testKey"), utf8ToBytes("testValue")); // We update (using "put") the trie with the key-value pair "testKey": "testValue"
+  const value = await trie.get(utf8ToBytes("testKey")); // We retrieve (using "get") the value at key "testKey"
+  console.log("Value (Bytes): ", bytesToHex(value));
+  console.log("Value (String): ", bytesToUtf8(value));
+  console.log("Updated trie root:", bytesToHex(trie.root())); // The new trie root (32 bytes)
 }
 
-void test()
+void test();
 
 /*
 Results:

@@ -1,13 +1,18 @@
-import { RLP } from '@ethereumjs/rlp'
-import { bytesToBigInt, bytesToHex, equalsBytes, validateNoLeadingZeroes } from '@ethereumjs/util'
+import { RLP } from "@ethereumjs/rlp";
+import {
+  bytesToBigInt,
+  bytesToHex,
+  equalsBytes,
+  validateNoLeadingZeroes,
+} from "@zondjs/util";
 
-import { TransactionType } from '../types.js'
-import { txTypeBytes, validateNotArray } from '../util.js'
+import { TransactionType } from "../types.js";
+import { txTypeBytes, validateNotArray } from "../util.js";
 
-import { AccessList2930Tx } from './tx.js'
+import { AccessList2930Tx } from "./tx.js";
 
-import type { AccessList, TxOptions } from '../types.js'
-import type { TxData, TxValuesArray } from './tx.js'
+import type { AccessList, TxOptions } from "../types.js";
+import type { TxData, TxValuesArray } from "./tx.js";
 
 /**
  * Instantiate a transaction from a data dictionary.
@@ -20,7 +25,7 @@ import type { TxData, TxValuesArray } from './tx.js'
  * - All parameters are optional and have some basic default values
  */
 export function createAccessList2930Tx(txData: TxData, opts: TxOptions = {}) {
-  return new AccessList2930Tx(txData, opts)
+  return new AccessList2930Tx(txData, opts);
 }
 
 /**
@@ -29,19 +34,34 @@ export function createAccessList2930Tx(txData: TxData, opts: TxOptions = {}) {
  * Format: `[chainId, nonce, gasPrice, gasLimit, to, value, data, accessList,
  * signatureYParity (v), signatureR (r), signatureS (s)]`
  */
-export function createAccessList2930TxFromBytesArray(values: TxValuesArray, opts: TxOptions = {}) {
+export function createAccessList2930TxFromBytesArray(
+  values: TxValuesArray,
+  opts: TxOptions = {},
+) {
   if (values.length !== 8 && values.length !== 11) {
     throw new Error(
-      'Invalid EIP-2930 transaction. Only expecting 8 values (for unsigned tx) or 11 values (for signed tx).',
-    )
+      "Invalid EIP-2930 transaction. Only expecting 8 values (for unsigned tx) or 11 values (for signed tx).",
+    );
   }
 
-  const [chainId, nonce, gasPrice, gasLimit, to, value, data, accessList, v, r, s] = values
+  const [
+    chainId,
+    nonce,
+    gasPrice,
+    gasLimit,
+    to,
+    value,
+    data,
+    accessList,
+    v,
+    r,
+    s,
+  ] = values;
 
-  validateNotArray({ chainId, v })
-  validateNoLeadingZeroes({ nonce, gasPrice, gasLimit, value, v, r, s })
+  validateNotArray({ chainId, v });
+  validateNoLeadingZeroes({ nonce, gasPrice, gasLimit, value, v, r, s });
 
-  const emptyAccessList: AccessList = []
+  const emptyAccessList: AccessList = [];
 
   return new AccessList2930Tx(
     {
@@ -58,7 +78,7 @@ export function createAccessList2930TxFromBytesArray(values: TxValuesArray, opts
       s,
     },
     opts,
-  )
+  );
 }
 
 /**
@@ -67,22 +87,28 @@ export function createAccessList2930TxFromBytesArray(values: TxValuesArray, opts
  * Format: `0x01 || rlp([chainId, nonce, gasPrice, gasLimit, to, value, data, accessList,
  * signatureYParity (v), signatureR (r), signatureS (s)])`
  */
-export function createAccessList2930TxFromRLP(serialized: Uint8Array, opts: TxOptions = {}) {
+export function createAccessList2930TxFromRLP(
+  serialized: Uint8Array,
+  opts: TxOptions = {},
+) {
   if (
-    equalsBytes(serialized.subarray(0, 1), txTypeBytes(TransactionType.AccessListEIP2930)) === false
+    equalsBytes(
+      serialized.subarray(0, 1),
+      txTypeBytes(TransactionType.AccessListEIP2930),
+    ) === false
   ) {
     throw new Error(
       `Invalid serialized tx input: not an EIP-2930 transaction (wrong tx type, expected: ${
         TransactionType.AccessListEIP2930
       }, received: ${bytesToHex(serialized.subarray(0, 1))}`,
-    )
+    );
   }
 
-  const values = RLP.decode(Uint8Array.from(serialized.subarray(1)))
+  const values = RLP.decode(Uint8Array.from(serialized.subarray(1)));
 
   if (!Array.isArray(values)) {
-    throw new Error('Invalid serialized tx input: must be array')
+    throw new Error("Invalid serialized tx input: must be array");
   }
 
-  return createAccessList2930TxFromBytesArray(values as TxValuesArray, opts)
+  return createAccessList2930TxFromBytesArray(values as TxValuesArray, opts);
 }

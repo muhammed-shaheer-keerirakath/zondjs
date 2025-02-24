@@ -1,12 +1,12 @@
-[@ethereumjs/util](../README.md) / DB
+[@zondjs/util](../README.md) / DB
 
 # Interface: DB<TKey, TValue\>
 
 ## Type parameters
 
-| Name | Type |
-| :------ | :------ |
-| `TKey` | extends `Uint8Array` \| `string` \| `number` = `Uint8Array` |
+| Name     | Type                                                                                   |
+| :------- | :------------------------------------------------------------------------------------- |
+| `TKey`   | extends `Uint8Array` \| `string` \| `number` = `Uint8Array`                            |
 | `TValue` | extends `Uint8Array` \| `string` \| [`DBObject`](../README.md#dbobject) = `Uint8Array` |
 
 ## Implemented by
@@ -34,8 +34,8 @@ Performs a batch operation on db.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name      | Type                                                       | Description                   |
+| :-------- | :--------------------------------------------------------- | :---------------------------- |
 | `opStack` | [`BatchDBOp`](../README.md#batchdbop)<`TKey`, `TValue`\>[] | A stack of levelup operations |
 
 #### Returns
@@ -46,7 +46,7 @@ Performs a batch operation on db.
 
 [packages/util/src/db.ts:69](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/db.ts#L69)
 
-___
+---
 
 ### del
 
@@ -56,9 +56,9 @@ Removes a raw value in the underlying db.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `key` | `TKey` |
+| Name    | Type                                        |
+| :------ | :------------------------------------------ |
+| `key`   | `TKey`                                      |
 | `opts?` | [`EncodingOpts`](../README.md#encodingopts) |
 
 #### Returns
@@ -69,7 +69,7 @@ Removes a raw value in the underlying db.
 
 [packages/util/src/db.ts:63](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/db.ts#L63)
 
-___
+---
 
 ### get
 
@@ -79,9 +79,9 @@ Retrieves a raw value from db.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `key` | `TKey` |
+| Name    | Type                                        |
+| :------ | :------------------------------------------ |
+| `key`   | `TKey`                                      |
 | `opts?` | [`EncodingOpts`](../README.md#encodingopts) |
 
 #### Returns
@@ -94,7 +94,7 @@ A Promise that resolves to `Uint8Array` if a value is found or `undefined` if no
 
 [packages/util/src/db.ts:50](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/db.ts#L50)
 
-___
+---
 
 ### open
 
@@ -110,7 +110,7 @@ Opens the database -- if applicable
 
 [packages/util/src/db.ts:80](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/db.ts#L80)
 
-___
+---
 
 ### put
 
@@ -120,11 +120,11 @@ Writes a value directly to db.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `key` | `TKey` | The key as a `TValue` |
-| `val` | `TValue` | - |
-| `opts?` | [`EncodingOpts`](../README.md#encodingopts) | - |
+| Name    | Type                                        | Description           |
+| :------ | :------------------------------------------ | :-------------------- |
+| `key`   | `TKey`                                      | The key as a `TValue` |
+| `val`   | `TValue`                                    | -                     |
+| `opts?` | [`EncodingOpts`](../README.md#encodingopts) | -                     |
 
 #### Returns
 
@@ -134,7 +134,7 @@ Writes a value directly to db.
 
 [packages/util/src/db.ts:57](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/db.ts#L57)
 
-___
+---
 
 ### shallowCopy
 
