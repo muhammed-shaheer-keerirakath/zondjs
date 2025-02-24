@@ -1,6 +1,6 @@
-import { createBlock } from "@ethereumjs/block";
-import { createBlockchain } from "@ethereumjs/blockchain";
-import { Common, Hardfork, Mainnet } from "@ethereumjs/common";
+import { createBlock } from "@theqrl/zondjs-block";
+import { createBlockchain } from "@theqrl/zondjs-blockchain";
+import { Common, Hardfork, Mainnet } from "@theqrl/zondjs-common";
 import { bytesToBigInt, hexToBytes } from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 

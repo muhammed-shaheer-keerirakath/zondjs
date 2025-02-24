@@ -50,12 +50,12 @@ There is a new Common API for simplification and better tree shaking, see PR [#3
 
 ```ts
 // old
-import { Chain, Common } from '@ethereumjs/common'
-const common = new Common({ chain: Chain.Mainnet })
+import { Chain, Common } from "@theqrl/zondjs-common";
+const common = new Common({ chain: Chain.Mainnet });
 
 // new
-import { Common, Mainnet } from '@ethereumjs/common'
-const common = new Common({ chain: Mainnet })
+import { Common, Mainnet } from "@theqrl/zondjs-common";
+const common = new Common({ chain: Mainnet });
 ```
 
 ### New SimpleStateManager
@@ -65,19 +65,23 @@ We have added a new < 200 LoC state manager `SimpleStateManager`, which has less
 The new state manager can be used like this:
 
 ```ts
-import { Account, createAddressFromPrivateKey, randomBytes } from '@ethereumjs/util'
+import {
+  Account,
+  createAddressFromPrivateKey,
+  randomBytes,
+} from "@theqrl/zondjs-util";
 
-import { SimpleStateManager } from '@ethereumjs/statemanager'
+import { SimpleStateManager } from "@theqrl/zondjs-statemanager";
 
 const main = async () => {
-  const sm = new SimpleStateManager()
-  const address = createAddressFromPrivateKey(randomBytes(32))
-  const account = new Account(0n, 0xfffffn)
-  await sm.putAccount(address, account)
-  console.log(await sm.getAccount(address))
-}
+  const sm = new SimpleStateManager();
+  const address = createAddressFromPrivateKey(randomBytes(32));
+  const account = new Account(0n, 0xfffffn);
+  await sm.putAccount(address, account);
+  console.log(await sm.getAccount(address));
+};
 
-void main()
+void main();
 ```
 
 ### Cache API Refactor
@@ -89,14 +93,14 @@ This allows for a cleaner separation of cache and pure state access code and als
 The API along cache initialization slightly changes along with this. There is a new `caches` option and a a `Caches` object must be created and passed in explicitly along state manager initialization if caches should be used:
 
 ```ts
-import { Caches, MerkleStateManager } from '@ethereumjs/statemanager'
+import { Caches, MerkleStateManager } from "@theqrl/zondjs-statemanager";
 
-const sm = new MerkleStateManager({ caches: new Caches() })
+const sm = new MerkleStateManager({ caches: new Caches() });
 ```
 
 ### TypeScript: StateManagerInterface Refactoring/Simplification
 
-The [StateManagerInterface](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/common/src/interfaces.ts), which all state managers implement, is located in the `@ethereumjs/common` package for re-usability reasons. Along the breaking release work, this interface as been strongly simplified, see PRs [#3543](https://github.com/ethereumjs/ethereumjs-monorepo/pull/3543) and [#3541](https://github.com/ethereumjs/ethereumjs-monorepo/pull/3541). A dedicated `EVMStateManagerInterface` has been removed, which allows for easier state manager usage within the EVM package.
+The [StateManagerInterface](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/common/src/interfaces.ts), which all state managers implement, is located in the `@theqrl/zondjs-common` package for re-usability reasons. Along the breaking release work, this interface as been strongly simplified, see PRs [#3543](https://github.com/ethereumjs/ethereumjs-monorepo/pull/3543) and [#3541](https://github.com/ethereumjs/ethereumjs-monorepo/pull/3541). A dedicated `EVMStateManagerInterface` has been removed, which allows for easier state manager usage within the EVM package.
 
 Somewhat non-core functionality is now marked as optional (with a `?`), so if you make custom usage of the state manager you might need to add some `!` in your TypeScript code. Have a look at the interface linked above to see what has changed.
 
@@ -151,17 +155,17 @@ This WASM KZG library can now be used for KZG initialization (replacing the old 
 Note that `kzg-wasm` needs to be added manually to your own dependencies and the KZG initialization code needs to be adopted like the following (which you will likely want to do in most cases, so if you deal with post Dencun EVM bytecode and/or 4844 blob txs in any way):
 
 ```typescript
-import { loadKZG } from 'kzg-wasm'
-import { Chain, Common, Hardfork } from '@ethereumjs/common'
+import { loadKZG } from "kzg-wasm";
+import { Chain, Common, Hardfork } from "@theqrl/zondjs-common";
 
-const kzg = await loadKZG()
+const kzg = await loadKZG();
 
 // Instantiate `common`
 const common = new Common({
   chain: Chain.Mainnet,
   hardfork: Hardfork.Cancun,
   customCrypto: { kzg },
-})
+});
 ```
 
 Manual addition is necessary because we did not want to bundle our libraries with WASM code by default, since some projects are then prevented from using our libraries.
@@ -170,23 +174,23 @@ Note that passing in the KZG setup file is not necessary anymore, since this is 
 
 #### Trie Node.js Import Bug
 
-Since this fits well also to be placed here relatively prominently for awareness: we had a relatively nasty bug in the `@ethereumjs/trie` library with a `Node.js` web stream import also affecting browser compatibility, see PR [#3280](https://github.com/ethereumjs/ethereumjs-monorepo/pull/3280). This bug has been fixed along with these releases and this library now references the updated trie library version.
+Since this fits well also to be placed here relatively prominently for awareness: we had a relatively nasty bug in the `@theqrl/zondjs-trie` library with a `Node.js` web stream import also affecting browser compatibility, see PR [#3280](https://github.com/ethereumjs/ethereumjs-monorepo/pull/3280). This bug has been fixed along with these releases and this library now references the updated trie library version.
 
 ### Other Changes
 
 - Properly apply statemanager `opts` in `fromProof()`, PR [#3276](https://github.com/ethereumjs/ethereumjs-monorepo/pull/3276)
-- New optional `getAppliedKey()` method for the interface (see interface definition in `@ethereumjs/common`), PR [#3143](https://github.com/ethereumjs/ethereumjs-monorepo/pull/3143)
+- New optional `getAppliedKey()` method for the interface (see interface definition in `@theqrl/zondjs-common`), PR [#3143](https://github.com/ethereumjs/ethereumjs-monorepo/pull/3143)
 - Fix inconsistency between the normal and the RPC statemanager regarding empty account return values, PR [#3323](https://github.com/ethereumjs/ethereumjs-monorepo/pull/3323)
 - Fix a type error related to the `lru-cache` dependency, PR [#3285](https://github.com/ethereumjs/ethereumjs-monorepo/pull/3285)
 - Add tests for verkle statemanager, PR [#3257](https://github.com/ethereumjs/ethereumjs-monorepo/pull/3257)
 
 ## 2.2.2 - 2024-02-08
 
-- Hotfix release moving the `@ethereumjs/verkle` dependency from a peer dependency to the main dependencies (note that this decision might be temporary)
+- Hotfix release moving the `@theqrl/zondjs-verkle` dependency from a peer dependency to the main dependencies (note that this decision might be temporary)
 
 ## 2.2.1 - 2024-02-08
 
-- Hotfix release adding a missing `debug` dependency to the `@ethereumjs/trie` package (dependency), PR [#3271](https://github.com/ethereumjs/ethereumjs-monorepo/pull/3271)
+- Hotfix release adding a missing `debug` dependency to the `@theqrl/zondjs-trie` package (dependency), PR [#3271](https://github.com/ethereumjs/ethereumjs-monorepo/pull/3271)
 
 ## 2.2.0 - 2024-02-08
 
@@ -210,7 +214,7 @@ Note: we have decided to plainly rename, since it seemed unlikely to us that thi
 
 With this release round there is a new way to replace the native JS crypto primitives used within the EthereumJS ecosystem by custom/other implementations in a controlled fashion, see PR [#3192](https://github.com/ethereumjs/ethereumjs-monorepo/pull/3192).
 
-This can e.g. be used to replace time-consuming primitives like the commonly used `keccak256` hash function with a more performant WASM based implementation, see `@ethereumjs/common` [README](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/common) for some detailed guidance on how to use.
+This can e.g. be used to replace time-consuming primitives like the commonly used `keccak256` hash function with a more performant WASM based implementation, see `@theqrl/zondjs-common` [README](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/common) for some detailed guidance on how to use.
 
 ### Self-Contained (and Working 🙂) README Examples
 
@@ -253,7 +257,7 @@ See [RC1 release notes](https://github.com/ethereumjs/ethereumjs-monorepo/releas
 
 Following additional changes since RC1:
 
-- `Breaking`: new `dumpStorageRangeAt()` implementation + EVMStateManager interface addition (in @ethereumjs/common), PR [#2922](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2922)
+- `Breaking`: new `dumpStorageRangeAt()` implementation + EVMStateManager interface addition (in @theqrl/zondjs-common), PR [#2922](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2922)
 
 ## 2.0.0-rc.1 - 2023-07-18
 
@@ -285,20 +289,20 @@ The EthereumJS Team
 
 ### Default Shanghai HF / Merge -> Paris Renaming / Full Cancun Hardfork Support
 
-The Shanghai hardfork is now the default HF in `@ethereumjs/common` and therefore for all libraries who use a Common-based HF setting internally (e.g. Tx, Block or EVM), see PR [#2655](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2655).
+The Shanghai hardfork is now the default HF in `@theqrl/zondjs-common` and therefore for all libraries who use a Common-based HF setting internally (e.g. Tx, Block or EVM), see PR [#2655](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2655).
 
 Also the Merge HF has been renamed to Paris (`Hardfork.Paris`) which is the correct HF name on the execution side, see [#2652](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2652). To set the HF to Paris in Common you can do:
 
 ```ts
-import { Chain, Common, Hardfork } from '@ethereumjs/common'
-const common = new Common({ chain: Chain.Mainnet, hardfork: Hardfork.Paris })
+import { Chain, Common, Hardfork } from "@theqrl/zondjs-common";
+const common = new Common({ chain: Chain.Mainnet, hardfork: Hardfork.Paris });
 ```
 
 And third on hardforks 🙂: the upcoming Cancun hardfork is now fully supported and all EIPs are included (see PRs [#2659](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2659) and [#2892](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2892)). The Cancun HF can be activated with:
 
 ```ts
-import { Chain, Common, Hardfork } from '@ethereumjs/common'
-const common = new Common({ chain: Chain.Mainnet, hardfork: Hardfork.Cancun })
+import { Chain, Common, Hardfork } from "@theqrl/zondjs-common";
+const common = new Common({ chain: Chain.Mainnet, hardfork: Hardfork.Cancun });
 ```
 
 Note that not all Cancun EIPs are in a `FINAL` EIP state though and particularly `EIP-4844` will likely still receive some changes.
@@ -345,7 +349,7 @@ clearCaches(): void // new
 The `StateManagerInterface` has now been moved to the `@ethereum/common` package for more universal access and should be loaded from there with:
 
 ```ts
-import type { StateManagerInterface } from '@ethereumjs/common'
+import type { StateManagerInterface } from "@theqrl/zondjs-common";
 ```
 
 ### Hybrid CJS/ESM Build
@@ -359,15 +363,15 @@ Both builds have respective separate entrypoints in the distributed `package.jso
 A CommonJS import of our libraries can then be done like this:
 
 ```ts
-const { Chain, Common } = require('@ethereumjs/common')
-const common = new Common({ chain: Chain.Mainnet })
+const { Chain, Common } = require("@theqrl/zondjs-common");
+const common = new Common({ chain: Chain.Mainnet });
 ```
 
 And this is how an ESM import looks like:
 
 ```ts
-import { Chain, Common } from '@ethereumjs/common'
-const common = new Common({ chain: Chain.Mainnet })
+import { Chain, Common } from "@theqrl/zondjs-common";
+const common = new Common({ chain: Chain.Mainnet });
 ```
 
 Using ESM will give you additional advantages over CJS beyond browser usage like static code analysis / Tree Shaking which CJS can not provide.
@@ -385,7 +389,7 @@ We nevertheless think this is very much worth it and we tried to make transition
 For this library you should check if you use one of the following constructors, methods, constants or types and do a search and update input and/or output values or general usages and add conversion methods if necessary:
 
 ```ts
-// statemanager / StateManagerInterface (in @ethereumjs/common)
+// statemanager / StateManagerInterface (in @theqrl/zondjs-common)
 StateManager.putContractCode(address: Address, value: Uint8Array): Promise<void>
 StateManager.getContractCode(address: Address): Promise<Uint8Array>
 StateManager.getContractStorage(address: Address, key: Uint8Array): Promise<Uint8Array>
@@ -396,7 +400,7 @@ StateManager.setStateRoot(stateRoot: Uint8Array, clearCache?: boolean): Promise<
 StateManager.getProof?(address: Address, storageSlots: Uint8Array[]): Promise<Proof>
 ```
 
-We have converted existing Buffer conversion methods to Uint8Array conversion methods in the [@ethereumjs/util](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/util) `bytes` module, see the respective README section for guidance.
+We have converted existing Buffer conversion methods to Uint8Array conversion methods in the [@theqrl/zondjs-util](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/util) `bytes` module, see the respective README section for guidance.
 
 #### Prefixed Hex Strings as Default
 
@@ -419,11 +423,11 @@ Please therefore check you code base on updating and ensure that values you are 
 ## 1.0.5 - 2023-04-20
 
 - Update ethereum-cryptography from 1.2 to 2.0 (switch from noble-secp256k1 to noble-curves), PR [#2641](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2641)
-- Bump `@ethereumjs/util` `@chainsafe/ssz` dependency to 0.11.1 (no WASM, native SHA-256 implementation, ES2019 compatible, explicit imports), PRs [#2622](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2622), [#2564](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2564) and [#2656](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2656)
+- Bump `@theqrl/zondjs-util` `@chainsafe/ssz` dependency to 0.11.1 (no WASM, native SHA-256 implementation, ES2019 compatible, explicit imports), PRs [#2622](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2622), [#2564](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2564) and [#2656](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2656)
 
 ## 1.0.4 - 2023-02-27
 
-- Pinned `@ethereumjs/util` `@chainsafe/ssz` dependency to `v0.9.4` due to ES2021 features used in `v0.10.+` causing compatibility issues, PR [#2555](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2555)
+- Pinned `@theqrl/zondjs-util` `@chainsafe/ssz` dependency to `v0.9.4` due to ES2021 features used in `v0.10.+` causing compatibility issues, PR [#2555](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2555)
 
 ## 1.0.3 - 2023-02-21
 
@@ -438,7 +442,7 @@ Added `EthersStateManager` to direct exports (if you use please fix our deep imp
 Import is now simplified to:
 
 ```ts
-import { EthersStateManager } from '@ethereumjs/statemanager'
+import { EthersStateManager } from "@theqrl/zondjs-statemanager";
 ```
 
 ## 1.0.1 - 2022-10-18
@@ -490,13 +494,13 @@ Beta 3 release for the upcoming breaking release round on the [EthereumJS monore
 
 ### Merge Hardfork Default
 
-Since the Merge HF is getting close we have decided to directly jump on the `Merge` HF (before: `Istanbul`) as default in the underlying `@ethereumjs/common` library and skip the `London` default HF as we initially intended to set (see Beta 1 CHANGELOG), see PR [#2087](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2087).
+Since the Merge HF is getting close we have decided to directly jump on the `Merge` HF (before: `Istanbul`) as default in the underlying `@theqrl/zondjs-common` library and skip the `London` default HF as we initially intended to set (see Beta 1 CHANGELOG), see PR [#2087](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2087).
 
 This change should not directly affect this library but might be relevant since it is not recommended to use different Common library versions between the different EthereumJS libraries.
 
 ### Other Changes
 
-- Upgrades the `@ethereumjs/trie` library to Beta 3 which allows to pass in a custom hash function/library (for performance), PR [#2043](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2043)
+- Upgrades the `@theqrl/zondjs-trie` library to Beta 3 which allows to pass in a custom hash function/library (for performance), PR [#2043](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2043)
 
 ## 1.0.0-beta.2 - 2022-07-15
 
@@ -512,22 +516,22 @@ Now every import is a named import and we think the long term benefits will very
 
 #### Common Library Import Updates
 
-Since our [@ethereumjs/common](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/common) library is used all across our libraries for chain and HF instantiation this will likely be the one being the most prevalent regarding the need for some import updates.
+Since our [@theqrl/zondjs-common](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/common) library is used all across our libraries for chain and HF instantiation this will likely be the one being the most prevalent regarding the need for some import updates.
 
 So Common import and usage is changing from:
 
 ```ts
-import Common, { Chain, Hardfork } from '@ethereumjs/common'
+import Common, { Chain, Hardfork } from "@theqrl/zondjs-common";
 
-const common = new Common({ chain: Chain.Mainnet, hardfork: Hardfork.Merge })
+const common = new Common({ chain: Chain.Mainnet, hardfork: Hardfork.Merge });
 ```
 
 to:
 
 ```ts
-import { Common, Chain, Hardfork } from '@ethereumjs/common'
+import { Common, Chain, Hardfork } from "@theqrl/zondjs-common";
 
-const common = new Common({ chain: Chain.Mainnet, hardfork: Hardfork.Merge })
+const common = new Common({ chain: Chain.Mainnet, hardfork: Hardfork.Merge });
 ```
 
 ### Removed Default Imports in this Library
@@ -535,13 +539,13 @@ const common = new Common({ chain: Chain.Mainnet, hardfork: Hardfork.Merge })
 The main `DefaultStateManager` class import has been updated, so import changes from:
 
 ```ts
-import DefaultStateManager from '@ethereumjs/statemanager'
+import DefaultStateManager from "@theqrl/zondjs-statemanager";
 ```
 
 to:
 
 ```ts
-import { DefaultStateManager } from '@ethereumjs/statemanager'
+import { DefaultStateManager } from "@theqrl/zondjs-statemanager";
 ```
 
 ## Other Changes
@@ -552,7 +556,7 @@ import { DefaultStateManager } from '@ethereumjs/statemanager'
 
 This release is part of a larger breaking release round where all [EthereumJS monorepo](https://github.com/ethereumjs/ethereumjs-monorepo) libraries (VM, Tx, Trie, other) get major version upgrades. This round of releases has been prepared for a long time and we are really pleased with and proud of the result, thanks to all team members and contributors who worked so hard and made this possible! 🙂 ❤️
 
-We have gotten rid of a lot of technical debt and inconsistencies and removed unused functionality, renamed methods, improved on the API and on TypeScript typing, to name a few of the more local type of refactoring changes. There are also broader structural changes like a full transition to native JavaScript `BigInt` values as well as various somewhat deep-reaching refactorings, both within a single package as well as some reaching beyond the scope of a single package. Also two completely new packages - `@ethereumjs/evm` (in addition to the existing `@ethereumjs/vm` package) and `@ethereumjs/statemanager` - have been created, leading to a more modular Ethereum JavaScript VM.
+We have gotten rid of a lot of technical debt and inconsistencies and removed unused functionality, renamed methods, improved on the API and on TypeScript typing, to name a few of the more local type of refactoring changes. There are also broader structural changes like a full transition to native JavaScript `BigInt` values as well as various somewhat deep-reaching refactorings, both within a single package as well as some reaching beyond the scope of a single package. Also two completely new packages - `@theqrl/zondjs-evm` (in addition to the existing `@theqrl/zondjs-vm` package) and `@theqrl/zondjs-statemanager` - have been created, leading to a more modular Ethereum JavaScript VM.
 
 We are very much confident that users of the libraries will greatly benefit from the changes being introduced. However - along the upgrade process - these releases require some extra attention and care since the changeset is both so big and deep reaching. We highly recommend to closely read the release notes, we have done our best to create a full picture on the changes with some special emphasis on delicate code and API parts and give some explicit guidance on how to upgrade and where problems might arise!
 
@@ -565,14 +569,14 @@ The EthereumJS Team
 The `StateManager` has been extracted from the `VM` and is now a separate package, see PR [#1817](https://github.com/ethereumjs/ethereumjs-monorepo/pull/1817). The new package can be installed separately with:
 
 ```shell
-npm i @ethereumjs/statemanager
+npm i @theqrl/zondjs-statemanager
 ```
 
-The `@ethereumjs/vm` package still has this package added as a dependency and it is automatically integrated. The `StateManager` provides a high-level interface to an underlying state storage solution. This is classically a `Trie` (in our case: an `@ethereumjs/trie`) instance, but can also be something else, e.g. a plain database, an underlying RPC connection or a Verkle Tree in the future.
+The `@theqrl/zondjs-vm` package still has this package added as a dependency and it is automatically integrated. The `StateManager` provides a high-level interface to an underlying state storage solution. This is classically a `Trie` (in our case: an `@theqrl/zondjs-trie`) instance, but can also be something else, e.g. a plain database, an underlying RPC connection or a Verkle Tree in the future.
 
 The extraction of this module allows to easier customize a `StateManager` and provide or use your own implementations in the future. It is now also possible to use the `StateManager` standalone for high-level state access in a non-VM context.
 
-A `StateManager` must adhere to a predefined interface `StateManager` and implement a certain set of state access methods like `getAccount()`, `putContractCode()`,... Such an implementation is then guaranteed to work e.g. in the `@ethereumjs/vm` implementation.
+A `StateManager` must adhere to a predefined interface `StateManager` and implement a certain set of state access methods like `getAccount()`, `putContractCode()`,... Such an implementation is then guaranteed to work e.g. in the `@theqrl/zondjs-vm` implementation.
 
 ### StateManager Refactoring
 

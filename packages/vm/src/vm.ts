@@ -1,12 +1,12 @@
-import { createEVM } from "@ethereumjs/evm";
+import { createEVM } from "@theqrl/zondjs-evm";
 import { EventEmitter } from "eventemitter3";
 
 import { createVM } from "./constructors.js";
 import { paramsVM } from "./params.js";
 
 import type { VMEvent, VMOpts } from "./types.js";
-import type { Common, StateManagerInterface } from "@ethereumjs/common";
-import type { EVMInterface, EVMMockBlockchainInterface } from "@ethereumjs/evm";
+import type { Common, StateManagerInterface } from "@theqrl/zondjs-common";
+import type { EVMInterface, EVMMockBlockchainInterface } from "@theqrl/zondjs-evm";
 import type { BigIntLike } from "@theqrl/zondjs-util";
 
 /**

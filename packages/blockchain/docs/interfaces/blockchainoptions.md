@@ -1,4 +1,4 @@
-[@ethereumjs/blockchain](../README.md) / BlockchainOptions
+[@theqrl/zondjs-blockchain](../README.md) / BlockchainOptions
 
 # Interface: BlockchainOptions
 

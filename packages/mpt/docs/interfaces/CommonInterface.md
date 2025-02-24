@@ -1,4 +1,4 @@
-[@ethereumjs/trie](../README.md) / CommonInterface
+[@theqrl/zondjs-trie](../README.md) / CommonInterface
 
 # Interface: CommonInterface
 
@@ -16,8 +16,8 @@
 
 #### Type declaration
 
-| Name | Type |
-| :------ | :------ |
+| Name         | Type                                  |
+| :----------- | :------------------------------------ |
 | `keccak256?` | (`msg`: `Uint8Array`) => `Uint8Array` |
 
 #### Defined in

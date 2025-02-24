@@ -1,4 +1,4 @@
-[@ethereumjs/common](../README.md) / HardforkTransitionConfig
+[@theqrl/zondjs-common](../README.md) / HardforkTransitionConfig
 
 # Interface: HardforkTransitionConfig
 

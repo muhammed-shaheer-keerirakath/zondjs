@@ -1,4 +1,4 @@
-import { createFeeMarket1559Tx, createLegacyTx } from "@ethereumjs/tx";
+import { createFeeMarket1559Tx, createLegacyTx } from "@theqrl/zondjs-tx";
 import { bytesToHex } from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 

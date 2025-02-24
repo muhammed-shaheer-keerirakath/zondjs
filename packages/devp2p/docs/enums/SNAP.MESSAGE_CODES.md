@@ -1,4 +1,4 @@
-[@ethereumjs/devp2p](../README.md) / [SNAP](../modules/SNAP.md) / MESSAGE\_CODES
+[@theqrl/zondjs-devp2p](../README.md) / [SNAP](../modules/SNAP.md) / MESSAGE\_CODES
 
 # Enumeration: MESSAGE\_CODES
 

@@ -1,5 +1,5 @@
-import { Common, Hardfork, Mainnet } from "@ethereumjs/common";
-import { RLP } from "@ethereumjs/rlp";
+import { Common, Hardfork, Mainnet } from "@theqrl/zondjs-common";
+import { RLP } from "@theqrl/zondjs-rlp";
 import {
   Address,
   KECCAK256_RLP,

@@ -1,4 +1,4 @@
-[@ethereumjs/trie](../README.md) / TrieOpts
+[@theqrl/zondjs-trie](../README.md) / TrieOpts
 
 # Interface: TrieOpts
 
@@ -31,19 +31,19 @@ Default: 0 (deactivated)
 
 [packages/trie/src/types.ts:97](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/types.ts#L97)
 
-___
+---
 
 ### common
 
 • `Optional` **common**: [`CommonInterface`](CommonInterface.md)
 
-@ethereumjs/common `Common` instance (an alternative to passing in a `customHashingFunction`)
+@theqrl/zondjs-common `Common` instance (an alternative to passing in a `customHashingFunction`)
 
 #### Defined in
 
 [packages/trie/src/types.ts:102](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/types.ts#L102)
 
-___
+---
 
 ### db
 
@@ -55,7 +55,7 @@ A database instance.
 
 [packages/trie/src/types.ts:42](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/types.ts#L42)
 
-___
+---
 
 ### keyPrefix
 
@@ -70,7 +70,7 @@ e.g. all storage tries being stored in the outer account state DB)
 
 [packages/trie/src/types.ts:74](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/types.ts#L74)
 
-___
+---
 
 ### root
 
@@ -82,7 +82,7 @@ A `Uint8Array` for the root of a previously stored trie
 
 [packages/trie/src/types.ts:47](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/types.ts#L47)
 
-___
+---
 
 ### useKeyHashing
 
@@ -103,7 +103,7 @@ instantiation with `useKeyHashing` set to `true`.
 
 [packages/trie/src/types.ts:61](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/types.ts#L61)
 
-___
+---
 
 ### useKeyHashingFunction
 
@@ -115,7 +115,7 @@ Hash function used for hashing trie node and securing key.
 
 [packages/trie/src/types.ts:66](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/types.ts#L66)
 
-___
+---
 
 ### useNodePruning
 
@@ -128,7 +128,7 @@ unreachable nodes will be pruned (deleted) from the trie
 
 [packages/trie/src/types.ts:90](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/types.ts#L90)
 
-___
+---
 
 ### useRootPersistence
 
@@ -140,7 +140,7 @@ Store the root inside the database after every `write` operation
 
 [packages/trie/src/types.ts:84](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/types.ts#L84)
 
-___
+---
 
 ### valueEncoding
 

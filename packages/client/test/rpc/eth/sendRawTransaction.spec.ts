@@ -1,16 +1,16 @@
-import { BlockHeader, paramsBlock } from "@ethereumjs/block";
+import { BlockHeader, paramsBlock } from "@theqrl/zondjs-block";
 import {
   Common,
   Hardfork,
   Mainnet,
   createCommonFromGethGenesis,
-} from "@ethereumjs/common";
-import { MerkleStateManager } from "@ethereumjs/statemanager";
+} from "@theqrl/zondjs-common";
+import { MerkleStateManager } from "@theqrl/zondjs-statemanager";
 import {
   createBlob4844Tx,
   createFeeMarket1559TxFromRLP,
   createLegacyTx,
-} from "@ethereumjs/tx";
+} from "@theqrl/zondjs-tx";
 import {
   Account,
   blobsToCommitments,

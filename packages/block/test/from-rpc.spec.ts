@@ -1,4 +1,4 @@
-import { Common, Hardfork, Mainnet } from "@ethereumjs/common";
+import { Common, Hardfork, Mainnet } from "@theqrl/zondjs-common";
 import {
   bytesToHex,
   equalsBytes,
@@ -28,7 +28,7 @@ import { testdataFromRPCWithWithdrawalsData } from "./testdata/testdata-from-rpc
 import { testdataFromRPCData } from "./testdata/testdata-from-rpc.js";
 
 import type { JSONRPCBlock } from "../src/index.js";
-import type { JSONRPCTx, LegacyTx } from "@ethereumjs/tx";
+import type { JSONRPCTx, LegacyTx } from "@theqrl/zondjs-tx";
 
 describe("[fromRPC]: block #2924874", () => {
   const common = new Common({ chain: Mainnet, hardfork: Hardfork.Istanbul });

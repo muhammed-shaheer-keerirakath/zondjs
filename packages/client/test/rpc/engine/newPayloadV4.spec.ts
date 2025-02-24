@@ -1,4 +1,4 @@
-import { createTx } from "@ethereumjs/tx";
+import { createTx } from "@theqrl/zondjs-tx";
 import { Units, bigIntToHex, hexToBytes } from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 

@@ -1,4 +1,4 @@
-[@ethereumjs/evm](../README.md) / EVMErrorMessage
+[@theqrl/zondjs-evm](../README.md) / EVMErrorMessage
 
 # Enumeration: EVMErrorMessage
 

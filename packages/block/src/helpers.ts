@@ -1,6 +1,6 @@
-import { MerklePatriciaTrie } from "@ethereumjs/mpt";
-import { RLP } from "@ethereumjs/rlp";
-import { Blob4844Tx } from "@ethereumjs/tx";
+import { MerklePatriciaTrie } from "@theqrl/zondjs-mpt";
+import { RLP } from "@theqrl/zondjs-rlp";
+import { Blob4844Tx } from "@theqrl/zondjs-tx";
 import {
   BIGINT_0,
   BIGINT_1,
@@ -11,8 +11,8 @@ import {
 } from "@theqrl/zondjs-util";
 
 import type { BlockHeaderBytes, HeaderData } from "./types.js";
-import type { Common } from "@ethereumjs/common";
-import type { TypedTransaction } from "@ethereumjs/tx";
+import type { Common } from "@theqrl/zondjs-common";
+import type { TypedTransaction } from "@theqrl/zondjs-tx";
 import type {
   CLRequest,
   CLRequestType,

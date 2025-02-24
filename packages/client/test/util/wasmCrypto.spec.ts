@@ -1,5 +1,5 @@
-import { Common, Mainnet } from "@ethereumjs/common";
-import { createLegacyTx } from "@ethereumjs/tx";
+import { Common, Mainnet } from "@theqrl/zondjs-common";
+import { createLegacyTx } from "@theqrl/zondjs-tx";
 import {
   BIGINT_2,
   bytesToHex,

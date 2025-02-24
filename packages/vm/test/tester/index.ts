@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { MCLBLS, NobleBLS, NobleBN254, RustBN254 } from '@ethereumjs/evm'
+import { MCLBLS, NobleBLS, NobleBN254, RustBN254 } from '@theqrl/zondjs-evm'
 import { trustedSetup } from '@paulmillr/trusted-setups/fast.js'
 import * as mcl from 'mcl-wasm'
 import { KZG as microEthKZG } from 'micro-eth-signer/kzg'
@@ -22,8 +22,8 @@ import { runBlockchainTest } from './runners/BlockchainTestsRunner.js'
 import { runStateTest } from './runners/GeneralStateTestsRunner.js'
 import { getTestFromSource, getTestsFromArgs } from './testLoader.js'
 
-import type { Common } from '@ethereumjs/common'
-import type { EVMBLSInterface, EVMBN254Interface } from '@ethereumjs/evm'
+import type { Common } from '@theqrl/zondjs-common'
+import type { EVMBLSInterface, EVMBN254Interface } from '@theqrl/zondjs-evm'
 
 /**
  * Test runner

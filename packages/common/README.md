@@ -1,4 +1,4 @@
-# @ethereumjs/common
+# @theqrl/zondjs-common
 
 [![NPM Package][common-npm-badge]][common-npm-link]
 [![GitHub Issues][common-issues-badge]][common-issues-link]
@@ -16,7 +16,7 @@ Note: this `README` reflects the state of the library from `v2.0.0` onwards. See
 To obtain the latest version, simply require the project using `npm`:
 
 ```shell
-npm install @ethereumjs/common
+npm install @theqrl/zondjs-common
 ```
 
 ## Usage
@@ -26,13 +26,13 @@ npm install @ethereumjs/common
 import (ESM, TypeScript):
 
 ```ts
-import { Chain, Common, Hardfork } from '@ethereumjs/common'
+import { Chain, Common, Hardfork } from '@theqrl/zondjs-common'
 ```
 
 require (CommonJS, Node.js):
 
 ```ts
-const { Common, Chain, Hardfork } = require('@ethereumjs/common')
+const { Common, Chain, Hardfork } = require('@theqrl/zondjs-common')
 ```
 
 ### Parameters
@@ -42,7 +42,7 @@ All parameters can be accessed through the `Common` class, instantiated with an 
 ```ts
 // ./examples/common.ts#L1-L7
 
-import { Common, Hardfork, Mainnet, createCustomCommon } from '@ethereumjs/common'
+import { Common, Hardfork, Mainnet, createCustomCommon } from '@theqrl/zondjs-common'
 
 // With enums:
 const commonWithEnums = new Common({ chain: Mainnet, hardfork: Hardfork.London })
@@ -82,7 +82,7 @@ written in other languages and then compiled to WASM. If cryptography performanc
 the EthereumJS libraries, you can provide your own primitives to the `Common` constructor and they will be used in
 place of the defaults. Depending on how your preferred primitives are implemented, you may need to write wrapper
 methods around them so they conform to the interface exposed by the [`common.customCrypto` property](./src/types.ts).
-See the implementation of this in the [`@ethereumjs/client`](../client/bin/cli.ts#L810) using `@polkadot/wasm-crypto`
+See the implementation of this in the [`@theqrl/zondjs-client`](../client/bin/cli.ts#L810) using `@polkadot/wasm-crypto`
 for an example of how this is done for each available cryptographic primitive.
 
 Note: replacing native JS crypto primitives with WASM based libraries comes with new security assumptions (additional external dependencies, unauditability of WASM code). It is therefore recommended to evaluate your usage context before applying!
@@ -94,8 +94,8 @@ The following is an example using the [@polkadot/wasm-crypto](https://github.com
 ```ts
 // ./examples/customCrypto.ts
 
-import { createBlock } from '@ethereumjs/block'
-import { Common, Mainnet } from '@ethereumjs/common'
+import { createBlock } from '@theqrl/zondjs-block'
+import { Common, Mainnet } from '@theqrl/zondjs-common'
 import { keccak256, waitReady } from '@polkadot/wasm-crypto'
 
 const main = async () => {
@@ -122,7 +122,7 @@ to initialize (assuming you are using the `c-kzg` package as your KZG cryptograp
 ```ts
 // ./examples/initKzg.ts
 
-import { Common, Hardfork, Mainnet } from '@ethereumjs/common'
+import { Common, Hardfork, Mainnet } from '@theqrl/zondjs-common'
 import { trustedSetup } from '@paulmillr/trusted-setups/fast.js'
 import { KZG as microEthKZG } from 'micro-eth-signer/kzg'
 
@@ -163,13 +163,13 @@ With the breaking releases from Summer 2023 we have started to ship our librarie
 If you use an ES6-style `import` in your code files from the ESM build will be used:
 
 ```ts
-import { EthereumJSClass } from '@ethereumjs/[PACKAGE_NAME]'
+import { EthereumJSClass } from '@theqrl/zondjs-[PACKAGE_NAME]'
 ```
 
 If you use Node.js specific `require`, the CJS build will be used:
 
 ```ts
-const { EthereumJSClass } = require('@ethereumjs/[PACKAGE_NAME]')
+const { EthereumJSClass } = require('@theqrl/zondjs-[PACKAGE_NAME]')
 ```
 
 Using ESM will give you additional advantages over CJS beyond browser usage like static code analysis / Tree Shaking which CJS can not provide.
@@ -178,7 +178,7 @@ Using ESM will give you additional advantages over CJS beyond browser usage like
 
 With the breaking releases from Summer 2023 we have removed all Node.js specific `Buffer` usages from our libraries and replace these with [Uint8Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array) representations, which are available both in Node.js and the browser (`Buffer` is a subclass of `Uint8Array`).
 
-We have converted existing Buffer conversion methods to Uint8Array conversion methods in the [@ethereumjs/util](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/util) `bytes` module, see the respective README section for guidance.
+We have converted existing Buffer conversion methods to Uint8Array conversion methods in the [@theqrl/zondjs-util](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/util) `bytes` module, see the respective README section for guidance.
 
 ### BigInt Support
 
@@ -255,7 +255,7 @@ The following custom chains are currently supported:
 - `OptimisticKovan`
 - `OptimisticEthereum`
 
-`Common` instances created with this simplified `custom()` constructor can't be used in all usage contexts (the HF configuration is very likely not matching the actual chain) but can be useful for specific use cases, e.g. for sending a tx with `@ethereumjs/tx` to an L2 network (see the `Tx` library [README](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/tx) for a complete usage example).
+`Common` instances created with this simplified `custom()` constructor can't be used in all usage contexts (the HF configuration is very likely not matching the actual chain) but can be useful for specific use cases, e.g. for sending a tx with `@theqrl/zondjs-tx` to an L2 network (see the `Tx` library [README](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/tx) for a complete usage example).
 
 #### Activate with a single custom Chain setup
 
@@ -266,7 +266,7 @@ values to the constructor using the `chain` parameter or the `setChain()` method
 ```ts
 // ./examples/customChain.ts
 
-import { Common, Mainnet, createCustomCommon } from '@ethereumjs/common'
+import { Common, Mainnet, createCustomCommon } from '@theqrl/zondjs-common'
 
 import myCustomChain1 from './genesisData/testnet.json'
 
@@ -287,7 +287,7 @@ use the `chain` option to activate one of the custom chains passed or activate a
 ```ts
 // ./examples/customChain.ts
 
-import { Common, Mainnet, createCustomCommon } from '@ethereumjs/common'
+import { Common, Mainnet, createCustomCommon } from '@theqrl/zondjs-common'
 
 import myCustomChain1 from './genesisData/testnet.json'
 
@@ -307,8 +307,8 @@ common from such configuration in the following manner:
 ```ts
 // ./examples/fromGeth.ts
 
-import { createCommonFromGethGenesis } from '@ethereumjs/common'
-import { hexToBytes } from '@ethereumjs/util'
+import { createCommonFromGethGenesis } from '@theqrl/zondjs-common'
+import { hexToBytes } from '@theqrl/zondjs-util'
 
 import genesisJSON from './genesisData/post-merge.json'
 
@@ -329,7 +329,7 @@ The `hardfork` can be set in constructor like this:
 ```ts
 // ./examples/common.ts#L1-L4
 
-import { Common, Hardfork, Mainnet, createCustomCommon } from '@ethereumjs/common'
+import { Common, Hardfork, Mainnet, createCustomCommon } from '@theqrl/zondjs-common'
 
 // With enums:
 const commonWithEnums = new Common({ chain: Mainnet, hardfork: Hardfork.London })
@@ -439,8 +439,8 @@ See our organizational [documentation](https://ethereumjs.readthedocs.io) for an
 
 [discord-badge]: https://img.shields.io/static/v1?logo=discord&label=discord&message=Join&color=blue
 [discord-link]: https://discord.gg/TNwARpR
-[common-npm-badge]: https://img.shields.io/npm/v/@ethereumjs/common.svg
-[common-npm-link]: https://www.npmjs.com/package/@ethereumjs/common
+[common-npm-badge]: https://img.shields.io/npm/v/@theqrl/zondjs-common.svg
+[common-npm-link]: https://www.npmjs.com/package/@theqrl/zondjs-common
 [common-issues-badge]: https://img.shields.io/github/issues/ethereumjs/ethereumjs-monorepo/package:%20common?label=issues
 [common-issues-link]: https://github.com/ethereumjs/ethereumjs-monorepo/issues?q=is%3Aopen+is%3Aissue+label%3A"package%3A+common"
 [common-actions-badge]: https://github.com/ethereumjs/ethereumjs-monorepo/workflows/Common/badge.svg

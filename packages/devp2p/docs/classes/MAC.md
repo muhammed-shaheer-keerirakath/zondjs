@@ -1,4 +1,4 @@
-[@ethereumjs/devp2p](../README.md) / MAC
+[@theqrl/zondjs-devp2p](../README.md) / MAC
 
 # Class: MAC
 

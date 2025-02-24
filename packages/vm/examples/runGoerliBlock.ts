@@ -1,5 +1,5 @@
-import { createBlockFromRPC } from "@ethereumjs/block";
-import { Common } from "@ethereumjs/common";
+import { createBlockFromRPC } from "@theqrl/zondjs-block";
+import { Common } from "@theqrl/zondjs-common";
 import { bytesToHex } from "@theqrl/zondjs-util";
 
 import { createVM, runBlock } from "../src/index.js";

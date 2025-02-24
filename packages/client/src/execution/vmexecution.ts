@@ -3,18 +3,18 @@ import {
   DBSetBlockOrHeader,
   DBSetHashToNumber,
   DBSetTD,
-} from "@ethereumjs/blockchain";
-import { ConsensusType, Hardfork } from "@ethereumjs/common";
-import { MCLBLS, RustBN254 } from "@ethereumjs/evm";
-import { getGenesis } from "@ethereumjs/genesis";
-import { createMPT } from "@ethereumjs/mpt";
+} from "@theqrl/zondjs-blockchain";
+import { ConsensusType, Hardfork } from "@theqrl/zondjs-common";
+import { MCLBLS, RustBN254 } from "@theqrl/zondjs-evm";
+import { getGenesis } from "@theqrl/zondjs-genesis";
+import { createMPT } from "@theqrl/zondjs-mpt";
 import {
   CacheType,
   Caches,
   MerkleStateManager,
   StatefulVerkleStateManager,
   StatelessVerkleStateManager,
-} from "@ethereumjs/statemanager";
+} from "@theqrl/zondjs-statemanager";
 import {
   BIGINT_0,
   BIGINT_1,
@@ -24,7 +24,7 @@ import {
   equalsBytes,
   hexToBytes,
 } from "@theqrl/zondjs-util";
-import { createVM, runBlock, runTx } from "@ethereumjs/vm";
+import { createVM, runBlock, runTx } from "@theqrl/zondjs-vm";
 import { writeFileSync } from "fs";
 import * as mcl from "mcl-wasm";
 import { initRustBN } from "rustbn-wasm";
@@ -39,9 +39,9 @@ import { PreimagesManager } from "./preimage.js";
 import { ReceiptsManager } from "./receipt.js";
 
 import type { ExecutionOptions } from "./execution.js";
-import type { Block } from "@ethereumjs/block";
+import type { Block } from "@theqrl/zondjs-block";
 import type { PrefixedHexString } from "@theqrl/zondjs-util";
-import type { RunBlockOpts, TxReceipt, VM } from "@ethereumjs/vm";
+import type { RunBlockOpts, TxReceipt, VM } from "@theqrl/zondjs-vm";
 
 export enum ExecStatus {
   VALID = "VALID",

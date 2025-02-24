@@ -1,67 +1,68 @@
 // cspell:ignore ppeer pnode pserver
-import { Blockchain } from '@ethereumjs/blockchain'
-import { Chain, Common } from '@ethereumjs/common'
-import debug from 'debug'
-import { Level } from 'level'
+import { Blockchain } from "@theqrl/zondjs-blockchain";
+import { Chain, Common } from "@theqrl/zondjs-common";
+import debug from "debug";
+import { Level } from "level";
 
-import { EthereumClient } from '../src/client'
-import { Config } from '../src/config'
-import { LevelDB } from '../src/execution/level'
-import { parseMultiaddrs } from '../src/util'
+import { EthereumClient } from "../src/client";
+import { Config } from "../src/config";
+import { LevelDB } from "../src/execution/level";
+import { parseMultiaddrs } from "../src/util";
 
-import { getLogger } from './logging.js'
+import { getLogger } from "./logging.js";
 // Blockchain
-export * from '../src/blockchain/chain/index.js'
+export * from "../src/blockchain/chain/index.js";
 
 // Peer
-export * from '../src/net/peer/libp2ppeer'
-export * from '../src/net/peer/peer'
-export * from './libp2pnode'
+export * from "../src/net/peer/libp2ppeer";
+export * from "../src/net/peer/peer";
+export * from "./libp2pnode";
 
 // Peer Pool
-export * from '../src/net/peerpool'
+export * from "../src/net/peerpool";
 
 // Protocol
-export * from '../src/net/protocol/ethprotocol'
-export * from '../src/net/protocol/flowcontrol'
-export * from '../src/net/protocol/lesprotocol'
-export * from '../src/net/protocol/protocol'
+export * from "../src/net/protocol/ethprotocol";
+export * from "../src/net/protocol/flowcontrol";
+export * from "../src/net/protocol/lesprotocol";
+export * from "../src/net/protocol/protocol";
 
 // Server
-export * from '../src/net/server/libp2pserver'
-export * from '../src/net/server/server'
+export * from "../src/net/server/libp2pserver";
+export * from "../src/net/server/server";
 
 // EthereumClient
-export * from '../src/client'
+export * from "../src/client";
 
 // Service
-export * from '../src/service/fullethereumservice'
-export * from '../src/service/lightethereumservice'
-export * from '../src/service/service'
+export * from "../src/service/fullethereumservice";
+export * from "../src/service/lightethereumservice";
+export * from "../src/service/service";
 
 // Synchronizer
-export * from '../src/sync/fullsync'
-export * from '../src/sync/lightsync'
-export * from '../src/sync/sync'
+export * from "../src/sync/fullsync";
+export * from "../src/sync/lightsync";
+export * from "../src/sync/sync";
 
 // Utilities
-export * from '../src/util/parse'
+export * from "../src/util/parse";
 
 // Logging
-export * from './logging'
+export * from "./logging";
 
 export async function createClient(args: any) {
   // Turn on `debug` logs, defaults to all client logging
-  debug.enable(args.debugLogs ?? '')
-  const logger = getLogger({ loglevel: args.loglevel })
-  const datadir = args.datadir ?? Config.DATADIR_DEFAULT
-  const common = new Common({ chain: args.network ?? Chain.Mainnet })
-  const key = await Config.getClientKey(datadir, common)
-  const bootnodes = args.bootnodes !== undefined ? parseMultiaddrs(args.bootnodes) : undefined
+  debug.enable(args.debugLogs ?? "");
+  const logger = getLogger({ loglevel: args.loglevel });
+  const datadir = args.datadir ?? Config.DATADIR_DEFAULT;
+  const common = new Common({ chain: args.network ?? Chain.Mainnet });
+  const key = await Config.getClientKey(datadir, common);
+  const bootnodes =
+    args.bootnodes !== undefined ? parseMultiaddrs(args.bootnodes) : undefined;
   const config = new Config({
     common,
     key,
-    transports: ['libp2p'],
+    transports: ["libp2p"],
     syncmode: args.syncmode,
     bootnodes,
     multiaddrs: [],
@@ -70,11 +71,11 @@ export async function createClient(args: any) {
     minPeers: args.minPeers,
     maxPeers: args.maxPeers,
     discDns: false,
-  })
-  config.events.setMaxListeners(50)
+  });
+  config.events.setMaxListeners(50);
   const chainDB = new Level<string | Uint8Array, string | Uint8Array>(
     `${datadir}/${common.chainName()}`,
-  )
+  );
 
   const blockchain = await createBlockchain({
     db: new LevelDB(chainDB),
@@ -82,13 +83,13 @@ export async function createClient(args: any) {
     hardforkByHeadBlockNumber: true,
     validateBlocks: true,
     validateConsensus: false,
-  })
-  return EthereumClient.create({ config, blockchain, chainDB })
+  });
+  return EthereumClient.create({ config, blockchain, chainDB });
 }
 
 export async function run(args: any) {
-  const client = await createClient(args)
-  await client.open()
-  await client.start()
-  return client
+  const client = await createClient(args);
+  await client.open();
+  await client.start();
+  return client;
 }

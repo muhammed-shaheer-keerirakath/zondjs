@@ -1,5 +1,5 @@
-import { createBlockHeader } from "@ethereumjs/block";
-import { Hardfork } from "@ethereumjs/common";
+import { createBlockHeader } from "@theqrl/zondjs-block";
+import { Hardfork } from "@theqrl/zondjs-common";
 import { KECCAK256_RLP } from "@theqrl/zondjs-util";
 import { assert, describe, it, vi } from "vitest";
 

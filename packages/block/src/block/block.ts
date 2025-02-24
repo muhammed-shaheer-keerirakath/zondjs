@@ -1,7 +1,7 @@
-import { ConsensusType } from "@ethereumjs/common";
-import { MerklePatriciaTrie } from "@ethereumjs/mpt";
-import { RLP } from "@ethereumjs/rlp";
-import { Blob4844Tx, Capability } from "@ethereumjs/tx";
+import { ConsensusType } from "@theqrl/zondjs-common";
+import { MerklePatriciaTrie } from "@theqrl/zondjs-mpt";
+import { RLP } from "@theqrl/zondjs-rlp";
+import { Blob4844Tx, Capability } from "@theqrl/zondjs-tx";
 import {
   BIGINT_0,
   KECCAK256_RLP,
@@ -37,12 +37,12 @@ import type {
   ExecutionPayload,
   JSONBlock,
 } from "../types.js";
-import type { Common } from "@ethereumjs/common";
+import type { Common } from "@theqrl/zondjs-common";
 import type {
   FeeMarket1559Tx,
   LegacyTx,
   TypedTransaction,
-} from "@ethereumjs/tx";
+} from "@theqrl/zondjs-tx";
 import type { VerkleExecutionWitness, Withdrawal } from "@theqrl/zondjs-util";
 
 /**

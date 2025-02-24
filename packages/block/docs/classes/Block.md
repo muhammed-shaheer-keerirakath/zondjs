@@ -1,4 +1,4 @@
-[@ethereumjs/block](../README.md) / Block
+[@theqrl/zondjs-block](../README.md) / Block
 
 # Class: Block
 

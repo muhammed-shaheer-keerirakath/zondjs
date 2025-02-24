@@ -1,11 +1,11 @@
-import { createBlock } from "@ethereumjs/block";
+import { createBlock } from "@theqrl/zondjs-block";
 import {
   Common,
   Hardfork,
   Mainnet,
   getPresetChainConfig,
-} from "@ethereumjs/common";
-import { createTx } from "@ethereumjs/tx";
+} from "@theqrl/zondjs-common";
+import { createTx } from "@theqrl/zondjs-tx";
 import {
   Units,
   bytesToHex,

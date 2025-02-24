@@ -1,12 +1,16 @@
-import { BlockHeader, createBlock, createBlockHeader } from "@ethereumjs/block";
+import {
+  BlockHeader,
+  createBlock,
+  createBlockHeader,
+} from "@theqrl/zondjs-block";
 import {
   Common,
   Hardfork,
   createCommonFromGethGenesis,
   createCustomCommon,
-} from "@ethereumjs/common";
-import { MerkleStateManager } from "@ethereumjs/statemanager";
-import { createFeeMarket1559Tx, createLegacyTx } from "@ethereumjs/tx";
+} from "@theqrl/zondjs-common";
+import { MerkleStateManager } from "@theqrl/zondjs-statemanager";
+import { createFeeMarket1559Tx, createLegacyTx } from "@theqrl/zondjs-tx";
 import { Address, equalsBytes, hexToBytes } from "@theqrl/zondjs-util";
 import { AbstractLevel } from "abstract-level";
 // import { keccak256 } from 'ethereum-cryptography/keccak'
@@ -21,9 +25,9 @@ import { wait } from "../integration/util.js";
 import { Goerli } from "../testdata/common/goerliCommon.js";
 
 import type { FullSynchronizer } from "../../src/sync/index.js";
-import type { Block } from "@ethereumjs/block";
-import type { Blockchain, CliqueConsensus } from "@ethereumjs/blockchain";
-import type { VM } from "@ethereumjs/vm";
+import type { Block } from "@theqrl/zondjs-block";
+import type { Blockchain, CliqueConsensus } from "@theqrl/zondjs-blockchain";
+import type { VM } from "@theqrl/zondjs-vm";
 
 const A = {
   address: new Address(

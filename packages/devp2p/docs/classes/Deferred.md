@@ -1,4 +1,4 @@
-[@ethereumjs/devp2p](../README.md) / Deferred
+[@theqrl/zondjs-devp2p](../README.md) / Deferred
 
 # Class: Deferred<T\>
 

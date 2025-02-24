@@ -1,4 +1,4 @@
-[@ethereumjs/block](../README.md) / VerkleProof
+[@theqrl/zondjs-block](../README.md) / VerkleProof
 
 # Interface: VerkleProof
 

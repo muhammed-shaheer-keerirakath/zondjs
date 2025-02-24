@@ -1,4 +1,4 @@
-[@ethereumjs/common](../README.md) / StorageDump
+[@theqrl/zondjs-common](../README.md) / StorageDump
 
 # Interface: StorageDump
 

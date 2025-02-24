@@ -1,5 +1,5 @@
-import { Hardfork } from "@ethereumjs/common";
-import { createTx } from "@ethereumjs/tx";
+import { Hardfork } from "@theqrl/zondjs-common";
+import { createTx } from "@theqrl/zondjs-tx";
 import {
   BIGINT_0,
   BIGINT_256,
@@ -10,7 +10,7 @@ import {
   getBlobs,
   hexToBytes,
 } from "@theqrl/zondjs-util";
-import { buildBlock } from "@ethereumjs/vm";
+import { buildBlock } from "@theqrl/zondjs-vm";
 import { trustedSetup } from "@paulmillr/trusted-setups/fast.js";
 import { KZG as microEthKZG } from "micro-eth-signer/kzg";
 import { assert, describe, it } from "vitest";

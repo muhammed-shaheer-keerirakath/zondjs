@@ -9,7 +9,7 @@ import type { BaseOpts, ChainConfig, GethConfigOpts } from './index.js'
  * in a provided {@link chainParamsOrName} dictionary. Some usage example:
  *
  * ```javascript
- * import { createCustomCommon, Mainnet } from '@ethereumjs/common'
+ * import { createCustomCommon, Mainnet } from '@theqrl/zondjs-common'
  *
  * createCustomCommon({chainId: 123}, Mainnet)
  * ``

@@ -1,6 +1,6 @@
-import { createBlock, createBlockHeader } from "@ethereumjs/block";
-import { Mainnet, createCustomCommon } from "@ethereumjs/common";
-import { createBlob4844Tx, createLegacyTx } from "@ethereumjs/tx";
+import { createBlock, createBlockHeader } from "@theqrl/zondjs-block";
+import { Mainnet, createCustomCommon } from "@theqrl/zondjs-common";
+import { createBlob4844Tx, createLegacyTx } from "@theqrl/zondjs-tx";
 import { bytesToHex, createZeroAddress, hexToBytes } from "@theqrl/zondjs-util";
 import { trustedSetup } from "@paulmillr/trusted-setups/fast.js";
 import { KZG as microEthKZG } from "micro-eth-signer/kzg";

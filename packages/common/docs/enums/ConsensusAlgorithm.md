@@ -1,4 +1,4 @@
-[@ethereumjs/common](../README.md) / ConsensusAlgorithm
+[@theqrl/zondjs-common](../README.md) / ConsensusAlgorithm
 
 # Enumeration: ConsensusAlgorithm
 

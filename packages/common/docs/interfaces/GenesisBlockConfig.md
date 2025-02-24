@@ -1,4 +1,4 @@
-[@ethereumjs/common](../README.md) / GenesisBlockConfig
+[@theqrl/zondjs-common](../README.md) / GenesisBlockConfig
 
 # Interface: GenesisBlockConfig
 

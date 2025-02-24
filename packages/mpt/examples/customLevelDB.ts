@@ -1,4 +1,4 @@
-import { MerklePatriciaTrie } from "@ethereumjs/mpt";
+import { MerklePatriciaTrie } from "@theqrl/zondjs-mpt";
 import { KeyEncoding, ValueEncoding } from "@theqrl/zondjs-util";
 import { Level } from "level";
 import { MemoryLevel } from "memory-level";

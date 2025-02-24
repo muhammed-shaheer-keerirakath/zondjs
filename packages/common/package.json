@@ -1,5 +1,5 @@
 {
-  "name": "@ethereumjs/common",
+  "name": "@theqrl/zondjs-common",
   "version": "5.0.0-alpha.1",
   "description": "Resources common to all Ethereum implementations",
   "keywords": [

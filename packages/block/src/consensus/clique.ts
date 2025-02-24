@@ -1,5 +1,5 @@
-import { ConsensusAlgorithm } from "@ethereumjs/common";
-import { RLP } from "@ethereumjs/rlp";
+import { ConsensusAlgorithm } from "@theqrl/zondjs-common";
+import { RLP } from "@theqrl/zondjs-rlp";
 import {
   Address,
   BIGINT_0,
@@ -15,7 +15,7 @@ import {
 } from "@theqrl/zondjs-util";
 
 import type { BlockHeader } from "../index.js";
-import type { CliqueConfig } from "@ethereumjs/common";
+import type { CliqueConfig } from "@theqrl/zondjs-common";
 
 // Fixed number of extra-data prefix bytes reserved for signer vanity
 export const CLIQUE_EXTRA_VANITY = 32;

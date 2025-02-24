@@ -1,4 +1,4 @@
-import { Hardfork } from "@ethereumjs/common";
+import { Hardfork } from "@theqrl/zondjs-common";
 import { BIGINT_0, BIGINT_1, equalsBytes } from "@theqrl/zondjs-util";
 
 import { Event } from "../types.js";
@@ -11,7 +11,7 @@ import type { VMExecution } from "../execution/index.js";
 import type { Peer } from "../net/peer/peer.js";
 import type { TxPool } from "../service/txpool.js";
 import type { SynchronizerOptions } from "./sync.js";
-import type { Block } from "@ethereumjs/block";
+import type { Block } from "@theqrl/zondjs-block";
 
 interface FullSynchronizerOptions extends SynchronizerOptions {
   /** Tx Pool */

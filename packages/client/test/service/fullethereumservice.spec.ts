@@ -3,8 +3,8 @@ import {
   Hardfork,
   Mainnet,
   createCommonFromGethGenesis,
-} from "@ethereumjs/common";
-import { TransactionType, createTx } from "@ethereumjs/tx";
+} from "@theqrl/zondjs-common";
+import { TransactionType, createTx } from "@theqrl/zondjs-tx";
 import { equalsBytes, hexToBytes, randomBytes } from "@theqrl/zondjs-util";
 import { assert, describe, expect, it, vi } from "vitest";
 
@@ -15,7 +15,7 @@ import { Event } from "../../src/types.js";
 import { postMergeData } from "../testdata/geth-genesis/post-merge.js";
 
 import type { BeaconSynchronizer } from "../../src/sync/index.js";
-import type { Log } from "@ethereumjs/evm";
+import type { Log } from "@theqrl/zondjs-evm";
 
 vi.mock("../../src/net/peerpool.js", () => {
   const PeerPool = vi.fn();

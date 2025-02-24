@@ -3,14 +3,14 @@ import {
   createBlockFromRLP,
   createBlockHeader,
   createBlockHeaderFromBytesArray,
-} from "@ethereumjs/block";
+} from "@theqrl/zondjs-block";
 import {
   Common,
   Hardfork,
   Holesky,
   Mainnet,
   Sepolia,
-} from "@ethereumjs/common";
+} from "@theqrl/zondjs-common";
 import {
   MapDB,
   bytesToHex,
@@ -36,7 +36,7 @@ import {
   isConsecutive,
 } from "./util.js";
 
-import type { Block, BlockOptions } from "@ethereumjs/block";
+import type { Block, BlockOptions } from "@theqrl/zondjs-block";
 import type { PrefixedHexString } from "@theqrl/zondjs-util";
 
 describe("blockchain test", () => {

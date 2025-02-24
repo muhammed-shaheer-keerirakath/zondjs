@@ -6,7 +6,7 @@ import {
   createCommonFromGethGenesis,
   createCustomCommon,
   getPresetChainConfig,
-} from "@ethereumjs/common";
+} from "@theqrl/zondjs-common";
 import {
   BIGINT_2,
   bytesToHex,
@@ -56,7 +56,7 @@ import { setupMetrics } from "../src/util/metrics.js";
 
 import type { Logger } from "../src/logging.js";
 import type { ClientOpts } from "../src/types.js";
-import type { CustomCrypto } from "@ethereumjs/common";
+import type { CustomCrypto } from "@theqrl/zondjs-common";
 import type {
   Address,
   GenesisState,
@@ -109,13 +109,13 @@ export function getArgs(): ClientOpts {
       })
       .option("customChain", {
         describe:
-          "Path to custom chain parameters json file (@ethereumjs/common format)",
+          "Path to custom chain parameters json file (@theqrl/zondjs-common format)",
         coerce: (arg: string) => (arg ? path.resolve(arg) : undefined),
         implies: "customGenesisState",
       })
       .option("customGenesisState", {
         describe:
-          "Path to custom genesis state json file (@ethereumjs/common format)",
+          "Path to custom genesis state json file (@theqrl/zondjs-common format)",
         coerce: (arg: string) => (arg ? path.resolve(arg) : undefined),
         implies: "customChain",
       })

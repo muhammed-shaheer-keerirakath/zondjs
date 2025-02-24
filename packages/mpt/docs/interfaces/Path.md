@@ -1,4 +1,4 @@
-[@ethereumjs/trie](../README.md) / Path
+[@theqrl/zondjs-trie](../README.md) / Path
 
 # Interface: Path
 
@@ -14,13 +14,13 @@
 
 ### node
 
-• **node**: ``null`` \| [`TrieNode`](../README.md#trienode)
+• **node**: `null` \| [`TrieNode`](../README.md#trienode)
 
 #### Defined in
 
 [packages/trie/src/types.ts:24](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/types.ts#L24)
 
-___
+---
 
 ### remaining
 
@@ -30,7 +30,7 @@ ___
 
 [packages/trie/src/types.ts:25](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/types.ts#L25)
 
-___
+---
 
 ### stack
 

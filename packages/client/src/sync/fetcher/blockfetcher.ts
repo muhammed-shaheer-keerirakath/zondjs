@@ -1,4 +1,4 @@
-import { createBlockFromBytesArray } from "@ethereumjs/block";
+import { createBlockFromBytesArray } from "@theqrl/zondjs-block";
 import {
   KECCAK256_RLP,
   KECCAK256_RLP_ARRAY,
@@ -12,7 +12,7 @@ import { BlockFetcherBase } from "./blockfetcherbase.js";
 import type { Peer } from "../../net/peer/index.js";
 import type { BlockFetcherOptions, JobTask } from "./blockfetcherbase.js";
 import type { Job } from "./types.js";
-import type { Block, BlockBytes } from "@ethereumjs/block";
+import type { Block, BlockBytes } from "@theqrl/zondjs-block";
 
 /**
  * Implements an eth/66 based block fetcher

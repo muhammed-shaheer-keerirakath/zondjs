@@ -1,4 +1,4 @@
-# @ethereumjs/era
+# @theqrl/zondjs-era
 
 [![NPM Package][era-npm-badge]][era-npm-link]
 [![GitHub Issues][era-issues-badge]][era-issues-link]
@@ -14,7 +14,7 @@
 To obtain the latest version, simply require the project using `npm`:
 
 ```shell
-npm install @ethereumjs/era
+npm install @theqrl/zondjs-era
 ```
 
 ## Usage
@@ -22,7 +22,7 @@ npm install @ethereumjs/era
 All helpers are re-exported from the root level and deep imports are not necessary. So an import can be done like this:
 
 ```ts
-import { formatEntry } from "@ethereumjs/era";
+import { formatEntry } from "@theqrl/zondjs-era";
 ```
 
 #### Export History as Era1
@@ -30,7 +30,7 @@ import { formatEntry } from "@ethereumjs/era";
 Export history in epochs of 8192 blocks as Era1 files
 
 ```ts
-import { exportEpochAsEra1 } from "@ethereumjs/era";
+import { exportEpochAsEra1 } from "@theqrl/zondjs-era";
 
 const dataDir = PATH_TO_ETHEREUMJS_CLIENT_DB;
 const epoch = 0;
@@ -52,7 +52,7 @@ import {
   blockFromTuple,
   getHeaderRecords,
   EpochAccumulator,
-} from "@ethereumjs/era";
+} from "@theqrl/zondjs-era";
 
 const era1File = readBinaryFile(PATH_TO_ERA1_FILE);
 
@@ -82,8 +82,8 @@ See our organizational [documentation](https://ethereumjs.readthedocs.io) for an
 
 [MPL-2.0](<https://tldrlegal.com/license/mozilla-public-license-2.0-(mpl-2)>)
 
-[era-npm-badge]: https://img.shields.io/npm/v/@ethereumjs/era.svg
-[era-npm-link]: https://www.npmjs.org/package/@ethereumjs/era
+[era-npm-badge]: https://img.shields.io/npm/v/@theqrl/zondjs-era.svg
+[era-npm-link]: https://www.npmjs.org/package/@theqrl/zondjs-era
 [era-issues-badge]: https://img.shields.io/github/issues/ethereumjs/ethereumjs-monorepo/package:%20era?label=issues
 [era-issues-link]: https://github.com/ethereumjs/ethereumjs-monorepo/issues?q=is%3Aopen+is%3Aissue+label%3A"package%3A+era"
 [era-actions-badge]: https://github.com/ethereumjs/ethereumjs-monorepo/workflows/Era/badge.svg

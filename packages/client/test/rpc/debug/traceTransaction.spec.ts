@@ -1,5 +1,5 @@
-import { createBlock } from "@ethereumjs/block";
-import { createTx } from "@ethereumjs/tx";
+import { createBlock } from "@theqrl/zondjs-block";
+import { createTx } from "@theqrl/zondjs-tx";
 import { bytesToHex } from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 

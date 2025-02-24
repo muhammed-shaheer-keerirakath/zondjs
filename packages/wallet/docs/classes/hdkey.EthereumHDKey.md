@@ -1,4 +1,4 @@
-[@ethereumjs/wallet](../README.md) / [hdkey](../modules/hdkey.md) / EthereumHDKey
+[@theqrl/zondjs-wallet](../README.md) / [hdkey](../modules/hdkey.md) / EthereumHDKey
 
 # Class: EthereumHDKey
 

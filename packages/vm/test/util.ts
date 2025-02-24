@@ -1,19 +1,19 @@
 /* eslint-disable no-console */
-import { Block, createBlockHeader } from "@ethereumjs/block";
+import { Block, createBlockHeader } from "@theqrl/zondjs-block";
 import {
   Common,
   Hardfork,
   Mainnet,
   createCustomCommon,
-} from "@ethereumjs/common";
-import { RLP } from "@ethereumjs/rlp";
+} from "@theqrl/zondjs-common";
+import { RLP } from "@theqrl/zondjs-rlp";
 import {
   createAccessList2930Tx,
   createBlob4844Tx,
   createEOACode7702Tx,
   createFeeMarket1559Tx,
   createLegacyTx,
-} from "@ethereumjs/tx";
+} from "@theqrl/zondjs-tx";
 import {
   Account,
   Address,
@@ -33,8 +33,8 @@ import {
 } from "@theqrl/zondjs-util";
 import { keccak256 } from "ethereum-cryptography/keccak";
 
-import type { BlockOptions } from "@ethereumjs/block";
-import type { StateManagerInterface } from "@ethereumjs/common";
+import type { BlockOptions } from "@theqrl/zondjs-block";
+import type { StateManagerInterface } from "@theqrl/zondjs-common";
 import type {
   AccessList2930Tx,
   Blob4844Tx,
@@ -42,7 +42,7 @@ import type {
   FeeMarket1559Tx,
   LegacyTx,
   TxOptions,
-} from "@ethereumjs/tx";
+} from "@theqrl/zondjs-tx";
 import type * as tape from "tape";
 
 export function format(
@@ -220,7 +220,7 @@ export function dumpState(state: any, cb: Function) {
 /**
  * Make a tx using JSON from tests repo
  * @param {Object} txData The tx object from tests repo
- * @param {TxOptions} opts Tx opts that can include an @ethereumjs/common object
+ * @param {TxOptions} opts Tx opts that can include an @theqrl/zondjs-common object
  * @returns {Blob4844Tx | FeeMarket1559Tx | AccessList2930Transaction | LegacyTx} Transaction to be passed to runTx() function
  */
 export function makeTx(

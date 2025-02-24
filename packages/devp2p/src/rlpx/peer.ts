@@ -1,4 +1,4 @@
-import { RLP } from "@ethereumjs/rlp";
+import { RLP } from "@theqrl/zondjs-rlp";
 import {
   bytesToHex,
   bytesToInt,
@@ -20,7 +20,7 @@ import { ECIES } from "./ecies.js";
 
 import type { Protocol } from "../protocol/protocol.js";
 import type { Capabilities, PeerOptions } from "../types.js";
-import type { Common } from "@ethereumjs/common";
+import type { Common } from "@theqrl/zondjs-common";
 import type { Debugger } from "debug";
 import type { Socket } from "net";
 

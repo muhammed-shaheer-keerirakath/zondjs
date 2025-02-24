@@ -1,4 +1,4 @@
-[@ethereumjs/trie](../README.md) / BranchNode
+[@theqrl/zondjs-trie](../README.md) / BranchNode
 
 # Class: BranchNode
 
@@ -37,17 +37,17 @@
 
 ### \_branches
 
-• **\_branches**: (``null`` \| [`EmbeddedNode`](../README.md#embeddednode))[]
+• **\_branches**: (`null` \| [`EmbeddedNode`](../README.md#embeddednode))[]
 
 #### Defined in
 
 [packages/trie/src/node/branch.ts:6](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/node/branch.ts#L6)
 
-___
+---
 
 ### \_value
 
-• **\_value**: ``null`` \| `Uint8Array`
+• **\_value**: `null` \| `Uint8Array`
 
 #### Defined in
 
@@ -57,23 +57,23 @@ ___
 
 ### getBranch
 
-▸ **getBranch**(`i`): ``null`` \| [`EmbeddedNode`](../README.md#embeddednode)
+▸ **getBranch**(`i`): `null` \| [`EmbeddedNode`](../README.md#embeddednode)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `i` | `number` |
+| Name | Type     |
+| :--- | :------- |
+| `i`  | `number` |
 
 #### Returns
 
-``null`` \| [`EmbeddedNode`](../README.md#embeddednode)
+`null` \| [`EmbeddedNode`](../README.md#embeddednode)
 
 #### Defined in
 
 [packages/trie/src/node/branch.ts:41](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/node/branch.ts#L41)
 
-___
+---
 
 ### getChildren
 
@@ -87,21 +87,21 @@ ___
 
 [packages/trie/src/node/branch.ts:50](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/node/branch.ts#L50)
 
-___
+---
 
 ### raw
 
-▸ **raw**(): (``null`` \| [`EmbeddedNode`](../README.md#embeddednode))[]
+▸ **raw**(): (`null` \| [`EmbeddedNode`](../README.md#embeddednode))[]
 
 #### Returns
 
-(``null`` \| [`EmbeddedNode`](../README.md#embeddednode))[]
+(`null` \| [`EmbeddedNode`](../README.md#embeddednode))[]
 
 #### Defined in
 
 [packages/trie/src/node/branch.ts:33](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/node/branch.ts#L33)
 
-___
+---
 
 ### serialize
 
@@ -115,7 +115,7 @@ ___
 
 [packages/trie/src/node/branch.ts:37](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/node/branch.ts#L37)
 
-___
+---
 
 ### setBranch
 
@@ -123,10 +123,10 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `i` | `number` |
-| `v` | ``null`` \| [`EmbeddedNode`](../README.md#embeddednode) |
+| Name | Type                                                  |
+| :--- | :---------------------------------------------------- |
+| `i`  | `number`                                              |
+| `v`  | `null` \| [`EmbeddedNode`](../README.md#embeddednode) |
 
 #### Returns
 
@@ -136,27 +136,27 @@ ___
 
 [packages/trie/src/node/branch.ts:29](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/node/branch.ts#L29)
 
-___
+---
 
 ### value
 
-▸ **value**(`v?`): ``null`` \| `Uint8Array`
+▸ **value**(`v?`): `null` \| `Uint8Array`
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `v?` | ``null`` \| `Uint8Array` |
+| Name | Type                   |
+| :--- | :--------------------- |
+| `v?` | `null` \| `Uint8Array` |
 
 #### Returns
 
-``null`` \| `Uint8Array`
+`null` \| `Uint8Array`
 
 #### Defined in
 
 [packages/trie/src/node/branch.ts:21](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/node/branch.ts#L21)
 
-___
+---
 
 ### fromArray
 
@@ -164,8 +164,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name  | Type           |
+| :---- | :------------- |
 | `arr` | `Uint8Array`[] |
 
 #### Returns

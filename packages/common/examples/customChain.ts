@@ -1,4 +1,4 @@
-import { Common, Mainnet, createCustomCommon } from '@ethereumjs/common'
+import { Common, Mainnet, createCustomCommon } from '@theqrl/zondjs-common'
 
 import myCustomChain1 from './genesisData/testnet.json'
 

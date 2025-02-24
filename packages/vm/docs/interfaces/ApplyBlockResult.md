@@ -1,4 +1,4 @@
-[@ethereumjs/vm](../README.md) / ApplyBlockResult
+[@theqrl/zondjs-vm](../README.md) / ApplyBlockResult
 
 # Interface: ApplyBlockResult
 

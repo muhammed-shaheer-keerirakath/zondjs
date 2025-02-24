@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
-import { createCommonFromGethGenesis } from "@ethereumjs/common";
-import { createTx } from "@ethereumjs/tx";
+import { createCommonFromGethGenesis } from "@theqrl/zondjs-common";
+import { createTx } from "@theqrl/zondjs-tx";
 import { bytesToHex, hexToBytes, privateToAddress } from "@theqrl/zondjs-util";
 import { Client } from "jayson/promise";
 import { randomBytes } from "node:crypto";

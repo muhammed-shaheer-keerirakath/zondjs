@@ -1,5 +1,5 @@
-import { Hardfork, Mainnet, createCustomCommon } from "@ethereumjs/common";
-import { createLegacyTxFromRLP } from "@ethereumjs/tx";
+import { Hardfork, Mainnet, createCustomCommon } from "@theqrl/zondjs-common";
+import { createLegacyTxFromRLP } from "@theqrl/zondjs-tx";
 import { toBytes } from "@theqrl/zondjs-util";
 
 const txData = toBytes(

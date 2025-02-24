@@ -1,4 +1,4 @@
-import { RLP } from '@ethereumjs/rlp'
+import { RLP } from '@theqrl/zondjs-rlp'
 
 import { InternalBinaryNode } from './internalNode.js'
 import { StemBinaryNode } from './stemNode.js'

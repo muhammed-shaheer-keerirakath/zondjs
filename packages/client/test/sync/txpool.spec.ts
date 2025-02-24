@@ -1,7 +1,10 @@
-import { createBlock } from "@ethereumjs/block";
-import { Common, Hardfork, Mainnet } from "@ethereumjs/common";
-import { MerkleStateManager } from "@ethereumjs/statemanager";
-import { createAccessList2930Tx, createFeeMarket1559Tx } from "@ethereumjs/tx";
+import { createBlock } from "@theqrl/zondjs-block";
+import { Common, Hardfork, Mainnet } from "@theqrl/zondjs-common";
+import { MerkleStateManager } from "@theqrl/zondjs-statemanager";
+import {
+  createAccessList2930Tx,
+  createFeeMarket1559Tx,
+} from "@theqrl/zondjs-tx";
 import {
   Account,
   Units,

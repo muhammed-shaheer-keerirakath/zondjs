@@ -6,7 +6,7 @@ import { BoundEthProtocol, BoundSnapProtocol } from "../protocol/index.js";
 import type { Config } from "../../config.js";
 import type { BoundProtocol, Protocol, Sender } from "../protocol/index.js";
 import type { Server } from "../server/index.js";
-import type { BlockHeader } from "@ethereumjs/block";
+import type { BlockHeader } from "@theqrl/zondjs-block";
 
 export interface PeerOptions {
   /* Config */

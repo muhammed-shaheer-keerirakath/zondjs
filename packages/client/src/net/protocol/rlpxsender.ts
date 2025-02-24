@@ -1,6 +1,9 @@
-import { Sender } from './sender.js'
+import { Sender } from "./sender.js";
 
-import type { ETH as Devp2pETH, SNAP as Devp2pSNAP } from '@ethereumjs/devp2p'
+import type {
+  ETH as Devp2pETH,
+  SNAP as Devp2pSNAP,
+} from "@theqrl/zondjs-devp2p";
 
 /**
  * DevP2P/RLPx protocol sender
@@ -9,22 +12,22 @@ import type { ETH as Devp2pETH, SNAP as Devp2pSNAP } from '@ethereumjs/devp2p'
  * @memberof module:net/protocol
  */
 export class RlpxSender extends Sender {
-  private sender: Devp2pETH | Devp2pSNAP
+  private sender: Devp2pETH | Devp2pSNAP;
 
   /**
    * Creates a new DevP2P/Rlpx protocol sender
-   * @param rlpxProtocol protocol object from @ethereumjs/devp2p
+   * @param rlpxProtocol protocol object from @theqrl/zondjs-devp2p
    */
   constructor(rlpxProtocol: Devp2pETH | Devp2pSNAP) {
-    super()
+    super();
 
-    this.sender = rlpxProtocol
-    this.sender.events.on('status', (status: any) => {
-      this.status = status
-    })
-    this.sender.events.on('message', (code: number, payload: any) => {
-      this.emit('message', { code, payload })
-    })
+    this.sender = rlpxProtocol;
+    this.sender.events.on("status", (status: any) => {
+      this.status = status;
+    });
+    this.sender.events.on("message", (code: number, payload: any) => {
+      this.emit("message", { code, payload });
+    });
   }
 
   /**
@@ -33,9 +36,9 @@ export class RlpxSender extends Sender {
    */
   sendStatus(status: any) {
     try {
-      this.sender.sendStatus(status)
+      this.sender.sendStatus(status);
     } catch (err: any) {
-      this.emit('error', err)
+      this.emit("error", err);
     }
   }
 
@@ -47,9 +50,9 @@ export class RlpxSender extends Sender {
   sendMessage(code: number, data: any) {
     try {
       //@ts-ignore "type number is not assignable to type never"
-      this.sender.sendMessage(code, data)
+      this.sender.sendMessage(code, data);
     } catch (err: any) {
-      this.emit('error', err)
+      this.emit("error", err);
     }
   }
 }

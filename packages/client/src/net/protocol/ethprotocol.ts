@@ -1,8 +1,8 @@
 import {
   createBlockFromBytesArray,
   createBlockHeaderFromBytesArray,
-} from "@ethereumjs/block";
-import { RLP } from "@ethereumjs/rlp";
+} from "@theqrl/zondjs-block";
+import { RLP } from "@theqrl/zondjs-rlp";
 import {
   Blob4844Tx,
   createBlob4844TxFromSerializedNetworkWrapper,
@@ -13,7 +13,7 @@ import {
   isEOACode7702Tx,
   isFeeMarket1559Tx,
   isLegacyTx,
-} from "@ethereumjs/tx";
+} from "@theqrl/zondjs-tx";
 import {
   BIGINT_0,
   bigIntToUnpaddedBytes,
@@ -24,7 +24,7 @@ import {
   intToUnpaddedBytes,
   isNestedUint8Array,
 } from "@theqrl/zondjs-util";
-import { encodeReceipt } from "@ethereumjs/vm";
+import { encodeReceipt } from "@theqrl/zondjs-vm";
 
 import { Protocol } from "./protocol.js";
 
@@ -37,15 +37,15 @@ import type {
   BlockBytes,
   BlockHeader,
   BlockHeaderBytes,
-} from "@ethereumjs/block";
-import type { Log } from "@ethereumjs/evm";
-import type { TypedTransaction } from "@ethereumjs/tx";
+} from "@theqrl/zondjs-block";
+import type { Log } from "@theqrl/zondjs-evm";
+import type { TypedTransaction } from "@theqrl/zondjs-tx";
 import type { PrefixedHexString } from "@theqrl/zondjs-util";
 import type {
   PostByzantiumTxReceipt,
   PreByzantiumTxReceipt,
   TxReceipt,
-} from "@ethereumjs/vm";
+} from "@theqrl/zondjs-vm";
 
 interface EthProtocolOptions extends ProtocolOptions {
   /* Blockchain */

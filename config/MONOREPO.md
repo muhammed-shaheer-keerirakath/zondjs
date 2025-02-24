@@ -53,7 +53,7 @@ Adds dependencies listed in the root package.
 
 Builds all monorepo packages.
 
-To build a specific package, use `npm run build --workspace=@ethereumjs/vm`
+To build a specific package, use `npm run build --workspace=@theqrl/zondjs-vm`
 
 #### `npm run clean`
 

@@ -1,4 +1,4 @@
-[@ethereumjs/statemanager](../README.md) / StorageCache
+[@theqrl/zondjs-statemanager](../README.md) / StorageCache
 
 # Class: StorageCache
 
@@ -47,8 +47,8 @@
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name   | Type                                      |
+| :----- | :---------------------------------------- |
 | `opts` | [`CacheOpts`](../interfaces/CacheOpts.md) |
 
 #### Overrides
@@ -73,7 +73,7 @@ Cache.\_checkpoints
 
 [cache/cache.ts:9](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/cache/cache.ts#L9)
 
-___
+---
 
 ### \_debug
 
@@ -87,7 +87,7 @@ Cache.\_debug
 
 [cache/cache.ts:7](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/cache/cache.ts#L7)
 
-___
+---
 
 ### \_diffCache
 
@@ -105,7 +105,7 @@ before.
 
 [cache/storage.ts:34](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/cache/storage.ts#L34)
 
-___
+---
 
 ### \_lruCache
 
@@ -115,7 +115,7 @@ ___
 
 [cache/storage.ts:22](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/cache/storage.ts#L22)
 
-___
+---
 
 ### \_orderedMapCache
 
@@ -125,7 +125,7 @@ ___
 
 [cache/storage.ts:23](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/cache/storage.ts#L23)
 
-___
+---
 
 ### \_stats
 
@@ -133,12 +133,12 @@ ___
 
 #### Type declaration
 
-| Name | Type |
-| :------ | :------ |
-| `dels` | `number` |
-| `hits` | `number` |
-| `reads` | `number` |
-| `size` | `number` |
+| Name     | Type     |
+| :------- | :------- |
+| `dels`   | `number` |
+| `hits`   | `number` |
+| `reads`  | `number` |
+| `size`   | `number` |
 | `writes` | `number` |
 
 #### Inherited from
@@ -153,14 +153,14 @@ Cache.\_stats
 
 ### \_saveCachePreState
 
-▸ **_saveCachePreState**(`addressHex`, `keyHex`): `void`
+▸ **\_saveCachePreState**(`addressHex`, `keyHex`): `void`
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name         | Type     |
+| :----------- | :------- |
 | `addressHex` | `string` |
-| `keyHex` | `string` |
+| `keyHex`     | `string` |
 
 #### Returns
 
@@ -170,7 +170,7 @@ Cache.\_stats
 
 [cache/storage.ts:54](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/cache/storage.ts#L54)
 
-___
+---
 
 ### checkpoint
 
@@ -187,7 +187,7 @@ later on be reverted or committed.
 
 [cache/storage.ts:300](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/cache/storage.ts#L300)
 
-___
+---
 
 ### clear
 
@@ -203,7 +203,7 @@ Clears cache.
 
 [cache/storage.ts:342](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/cache/storage.ts#L342)
 
-___
+---
 
 ### clearContractStorage
 
@@ -213,8 +213,8 @@ Deletes all storage slots for address from the cache
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name      | Type      |
+| :-------- | :-------- |
 | `address` | `Address` |
 
 #### Returns
@@ -225,7 +225,7 @@ Deletes all storage slots for address from the cache
 
 [cache/storage.ts:176](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/cache/storage.ts#L176)
 
-___
+---
 
 ### commit
 
@@ -241,7 +241,7 @@ Commits to current state of cache (no effect on trie).
 
 [cache/storage.ts:267](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/cache/storage.ts#L267)
 
-___
+---
 
 ### del
 
@@ -251,10 +251,10 @@ Marks storage key for address as deleted in cache.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `address` | `Address` | Address |
-| `key` | `Uint8Array` | Storage key |
+| Name      | Type         | Description |
+| :-------- | :----------- | :---------- |
+| `address` | `Address`    | Address     |
+| `key`     | `Uint8Array` | Storage key |
 
 #### Returns
 
@@ -264,7 +264,7 @@ Marks storage key for address as deleted in cache.
 
 [cache/storage.ts:146](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/cache/storage.ts#L146)
 
-___
+---
 
 ### dump
 
@@ -274,8 +274,8 @@ Dumps the RLP-encoded storage values for an `account` specified by `address`.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name      | Type      | Description                                        |
+| :-------- | :-------- | :------------------------------------------------- |
 | `address` | `Address` | The address of the `account` to return storage for |
 
 #### Returns
@@ -288,7 +288,7 @@ Dumps the RLP-encoded storage values for an `account` specified by `address`.
 
 [cache/storage.ts:358](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/cache/storage.ts#L358)
 
-___
+---
 
 ### flush
 
@@ -305,7 +305,7 @@ or deleted and resetting the diff cache (at checkpoint height).
 
 [cache/storage.ts:189](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/cache/storage.ts#L189)
 
-___
+---
 
 ### get
 
@@ -317,10 +317,10 @@ undefined: slot is not in cache
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `address` | `Address` | Address of account |
-| `key` | `Uint8Array` | Storage key |
+| Name      | Type         | Description        |
+| :-------- | :----------- | :----------------- |
+| `address` | `Address`    | Address of account |
+| `key`     | `Uint8Array` | Storage key        |
 
 #### Returns
 
@@ -332,7 +332,7 @@ Storage value or undefined
 
 [cache/storage.ts:121](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/cache/storage.ts#L121)
 
-___
+---
 
 ### put
 
@@ -342,11 +342,11 @@ Puts storage value to cache under address_key cache key.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `address` | `Address` | Account address |
-| `key` | `Uint8Array` | Storage key |
-| `value` | `Uint8Array` | - |
+| Name      | Type         | Description     |
+| :-------- | :----------- | :-------------- |
+| `address` | `Address`    | Account address |
+| `key`     | `Uint8Array` | Storage key     |
+| `value`   | `Uint8Array` | -               |
 
 #### Returns
 
@@ -356,7 +356,7 @@ Puts storage value to cache under address_key cache key.
 
 [cache/storage.ts:83](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/cache/storage.ts#L83)
 
-___
+---
 
 ### revert
 
@@ -372,7 +372,7 @@ Revert changes to cache last checkpoint (no effect on trie).
 
 [cache/storage.ts:225](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/cache/storage.ts#L225)
 
-___
+---
 
 ### size
 
@@ -388,7 +388,7 @@ Returns the size of the cache
 
 [cache/storage.ts:312](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/cache/storage.ts#L312)
 
-___
+---
 
 ### stats
 
@@ -398,20 +398,20 @@ Returns a dict with cache stats
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `reset` | `boolean` | `true` |
+| Name    | Type      | Default value |
+| :------ | :-------- | :------------ |
+| `reset` | `boolean` | `true`        |
 
 #### Returns
 
 `Object`
 
-| Name | Type |
-| :------ | :------ |
-| `dels` | `number` |
-| `hits` | `number` |
-| `reads` | `number` |
-| `size` | `number` |
+| Name     | Type     |
+| :------- | :------- |
+| `dels`   | `number` |
+| `hits`   | `number` |
+| `reads`  | `number` |
+| `size`   | `number` |
 | `writes` | `number` |
 
 #### Defined in

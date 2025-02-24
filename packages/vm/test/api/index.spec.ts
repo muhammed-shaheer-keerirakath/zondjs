@@ -3,8 +3,8 @@ import {
   Hardfork,
   Mainnet,
   createCustomCommon,
-} from "@ethereumjs/common";
-import { EVM, createEVM } from "@ethereumjs/evm";
+} from "@theqrl/zondjs-common";
+import { EVM, createEVM } from "@theqrl/zondjs-evm";
 import {
   Account,
   KECCAK256_RLP,
@@ -18,7 +18,7 @@ import { type VMOpts, createVM, paramsVM } from "../../src/index.js";
 import { testnetMergeData } from "./testdata/testnetMerge.js";
 import { setupVM } from "./utils.js";
 
-import type { MerkleStateManager } from "@ethereumjs/statemanager";
+import type { MerkleStateManager } from "@theqrl/zondjs-statemanager";
 
 /**
  * Tests for the main constructor API and

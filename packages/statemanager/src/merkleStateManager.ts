@@ -1,6 +1,6 @@
-import { Common, Mainnet } from "@ethereumjs/common";
-import { MerklePatriciaTrie } from "@ethereumjs/mpt";
-import { RLP } from "@ethereumjs/rlp";
+import { Common, Mainnet } from "@theqrl/zondjs-common";
+import { MerklePatriciaTrie } from "@theqrl/zondjs-mpt";
+import { RLP } from "@theqrl/zondjs-rlp";
 import {
   Account,
   bytesToUnprefixedHex,
@@ -30,7 +30,7 @@ import type {
   StateManagerInterface,
   StorageDump,
   StorageRange,
-} from "@ethereumjs/common";
+} from "@theqrl/zondjs-common";
 import type { Address, DB } from "@theqrl/zondjs-util";
 import type { Debugger } from "debug";
 
@@ -52,10 +52,10 @@ export const CODEHASH_PREFIX = utf8ToBytes("c");
  * and storage slots.
  *
  * The default state manager implementation uses a
- * `@ethereumjs/mpt` trie as a data backend.
+ * `@theqrl/zondjs-mpt` trie as a data backend.
  *
  * Note that there is a `SimpleStateManager` dependency-free state
- * manager implementation available shipped with the `@ethereumjs/statemanager`
+ * manager implementation available shipped with the `@theqrl/zondjs-statemanager`
  * package which might be an alternative to this implementation
  * for many basic use cases.
  */

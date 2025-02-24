@@ -1,4 +1,4 @@
-import { ConsensusAlgorithm } from "@ethereumjs/common";
+import { ConsensusAlgorithm } from "@theqrl/zondjs-common";
 import {
   Account,
   BIGINT_0,
@@ -43,7 +43,7 @@ import type {
   Common,
   StateManagerInterface,
   VerkleAccessWitnessInterface,
-} from "@ethereumjs/common";
+} from "@theqrl/zondjs-common";
 import type { Address, PrefixedHexString } from "@theqrl/zondjs-util";
 
 const debugGas = debugDefault("evm:gas");

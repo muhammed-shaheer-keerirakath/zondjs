@@ -1,17 +1,17 @@
-import { createBlock } from "@ethereumjs/block";
-import { Hardfork } from "@ethereumjs/common";
+import { createBlock } from "@theqrl/zondjs-block";
+import { Hardfork } from "@theqrl/zondjs-common";
 import {
   MerkleStateManager,
   StatelessVerkleStateManager,
   getMerkleStateProof,
   getVerkleStateProof,
-} from "@ethereumjs/statemanager";
+} from "@theqrl/zondjs-statemanager";
 import {
   Capability,
   createBlob4844TxFromSerializedNetworkWrapper,
   createTx,
   createTxFromRLP,
-} from "@ethereumjs/tx";
+} from "@theqrl/zondjs-tx";
 import {
   BIGINT_0,
   BIGINT_1,
@@ -38,7 +38,7 @@ import {
   type VM,
   runBlock,
   runTx,
-} from "@ethereumjs/vm";
+} from "@theqrl/zondjs-vm";
 
 import {
   INTERNAL_ERROR,
@@ -59,14 +59,14 @@ import type { EthereumClient } from "../../index.js";
 import type { EthProtocol } from "../../net/protocol/index.js";
 import type { FullEthereumService, Service } from "../../service/index.js";
 import type { RPCTx } from "../types.js";
-import type { Block, JSONRPCBlock } from "@ethereumjs/block";
-import type { Log } from "@ethereumjs/evm";
-import type { Proof } from "@ethereumjs/statemanager";
+import type { Block, JSONRPCBlock } from "@theqrl/zondjs-block";
+import type { Log } from "@theqrl/zondjs-evm";
+import type { Proof } from "@theqrl/zondjs-statemanager";
 import type {
   FeeMarket1559Tx,
   LegacyTx,
   TypedTransaction,
-} from "@ethereumjs/tx";
+} from "@theqrl/zondjs-tx";
 import type { Address, PrefixedHexString } from "@theqrl/zondjs-util";
 
 const EMPTY_SLOT = `0x${"00".repeat(32)}`;

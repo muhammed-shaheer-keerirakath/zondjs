@@ -1,4 +1,4 @@
-[@ethereumjs/block](../README.md) / BlockHeader
+[@theqrl/zondjs-block](../README.md) / BlockHeader
 
 # Class: BlockHeader
 

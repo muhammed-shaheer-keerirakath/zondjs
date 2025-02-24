@@ -1,6 +1,6 @@
 import type { Blockchain } from "./index.js";
-import type { Block, BlockHeader } from "@ethereumjs/block";
-import type { Common, ConsensusAlgorithm } from "@ethereumjs/common";
+import type { Block, BlockHeader } from "@theqrl/zondjs-block";
+import type { Common, ConsensusAlgorithm } from "@theqrl/zondjs-common";
 import type { DB, DBObject, GenesisState } from "@theqrl/zondjs-util";
 import type { EventEmitter } from "eventemitter3";
 
@@ -199,8 +199,8 @@ export interface BlockchainOptions extends GenesisOptions {
    * respective consensus validation objects `EthashConsensus` or `CliqueConsensus`.
    *
    * ```ts
-   * import { CliqueConsensus, createBlockchain } from '@ethereumjs/blockchain'
-   * import type { ConsensusDict } from '@ethereumjs/blockchain'
+   * import { CliqueConsensus, createBlockchain } from '@theqrl/zondjs-blockchain'
+   * import type { ConsensusDict } from '@theqrl/zondjs-blockchain'
    *
    * const consensusDict: ConsensusDict = {}
    * consensusDict[ConsensusAlgorithm.Clique] = new CliqueConsensus()

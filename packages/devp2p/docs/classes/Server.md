@@ -1,4 +1,4 @@
-[@ethereumjs/devp2p](../README.md) / Server
+[@theqrl/zondjs-devp2p](../README.md) / Server
 
 # Class: Server
 

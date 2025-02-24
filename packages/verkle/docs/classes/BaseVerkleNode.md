@@ -1,4 +1,4 @@
-[@ethereumjs/verkle](../README.md) / BaseVerkleNode
+[@theqrl/zondjs-verkle](../README.md) / BaseVerkleNode
 
 # Class: BaseVerkleNode<T\>
 

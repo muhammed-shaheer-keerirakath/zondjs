@@ -1,4 +1,4 @@
-[@ethereumjs/common](../README.md) / CustomCrypto
+[@theqrl/zondjs-common](../README.md) / CustomCrypto
 
 # Interface: CustomCrypto
 

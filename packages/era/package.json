@@ -1,5 +1,5 @@
 {
-  "name": "@ethereumjs/era",
+  "name": "@theqrl/zondjs-era",
   "version": "1.0.0-alpha.1",
   "description": "Era file support for EthereumJS",
   "keywords": [
@@ -55,9 +55,9 @@
   },
   "dependencies": {
     "level": "^8.0.0",
-    "@ethereumjs/block": "^6.0.0-alpha.1",
-    "@ethereumjs/blockchain": "^8.0.0-alpha.1",
-    "@ethereumjs/rlp": "^6.0.0-alpha.1",
+    "@theqrl/zondjs-block": "^6.0.0-alpha.1",
+    "@theqrl/zondjs-blockchain": "^8.0.0-alpha.1",
+    "@theqrl/zondjs-rlp": "^6.0.0-alpha.1",
     "micro-eth-signer": "^0.13.3",
     "snappystream": "^2.1.1",
     "@theqrl/zondjs-util": "^10.0.0-alpha.1"

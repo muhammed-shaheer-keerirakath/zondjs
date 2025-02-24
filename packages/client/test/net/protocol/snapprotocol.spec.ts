@@ -1,5 +1,5 @@
-import { decodeMPTNode, verifyMerkleRangeProof } from "@ethereumjs/mpt";
-import { RLP } from "@ethereumjs/rlp";
+import { decodeMPTNode, verifyMerkleRangeProof } from "@theqrl/zondjs-mpt";
+import { RLP } from "@theqrl/zondjs-rlp";
 import {
   KECCAK256_NULL,
   KECCAK256_RLP,

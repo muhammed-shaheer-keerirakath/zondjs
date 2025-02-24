@@ -1,4 +1,4 @@
-import { Hardfork } from "@ethereumjs/common";
+import { Hardfork } from "@theqrl/zondjs-common";
 import {
   Address,
   RIPEMD160_ADDRESS_STRING,
@@ -10,7 +10,7 @@ import {
 } from "@theqrl/zondjs-util";
 import debugDefault from "debug";
 
-import type { Common, StateManagerInterface } from "@ethereumjs/common";
+import type { Common, StateManagerInterface } from "@theqrl/zondjs-common";
 import type { Account, PrefixedHexString } from "@theqrl/zondjs-util";
 import type { Debugger } from "debug";
 

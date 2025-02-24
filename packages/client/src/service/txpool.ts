@@ -5,7 +5,7 @@ import {
   isBlob4844Tx,
   isFeeMarket1559Tx,
   isLegacyTx,
-} from "@ethereumjs/tx";
+} from "@theqrl/zondjs-tx";
 import {
   Account,
   Address,
@@ -24,14 +24,14 @@ import type { QHeap } from "../ext/qheap.js";
 import type { Peer } from "../net/peer/peer.js";
 import type { PeerPool } from "../net/peerpool.js";
 import type { FullEthereumService } from "./fullethereumservice.js";
-import type { Block } from "@ethereumjs/block";
+import type { Block } from "@theqrl/zondjs-block";
 import type {
   FeeMarket1559Tx,
   LegacyTx,
   TypedTransaction,
-} from "@ethereumjs/tx";
+} from "@theqrl/zondjs-tx";
 import type { PrefixedHexString } from "@theqrl/zondjs-util";
-import type { VM } from "@ethereumjs/vm";
+import type { VM } from "@theqrl/zondjs-vm";
 
 // Configuration constants
 const MIN_GAS_PRICE_BUMP_PERCENT = 10;

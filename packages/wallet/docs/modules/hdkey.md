@@ -1,4 +1,4 @@
-[@ethereumjs/wallet](../README.md) / hdkey
+[@theqrl/zondjs-wallet](../README.md) / hdkey
 
 # Namespace: hdkey
 

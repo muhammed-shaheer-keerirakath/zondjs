@@ -1,5 +1,5 @@
-import { Block } from "@ethereumjs/block";
-import { createFeeMarket1559Tx } from "@ethereumjs/tx";
+import { Block } from "@theqrl/zondjs-block";
+import { createFeeMarket1559Tx } from "@theqrl/zondjs-tx";
 import {
   Account,
   bytesToHex,

@@ -1,4 +1,4 @@
-[@ethereumjs/common](../README.md) / ChainName
+[@theqrl/zondjs-common](../README.md) / ChainName
 
 # Interface: ChainName
 

@@ -1,4 +1,4 @@
-[@ethereumjs/blockchain](../README.md) / CliqueConsensus
+[@theqrl/zondjs-blockchain](../README.md) / CliqueConsensus
 
 # Class: CliqueConsensus
 

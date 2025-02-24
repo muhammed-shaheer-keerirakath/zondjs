@@ -1,4 +1,4 @@
-[@ethereumjs/devp2p](../README.md) / Capabilities
+[@theqrl/zondjs-devp2p](../README.md) / Capabilities
 
 # Interface: Capabilities
 

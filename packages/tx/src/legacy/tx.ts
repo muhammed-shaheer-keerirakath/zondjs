@@ -1,4 +1,4 @@
-import { RLP } from "@ethereumjs/rlp";
+import { RLP } from "@theqrl/zondjs-rlp";
 import {
   BIGINT_2,
   BIGINT_8,
@@ -30,7 +30,7 @@ import type {
   TransactionInterface,
   TxOptions,
 } from "../types.js";
-import type { Common } from "@ethereumjs/common";
+import type { Common } from "@theqrl/zondjs-common";
 import type { Address } from "@theqrl/zondjs-util";
 
 export type TxData = AllTypesTxData[TransactionType.Legacy];
@@ -254,7 +254,7 @@ export class LegacyTx implements TransactionInterface<TransactionType.Legacy> {
    * and you might need to do yourself with:
    *
    * ```javascript
-   * import { RLP } from '@ethereumjs/rlp'
+   * import { RLP } from '@theqrl/zondjs-rlp'
    * const message = tx.getMessageToSign()
    * const serializedMessage = RLP.encode(message)) // use this for the HW wallet input
    * ```

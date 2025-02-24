@@ -1,4 +1,4 @@
-[@ethereumjs/evm](../README.md) / EVMInterface
+[@theqrl/zondjs-evm](../README.md) / EVMInterface
 
 # Interface: EVMInterface
 

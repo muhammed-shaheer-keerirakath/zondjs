@@ -1,5 +1,5 @@
-import { Common, Hardfork, Mainnet } from "@ethereumjs/common";
-import { StatefulVerkleStateManager } from "@ethereumjs/statemanager";
+import { Common, Hardfork, Mainnet } from "@theqrl/zondjs-common";
+import { StatefulVerkleStateManager } from "@theqrl/zondjs-statemanager";
 import {
   bigIntToBytes,
   bytesToHex,
@@ -10,7 +10,7 @@ import {
   hexToBytes,
   setLengthLeft,
 } from "@theqrl/zondjs-util";
-import { createVerkleTree } from "@ethereumjs/verkle";
+import { createVerkleTree } from "@theqrl/zondjs-verkle";
 import * as verkle from "micro-eth-signer/verkle";
 import { assert, describe, it } from "vitest";
 

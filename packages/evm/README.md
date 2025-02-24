@@ -1,4 +1,4 @@
-# @ethereumjs/evm
+# @theqrl/zondjs-evm
 
 [![NPM Package][evm-npm-badge]][evm-npm-link]
 [![GitHub Issues][evm-issues-badge]][evm-issues-link]
@@ -14,10 +14,10 @@
 To obtain the latest version, simply require the project using `npm`:
 
 ```shell
-npm install @ethereumjs/evm
+npm install @theqrl/zondjs-evm
 ```
 
-This package provides the core Ethereum Virtual Machine (EVM) implementation which is capable of executing EVM-compatible bytecode. The package has been extracted from the [@ethereumjs/vm](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/vm) package along the VM `v6` release.
+This package provides the core Ethereum Virtual Machine (EVM) implementation which is capable of executing EVM-compatible bytecode. The package has been extracted from the [@theqrl/zondjs-vm](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/vm) package along the VM `v6` release.
 
 **Note:** Starting with the Dencun hardfork `EIP-4844` related functionality will become an integrated part of the EVM functionality with the activation of the point evaluation precompile. It is therefore strongly recommended to _always_ run the EVM with a KZG library installed and initialized, see [KZG Setup](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/tx/README.md#kzg-setup) for instructions.
 
@@ -32,8 +32,8 @@ The following is the simplest example for an EVM instantiation:
 ```ts
 // ./examples/simple.ts
 
-import { createEVM } from '@ethereumjs/evm'
-import { hexToBytes } from '@ethereumjs/util'
+import { createEVM } from '@theqrl/zondjs-evm'
+import { hexToBytes } from '@theqrl/zondjs-util'
 
 const main = async () => {
   const evm = await createEVM()
@@ -48,18 +48,18 @@ Note: with the switch from v2 to v3 the old direct `new EVM()` constructor usage
 
 ### Blockchain, State and Events
 
-If the EVM should run on a certain state an `@ethereumjs/statemanager` is needed. An `@ethereumjs/blockchain` instance can be passed in to provide access to external interface information like a blockhash:
+If the EVM should run on a certain state an `@theqrl/zondjs-statemanager` is needed. An `@theqrl/zondjs-blockchain` instance can be passed in to provide access to external interface information like a blockhash:
 
 ```ts
 // ./examples/withBlockchain.ts
 
-import { createBlockchain } from '@ethereumjs/blockchain'
-import { Common, Hardfork, Mainnet } from '@ethereumjs/common'
-import { createEVM } from '@ethereumjs/evm'
-import { MerkleStateManager } from '@ethereumjs/statemanager'
-import { bytesToHex, hexToBytes } from '@ethereumjs/util'
+import { createBlockchain } from '@theqrl/zondjs-blockchain'
+import { Common, Hardfork, Mainnet } from '@theqrl/zondjs-common'
+import { createEVM } from '@theqrl/zondjs-evm'
+import { MerkleStateManager } from '@theqrl/zondjs-statemanager'
+import { bytesToHex, hexToBytes } from '@theqrl/zondjs-util'
 
-import type { PrefixedHexString } from '@ethereumjs/util'
+import type { PrefixedHexString } from '@theqrl/zondjs-util'
 
 const main = async () => {
   const common = new Common({ chain: Mainnet, hardfork: Hardfork.Shanghai })
@@ -108,9 +108,9 @@ The following code allows to run precompiles in isolation, e.g. for testing purp
 ```ts
 // ./examples/precompile.ts
 
-import { Common, Hardfork, Mainnet } from '@ethereumjs/common'
-import { createEVM, getActivePrecompiles } from '@ethereumjs/evm'
-import { bytesToHex, hexToBytes } from '@ethereumjs/util'
+import { Common, Hardfork, Mainnet } from '@theqrl/zondjs-common'
+import { createEVM, getActivePrecompiles } from '@theqrl/zondjs-evm'
+import { bytesToHex, hexToBytes } from '@theqrl/zondjs-util'
 
 const main = async () => {
   const common = new Common({ chain: Mainnet, hardfork: Hardfork.Prague })
@@ -144,7 +144,7 @@ Starting with `v3.1.0` the EVM support the BLS precompiles introduced with [EIP-
 An alternative WASM implementation (using [bls-wasm](https://github.com/herumi/bls-wasm)) can be optionally used like this if needed for performance reasons:
 
 ```ts
-import { EVM, MCLBLS } from '@ethereumjs/evm'
+import { EVM, MCLBLS } from '@theqrl/zondjs-evm'
 
 const common = new Common({ chain: Chain.Mainnet, hardfork: Hardfork.Prague })
 await mcl.init(mcl.BLS12_381)
@@ -180,13 +180,13 @@ With the breaking releases from Summer 2023 we have started to ship our librarie
 If you use an ES6-style `import` in your code files from the ESM build will be used:
 
 ```ts
-import { EthereumJSClass } from '@ethereumjs/[PACKAGE_NAME]'
+import { EthereumJSClass } from '@theqrl/zondjs-[PACKAGE_NAME]'
 ```
 
 If you use Node.js specific `require`, the CJS build will be used:
 
 ```ts
-const { EthereumJSClass } = require('@ethereumjs/[PACKAGE_NAME]')
+const { EthereumJSClass } = require('@theqrl/zondjs-[PACKAGE_NAME]')
 ```
 
 Using ESM will give you additional advantages over CJS beyond browser usage like static code analysis / Tree Shaking which CJS can not provide.
@@ -195,7 +195,7 @@ Using ESM will give you additional advantages over CJS beyond browser usage like
 
 With the breaking releases from Summer 2023 we have removed all Node.js specific `Buffer` usages from our libraries and replace these with [Uint8Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array) representations, which are available both in Node.js and the browser (`Buffer` is a subclass of `Uint8Array`).
 
-We have converted existing Buffer conversion methods to Uint8Array conversion methods in the [@ethereumjs/util](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/util) `bytes` module, see the respective README section for guidance.
+We have converted existing Buffer conversion methods to Uint8Array conversion methods in the [@theqrl/zondjs-util](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/util) `bytes` module, see the respective README section for guidance.
 
 ### BigInt Support
 
@@ -207,7 +207,7 @@ Please note that number-related API signatures have changed along with this vers
 
 ### VM/EVM Relation
 
-This package contains the inner Ethereum Virtual Machine core functionality which was included in the [@ethereumjs/vm](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/vm) package up till v5 and has been extracted along the v6 release.
+This package contains the inner Ethereum Virtual Machine core functionality which was included in the [@theqrl/zondjs-vm](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/vm) package up till v5 and has been extracted along the v6 release.
 
 This will make it easier to customize the inner EVM, which can now be passed as an optional argument to the outer `VM` instance.
 
@@ -217,7 +217,7 @@ For the EVM to properly work it needs access to a respective execution environme
 
 With the v2 release EVM, VM and StateManager have been substantially reworked in this regard, see PR [#2649](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2649/) and PR [#2702](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2702) for further deepening context.
 
-The interfaces (in a non-TypeScript sense) between these packages have been simplified and the `EEI` package has been completely removed. Most of the EEI related logic is now either handled internally or more generic functionality being taken over by the `@ethereumjs/statemanager` package.
+The interfaces (in a non-TypeScript sense) between these packages have been simplified and the `EEI` package has been completely removed. Most of the EEI related logic is now either handled internally or more generic functionality being taken over by the `@theqrl/zondjs-statemanager` package.
 
 This allows for both a standalone EVM instantiation with reasonable defaults as well as for a simplified EVM -> VM passing if a customized EVM is needed.
 
@@ -248,7 +248,7 @@ Currently the following hardfork rules are supported:
 Default: `shanghai` (taken from `Common.DEFAULT_HARDFORK`)
 
 A specific hardfork EVM ruleset can be activated by passing in the hardfork
-along the `Common` instance to the outer `@ethereumjs/vm` instance.
+along the `Common` instance to the outer `@theqrl/zondjs-vm` instance.
 
 ### EIP Support
 
@@ -257,8 +257,8 @@ If you want to activate an EIP not currently active on the hardfork your `common
 ```ts
 // ./examples/eips.ts
 
-import { Common, Mainnet } from '@ethereumjs/common'
-import { createEVM } from '@ethereumjs/evm'
+import { Common, Mainnet } from '@theqrl/zondjs-common'
+import { createEVM } from '@theqrl/zondjs-evm'
 
 const main = async () => {
   const common = new Common({ chain: Mainnet, eips: [7702] })
@@ -309,7 +309,7 @@ Currently supported EIPs:
 
 ### WASM Crypto Support
 
-This library by default uses JavaScript implementations for the basic standard crypto primitives like hashing or signature verification (for included txs). See `@ethereumjs/common` [README](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/common) for instructions on how to replace with e.g. a more performant WASM implementation by using a shared `common` instance.
+This library by default uses JavaScript implementations for the basic standard crypto primitives like hashing or signature verification (for included txs). See `@theqrl/zondjs-common` [README](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/common) for instructions on how to replace with e.g. a more performant WASM implementation by using a shared `common` instance.
 
 ### EIP-4844 Shard Blob Transactions Support
 
@@ -317,12 +317,12 @@ This library supports the blob transaction type introduced with [EIP-4844](https
 
 #### Initialization
 
-To run EVM related EIP-4844 functionality you have to active the EIP in the associated `@ethereumjs/common` library:
+To run EVM related EIP-4844 functionality you have to active the EIP in the associated `@theqrl/zondjs-common` library:
 
 ```ts
 // ./examples/4844.ts
 
-import { Common, Hardfork, Mainnet } from '@ethereumjs/common'
+import { Common, Hardfork, Mainnet } from '@theqrl/zondjs-common'
 
 const common = new Common({ chain: Mainnet, hardfork: Hardfork.Shanghai, eips: [4844] })
 ```
@@ -486,7 +486,7 @@ Happy EVM Profiling! 🎉 🤩
 
 ## Development
 
-See [@ethereumjs/vm](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/vm) README.
+See [@theqrl/zondjs-vm](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/vm) README.
 
 ## EthereumJS
 
@@ -498,8 +498,8 @@ See our organizational [documentation](https://ethereumjs.readthedocs.io) for an
 
 [discord-badge]: https://img.shields.io/static/v1?logo=discord&label=discord&message=Join&color=blue
 [discord-link]: https://discord.gg/TNwARpR
-[evm-npm-badge]: https://img.shields.io/npm/v/@ethereumjs/evm.svg
-[evm-npm-link]: https://www.npmjs.com/package/@ethereumjs/evm
+[evm-npm-badge]: https://img.shields.io/npm/v/@theqrl/zondjs-evm.svg
+[evm-npm-link]: https://www.npmjs.com/package/@theqrl/zondjs-evm
 [evm-issues-badge]: https://img.shields.io/github/issues/ethereumjs/ethereumjs-monorepo/package:%20evm?label=issues
 [evm-issues-link]: https://github.com/ethereumjs/ethereumjs-monorepo/issues?q=is%3Aopen+is%3Aissue+label%3A"package%3A+evm"
 [evm-actions-badge]: https://github.com/ethereumjs/ethereumjs-monorepo/workflows/EVM/badge.svg

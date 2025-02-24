@@ -1,5 +1,5 @@
 {
-  "name": "@ethereumjs/vm",
+  "name": "@theqrl/zondjs-vm",
   "version": "9.0.0-alpha.1",
   "description": "An Ethereum VM implementation",
   "keywords": [
@@ -64,22 +64,22 @@
     "tsc": "../../config/cli/ts-compile.sh"
   },
   "dependencies": {
-    "@ethereumjs/block": "^6.0.0-alpha.1",
-    "@ethereumjs/common": "^5.0.0-alpha.1",
-    "@ethereumjs/evm": "^4.0.0-alpha.1",
-    "@ethereumjs/mpt": "^7.0.0-alpha.1",
-    "@ethereumjs/rlp": "^6.0.0-alpha.1",
-    "@ethereumjs/statemanager": "^3.0.0-alpha.1",
-    "@ethereumjs/tx": "^6.0.0-alpha.1",
+    "@theqrl/zondjs-block": "^6.0.0-alpha.1",
+    "@theqrl/zondjs-common": "^5.0.0-alpha.1",
+    "@theqrl/zondjs-evm": "^4.0.0-alpha.1",
+    "@theqrl/zondjs-mpt": "^7.0.0-alpha.1",
+    "@theqrl/zondjs-rlp": "^6.0.0-alpha.1",
+    "@theqrl/zondjs-statemanager": "^3.0.0-alpha.1",
+    "@theqrl/zondjs-tx": "^6.0.0-alpha.1",
     "@theqrl/zondjs-util": "^10.0.0-alpha.1",
-    "@ethereumjs/verkle": "^0.2.0-alpha.1",
+    "@theqrl/zondjs-verkle": "^0.2.0-alpha.1",
     "debug": "^4.3.3",
     "ethereum-cryptography": "^3.1.0",
     "eventemitter3": "^5.0.1"
   },
   "devDependencies": {
-    "@ethereumjs/blockchain": "^8.0.0-alpha.1",
-    "@ethereumjs/ethash": "^4.0.0-alpha.1",
+    "@theqrl/zondjs-blockchain": "^8.0.0-alpha.1",
+    "@theqrl/zondjs-ethash": "^4.0.0-alpha.1",
     "@paulmillr/trusted-setups": "^0.1.2",
     "@types/benchmark": "^1.0.33",
     "@types/core-js": "^2.5.0",

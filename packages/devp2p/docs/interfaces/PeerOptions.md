@@ -1,4 +1,4 @@
-[@ethereumjs/devp2p](../README.md) / PeerOptions
+[@theqrl/zondjs-devp2p](../README.md) / PeerOptions
 
 # Interface: PeerOptions
 

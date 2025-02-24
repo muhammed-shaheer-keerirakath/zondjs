@@ -1,12 +1,12 @@
-import { MerklePatriciaTrie } from "@ethereumjs/mpt";
-import { RLP } from "@ethereumjs/rlp";
+import { MerklePatriciaTrie } from "@theqrl/zondjs-mpt";
+import { RLP } from "@theqrl/zondjs-rlp";
 import {
   type TxOptions,
   createTx,
   createTxFromBlockBodyData,
   createTxFromRLP,
   normalizeTxParams,
-} from "@ethereumjs/tx";
+} from "@theqrl/zondjs-tx";
 import {
   bigIntToHex,
   bytesToHex,
@@ -41,7 +41,7 @@ import type {
   JSONRPCBlock,
   WithdrawalsBytes,
 } from "../types.js";
-import type { TypedTransaction } from "@ethereumjs/tx";
+import type { TypedTransaction } from "@theqrl/zondjs-tx";
 import type {
   EthersProvider,
   PrefixedHexString,

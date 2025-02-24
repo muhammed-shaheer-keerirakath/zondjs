@@ -1,6 +1,6 @@
-@ethereumjs/verkle
+@theqrl/zondjs-verkle
 
-# @ethereumjs/verkle
+# @theqrl/zondjs-verkle
 
 ## Table of contents
 

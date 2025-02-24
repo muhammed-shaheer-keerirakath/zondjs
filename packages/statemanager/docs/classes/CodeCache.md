@@ -1,4 +1,4 @@
-[@ethereumjs/statemanager](../README.md) / CodeCache
+[@theqrl/zondjs-statemanager](../README.md) / CodeCache
 
 # Class: CodeCache
 
@@ -45,8 +45,8 @@
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name   | Type                                      |
+| :----- | :---------------------------------------- |
 | `opts` | [`CacheOpts`](../interfaces/CacheOpts.md) |
 
 #### Overrides
@@ -71,7 +71,7 @@ Cache.\_checkpoints
 
 [cache/cache.ts:9](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/cache/cache.ts#L9)
 
-___
+---
 
 ### \_debug
 
@@ -85,7 +85,7 @@ Cache.\_debug
 
 [cache/cache.ts:7](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/cache/cache.ts#L7)
 
-___
+---
 
 ### \_diffCache
 
@@ -103,7 +103,7 @@ before.
 
 [cache/code.ts:34](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/cache/code.ts#L34)
 
-___
+---
 
 ### \_lruCache
 
@@ -113,7 +113,7 @@ ___
 
 [cache/code.ts:22](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/cache/code.ts#L22)
 
-___
+---
 
 ### \_orderedMapCache
 
@@ -123,7 +123,7 @@ ___
 
 [cache/code.ts:23](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/cache/code.ts#L23)
 
-___
+---
 
 ### \_stats
 
@@ -131,12 +131,12 @@ ___
 
 #### Type declaration
 
-| Name | Type |
-| :------ | :------ |
-| `dels` | `number` |
-| `hits` | `number` |
-| `reads` | `number` |
-| `size` | `number` |
+| Name     | Type     |
+| :------- | :------- |
+| `dels`   | `number` |
+| `hits`   | `number` |
+| `reads`  | `number` |
+| `size`   | `number` |
 | `writes` | `number` |
 
 #### Inherited from
@@ -151,14 +151,14 @@ Cache.\_stats
 
 ### \_saveCachePreState
 
-▸ **_saveCachePreState**(`cacheKeyHex`): `void`
+▸ **\_saveCachePreState**(`cacheKeyHex`): `void`
 
 Saves the state of the code cache before making changes to it.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name          | Type     | Description                                   |
+| :------------ | :------- | :-------------------------------------------- |
 | `cacheKeyHex` | `string` | Account key for which code is being modified. |
 
 #### Returns
@@ -169,7 +169,7 @@ Saves the state of the code cache before making changes to it.
 
 [cache/code.ts:56](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/cache/code.ts#L56)
 
-___
+---
 
 ### checkpoint
 
@@ -186,7 +186,7 @@ later be reverted or committed.
 
 [cache/code.ts:222](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/cache/code.ts#L222)
 
-___
+---
 
 ### clear
 
@@ -202,7 +202,7 @@ Clears the cache.
 
 [cache/code.ts:266](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/cache/code.ts#L266)
 
-___
+---
 
 ### commit
 
@@ -218,7 +218,7 @@ Commits the current state of the cache (no effect on trie).
 
 [cache/code.ts:202](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/cache/code.ts#L202)
 
-___
+---
 
 ### del
 
@@ -228,8 +228,8 @@ Marks code as deleted in the cache.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name      | Type      | Description                                      |
+| :-------- | :-------- | :----------------------------------------------- |
 | `address` | `Address` | Account address for which code is being fetched. |
 
 #### Returns
@@ -240,7 +240,7 @@ Marks code as deleted in the cache.
 
 [cache/code.ts:122](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/cache/code.ts#L122)
 
-___
+---
 
 ### flush
 
@@ -257,7 +257,7 @@ or deleted and resetting the diff cache (at checkpoint height).
 
 [cache/code.ts:145](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/cache/code.ts#L145)
 
-___
+---
 
 ### get
 
@@ -267,8 +267,8 @@ Returns the queried code or undefined if it doesn't exist.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name      | Type      | Description                                      |
+| :-------- | :-------- | :----------------------------------------------- |
 | `address` | `Address` | Account address for which code is being fetched. |
 
 #### Returns
@@ -279,7 +279,7 @@ Returns the queried code or undefined if it doesn't exist.
 
 [cache/code.ts:98](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/cache/code.ts#L98)
 
-___
+---
 
 ### put
 
@@ -289,10 +289,10 @@ Puts code into the cache under its hash.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `address` | `Address` | Address of account code is being modified for. |
-| `code` | `undefined` \| `Uint8Array` | Bytecode or undefined if code doesn't exist. |
+| Name      | Type                        | Description                                    |
+| :-------- | :-------------------------- | :--------------------------------------------- |
+| `address` | `Address`                   | Address of account code is being modified for. |
+| `code`    | `undefined` \| `Uint8Array` | Bytecode or undefined if code doesn't exist.   |
 
 #### Returns
 
@@ -302,7 +302,7 @@ Puts code into the cache under its hash.
 
 [cache/code.ts:75](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/cache/code.ts#L75)
 
-___
+---
 
 ### revert
 
@@ -318,7 +318,7 @@ Revert changes to the cache to the last checkpoint (no effect on trie).
 
 [cache/code.ts:174](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/cache/code.ts#L174)
 
-___
+---
 
 ### size
 
@@ -334,7 +334,7 @@ Returns the size of the cache
 
 [cache/code.ts:234](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/cache/code.ts#L234)
 
-___
+---
 
 ### stats
 
@@ -344,9 +344,9 @@ Returns a dictionary with cache statistics.
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `reset` | `boolean` | `true` | Whether to reset statistics after retrieval. |
+| Name    | Type      | Default value | Description                                  |
+| :------ | :-------- | :------------ | :------------------------------------------- |
+| `reset` | `boolean` | `true`        | Whether to reset statistics after retrieval. |
 
 #### Returns
 

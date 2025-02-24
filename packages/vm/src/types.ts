@@ -1,18 +1,18 @@
 import type { Bloom } from "./bloom/index.js";
-import type { Block, BlockOptions, HeaderData } from "@ethereumjs/block";
+import type { Block, BlockOptions, HeaderData } from "@theqrl/zondjs-block";
 import type {
   Common,
   ParamsDict,
   StateManagerInterface,
-} from "@ethereumjs/common";
+} from "@theqrl/zondjs-common";
 import type {
   EVMInterface,
   EVMMockBlockchainInterface,
   EVMOpts,
   EVMResult,
   Log,
-} from "@ethereumjs/evm";
-import type { AccessList, TypedTransaction } from "@ethereumjs/tx";
+} from "@theqrl/zondjs-evm";
+import type { AccessList, TypedTransaction } from "@theqrl/zondjs-tx";
 import type {
   BigIntLike,
   CLRequest,
@@ -114,7 +114,7 @@ export interface VMOpts {
    * - `hardfork`: `mainnet` hardforks up to the `Paris` hardfork
    * - `eips`: `2537` (usage e.g. `eips: [ 2537, ]`)
    *
-   * Note: check the associated `@ethereumjs/evm` instance options
+   * Note: check the associated `@theqrl/zondjs-evm` instance options
    * documentation for supported EIPs.
    *
    * ### Default Setup
@@ -161,7 +161,7 @@ export interface VMOpts {
   setHardfork?: boolean | BigIntLike;
   /**
    * VM parameters sorted by EIP can be found in the exported `paramsVM` dictionary,
-   * which is internally passed to the associated `@ethereumjs/common` instance which
+   * which is internally passed to the associated `@theqrl/zondjs-common` instance which
    * manages parameter selection based on the hardfork and EIP settings.
    *
    * This option allows providing a custom set of parameters. Note that parameters
@@ -258,7 +258,7 @@ export interface SealBlockOpts {
  */
 export interface RunBlockOpts {
   /**
-   * The @ethereumjs/block to process
+   * The @theqrl/zondjs-block to process
    */
   block: Block;
   /**
@@ -391,12 +391,12 @@ export interface AfterBlockEvent extends RunBlockResult {
  */
 export interface RunTxOpts {
   /**
-   * The `@ethereumjs/block` the `tx` belongs to.
+   * The `@theqrl/zondjs-block` the `tx` belongs to.
    * If omitted, a default blank block will be used.
    */
   block?: Block;
   /**
-   * An `@ethereumjs/tx` to run
+   * An `@theqrl/zondjs-tx` to run
    */
   tx: TypedTransaction;
   /**

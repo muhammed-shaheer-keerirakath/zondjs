@@ -1,4 +1,4 @@
-import { hdkey } from '@ethereumjs/wallet'
+import { hdkey } from '@theqrl/zondjs-wallet'
 
 const wallet = hdkey.EthereumHDKey.fromMnemonic(
   'clown galaxy face oxygen birth round modify fame correct stumble kind excess',

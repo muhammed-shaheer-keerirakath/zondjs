@@ -1,8 +1,8 @@
 import {
   createBlockFromBytesArray,
   createBlockHeaderFromBytesArray,
-} from "@ethereumjs/block";
-import { RLP } from "@ethereumjs/rlp";
+} from "@theqrl/zondjs-block";
+import { RLP } from "@theqrl/zondjs-rlp";
 import {
   KECCAK256_RLP,
   KECCAK256_RLP_ARRAY,
@@ -21,8 +21,8 @@ import type {
   BlockBodyBytes,
   BlockBytes,
   BlockOptions,
-} from "@ethereumjs/block";
-import type { Common } from "@ethereumjs/common";
+} from "@theqrl/zondjs-block";
+import type { Common } from "@theqrl/zondjs-common";
 import type {
   BatchDBOp,
   DB,

@@ -10,7 +10,7 @@ import { decode, encode } from "./message.js";
 
 import type { DPTServerOptions, PeerInfo, ServerEvent } from "../types.js";
 import type { DPT } from "./dpt.js";
-import type { Common } from "@ethereumjs/common";
+import type { Common } from "@theqrl/zondjs-common";
 import type { Debugger } from "debug";
 import type { Socket as DgramSocket, RemoteInfo } from "dgram";
 

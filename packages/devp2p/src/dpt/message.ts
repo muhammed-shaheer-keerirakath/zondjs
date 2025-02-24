@@ -1,4 +1,4 @@
-import { RLP } from "@ethereumjs/rlp";
+import { RLP } from "@theqrl/zondjs-rlp";
 import {
   bytesToHex,
   bytesToInt,
@@ -23,7 +23,7 @@ import {
 } from "../util.js";
 
 import type { PeerInfo } from "../types.js";
-import type { Common } from "@ethereumjs/common";
+import type { Common } from "@theqrl/zondjs-common";
 
 const debug = debugDefault("devp2p:dpt:server");
 

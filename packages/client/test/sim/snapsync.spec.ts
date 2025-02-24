@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { createCommonFromGethGenesis } from "@ethereumjs/common";
+import { createCommonFromGethGenesis } from "@theqrl/zondjs-common";
 import {
   bytesToHex,
   createAddressFromString,
@@ -26,7 +26,7 @@ import {
 } from "./simutils.js";
 
 import type { EthereumClient } from "../../src/client.js";
-import type { MerkleStateManager } from "@ethereumjs/statemanager";
+import type { MerkleStateManager } from "@theqrl/zondjs-statemanager";
 import type { PrefixedHexString } from "@theqrl/zondjs-util";
 
 const client = Client.http({ port: 8545 });

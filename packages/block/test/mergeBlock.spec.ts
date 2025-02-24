@@ -1,4 +1,4 @@
-import { Common, Hardfork, Mainnet } from "@ethereumjs/common";
+import { Common, Hardfork, Mainnet } from "@theqrl/zondjs-common";
 import {
   KECCAK256_RLP,
   KECCAK256_RLP_ARRAY,

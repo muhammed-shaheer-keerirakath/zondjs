@@ -1,4 +1,4 @@
-[@ethereumjs/devp2p](../README.md) / ETH
+[@theqrl/zondjs-devp2p](../README.md) / ETH
 
 # Class: ETH
 

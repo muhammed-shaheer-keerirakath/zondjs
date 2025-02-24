@@ -1,4 +1,4 @@
-import { VerkleAccessedStateType } from "@ethereumjs/common";
+import { VerkleAccessedStateType } from "@theqrl/zondjs-common";
 import {
   BIGINT_0,
   VERKLE_BASIC_DATA_LEAF_KEY,
@@ -27,15 +27,15 @@ import type {
   VerkleAccessWitnessInterface,
   VerkleAccessedState,
   VerkleAccessedStateWithAddress,
-} from "@ethereumjs/common";
-import type { StatefulVerkleStateManager } from "@ethereumjs/statemanager";
+} from "@theqrl/zondjs-common";
+import type { StatefulVerkleStateManager } from "@theqrl/zondjs-statemanager";
 import type {
   Address,
   PrefixedHexString,
   VerkleCrypto,
   VerkleExecutionWitness,
 } from "@theqrl/zondjs-util";
-import type { VerkleTree } from "@ethereumjs/verkle";
+import type { VerkleTree } from "@theqrl/zondjs-verkle";
 
 const debug = debugDefault("evm:verkle:aw");
 

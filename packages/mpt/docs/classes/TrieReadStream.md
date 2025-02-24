@@ -1,4 +1,4 @@
-[@ethereumjs/trie](../README.md) / TrieReadStream
+[@theqrl/zondjs-trie](../README.md) / TrieReadStream
 
 # Class: TrieReadStream
 
@@ -71,8 +71,8 @@
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name   | Type              |
+| :----- | :---------------- |
 | `trie` | [`Trie`](Trie.md) |
 
 #### Overrides
@@ -97,7 +97,7 @@ Readable.\_readableState
 
 node_modules/@types/readable-stream/index.d.ts:146
 
-___
+---
 
 ### closed
 
@@ -111,7 +111,7 @@ Readable.closed
 
 node_modules/@types/readable-stream/index.d.ts:59
 
-___
+---
 
 ### destroyed
 
@@ -125,11 +125,11 @@ Readable.destroyed
 
 node_modules/@types/readable-stream/index.d.ts:147
 
-___
+---
 
 ### errored
 
-• `Readonly` **errored**: ``null`` \| `Error`
+• `Readonly` **errored**: `null` \| `Error`
 
 #### Inherited from
 
@@ -139,7 +139,7 @@ Readable.errored
 
 node_modules/@types/readable-stream/index.d.ts:60
 
-___
+---
 
 ### readable
 
@@ -153,7 +153,7 @@ Readable.readable
 
 node_modules/@types/readable-stream/index.d.ts:55
 
-___
+---
 
 ### readableAborted
 
@@ -167,7 +167,7 @@ Readable.readableAborted
 
 node_modules/@types/readable-stream/index.d.ts:292
 
-___
+---
 
 ### readableDidRead
 
@@ -181,7 +181,7 @@ Readable.readableDidRead
 
 node_modules/@types/readable-stream/index.d.ts:293
 
-___
+---
 
 ### readableEncoding
 
@@ -195,7 +195,7 @@ Readable.readableEncoding
 
 node_modules/@types/readable-stream/index.d.ts:294
 
-___
+---
 
 ### readableEnded
 
@@ -209,11 +209,11 @@ Readable.readableEnded
 
 node_modules/@types/readable-stream/index.d.ts:295
 
-___
+---
 
 ### readableFlowing
 
-• `Readonly` **readableFlowing**: ``null`` \| `boolean`
+• `Readonly` **readableFlowing**: `null` \| `boolean`
 
 #### Inherited from
 
@@ -223,7 +223,7 @@ Readable.readableFlowing
 
 node_modules/@types/readable-stream/index.d.ts:56
 
-___
+---
 
 ### readableHighWaterMark
 
@@ -237,7 +237,7 @@ Readable.readableHighWaterMark
 
 node_modules/@types/readable-stream/index.d.ts:57
 
-___
+---
 
 ### readableLength
 
@@ -251,7 +251,7 @@ Readable.readableLength
 
 node_modules/@types/readable-stream/index.d.ts:58
 
-___
+---
 
 ### readableObjectMode
 
@@ -283,18 +283,18 @@ Readable.\_\_@asyncIterator@21529
 
 node_modules/@types/readable-stream/index.d.ts:143
 
-___
+---
 
 ### \_destroy
 
-▸ **_destroy**(`error`, `callback`): `void`
+▸ **\_destroy**(`error`, `callback`): `void`
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `error` | ``null`` \| `Error` |
-| `callback` | (`error?`: ``null`` \| `Error`) => `void` |
+| Name       | Type                                    |
+| :--------- | :-------------------------------------- |
+| `error`    | `null` \| `Error`                       |
+| `callback` | (`error?`: `null` \| `Error`) => `void` |
 
 #### Returns
 
@@ -308,11 +308,11 @@ Readable.\_destroy
 
 node_modules/@types/readable-stream/index.d.ts:71
 
-___
+---
 
 ### \_read
 
-▸ **_read**(): `Promise`<`void`\>
+▸ **\_read**(): `Promise`<`void`\>
 
 #### Returns
 
@@ -326,11 +326,11 @@ Readable.\_read
 
 [packages/trie/src/util/readStream.ts:42](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/util/readStream.ts#L42)
 
-___
+---
 
 ### \_undestroy
 
-▸ **_undestroy**(): `void`
+▸ **\_undestroy**(): `void`
 
 #### Returns
 
@@ -344,7 +344,7 @@ Readable.\_undestroy
 
 node_modules/@types/readable-stream/index.d.ts:151
 
-___
+---
 
 ### addListener
 
@@ -352,6 +352,7 @@ ___
 
 Event emitter
 The defined events on documents including:
+
 1. close
 2. data
 3. end
@@ -360,9 +361,9 @@ The defined events on documents including:
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `event` | ``"close"`` |
+| Name       | Type         |
+| :--------- | :----------- |
+| `event`    | `"close"`    |
 | `listener` | () => `void` |
 
 #### Returns
@@ -381,9 +382,9 @@ node_modules/@types/readable-stream/index.d.ts:83
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `event` | ``"data"`` |
+| Name       | Type                       |
+| :--------- | :------------------------- |
+| `event`    | `"data"`                   |
 | `listener` | (`chunk`: `any`) => `void` |
 
 #### Returns
@@ -402,9 +403,9 @@ node_modules/@types/readable-stream/index.d.ts:84
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `event` | ``"end"`` |
+| Name       | Type         |
+| :--------- | :----------- |
+| `event`    | `"end"`      |
 | `listener` | () => `void` |
 
 #### Returns
@@ -423,9 +424,9 @@ node_modules/@types/readable-stream/index.d.ts:85
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `event` | ``"readable"`` |
+| Name       | Type         |
+| :--------- | :----------- |
+| `event`    | `"readable"` |
 | `listener` | () => `void` |
 
 #### Returns
@@ -444,9 +445,9 @@ node_modules/@types/readable-stream/index.d.ts:86
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `event` | ``"error"`` |
+| Name       | Type                       |
+| :--------- | :------------------------- |
+| `event`    | `"error"`                  |
 | `listener` | (`err`: `Error`) => `void` |
 
 #### Returns
@@ -465,9 +466,9 @@ node_modules/@types/readable-stream/index.d.ts:87
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `event` | `string` \| `symbol` |
+| Name       | Type                           |
+| :--------- | :----------------------------- |
+| `event`    | `string` \| `symbol`           |
 | `listener` | (...`args`: `any`[]) => `void` |
 
 #### Returns
@@ -482,7 +483,7 @@ Readable.addListener
 
 node_modules/@types/readable-stream/index.d.ts:88
 
-___
+---
 
 ### destroy
 
@@ -490,8 +491,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name     | Type    |
+| :------- | :------ |
 | `error?` | `Error` |
 
 #### Returns
@@ -506,7 +507,7 @@ Readable.destroy
 
 node_modules/@types/readable-stream/index.d.ts:72
 
-___
+---
 
 ### emit
 
@@ -514,9 +515,9 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `event` | ``"close"`` |
+| Name    | Type      |
+| :------ | :-------- |
+| `event` | `"close"` |
 
 #### Returns
 
@@ -534,10 +535,10 @@ node_modules/@types/readable-stream/index.d.ts:90
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `event` | ``"data"`` |
-| `chunk` | `any` |
+| Name    | Type     |
+| :------ | :------- |
+| `event` | `"data"` |
+| `chunk` | `any`    |
 
 #### Returns
 
@@ -555,9 +556,9 @@ node_modules/@types/readable-stream/index.d.ts:91
 
 #### Parameters
 
-| Name | Type |
+| Name    | Type    |
 | :------ | :------ |
-| `event` | ``"end"`` |
+| `event` | `"end"` |
 
 #### Returns
 
@@ -575,9 +576,9 @@ node_modules/@types/readable-stream/index.d.ts:92
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `event` | ``"readable"`` |
+| Name    | Type         |
+| :------ | :----------- |
+| `event` | `"readable"` |
 
 #### Returns
 
@@ -595,10 +596,10 @@ node_modules/@types/readable-stream/index.d.ts:93
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `event` | ``"error"`` |
-| `err` | `Error` |
+| Name    | Type      |
+| :------ | :-------- |
+| `event` | `"error"` |
+| `err`   | `Error`   |
 
 #### Returns
 
@@ -616,10 +617,10 @@ node_modules/@types/readable-stream/index.d.ts:94
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `event` | `string` \| `symbol` |
-| `...args` | `any`[] |
+| Name      | Type                 |
+| :-------- | :------------------- |
+| `event`   | `string` \| `symbol` |
+| `...args` | `any`[]              |
 
 #### Returns
 
@@ -633,7 +634,7 @@ Readable.emit
 
 node_modules/@types/readable-stream/index.d.ts:95
 
-___
+---
 
 ### eventNames
 
@@ -651,7 +652,7 @@ Readable.eventNames
 
 node_modules/@types/readable-stream/index.d.ts:141
 
-___
+---
 
 ### getMaxListeners
 
@@ -669,7 +670,7 @@ Readable.getMaxListeners
 
 node_modules/@types/readable-stream/index.d.ts:135
 
-___
+---
 
 ### isPaused
 
@@ -687,7 +688,7 @@ Readable.isPaused
 
 node_modules/@types/readable-stream/index.d.ts:66
 
-___
+---
 
 ### listenerCount
 
@@ -695,8 +696,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name        | Type                 |
+| :---------- | :------------------- |
 | `eventName` | `string` \| `symbol` |
 
 #### Returns
@@ -711,7 +712,7 @@ Readable.listenerCount
 
 node_modules/@types/readable-stream/index.d.ts:140
 
-___
+---
 
 ### listeners
 
@@ -719,8 +720,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name        | Type                 |
+| :---------- | :------------------- |
 | `eventName` | `string` \| `symbol` |
 
 #### Returns
@@ -735,7 +736,7 @@ Readable.listeners
 
 node_modules/@types/readable-stream/index.d.ts:137
 
-___
+---
 
 ### off
 
@@ -743,10 +744,10 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `eventName` | `string` \| `symbol` |
-| `listener` | (...`args`: `any`[]) => `void` |
+| Name        | Type                           |
+| :---------- | :----------------------------- |
+| `eventName` | `string` \| `symbol`           |
+| `listener`  | (...`args`: `any`[]) => `void` |
 
 #### Returns
 
@@ -760,7 +761,7 @@ Readable.off
 
 node_modules/@types/readable-stream/index.d.ts:133
 
-___
+---
 
 ### on
 
@@ -768,9 +769,9 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `event` | ``"close"`` |
+| Name       | Type         |
+| :--------- | :----------- |
+| `event`    | `"close"`    |
 | `listener` | () => `void` |
 
 #### Returns
@@ -789,9 +790,9 @@ node_modules/@types/readable-stream/index.d.ts:97
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `event` | ``"data"`` |
+| Name       | Type                       |
+| :--------- | :------------------------- |
+| `event`    | `"data"`                   |
 | `listener` | (`chunk`: `any`) => `void` |
 
 #### Returns
@@ -810,9 +811,9 @@ node_modules/@types/readable-stream/index.d.ts:98
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `event` | ``"end"`` |
+| Name       | Type         |
+| :--------- | :----------- |
+| `event`    | `"end"`      |
 | `listener` | () => `void` |
 
 #### Returns
@@ -831,9 +832,9 @@ node_modules/@types/readable-stream/index.d.ts:99
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `event` | ``"readable"`` |
+| Name       | Type         |
+| :--------- | :----------- |
+| `event`    | `"readable"` |
 | `listener` | () => `void` |
 
 #### Returns
@@ -852,9 +853,9 @@ node_modules/@types/readable-stream/index.d.ts:100
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `event` | ``"error"`` |
+| Name       | Type                       |
+| :--------- | :------------------------- |
+| `event`    | `"error"`                  |
 | `listener` | (`err`: `Error`) => `void` |
 
 #### Returns
@@ -873,9 +874,9 @@ node_modules/@types/readable-stream/index.d.ts:101
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `event` | `string` \| `symbol` |
+| Name       | Type                           |
+| :--------- | :----------------------------- |
+| `event`    | `string` \| `symbol`           |
 | `listener` | (...`args`: `any`[]) => `void` |
 
 #### Returns
@@ -890,7 +891,7 @@ Readable.on
 
 node_modules/@types/readable-stream/index.d.ts:102
 
-___
+---
 
 ### once
 
@@ -898,9 +899,9 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `event` | ``"close"`` |
+| Name       | Type         |
+| :--------- | :----------- |
+| `event`    | `"close"`    |
 | `listener` | () => `void` |
 
 #### Returns
@@ -919,9 +920,9 @@ node_modules/@types/readable-stream/index.d.ts:104
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `event` | ``"data"`` |
+| Name       | Type                       |
+| :--------- | :------------------------- |
+| `event`    | `"data"`                   |
 | `listener` | (`chunk`: `any`) => `void` |
 
 #### Returns
@@ -940,9 +941,9 @@ node_modules/@types/readable-stream/index.d.ts:105
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `event` | ``"end"`` |
+| Name       | Type         |
+| :--------- | :----------- |
+| `event`    | `"end"`      |
 | `listener` | () => `void` |
 
 #### Returns
@@ -961,9 +962,9 @@ node_modules/@types/readable-stream/index.d.ts:106
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `event` | ``"readable"`` |
+| Name       | Type         |
+| :--------- | :----------- |
+| `event`    | `"readable"` |
 | `listener` | () => `void` |
 
 #### Returns
@@ -982,9 +983,9 @@ node_modules/@types/readable-stream/index.d.ts:107
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `event` | ``"error"`` |
+| Name       | Type                       |
+| :--------- | :------------------------- |
+| `event`    | `"error"`                  |
 | `listener` | (`err`: `Error`) => `void` |
 
 #### Returns
@@ -1003,9 +1004,9 @@ node_modules/@types/readable-stream/index.d.ts:108
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `event` | `string` \| `symbol` |
+| Name       | Type                           |
+| :--------- | :----------------------------- |
+| `event`    | `string` \| `symbol`           |
 | `listener` | (...`args`: `any`[]) => `void` |
 
 #### Returns
@@ -1020,7 +1021,7 @@ Readable.once
 
 node_modules/@types/readable-stream/index.d.ts:109
 
-___
+---
 
 ### pause
 
@@ -1038,7 +1039,7 @@ Readable.pause
 
 node_modules/@types/readable-stream/index.d.ts:64
 
-___
+---
 
 ### pipe
 
@@ -1046,16 +1047,16 @@ ___
 
 #### Type parameters
 
-| Name | Type |
-| :------ | :------ |
-| `T` | extends `_IWritable`<`T`\> |
+| Name | Type                       |
+| :--- | :------------------------- |
+| `T`  | extends `_IWritable`<`T`\> |
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `destination` | `T` |
-| `options?` | `Object` |
+| Name           | Type      |
+| :------------- | :-------- |
+| `destination`  | `T`       |
+| `options?`     | `Object`  |
 | `options.end?` | `boolean` |
 
 #### Returns
@@ -1070,7 +1071,7 @@ Readable.pipe
 
 node_modules/@types/readable-stream/index.d.ts:299
 
-___
+---
 
 ### prependListener
 
@@ -1078,9 +1079,9 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `event` | ``"close"`` |
+| Name       | Type         |
+| :--------- | :----------- |
+| `event`    | `"close"`    |
 | `listener` | () => `void` |
 
 #### Returns
@@ -1099,9 +1100,9 @@ node_modules/@types/readable-stream/index.d.ts:111
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `event` | ``"data"`` |
+| Name       | Type                       |
+| :--------- | :------------------------- |
+| `event`    | `"data"`                   |
 | `listener` | (`chunk`: `any`) => `void` |
 
 #### Returns
@@ -1120,9 +1121,9 @@ node_modules/@types/readable-stream/index.d.ts:112
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `event` | ``"end"`` |
+| Name       | Type         |
+| :--------- | :----------- |
+| `event`    | `"end"`      |
 | `listener` | () => `void` |
 
 #### Returns
@@ -1141,9 +1142,9 @@ node_modules/@types/readable-stream/index.d.ts:113
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `event` | ``"readable"`` |
+| Name       | Type         |
+| :--------- | :----------- |
+| `event`    | `"readable"` |
 | `listener` | () => `void` |
 
 #### Returns
@@ -1162,9 +1163,9 @@ node_modules/@types/readable-stream/index.d.ts:114
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `event` | ``"error"`` |
+| Name       | Type                       |
+| :--------- | :------------------------- |
+| `event`    | `"error"`                  |
 | `listener` | (`err`: `Error`) => `void` |
 
 #### Returns
@@ -1183,9 +1184,9 @@ node_modules/@types/readable-stream/index.d.ts:115
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `event` | `string` \| `symbol` |
+| Name       | Type                           |
+| :--------- | :----------------------------- |
+| `event`    | `string` \| `symbol`           |
 | `listener` | (...`args`: `any`[]) => `void` |
 
 #### Returns
@@ -1200,7 +1201,7 @@ Readable.prependListener
 
 node_modules/@types/readable-stream/index.d.ts:116
 
-___
+---
 
 ### prependOnceListener
 
@@ -1208,9 +1209,9 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `event` | ``"close"`` |
+| Name       | Type         |
+| :--------- | :----------- |
+| `event`    | `"close"`    |
 | `listener` | () => `void` |
 
 #### Returns
@@ -1229,9 +1230,9 @@ node_modules/@types/readable-stream/index.d.ts:118
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `event` | ``"data"`` |
+| Name       | Type                       |
+| :--------- | :------------------------- |
+| `event`    | `"data"`                   |
 | `listener` | (`chunk`: `any`) => `void` |
 
 #### Returns
@@ -1250,9 +1251,9 @@ node_modules/@types/readable-stream/index.d.ts:119
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `event` | ``"end"`` |
+| Name       | Type         |
+| :--------- | :----------- |
+| `event`    | `"end"`      |
 | `listener` | () => `void` |
 
 #### Returns
@@ -1271,9 +1272,9 @@ node_modules/@types/readable-stream/index.d.ts:120
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `event` | ``"readable"`` |
+| Name       | Type         |
+| :--------- | :----------- |
+| `event`    | `"readable"` |
 | `listener` | () => `void` |
 
 #### Returns
@@ -1292,9 +1293,9 @@ node_modules/@types/readable-stream/index.d.ts:121
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `event` | ``"error"`` |
+| Name       | Type                       |
+| :--------- | :------------------------- |
+| `event`    | `"error"`                  |
 | `listener` | (`err`: `Error`) => `void` |
 
 #### Returns
@@ -1313,9 +1314,9 @@ node_modules/@types/readable-stream/index.d.ts:122
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `event` | `string` \| `symbol` |
+| Name       | Type                           |
+| :--------- | :----------------------------- |
+| `event`    | `string` \| `symbol`           |
 | `listener` | (...`args`: `any`[]) => `void` |
 
 #### Returns
@@ -1330,7 +1331,7 @@ Readable.prependOnceListener
 
 node_modules/@types/readable-stream/index.d.ts:123
 
-___
+---
 
 ### push
 
@@ -1338,9 +1339,9 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `chunk` | `any` |
+| Name        | Type     |
+| :---------- | :------- |
+| `chunk`     | `any`    |
 | `encoding?` | `string` |
 
 #### Returns
@@ -1355,7 +1356,7 @@ Readable.push
 
 node_modules/@types/readable-stream/index.d.ts:70
 
-___
+---
 
 ### rawListeners
 
@@ -1363,8 +1364,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name        | Type                 |
+| :---------- | :------------------- |
 | `eventName` | `string` \| `symbol` |
 
 #### Returns
@@ -1379,7 +1380,7 @@ Readable.rawListeners
 
 node_modules/@types/readable-stream/index.d.ts:139
 
-___
+---
 
 ### read
 
@@ -1387,8 +1388,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name    | Type     |
+| :------ | :------- |
 | `size?` | `number` |
 
 #### Returns
@@ -1403,7 +1404,7 @@ Readable.read
 
 node_modules/@types/readable-stream/index.d.ts:62
 
-___
+---
 
 ### removeAllListeners
 
@@ -1411,8 +1412,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name     | Type                 |
+| :------- | :------------------- |
 | `event?` | `string` \| `symbol` |
 
 #### Returns
@@ -1427,7 +1428,7 @@ Readable.removeAllListeners
 
 node_modules/@types/readable-stream/index.d.ts:132
 
-___
+---
 
 ### removeListener
 
@@ -1435,9 +1436,9 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `event` | ``"close"`` |
+| Name       | Type         |
+| :--------- | :----------- |
+| `event`    | `"close"`    |
 | `listener` | () => `void` |
 
 #### Returns
@@ -1456,9 +1457,9 @@ node_modules/@types/readable-stream/index.d.ts:125
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `event` | ``"data"`` |
+| Name       | Type                       |
+| :--------- | :------------------------- |
+| `event`    | `"data"`                   |
 | `listener` | (`chunk`: `any`) => `void` |
 
 #### Returns
@@ -1477,9 +1478,9 @@ node_modules/@types/readable-stream/index.d.ts:126
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `event` | ``"end"`` |
+| Name       | Type         |
+| :--------- | :----------- |
+| `event`    | `"end"`      |
 | `listener` | () => `void` |
 
 #### Returns
@@ -1498,9 +1499,9 @@ node_modules/@types/readable-stream/index.d.ts:127
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `event` | ``"readable"`` |
+| Name       | Type         |
+| :--------- | :----------- |
+| `event`    | `"readable"` |
 | `listener` | () => `void` |
 
 #### Returns
@@ -1519,9 +1520,9 @@ node_modules/@types/readable-stream/index.d.ts:128
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `event` | ``"error"`` |
+| Name       | Type                       |
+| :--------- | :------------------------- |
+| `event`    | `"error"`                  |
 | `listener` | (`err`: `Error`) => `void` |
 
 #### Returns
@@ -1540,9 +1541,9 @@ node_modules/@types/readable-stream/index.d.ts:129
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `event` | `string` \| `symbol` |
+| Name       | Type                           |
+| :--------- | :----------------------------- |
+| `event`    | `string` \| `symbol`           |
 | `listener` | (...`args`: `any`[]) => `void` |
 
 #### Returns
@@ -1557,7 +1558,7 @@ Readable.removeListener
 
 node_modules/@types/readable-stream/index.d.ts:130
 
-___
+---
 
 ### resume
 
@@ -1575,7 +1576,7 @@ Readable.resume
 
 node_modules/@types/readable-stream/index.d.ts:65
 
-___
+---
 
 ### setEncoding
 
@@ -1583,8 +1584,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name       | Type     |
+| :--------- | :------- |
 | `encoding` | `string` |
 
 #### Returns
@@ -1599,7 +1600,7 @@ Readable.setEncoding
 
 node_modules/@types/readable-stream/index.d.ts:63
 
-___
+---
 
 ### setMaxListeners
 
@@ -1607,9 +1608,9 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `n` | `number` |
+| Name | Type     |
+| :--- | :------- |
+| `n`  | `number` |
 
 #### Returns
 
@@ -1623,7 +1624,7 @@ Readable.setMaxListeners
 
 node_modules/@types/readable-stream/index.d.ts:134
 
-___
+---
 
 ### unpipe
 
@@ -1631,8 +1632,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name           | Type       |
+| :------------- | :--------- |
 | `destination?` | `Writable` |
 
 #### Returns
@@ -1647,7 +1648,7 @@ Readable.unpipe
 
 node_modules/@types/readable-stream/index.d.ts:67
 
-___
+---
 
 ### unshift
 
@@ -1655,8 +1656,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name    | Type  |
+| :------ | :---- |
 | `chunk` | `any` |
 
 #### Returns
@@ -1671,7 +1672,7 @@ Readable.unshift
 
 node_modules/@types/readable-stream/index.d.ts:68
 
-___
+---
 
 ### wrap
 
@@ -1679,8 +1680,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name        | Type       |
+| :---------- | :--------- |
 | `oldStream` | `Readable` |
 
 #### Returns

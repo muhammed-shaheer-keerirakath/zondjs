@@ -1,4 +1,4 @@
-[@ethereumjs/statemanager](../README.md) / VerkleAccessedStateType
+[@theqrl/zondjs-statemanager](../README.md) / VerkleAccessedStateType
 
 # Enumeration: VerkleAccessedStateType
 
@@ -18,67 +18,67 @@
 
 ### Balance
 
-• **Balance** = ``"balance"``
+• **Balance** = `"balance"`
 
 #### Defined in
 
 [accessWitness.ts:57](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/accessWitness.ts#L57)
 
-___
+---
 
 ### Code
 
-• **Code** = ``"code"``
+• **Code** = `"code"`
 
 #### Defined in
 
 [accessWitness.ts:61](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/accessWitness.ts#L61)
 
-___
+---
 
 ### CodeHash
 
-• **CodeHash** = ``"codeHash"``
+• **CodeHash** = `"codeHash"`
 
 #### Defined in
 
 [accessWitness.ts:59](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/accessWitness.ts#L59)
 
-___
+---
 
 ### CodeSize
 
-• **CodeSize** = ``"codeSize"``
+• **CodeSize** = `"codeSize"`
 
 #### Defined in
 
 [accessWitness.ts:60](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/accessWitness.ts#L60)
 
-___
+---
 
 ### Nonce
 
-• **Nonce** = ``"nonce"``
+• **Nonce** = `"nonce"`
 
 #### Defined in
 
 [accessWitness.ts:58](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/accessWitness.ts#L58)
 
-___
+---
 
 ### Storage
 
-• **Storage** = ``"storage"``
+• **Storage** = `"storage"`
 
 #### Defined in
 
 [accessWitness.ts:62](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/accessWitness.ts#L62)
 
-___
+---
 
 ### Version
 
-• **Version** = ``"version"``
+• **Version** = `"version"`
 
 #### Defined in
 

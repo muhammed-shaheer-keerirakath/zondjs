@@ -1,4 +1,4 @@
-[@ethereumjs/blockchain](../README.md) / Blockchain
+[@theqrl/zondjs-blockchain](../README.md) / Blockchain
 
 # Class: Blockchain
 

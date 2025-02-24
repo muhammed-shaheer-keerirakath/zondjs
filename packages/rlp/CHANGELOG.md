@@ -46,14 +46,14 @@ Both builds have respective separate entrypoints in the distributed `package.jso
 A CommonJS import of our libraries can then be done like this:
 
 ```ts
-const { Chain, Common } = require('@ethereumjs/common')
+const { Chain, Common } = require('@theqrl/zondjs-common')
 const common = new Common({ chain: Chain.Mainnet })
 ```
 
 And this is how an ESM import looks like:
 
 ```ts
-import { Chain, Common } from '@ethereumjs/common'
+import { Chain, Common } from '@theqrl/zondjs-common'
 const common = new Common({ chain: Chain.Mainnet })
 ```
 
@@ -69,11 +69,11 @@ We nevertheless think this is very much worth it and we tried to make transition
 
 #### How to upgrade?
 
-The `@ethereumjs/rlp` library is the only EthereumJS library where the Buffer -> Uint8Array transition has already taken place in the major release version before, so `v4.0.0`.
+The `@theqrl/zondjs-rlp` library is the only EthereumJS library where the Buffer -> Uint8Array transition has already taken place in the major release version before, so `v4.0.0`.
 
 If you upgrade from a version below you can nevertheless now benefit from a more seamless integration of this library with the other libraries since Uint8Array is now the standard data type for byte values throughout the whole set of libraries.
 
-We now have also added helper methods for "Buffer -> Uint8Array" conversions in the [@ethereumjs/util](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/util) `bytes` module, see the respective README section for guidance.
+We now have also added helper methods for "Buffer -> Uint8Array" conversions in the [@theqrl/zondjs-util](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/util) `bytes` module, see the respective README section for guidance.
 
 ## 4.0.1 - 2023-02-21
 
@@ -103,12 +103,12 @@ Beta 3 release for the upcoming breaking release round on the [EthereumJS monore
 
 **Attention!** This library has been renamed along this release and moved to the scoped package name format already used for most of the other EthereumJS libraries, see PR [#2092](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2092). In this case the library is renamed as follows:
 
-- `rlp` -> `@ethereumjs/rlp`
+- `rlp` -> `@theqrl/zondjs-rlp`
 
 Please update your library references accordingly or install with:
 
 ```shell
-npm i @ethereumjs/rlp
+npm i @theqrl/zondjs-rlp
 ```
 
 ## 4.0.0-beta.2 - 2022-07-15
@@ -128,13 +128,13 @@ Now every import is a named import and we think the long term benefits will very
 The main `RLP` class import has been updated, so import changes from:
 
 ```ts
-import RLP from '@ethereumjs/rlp'
+import RLP from '@theqrl/zondjs-rlp'
 ```
 
 to:
 
 ```ts
-import { RLP } from '@ethereumjs/rlp'
+import { RLP } from '@theqrl/zondjs-rlp'
 ```
 
 ## Other Changes
@@ -145,7 +145,7 @@ import { RLP } from '@ethereumjs/rlp'
 
 This release is part of a larger breaking release round where all [EthereumJS monorepo](https://github.com/ethereumjs/ethereumjs-monorepo) libraries (VM, Tx, Trie, other) get major version upgrades. This round of releases has been prepared for a long time and we are really pleased with and proud of the result, thanks to all team members and contributors who worked so hard and made this possible! 🙂 ❤️
 
-We have gotten rid of a lot of technical debt and inconsistencies and removed unused functionality, renamed methods, improved on the API and on TypeScript typing, to name a few of the more local type of refactoring changes. There are also broader structural changes like a full transition to native JavaScript `BigInt` values as well as various somewhat deep-reaching refactorings, both within a single package as well as some reaching beyond the scope of a single package. Also two completely new packages - `@ethereumjs/evm` (in addition to the existing `@ethereumjs/vm` package) and `@ethereumjs/statemanager` - have been created, leading to a more modular Ethereum JavaScript VM.
+We have gotten rid of a lot of technical debt and inconsistencies and removed unused functionality, renamed methods, improved on the API and on TypeScript typing, to name a few of the more local type of refactoring changes. There are also broader structural changes like a full transition to native JavaScript `BigInt` values as well as various somewhat deep-reaching refactorings, both within a single package as well as some reaching beyond the scope of a single package. Also two completely new packages - `@theqrl/zondjs-evm` (in addition to the existing `@theqrl/zondjs-vm` package) and `@theqrl/zondjs-statemanager` - have been created, leading to a more modular Ethereum JavaScript VM.
 
 We are very much confident that users of the libraries will greatly benefit from the changes being introduced. However - along the upgrade process - these releases require some extra attention and care since the changeset is both so big and deep reaching. We highly recommend to closely read the release notes, we have done our best to create a full picture on the changes with some special emphasis on delicate code and API parts and give some explicit guidance on how to upgrade and where problems might arise!
 
@@ -177,7 +177,7 @@ This is technically not a change from the v4 version as it was already introduce
 
 The v3 release replaces Buffers as input and output values in favor of Uint8Arrays for improved performance and greater compatibility with browsers, see `v3.0.0` [release notes](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/rlp/CHANGELOG.md#300---2022-01-27).
 
-There are new conversion functions added to the `@ethereumjs/util` library, see [RLP docs](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/rlp#buffer-compatibility) on how to use and do the conversion.
+There are new conversion functions added to the `@theqrl/zondjs-util` library, see [RLP docs](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/rlp#buffer-compatibility) on how to use and do the conversion.
 
 ## 3.0.0 - 2022-01-27
 
@@ -194,7 +194,7 @@ A new default export `RLP` now contains `encode` and `decode`.
 You can now import and use RLP like this:
 
 ```javascript
-import RLP from '@ethereumjs/rlp'
+import RLP from '@theqrl/zondjs-rlp'
 RLP.encode(1)
 ```
 
@@ -208,13 +208,13 @@ Example:
 
 ```ts
 // Old, rlp v2
-import * as rlp from '@ethereumjs/rlp'
+import * as rlp from '@theqrl/zondjs-rlp'
 const bufArr = [Buffer.from('123', 'hex'), Buffer.from('456', 'hex')]
 const encoded = rlp.encode(bufArr)
 const decoded = rlp.decode(encoded)
 
 // New, rlp v3
-import RLP from '@ethereumjs/rlp'
+import RLP from '@theqrl/zondjs-rlp'
 const encoded: Uint8Array = RLP.encode(bufArrToArr(bufArr))
 const encodedAsBuffer = Buffer.from(encoded)
 const decoded: Uint8Array[] = RLP.decode(encoded)

@@ -1,5 +1,5 @@
-import { Common, Hardfork, Mainnet } from "@ethereumjs/common";
-import { createEVM, getActivePrecompiles } from "@ethereumjs/evm";
+import { Common, Hardfork, Mainnet } from "@theqrl/zondjs-common";
+import { createEVM, getActivePrecompiles } from "@theqrl/zondjs-evm";
 import { bytesToHex, hexToBytes } from "@theqrl/zondjs-util";
 
 const main = async () => {

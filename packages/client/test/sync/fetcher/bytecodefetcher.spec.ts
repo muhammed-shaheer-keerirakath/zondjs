@@ -1,4 +1,4 @@
-import { RLP } from "@ethereumjs/rlp";
+import { RLP } from "@theqrl/zondjs-rlp";
 import { hexToBytes, utf8ToBytes } from "@theqrl/zondjs-util";
 import { assert, describe, it, vi } from "vitest";
 

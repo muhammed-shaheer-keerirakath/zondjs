@@ -1,4 +1,4 @@
-[@ethereumjs/block](../README.md) / VerkleStateDiff
+[@theqrl/zondjs-block](../README.md) / VerkleStateDiff
 
 # Interface: VerkleStateDiff
 

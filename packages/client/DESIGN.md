@@ -39,7 +39,7 @@ to help contributors better understand how the project is organized.
 **Components**
 
 - `Chain` [**In Progress**] This class represents the blockchain and is a wrapper around
-  `@ethereumjs/blockchain`. It handles creation of the data directory, provides basic blockchain operations
+  `@theqrl/zondjs-blockchain`. It handles creation of the data directory, provides basic blockchain operations
   and maintains an updated current state of the blockchain, including current height, total difficulty, and
   latest block.
 - `Server` This class represents a server that discovers new peers and handles incoming and dropped

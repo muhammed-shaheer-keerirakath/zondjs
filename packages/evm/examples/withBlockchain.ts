@@ -1,7 +1,7 @@
-import { createBlockchain } from "@ethereumjs/blockchain";
-import { Common, Hardfork, Mainnet } from "@ethereumjs/common";
-import { createEVM } from "@ethereumjs/evm";
-import { MerkleStateManager } from "@ethereumjs/statemanager";
+import { createBlockchain } from "@theqrl/zondjs-blockchain";
+import { Common, Hardfork, Mainnet } from "@theqrl/zondjs-common";
+import { createEVM } from "@theqrl/zondjs-evm";
+import { MerkleStateManager } from "@theqrl/zondjs-statemanager";
 import { bytesToHex, hexToBytes } from "@theqrl/zondjs-util";
 
 import type { PrefixedHexString } from "@theqrl/zondjs-util";

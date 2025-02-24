@@ -41,7 +41,7 @@ class DPT extends EventEmitter {
 DPT.prototype.bind = vi.fn();
 DPT.prototype.getDnsPeers = vi.fn();
 
-vi.doMock("@ethereumjs/devp2p", () => {
+vi.doMock("@theqrl/zondjs-devp2p", () => {
   return {
     RLPx,
   };

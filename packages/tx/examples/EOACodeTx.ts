@@ -1,5 +1,5 @@
-import { Common, Hardfork, Mainnet } from "@ethereumjs/common";
-import { createEOACode7702Tx } from "@ethereumjs/tx";
+import { Common, Hardfork, Mainnet } from "@theqrl/zondjs-common";
+import { createEOACode7702Tx } from "@theqrl/zondjs-tx";
 import {
   type PrefixedHexString,
   createAddressFromPrivateKey,

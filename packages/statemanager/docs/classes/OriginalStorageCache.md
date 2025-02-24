@@ -1,4 +1,4 @@
-[@ethereumjs/statemanager](../README.md) / OriginalStorageCache
+[@theqrl/zondjs-statemanager](../README.md) / OriginalStorageCache
 
 # Class: OriginalStorageCache
 
@@ -22,8 +22,8 @@
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name                 | Type                 |
+| :------------------- | :------------------- |
 | `getContractStorage` | `getContractStorage` |
 
 #### Defined in
@@ -44,7 +44,7 @@
 
 [cache/originalStorageCache.ts:43](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/cache/originalStorageCache.ts#L43)
 
-___
+---
 
 ### get
 
@@ -52,10 +52,10 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `address` | `Address` |
-| `key` | `Uint8Array` |
+| Name      | Type         |
+| :-------- | :----------- |
+| `address` | `Address`    |
+| `key`     | `Uint8Array` |
 
 #### Returns
 
@@ -65,7 +65,7 @@ ___
 
 [cache/originalStorageCache.ts:15](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/cache/originalStorageCache.ts#L15)
 
-___
+---
 
 ### put
 
@@ -73,11 +73,11 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `address` | `Address` |
-| `key` | `Uint8Array` |
-| `value` | `Uint8Array` |
+| Name      | Type         |
+| :-------- | :----------- |
+| `address` | `Address`    |
+| `key`     | `Uint8Array` |
+| `value`   | `Uint8Array` |
 
 #### Returns
 

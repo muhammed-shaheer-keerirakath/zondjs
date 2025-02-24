@@ -1,4 +1,4 @@
-[@ethereumjs/vm](../README.md) / EIP4844BlobTxReceipt
+[@theqrl/zondjs-vm](../README.md) / EIP4844BlobTxReceipt
 
 # Interface: EIP4844BlobTxReceipt
 

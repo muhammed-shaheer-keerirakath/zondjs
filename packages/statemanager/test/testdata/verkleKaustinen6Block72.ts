@@ -1,4 +1,4 @@
-import type { BlockData } from "@ethereumjs/block";
+import type { BlockData } from "@theqrl/zondjs-block";
 import type { PrefixedHexString } from "@theqrl/zondjs-util";
 
 export const verkleKaustinen6Block72Data: Omit<BlockData, "transactions"> & {

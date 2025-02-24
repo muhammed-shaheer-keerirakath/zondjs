@@ -1,8 +1,8 @@
 import {
   createBlockFromExecutionPayload,
   genRequestsRoot,
-} from "@ethereumjs/block";
-import { Blob4844Tx } from "@ethereumjs/tx";
+} from "@theqrl/zondjs-block";
+import { Blob4844Tx } from "@theqrl/zondjs-tx";
 import {
   CLRequest,
   CLRequestType,
@@ -18,8 +18,8 @@ import { validHash } from "./generic.js";
 
 import type { Chain } from "../../../../blockchain/index.js";
 import type { ChainCache, PayloadStatusV1 } from "../types.js";
-import type { Block, ExecutionPayload } from "@ethereumjs/block";
-import type { Common } from "@ethereumjs/common";
+import type { Block, ExecutionPayload } from "@theqrl/zondjs-block";
+import type { Common } from "@theqrl/zondjs-common";
 import type { PrefixedHexString } from "@theqrl/zondjs-util";
 
 type CLData = {

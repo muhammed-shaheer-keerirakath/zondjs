@@ -1,4 +1,4 @@
-[@ethereumjs/devp2p](../README.md) / RLPx
+[@theqrl/zondjs-devp2p](../README.md) / RLPx
 
 # Class: RLPx
 

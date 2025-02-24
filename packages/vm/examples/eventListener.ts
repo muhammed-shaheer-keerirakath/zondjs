@@ -1,7 +1,7 @@
-import { Common, Hardfork, Mainnet } from "@ethereumjs/common";
-import { createLegacyTx } from "@ethereumjs/tx";
+import { Common, Hardfork, Mainnet } from "@theqrl/zondjs-common";
+import { createLegacyTx } from "@theqrl/zondjs-tx";
 import { bytesToHex, createZeroAddress } from "@theqrl/zondjs-util";
-import { createVM, runTx } from "@ethereumjs/vm";
+import { createVM, runTx } from "@theqrl/zondjs-vm";
 
 const main = async () => {
   const common = new Common({ chain: Mainnet, hardfork: Hardfork.Shanghai });

@@ -1,4 +1,4 @@
-import { Hardfork, createCommonFromGethGenesis } from "@ethereumjs/common";
+import { Hardfork, createCommonFromGethGenesis } from "@theqrl/zondjs-common";
 import {
   blobsToCommitments,
   blobsToProofs,

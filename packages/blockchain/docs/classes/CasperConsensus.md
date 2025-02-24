@@ -1,4 +1,4 @@
-[@ethereumjs/blockchain](../README.md) / CasperConsensus
+[@theqrl/zondjs-blockchain](../README.md) / CasperConsensus
 
 # Class: CasperConsensus
 

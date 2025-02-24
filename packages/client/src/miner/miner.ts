@@ -1,9 +1,9 @@
 import {
   type BlockHeader,
   createSealedCliqueBlockHeader,
-} from "@ethereumjs/block";
-import { ConsensusType, Hardfork } from "@ethereumjs/common";
-import { Ethash } from "@ethereumjs/ethash";
+} from "@theqrl/zondjs-block";
+import { ConsensusType, Hardfork } from "@theqrl/zondjs-common";
+import { Ethash } from "@theqrl/zondjs-ethash";
 import {
   BIGINT_0,
   BIGINT_1,
@@ -11,7 +11,7 @@ import {
   bytesToHex,
   equalsBytes,
 } from "@theqrl/zondjs-util";
-import { type TxReceipt, buildBlock } from "@ethereumjs/vm";
+import { type TxReceipt, buildBlock } from "@theqrl/zondjs-vm";
 import { MemoryLevel } from "memory-level";
 
 import { LevelDB } from "../execution/level.js";
@@ -21,9 +21,9 @@ import type { Config } from "../config.js";
 import type { VMExecution } from "../execution/index.js";
 import type { FullEthereumService } from "../service/index.js";
 import type { FullSynchronizer } from "../sync/index.js";
-import type { Blockchain, CliqueConsensus } from "@ethereumjs/blockchain";
-import type { CliqueConfig } from "@ethereumjs/common";
-import type { Miner as EthashMiner, Solution } from "@ethereumjs/ethash";
+import type { Blockchain, CliqueConsensus } from "@theqrl/zondjs-blockchain";
+import type { CliqueConfig } from "@theqrl/zondjs-common";
+import type { Miner as EthashMiner, Solution } from "@theqrl/zondjs-ethash";
 
 export interface MinerOptions {
   /* Config */

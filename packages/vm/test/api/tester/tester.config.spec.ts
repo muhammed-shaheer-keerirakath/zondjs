@@ -1,4 +1,4 @@
-import { Hardfork } from '@ethereumjs/common'
+import { Hardfork } from '@theqrl/zondjs-common'
 import { assert, describe, it } from 'vitest'
 
 import { getCommon } from '../../tester/config.js'

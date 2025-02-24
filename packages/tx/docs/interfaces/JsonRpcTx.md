@@ -1,4 +1,4 @@
-[@ethereumjs/tx](../README.md) / JsonRpcTx
+[@theqrl/zondjs-tx](../README.md) / JsonRpcTx
 
 # Interface: JsonRpcTx
 
@@ -38,7 +38,7 @@
 
 [tx/src/types.ts:470](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L470)
 
-___
+---
 
 ### blobVersionedHashes
 
@@ -48,27 +48,27 @@ ___
 
 [tx/src/types.ts:482](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L482)
 
-___
+---
 
 ### blockHash
 
-• **blockHash**: ``null`` \| `string`
+• **blockHash**: `null` \| `string`
 
 #### Defined in
 
 [tx/src/types.ts:462](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L462)
 
-___
+---
 
 ### blockNumber
 
-• **blockNumber**: ``null`` \| `string`
+• **blockNumber**: `null` \| `string`
 
 #### Defined in
 
 [tx/src/types.ts:463](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L463)
 
-___
+---
 
 ### chainId
 
@@ -78,7 +78,7 @@ ___
 
 [tx/src/types.ts:471](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L471)
 
-___
+---
 
 ### from
 
@@ -88,7 +88,7 @@ ___
 
 [tx/src/types.ts:464](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L464)
 
-___
+---
 
 ### gas
 
@@ -98,7 +98,7 @@ ___
 
 [tx/src/types.ts:465](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L465)
 
-___
+---
 
 ### gasPrice
 
@@ -108,7 +108,7 @@ ___
 
 [tx/src/types.ts:466](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L466)
 
-___
+---
 
 ### hash
 
@@ -118,7 +118,7 @@ ___
 
 [tx/src/types.ts:472](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L472)
 
-___
+---
 
 ### input
 
@@ -128,7 +128,7 @@ ___
 
 [tx/src/types.ts:473](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L473)
 
-___
+---
 
 ### maxFeePerBlobGas
 
@@ -138,7 +138,7 @@ ___
 
 [tx/src/types.ts:481](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L481)
 
-___
+---
 
 ### maxFeePerGas
 
@@ -148,7 +148,7 @@ ___
 
 [tx/src/types.ts:467](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L467)
 
-___
+---
 
 ### maxPriorityFeePerGas
 
@@ -158,7 +158,7 @@ ___
 
 [tx/src/types.ts:468](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L468)
 
-___
+---
 
 ### nonce
 
@@ -168,7 +168,7 @@ ___
 
 [tx/src/types.ts:474](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L474)
 
-___
+---
 
 ### r
 
@@ -178,7 +178,7 @@ ___
 
 [tx/src/types.ts:479](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L479)
 
-___
+---
 
 ### s
 
@@ -188,27 +188,27 @@ ___
 
 [tx/src/types.ts:480](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L480)
 
-___
+---
 
 ### to
 
-• **to**: ``null`` \| `string`
+• **to**: `null` \| `string`
 
 #### Defined in
 
 [tx/src/types.ts:475](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L475)
 
-___
+---
 
 ### transactionIndex
 
-• **transactionIndex**: ``null`` \| `string`
+• **transactionIndex**: `null` \| `string`
 
 #### Defined in
 
 [tx/src/types.ts:476](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L476)
 
-___
+---
 
 ### type
 
@@ -218,7 +218,7 @@ ___
 
 [tx/src/types.ts:469](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L469)
 
-___
+---
 
 ### v
 
@@ -228,7 +228,7 @@ ___
 
 [tx/src/types.ts:478](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L478)
 
-___
+---
 
 ### value
 

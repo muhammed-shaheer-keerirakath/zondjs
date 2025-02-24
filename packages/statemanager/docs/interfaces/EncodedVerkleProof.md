@@ -1,4 +1,4 @@
-[@ethereumjs/statemanager](../README.md) / EncodedVerkleProof
+[@theqrl/zondjs-statemanager](../README.md) / EncodedVerkleProof
 
 # Interface: EncodedVerkleProof
 

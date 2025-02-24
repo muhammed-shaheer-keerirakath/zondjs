@@ -1,4 +1,4 @@
-[@ethereumjs/vm](../README.md) / BuildBlockOpts
+[@theqrl/zondjs-vm](../README.md) / BuildBlockOpts
 
 # Interface: BuildBlockOpts
 

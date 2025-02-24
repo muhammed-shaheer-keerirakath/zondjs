@@ -1,4 +1,4 @@
-[@ethereumjs/ethash](../README.md) / Ethash
+[@theqrl/zondjs-ethash](../README.md) / Ethash
 
 # Class: Ethash
 
@@ -38,8 +38,8 @@
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name       | Type                        |
+| :--------- | :-------------------------- |
 | `cacheDB?` | `DB`<`number`, `DBObject`\> |
 
 #### Defined in
@@ -56,7 +56,7 @@
 
 [index.ts:163](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/ethash/src/index.ts#L163)
 
-___
+---
 
 ### cacheDB
 
@@ -66,7 +66,7 @@ ___
 
 [index.ts:162](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/ethash/src/index.ts#L162)
 
-___
+---
 
 ### cacheSize
 
@@ -76,7 +76,7 @@ ___
 
 [index.ts:166](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/ethash/src/index.ts#L166)
 
-___
+---
 
 ### dbOpts
 
@@ -86,7 +86,7 @@ ___
 
 [index.ts:161](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/ethash/src/index.ts#L161)
 
-___
+---
 
 ### epoc
 
@@ -96,7 +96,7 @@ ___
 
 [index.ts:164](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/ethash/src/index.ts#L164)
 
-___
+---
 
 ### fullSize
 
@@ -106,7 +106,7 @@ ___
 
 [index.ts:165](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/ethash/src/index.ts#L165)
 
-___
+---
 
 ### seed
 
@@ -120,12 +120,12 @@ ___
 
 ### \_verifyPOW
 
-▸ **_verifyPOW**(`header`): `Promise`<`boolean`\>
+▸ **\_verifyPOW**(`header`): `Promise`<`boolean`\>
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name     | Type          |
+| :------- | :------------ |
 | `header` | `BlockHeader` |
 
 #### Returns
@@ -136,7 +136,7 @@ ___
 
 [index.ts:369](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/ethash/src/index.ts#L369)
 
-___
+---
 
 ### cacheHash
 
@@ -150,7 +150,7 @@ ___
 
 [index.ts:257](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/ethash/src/index.ts#L257)
 
-___
+---
 
 ### calcDatasetItem
 
@@ -158,9 +158,9 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `i` | `number` |
+| Name | Type     |
+| :--- | :------- |
+| `i`  | `number` |
 
 #### Returns
 
@@ -170,7 +170,7 @@ ___
 
 [index.ts:197](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/ethash/src/index.ts#L197)
 
-___
+---
 
 ### getMiner
 
@@ -181,8 +181,8 @@ To mine a `BlockHeader` or `Block`, use the one-liner `await ethash.getMiner(blo
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name         | Type                     | Description                                            |
+| :----------- | :----------------------- | :----------------------------------------------------- |
 | `mineObject` | `BlockHeader` \| `Block` | Object to mine on, either a `BlockHeader` or a `Block` |
 
 #### Returns
@@ -195,7 +195,7 @@ To mine a `BlockHeader` or `Block`, use the one-liner `await ethash.getMiner(blo
 
 [index.ts:365](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/ethash/src/index.ts#L365)
 
-___
+---
 
 ### headerHash
 
@@ -203,8 +203,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name        | Type           |
+| :---------- | :------------- |
 | `rawHeader` | `Uint8Array`[] |
 
 #### Returns
@@ -215,7 +215,7 @@ ___
 
 [index.ts:272](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/ethash/src/index.ts#L272)
 
-___
+---
 
 ### loadEpoc
 
@@ -225,8 +225,8 @@ Loads the seed and cache given a block number.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name     | Type     |
+| :------- | :------- |
 | `number` | `bigint` |
 
 #### Returns
@@ -237,7 +237,7 @@ Loads the seed and cache given a block number.
 
 [index.ts:279](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/ethash/src/index.ts#L279)
 
-___
+---
 
 ### mkcache
 
@@ -245,10 +245,10 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `cacheSize` | `number` |
-| `seed` | `Uint8Array` |
+| Name        | Type         |
+| :---------- | :----------- |
+| `cacheSize` | `number`     |
+| `seed`      | `Uint8Array` |
 
 #### Returns
 
@@ -258,7 +258,7 @@ ___
 
 [index.ts:177](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/ethash/src/index.ts#L177)
 
-___
+---
 
 ### run
 
@@ -266,26 +266,26 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `val` | `Uint8Array` |
-| `nonce` | `Uint8Array` |
-| `fullSize?` | `number` |
+| Name        | Type         |
+| :---------- | :----------- |
+| `val`       | `Uint8Array` |
+| `nonce`     | `Uint8Array` |
+| `fullSize?` | `number`     |
 
 #### Returns
 
 `Object`
 
-| Name | Type |
-| :------ | :------ |
+| Name   | Type         |
+| :----- | :----------- |
 | `hash` | `Uint8Array` |
-| `mix` | `Uint8Array` |
+| `mix`  | `Uint8Array` |
 
 #### Defined in
 
 [index.ts:211](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/ethash/src/index.ts#L211)
 
-___
+---
 
 ### verifyPOW
 
@@ -293,7 +293,7 @@ ___
 
 #### Parameters
 
-| Name | Type |
+| Name    | Type    |
 | :------ | :------ |
 | `block` | `Block` |
 

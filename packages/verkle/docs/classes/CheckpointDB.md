@@ -1,4 +1,4 @@
-[@ethereumjs/verkle](../README.md) / CheckpointDB
+[@theqrl/zondjs-verkle](../README.md) / CheckpointDB
 
 # Class: CheckpointDB
 

@@ -1,5 +1,5 @@
-import { verifyMerkleRangeProof } from "@ethereumjs/mpt";
-import { MerkleStateManager } from "@ethereumjs/statemanager";
+import { verifyMerkleRangeProof } from "@theqrl/zondjs-mpt";
+import { MerkleStateManager } from "@theqrl/zondjs-statemanager";
 import {
   BIGINT_0,
   BIGINT_1,
@@ -33,7 +33,7 @@ import type { AccountData } from "../../net/protocol/snapprotocol.js";
 import type { FetcherOptions } from "./fetcher.js";
 import type { StorageRequest } from "./storagefetcher.js";
 import type { Job, SnapFetcherDoneFlags } from "./types.js";
-import type { MerklePatriciaTrie } from "@ethereumjs/mpt";
+import type { MerklePatriciaTrie } from "@theqrl/zondjs-mpt";
 import type { Debugger } from "debug";
 
 type AccountDataResponse = AccountData[] & { completed?: boolean };

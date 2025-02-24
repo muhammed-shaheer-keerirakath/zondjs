@@ -1,4 +1,4 @@
-[@ethereumjs/verkle](../README.md) / VerkleTreeOpts
+[@theqrl/zondjs-verkle](../README.md) / VerkleTreeOpts
 
 # Interface: VerkleTreeOpts
 

@@ -1,6 +1,6 @@
-@ethereumjs/devp2p
+@theqrl/zondjs-devp2p
 
-# @ethereumjs/devp2p
+# @theqrl/zondjs-devp2p
 
 ## Table of contents
 

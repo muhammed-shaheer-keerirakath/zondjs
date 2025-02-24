@@ -1,10 +1,10 @@
-import { createBlock } from "@ethereumjs/block";
+import { createBlock } from "@theqrl/zondjs-block";
 import {
   Common,
   Mainnet,
   createCommonFromGethGenesis,
   createCustomCommon,
-} from "@ethereumjs/common";
+} from "@theqrl/zondjs-common";
 import { equalsBytes, utf8ToBytes } from "@theqrl/zondjs-util";
 import { MemoryLevel } from "memory-level";
 import { assert, describe, it } from "vitest";
@@ -22,7 +22,7 @@ import { wait } from "../integration/util.js";
 import { mergeTestnetData } from "../testdata/common/mergeTestnet.js";
 import { postMergeData } from "../testdata/geth-genesis/post-merge.js";
 
-import type { Block } from "@ethereumjs/block";
+import type { Block } from "@theqrl/zondjs-block";
 type Subchain = {
   head: bigint;
   tail: bigint;

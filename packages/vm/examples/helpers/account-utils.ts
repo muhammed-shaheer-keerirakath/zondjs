@@ -4,7 +4,7 @@ import {
 } from "@theqrl/zondjs-util";
 
 import type { Address } from "@theqrl/zondjs-util";
-import type { VM } from "@ethereumjs/vm";
+import type { VM } from "@theqrl/zondjs-vm";
 
 export const keyPair = {
   secretKey:

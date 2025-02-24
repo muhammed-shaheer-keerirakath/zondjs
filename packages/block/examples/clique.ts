@@ -1,5 +1,5 @@
-import { createBlock } from '@ethereumjs/block'
-import { Common, Hardfork } from '@ethereumjs/common'
+import { createBlock } from '@theqrl/zondjs-block'
+import { Common, Hardfork } from '@theqrl/zondjs-common'
 
 import { Goerli } from '../test/testdata/goerliCommon.js'
 

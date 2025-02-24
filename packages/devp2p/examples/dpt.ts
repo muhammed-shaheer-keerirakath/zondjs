@@ -1,4 +1,4 @@
-import { DPT } from "@ethereumjs/devp2p";
+import { DPT } from "@theqrl/zondjs-devp2p";
 import { bytesToHex, hexToBytes } from "@theqrl/zondjs-util";
 
 const PRIVATE_KEY = hexToBytes(

@@ -1,6 +1,6 @@
-import { createBlock } from "@ethereumjs/block";
-import { Common, Hardfork, Mainnet } from "@ethereumjs/common";
-import { createBlob4844Tx } from "@ethereumjs/tx";
+import { createBlock } from "@theqrl/zondjs-block";
+import { Common, Hardfork, Mainnet } from "@theqrl/zondjs-common";
+import { createBlob4844Tx } from "@theqrl/zondjs-tx";
 import { createAddressFromPrivateKey } from "@theqrl/zondjs-util";
 import { trustedSetup } from "@paulmillr/trusted-setups/fast.js";
 import { randomBytes } from "crypto";

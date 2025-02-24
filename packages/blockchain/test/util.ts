@@ -1,6 +1,6 @@
-import { Block, createBlock, createBlockHeader } from "@ethereumjs/block";
-import { Common, Hardfork, Mainnet } from "@ethereumjs/common";
-import { RLP } from "@ethereumjs/rlp";
+import { Block, createBlock, createBlockHeader } from "@theqrl/zondjs-block";
+import { Common, Hardfork, Mainnet } from "@theqrl/zondjs-common";
+import { RLP } from "@theqrl/zondjs-rlp";
 import {
   MapDB,
   bytesToUnprefixedHex,
@@ -13,7 +13,7 @@ import { keccak256 } from "ethereum-cryptography/keccak.js";
 
 import { createBlockchain } from "../src/index.js";
 
-import type { BlockHeader } from "@ethereumjs/block";
+import type { BlockHeader } from "@theqrl/zondjs-block";
 import type { DB } from "@theqrl/zondjs-util";
 
 export const generateBlocks = (

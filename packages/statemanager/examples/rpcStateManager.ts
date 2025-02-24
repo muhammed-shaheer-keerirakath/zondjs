@@ -1,4 +1,4 @@
-import { RPCStateManager } from "@ethereumjs/statemanager";
+import { RPCStateManager } from "@theqrl/zondjs-statemanager";
 import { createAddressFromString } from "@theqrl/zondjs-util";
 
 const main = async () => {

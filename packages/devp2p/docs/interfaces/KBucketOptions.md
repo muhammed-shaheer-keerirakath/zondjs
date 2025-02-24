@@ -1,4 +1,4 @@
-[@ethereumjs/devp2p](../README.md) / KBucketOptions
+[@theqrl/zondjs-devp2p](../README.md) / KBucketOptions
 
 # Interface: KBucketOptions
 

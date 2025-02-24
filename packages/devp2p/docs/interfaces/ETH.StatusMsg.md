@@ -1,4 +1,4 @@
-[@ethereumjs/devp2p](../README.md) / [ETH](../modules/ETH.md) / StatusMsg
+[@theqrl/zondjs-devp2p](../README.md) / [ETH](../modules/ETH.md) / StatusMsg
 
 # Interface: StatusMsg
 

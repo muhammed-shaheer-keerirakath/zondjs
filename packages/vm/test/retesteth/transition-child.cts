@@ -2,13 +2,13 @@ import {
   Block,
   BlockHeader,
   createBlockFromBlockData,
-} from "@ethereumjs/block";
-import { createBlockchain } from "@ethereumjs/blockchain";
-import { RLP } from "@ethereumjs/rlp";
+} from "@theqrl/zondjs-block";
+import { createBlockchain } from "@theqrl/zondjs-blockchain";
+import { RLP } from "@theqrl/zondjs-rlp";
 import {
   createLegacyTxFromBytesArray,
   createTxFromSerializedData,
-} from "@ethereumjs/tx";
+} from "@theqrl/zondjs-tx";
 import { Account, bytesToHex, unprefixedHexToBytes } from "@theqrl/zondjs-util";
 import { keccak256 } from "ethereum-cryptography/keccak";
 import { readFileSync, writeFileSync } from "fs";
@@ -19,7 +19,7 @@ import { BlockBuilder } from "../../dist/cjs/buildBlock";
 import { getCommon } from "../tester/config";
 import { makeBlockFromEnv, setupPreConditions } from "../util";
 
-import type { TypedTransaction } from "@ethereumjs/tx";
+import type { TypedTransaction } from "@theqrl/zondjs-tx";
 import type { NestedUint8Array } from "@theqrl/zondjs-util";
 import type { PostByzantiumTxReceipt } from "../../dist/cjs";
 

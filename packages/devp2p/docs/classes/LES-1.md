@@ -1,4 +1,4 @@
-[@ethereumjs/devp2p](../README.md) / LES
+[@theqrl/zondjs-devp2p](../README.md) / LES
 
 # Class: LES
 

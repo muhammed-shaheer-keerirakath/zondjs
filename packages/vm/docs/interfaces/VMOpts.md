@@ -1,4 +1,4 @@
-[@ethereumjs/vm](../README.md) / VMOpts
+[@theqrl/zondjs-vm](../README.md) / VMOpts
 
 # Interface: VMOpts
 
@@ -66,7 +66,7 @@ if you want to change the chain setup.
 - `hardfork`: `mainnet` hardforks up to the `Paris` hardfork
 - `eips`: `1559` (usage e.g. `eips: [ 1559, ]`)
 
-Note: check the associated `@ethereumjs/evm` instance options
+Note: check the associated `@theqrl/zondjs-evm` instance options
 documentation for supported EIPs.
 
 ### Default Setup

@@ -29,7 +29,7 @@ interface Path {
 }
 
 /**
- * The basic verkle tree interface, use with `import { VerkleTree } from '@ethereumjs/verkle'`.
+ * The basic verkle tree interface, use with `import { VerkleTree } from '@theqrl/zondjs-verkle'`.
  */
 export class VerkleTree {
   _opts: VerkleTreeOpts;

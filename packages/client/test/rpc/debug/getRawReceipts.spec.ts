@@ -1,9 +1,9 @@
-import { Hardfork, createCommonFromGethGenesis } from "@ethereumjs/common";
+import { Hardfork, createCommonFromGethGenesis } from "@theqrl/zondjs-common";
 import {
   createBlob4844Tx,
   createFeeMarket1559Tx,
   createLegacyTx,
-} from "@ethereumjs/tx";
+} from "@theqrl/zondjs-tx";
 import {
   bigIntToHex,
   blobsToCommitments,
@@ -13,7 +13,7 @@ import {
   hexToBytes,
   randomBytes,
 } from "@theqrl/zondjs-util";
-import { encodeReceipt } from "@ethereumjs/vm";
+import { encodeReceipt } from "@theqrl/zondjs-vm";
 import { trustedSetup } from "@paulmillr/trusted-setups/fast.js";
 import { KZG as microEthKZG } from "micro-eth-signer/kzg";
 import { assert, describe, it } from "vitest";
@@ -28,7 +28,7 @@ import {
 } from "../helpers.js";
 
 import type { PrefixedHexString } from "@theqrl/zondjs-util";
-import type { TxReceipt } from "@ethereumjs/vm";
+import type { TxReceipt } from "@theqrl/zondjs-vm";
 const kzg = new microEthKZG(trustedSetup);
 
 const method = "eth_getTransactionReceipt";

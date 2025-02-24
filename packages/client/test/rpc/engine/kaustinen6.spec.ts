@@ -3,7 +3,7 @@ import {
   createBlockFromExecutionPayload,
   createBlockFromRLP,
   executionPayloadFromBeaconPayload,
-} from "@ethereumjs/block";
+} from "@theqrl/zondjs-block";
 import { hexToBytes } from "@theqrl/zondjs-util";
 import { readFileSync } from "fs";
 import * as verkle from "micro-eth-signer";
@@ -15,8 +15,8 @@ import { kaustinen6Data } from "../../testdata/geth-genesis/kaustinen6.js";
 import { getRPCClient, setupChain } from "../helpers.js";
 
 import type { Chain } from "../../../src/blockchain/index.js";
-import type { BeaconPayloadJSON } from "@ethereumjs/block";
-import type { Common } from "@ethereumjs/common";
+import type { BeaconPayloadJSON } from "@theqrl/zondjs-block";
+import type { Common } from "@theqrl/zondjs-common";
 import type { VerkleExecutionWitness } from "@theqrl/zondjs-util";
 import type { HttpClient } from "jayson/promise";
 const genesisVerkleStateRoot =

@@ -1,5 +1,5 @@
-import { createBlockHeaderFromRLP } from "@ethereumjs/block";
-import { Common, Hardfork, Mainnet } from "@ethereumjs/common";
+import { createBlockHeaderFromRLP } from "@theqrl/zondjs-block";
+import { Common, Hardfork, Mainnet } from "@theqrl/zondjs-common";
 import { bytesToHex, hexToBytes } from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 

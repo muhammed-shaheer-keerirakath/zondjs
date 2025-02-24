@@ -1,13 +1,13 @@
 /* eslint-disable no-console */
-import { Block } from "@ethereumjs/block";
-import { createBlockchain } from "@ethereumjs/blockchain";
-import { type InterpreterStep } from "@ethereumjs/evm";
-import { MerklePatriciaTrie } from "@ethereumjs/mpt";
+import { Block } from "@theqrl/zondjs-block";
+import { createBlockchain } from "@theqrl/zondjs-blockchain";
+import { type InterpreterStep } from "@theqrl/zondjs-evm";
+import { MerklePatriciaTrie } from "@theqrl/zondjs-mpt";
 import {
   Caches,
   MerkleStateManager,
   StatefulVerkleStateManager,
-} from "@ethereumjs/statemanager";
+} from "@theqrl/zondjs-statemanager";
 import {
   Account,
   MapDB,
@@ -16,14 +16,14 @@ import {
   equalsBytes,
   toBytes,
 } from "@theqrl/zondjs-util";
-import { createVerkleTree } from "@ethereumjs/verkle";
+import { createVerkleTree } from "@theqrl/zondjs-verkle";
 import * as verkle from "micro-eth-signer/verkle";
 
 import { createVM, runTx } from "../../../src/index.js";
 import { makeBlockFromEnv, makeTx, setupPreConditions } from "../../util.js";
 
-import type { StateManagerInterface } from "@ethereumjs/common";
-import type { VerkleTree } from "@ethereumjs/verkle";
+import type { StateManagerInterface } from "@theqrl/zondjs-common";
+import type { VerkleTree } from "@theqrl/zondjs-verkle";
 import type * as tape from "tape";
 const loadVerkleCrypto = () => Promise.resolve(verkle);
 

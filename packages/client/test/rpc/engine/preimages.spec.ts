@@ -3,8 +3,8 @@ import {
   createBlock,
   genTransactionsTrieRoot,
   genWithdrawalsTrieRoot,
-} from "@ethereumjs/block";
-import { createTxFromRLP } from "@ethereumjs/tx";
+} from "@theqrl/zondjs-block";
+import { createTxFromRLP } from "@theqrl/zondjs-tx";
 import {
   bytesToHex,
   createWithdrawal,
@@ -23,7 +23,7 @@ import { kaustinen2Data } from "../../testdata/blocks/kaustinen2.js";
 import { kaustinen2Data as kaustinen2GethGenesisData } from "../../testdata/geth-genesis/kaustinen2.js";
 import { getRPCClient, setupChain } from "../helpers.js";
 
-import type { Common } from "@ethereumjs/common";
+import type { Common } from "@theqrl/zondjs-common";
 import type { PrefixedHexString } from "@theqrl/zondjs-util";
 import type { HttpClient } from "jayson/promise";
 

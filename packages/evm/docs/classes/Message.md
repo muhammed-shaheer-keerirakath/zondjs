@@ -1,4 +1,4 @@
-[@ethereumjs/evm](../README.md) / Message
+[@theqrl/zondjs-evm](../README.md) / Message
 
 # Class: Message
 

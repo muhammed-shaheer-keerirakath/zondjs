@@ -1,4 +1,4 @@
-[@ethereumjs/block](../README.md) / JsonRpcBlock
+[@theqrl/zondjs-block](../README.md) / JsonRpcBlock
 
 # Interface: JsonRpcBlock
 

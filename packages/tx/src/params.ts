@@ -1,4 +1,4 @@
-import type { ParamsDict } from '@ethereumjs/common'
+import type { ParamsDict } from "@theqrl/zondjs-common";
 
 export const paramsTx: ParamsDict = {
   /**
@@ -66,4 +66,4 @@ export const paramsTx: ParamsDict = {
   7691: {
     maxBlobGasPerBlock: 1179648, // The max blob gas allowable per block
   },
-}
+};

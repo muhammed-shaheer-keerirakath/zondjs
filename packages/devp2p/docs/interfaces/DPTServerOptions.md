@@ -1,4 +1,4 @@
-[@ethereumjs/devp2p](../README.md) / DPTServerOptions
+[@theqrl/zondjs-devp2p](../README.md) / DPTServerOptions
 
 # Interface: DPTServerOptions
 

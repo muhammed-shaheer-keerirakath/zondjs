@@ -1,4 +1,4 @@
-import { RLP } from "@ethereumjs/rlp";
+import { RLP } from "@theqrl/zondjs-rlp";
 import { BIGINT_0, BIGINT_1, concatBytes } from "@theqrl/zondjs-util";
 import { keccak256 } from "ethereum-cryptography/keccak.js";
 
@@ -7,7 +7,7 @@ import { txTypeBytes } from "../util.js";
 import { errorMsg } from "./legacy.js";
 
 import type { EIP2718CompatibleTx } from "../types.js";
-import type { Input } from "@ethereumjs/rlp";
+import type { Input } from "@theqrl/zondjs-rlp";
 
 export function getHashedMessageToSign(tx: EIP2718CompatibleTx): Uint8Array {
   const keccakFunction = tx.common.customCrypto.keccak256 ?? keccak256;

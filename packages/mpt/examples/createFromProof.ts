@@ -3,7 +3,7 @@ import {
   createMPTFromProof,
   createMerkleProof,
   updateMPTFromMerkleProof,
-} from "@ethereumjs/mpt";
+} from "@theqrl/zondjs-mpt";
 import { bytesToUtf8, utf8ToBytes } from "@theqrl/zondjs-util";
 
 async function main() {

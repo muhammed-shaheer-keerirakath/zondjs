@@ -1,4 +1,4 @@
-[@ethereumjs/statemanager](../README.md) / CacheOpts
+[@theqrl/zondjs-statemanager](../README.md) / CacheOpts
 
 # Interface: CacheOpts
 
@@ -19,7 +19,7 @@
 
 [cache/types.ts:7](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/cache/types.ts#L7)
 
-___
+---
 
 ### type
 

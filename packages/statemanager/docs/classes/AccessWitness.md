@@ -1,4 +1,4 @@
-[@ethereumjs/statemanager](../README.md) / AccessWitness
+[@theqrl/zondjs-statemanager](../README.md) / AccessWitness
 
 # Class: AccessWitness
 
@@ -41,11 +41,11 @@
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `opts` | `Object` |
-| `opts.chunks?` | `Map`<`string`, `ChunkAccessEvent`\> |
-| `opts.stems?` | `Map`<`string`, `StemAccessEvent` & `StemMeta`\> |
+| Name           | Type                                             |
+| :------------- | :----------------------------------------------- |
+| `opts`         | `Object`                                         |
+| `opts.chunks?` | `Map`<`string`, `ChunkAccessEvent`\>             |
+| `opts.stems?`  | `Map`<`string`, `StemAccessEvent` & `StemMeta`\> |
 
 #### Defined in
 
@@ -61,7 +61,7 @@
 
 [accessWitness.ts:76](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/accessWitness.ts#L76)
 
-___
+---
 
 ### stems
 
@@ -85,7 +85,7 @@ ___
 
 [accessWitness.ts:346](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/accessWitness.ts#L346)
 
-___
+---
 
 ### merge
 
@@ -93,8 +93,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name            | Type                                |
+| :-------------- | :---------------------------------- |
 | `accessWitness` | [`AccessWitness`](AccessWitness.md) |
 
 #### Returns
@@ -105,7 +105,7 @@ ___
 
 [accessWitness.ts:306](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/accessWitness.ts#L306)
 
-___
+---
 
 ### rawAccesses
 
@@ -119,7 +119,7 @@ ___
 
 [accessWitness.ts:331](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/accessWitness.ts#L331)
 
-___
+---
 
 ### shallowCopy
 
@@ -135,7 +135,7 @@ Create a shallow copy, could clone some caches in future for optimizations
 
 [accessWitness.ts:302](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/accessWitness.ts#L302)
 
-___
+---
 
 ### touchAddress
 
@@ -143,13 +143,13 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `address` | `Address` |
-| `treeIndex` | `number` \| `bigint` |
-| `subIndex` | `number` \| `Uint8Array` |
-| `__namedParameters` | `Object` |
-| `__namedParameters.isWrite?` | `boolean` |
+| Name                         | Type                     |
+| :--------------------------- | :----------------------- |
+| `address`                    | `Address`                |
+| `treeIndex`                  | `number` \| `bigint`     |
+| `subIndex`                   | `number` \| `Uint8Array` |
+| `__namedParameters`          | `Object`                 |
+| `__namedParameters.isWrite?` | `boolean`                |
 
 #### Returns
 
@@ -159,7 +159,7 @@ ___
 
 [accessWitness.ts:249](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/accessWitness.ts#L249)
 
-___
+---
 
 ### touchAddressAndChargeGas
 
@@ -167,13 +167,13 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `address` | `Address` |
-| `treeIndex` | `number` \| `bigint` |
-| `subIndex` | `number` \| `Uint8Array` |
-| `__namedParameters` | `Object` |
-| `__namedParameters.isWrite?` | `boolean` |
+| Name                         | Type                     |
+| :--------------------------- | :----------------------- |
+| `address`                    | `Address`                |
+| `treeIndex`                  | `number` \| `bigint`     |
+| `subIndex`                   | `number` \| `Uint8Array` |
+| `__namedParameters`          | `Object`                 |
+| `__namedParameters.isWrite?` | `boolean`                |
 
 #### Returns
 
@@ -183,7 +183,7 @@ ___
 
 [accessWitness.ts:210](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/accessWitness.ts#L210)
 
-___
+---
 
 ### touchAddressOnReadAndComputeGas
 
@@ -191,11 +191,11 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `address` | `Address` |
-| `treeIndex` | `number` \| `bigint` |
-| `subIndex` | `number` \| `Uint8Array` |
+| Name        | Type                     |
+| :---------- | :----------------------- |
+| `address`   | `Address`                |
+| `treeIndex` | `number` \| `bigint`     |
+| `subIndex`  | `number` \| `Uint8Array` |
 
 #### Returns
 
@@ -205,7 +205,7 @@ ___
 
 [accessWitness.ts:202](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/accessWitness.ts#L202)
 
-___
+---
 
 ### touchAddressOnWriteAndComputeGas
 
@@ -213,11 +213,11 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `address` | `Address` |
-| `treeIndex` | `number` \| `bigint` |
-| `subIndex` | `number` \| `Uint8Array` |
+| Name        | Type                     |
+| :---------- | :----------------------- |
+| `address`   | `Address`                |
+| `treeIndex` | `number` \| `bigint`     |
+| `subIndex`  | `number` \| `Uint8Array` |
 
 #### Returns
 
@@ -227,7 +227,7 @@ ___
 
 [accessWitness.ts:194](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/accessWitness.ts#L194)
 
-___
+---
 
 ### touchAndChargeContractCreateCompleted
 
@@ -235,8 +235,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name      | Type      |
+| :-------- | :-------- |
 | `address` | `Address` |
 
 #### Returns
@@ -247,7 +247,7 @@ ___
 
 [accessWitness.ts:134](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/accessWitness.ts#L134)
 
-___
+---
 
 ### touchAndChargeContractCreateInit
 
@@ -255,10 +255,10 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `address` | `Address` |
-| `__namedParameters` | `Object` |
+| Name                            | Type      |
+| :------------------------------ | :-------- |
+| `address`                       | `Address` |
+| `__namedParameters`             | `Object`  |
 | `__namedParameters.sendsValue?` | `boolean` |
 
 #### Returns
@@ -269,7 +269,7 @@ ___
 
 [accessWitness.ts:118](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/accessWitness.ts#L118)
 
-___
+---
 
 ### touchAndChargeMessageCall
 
@@ -277,8 +277,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name      | Type      |
+| :-------- | :-------- |
 | `address` | `Address` |
 
 #### Returns
@@ -289,7 +289,7 @@ ___
 
 [accessWitness.ts:100](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/accessWitness.ts#L100)
 
-___
+---
 
 ### touchAndChargeProofOfAbsence
 
@@ -297,8 +297,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name      | Type      |
+| :-------- | :-------- |
 | `address` | `Address` |
 
 #### Returns
@@ -309,7 +309,7 @@ ___
 
 [accessWitness.ts:88](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/accessWitness.ts#L88)
 
-___
+---
 
 ### touchAndChargeValueTransfer
 
@@ -317,8 +317,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name     | Type      |
+| :------- | :-------- |
 | `caller` | `Address` |
 | `target` | `Address` |
 
@@ -330,7 +330,7 @@ ___
 
 [accessWitness.ts:109](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/accessWitness.ts#L109)
 
-___
+---
 
 ### touchCodeChunksRangeOnReadAndChargeGas
 
@@ -338,11 +338,11 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name      | Type      |
+| :-------- | :-------- |
 | `contact` | `Address` |
-| `startPc` | `number` |
-| `endPc` | `number` |
+| `startPc` | `number`  |
+| `endPc`   | `number`  |
 
 #### Returns
 
@@ -352,7 +352,7 @@ ___
 
 [accessWitness.ts:176](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/accessWitness.ts#L176)
 
-___
+---
 
 ### touchCodeChunksRangeOnWriteAndChargeGas
 
@@ -360,11 +360,11 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name      | Type      |
+| :-------- | :-------- |
 | `contact` | `Address` |
-| `startPc` | `number` |
-| `endPc` | `number` |
+| `startPc` | `number`  |
+| `endPc`   | `number`  |
 
 #### Returns
 
@@ -374,7 +374,7 @@ ___
 
 [accessWitness.ts:185](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/accessWitness.ts#L185)
 
-___
+---
 
 ### touchTxTargetAndComputeGas
 
@@ -382,10 +382,10 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `target` | `Address` |
-| `__namedParameters` | `Object` |
+| Name                            | Type      |
+| :------------------------------ | :-------- |
+| `target`                        | `Address` |
+| `__namedParameters`             | `Object`  |
 | `__namedParameters.sendsValue?` | `boolean` |
 
 #### Returns
@@ -396,7 +396,7 @@ ___
 
 [accessWitness.ts:159](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/accessWitness.ts#L159)
 
-___
+---
 
 ### touchTxOriginAndComputeGas
 
@@ -404,8 +404,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name     | Type      |
+| :------- | :-------- |
 | `origin` | `Address` |
 
 #### Returns

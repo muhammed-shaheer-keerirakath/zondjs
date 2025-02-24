@@ -1,5 +1,5 @@
-import { Common, Mainnet } from '@ethereumjs/common'
-import { SimpleStateManager } from '@ethereumjs/statemanager'
+import { Common, Mainnet } from '@theqrl/zondjs-common'
+import { SimpleStateManager } from '@theqrl/zondjs-statemanager'
 
 import { NobleBN254 } from './precompiles/index.js'
 import { EVMMockBlockchain } from './types.js'

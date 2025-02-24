@@ -1,4 +1,4 @@
-[@ethereumjs/verkle](../README.md) / Point
+[@theqrl/zondjs-verkle](../README.md) / Point
 
 # Interface: Point
 

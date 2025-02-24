@@ -1,4 +1,4 @@
-[@ethereumjs/vm](../README.md) / RunBlockOpts
+[@theqrl/zondjs-vm](../README.md) / RunBlockOpts
 
 # Interface: RunBlockOpts
 
@@ -26,7 +26,7 @@ Options for running a block.
 
 • **block**: `Block`
 
-The @ethereumjs/block to process
+The @theqrl/zondjs-block to process
 
 #### Defined in
 

@@ -3,7 +3,7 @@ import {
   addMerkleStateProofData,
   fromMerkleStateProof,
   getMerkleStateProof,
-} from "@ethereumjs/statemanager";
+} from "@theqrl/zondjs-statemanager";
 import { Address, hexToBytes } from "@theqrl/zondjs-util";
 
 const main = async () => {

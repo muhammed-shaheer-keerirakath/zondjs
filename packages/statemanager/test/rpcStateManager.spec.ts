@@ -1,11 +1,11 @@
 import {
   createBlockFromJSONRPCProvider,
   createBlockFromRPC,
-} from "@ethereumjs/block";
-import { Common, Hardfork, Mainnet } from "@ethereumjs/common";
-import { type EVMRunCallOpts, createEVM } from "@ethereumjs/evm";
-import { verifyMerkleProof } from "@ethereumjs/mpt";
-import { createFeeMarket1559Tx, createTxFromRPC } from "@ethereumjs/tx";
+} from "@theqrl/zondjs-block";
+import { Common, Hardfork, Mainnet } from "@theqrl/zondjs-common";
+import { type EVMRunCallOpts, createEVM } from "@theqrl/zondjs-evm";
+import { verifyMerkleProof } from "@theqrl/zondjs-mpt";
+import { createFeeMarket1559Tx, createTxFromRPC } from "@theqrl/zondjs-tx";
 import {
   Address,
   bigIntToBytes,
@@ -18,7 +18,7 @@ import {
   setLengthLeft,
   utf8ToBytes,
 } from "@theqrl/zondjs-util";
-import { createVM, runBlock, runTx } from "@ethereumjs/vm";
+import { createVM, runBlock, runTx } from "@theqrl/zondjs-vm";
 import { assert, describe, expect, it, vi } from "vitest";
 
 import { MerkleStateManager } from "../src/merkleStateManager.js";
@@ -29,7 +29,7 @@ import { block as blockData } from "./testdata/providerData/blocks/block0x7a120.
 import { getValues } from "./testdata/providerData/mockProvider.js";
 import { tx as txData } from "./testdata/providerData/transactions/0xed1960aa7d0d7b567c946d94331dddb37a1c67f51f30bf51f256ea40db88cfb0.js";
 
-import type { EVMMockBlockchainInterface } from "@ethereumjs/evm";
+import type { EVMMockBlockchainInterface } from "@theqrl/zondjs-evm";
 
 const provider = process.env.PROVIDER ?? "http://cheese";
 // To run the tests with a live provider, set the PROVIDER environmental variable with a valid provider url

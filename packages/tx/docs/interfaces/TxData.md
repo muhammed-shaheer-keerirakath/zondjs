@@ -1,4 +1,4 @@
-[@ethereumjs/tx](../README.md) / TxData
+[@theqrl/zondjs-tx](../README.md) / TxData
 
 # Interface: TxData
 
@@ -21,7 +21,7 @@
 
 [tx/src/types.ts:207](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L207)
 
-___
+---
 
 ### 1
 
@@ -31,7 +31,7 @@ ___
 
 [tx/src/types.ts:208](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L208)
 
-___
+---
 
 ### 2
 
@@ -41,7 +41,7 @@ ___
 
 [tx/src/types.ts:209](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L209)
 
-___
+---
 
 ### 3
 

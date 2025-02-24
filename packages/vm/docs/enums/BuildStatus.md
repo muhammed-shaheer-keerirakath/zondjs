@@ -1,4 +1,4 @@
-[@ethereumjs/vm](../README.md) / BuildStatus
+[@theqrl/zondjs-vm](../README.md) / BuildStatus
 
 # Enumeration: BuildStatus
 

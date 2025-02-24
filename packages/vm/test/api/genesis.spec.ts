@@ -1,6 +1,6 @@
-import { createBlockchain } from '@ethereumjs/blockchain'
-import { Chain } from '@ethereumjs/common'
-import { getGenesis } from '@ethereumjs/genesis'
+import { createBlockchain } from '@theqrl/zondjs-blockchain'
+import { Chain } from '@theqrl/zondjs-common'
+import { getGenesis } from '@theqrl/zondjs-genesis'
 import { assert, describe, it } from 'vitest'
 
 import { createVM } from '../../src/index.js'

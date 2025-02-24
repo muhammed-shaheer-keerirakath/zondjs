@@ -1,4 +1,4 @@
-import { createBlockHeaderFromBytesArray } from "@ethereumjs/block";
+import { createBlockHeaderFromBytesArray } from "@theqrl/zondjs-block";
 import { bytesToHex } from "@theqrl/zondjs-util";
 import { readFileSync } from "fs";
 import { assert, describe, expect, it } from "vitest";

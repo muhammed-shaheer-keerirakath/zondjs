@@ -1,4 +1,7 @@
-import { CODEHASH_PREFIX, MerkleStateManager } from "@ethereumjs/statemanager";
+import {
+  CODEHASH_PREFIX,
+  MerkleStateManager,
+} from "@theqrl/zondjs-statemanager";
 import {
   BIGINT_0,
   bytesToHex,

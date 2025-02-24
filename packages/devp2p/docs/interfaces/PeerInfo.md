@@ -1,4 +1,4 @@
-[@ethereumjs/devp2p](../README.md) / PeerInfo
+[@theqrl/zondjs-devp2p](../README.md) / PeerInfo
 
 # Interface: PeerInfo
 

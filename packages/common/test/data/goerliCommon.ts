@@ -1,4 +1,4 @@
-import type { ChainConfig } from '@ethereumjs/common'
+import type { ChainConfig } from '@theqrl/zondjs-common'
 
 export const Goerli: ChainConfig = {
   name: 'goerli',

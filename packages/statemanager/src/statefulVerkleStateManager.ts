@@ -1,5 +1,5 @@
-import { VerkleAccessedStateType } from "@ethereumjs/common";
-import { RLP } from "@ethereumjs/rlp";
+import { VerkleAccessedStateType } from "@theqrl/zondjs-common";
+import { RLP } from "@theqrl/zondjs-rlp";
 import {
   Account,
   type Address,
@@ -31,7 +31,7 @@ import {
   short,
   unprefixedHexToBytes,
 } from "@theqrl/zondjs-util";
-import { LeafVerkleNodeValue, VerkleTree } from "@ethereumjs/verkle";
+import { LeafVerkleNodeValue, VerkleTree } from "@theqrl/zondjs-verkle";
 import debugDefault from "debug";
 import { keccak256 } from "ethereum-cryptography/keccak.js";
 
@@ -48,7 +48,7 @@ import type {
   StorageRange,
   VerkleAccessWitnessInterface,
   VerkleAccessedStateWithAddress,
-} from "@ethereumjs/common";
+} from "@theqrl/zondjs-common";
 import type {
   GenesisState,
   PrefixedHexString,

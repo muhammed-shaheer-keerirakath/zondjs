@@ -1,6 +1,6 @@
-@ethereumjs/blockchain
+@theqrl/zondjs-blockchain
 
-# @ethereumjs/blockchain
+# @theqrl/zondjs-blockchain
 
 ## Table of contents
 

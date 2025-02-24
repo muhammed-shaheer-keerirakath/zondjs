@@ -7,7 +7,7 @@ import { BlockFetcher } from "./blockfetcher.js";
 
 import type { Skeleton } from "../../service/skeleton.js";
 import type { BlockFetcherOptions, JobTask } from "./blockfetcherbase.js";
-import type { Block } from "@ethereumjs/block";
+import type { Block } from "@theqrl/zondjs-block";
 
 interface ReverseBlockFetcherOptions extends BlockFetcherOptions {
   /** Skeleton */

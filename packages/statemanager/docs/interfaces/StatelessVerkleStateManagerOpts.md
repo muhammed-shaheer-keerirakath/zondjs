@@ -1,4 +1,4 @@
-[@ethereumjs/statemanager](../README.md) / StatelessVerkleStateManagerOpts
+[@theqrl/zondjs-statemanager](../README.md) / StatelessVerkleStateManagerOpts
 
 # Interface: StatelessVerkleStateManagerOpts
 
@@ -24,7 +24,7 @@ Options dictionary.
 
 [statelessVerkleStateManager.ts:115](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/statelessVerkleStateManager.ts#L115)
 
-___
+---
 
 ### accountCacheOpts
 
@@ -34,7 +34,7 @@ ___
 
 [statelessVerkleStateManager.ts:112](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/statelessVerkleStateManager.ts#L112)
 
-___
+---
 
 ### codeCacheOpts
 
@@ -44,7 +44,7 @@ ___
 
 [statelessVerkleStateManager.ts:114](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/statelessVerkleStateManager.ts#L114)
 
-___
+---
 
 ### common
 
@@ -56,7 +56,7 @@ The common to use
 
 [statelessVerkleStateManager.ts:111](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/statelessVerkleStateManager.ts#L111)
 
-___
+---
 
 ### storageCacheOpts
 

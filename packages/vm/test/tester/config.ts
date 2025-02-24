@@ -3,11 +3,11 @@ import {
   Hardfork,
   Mainnet,
   createCustomCommon,
-} from "@ethereumjs/common";
+} from "@theqrl/zondjs-common";
 import * as verkle from "micro-eth-signer/verkle";
 import * as path from "path";
 
-import type { HardforkTransitionConfig } from "@ethereumjs/common";
+import type { HardforkTransitionConfig } from "@theqrl/zondjs-common";
 import type { KZG } from "@theqrl/zondjs-util";
 
 /**

@@ -1,5 +1,5 @@
 {
-  "name": "@ethereumjs/ethash",
+  "name": "@theqrl/zondjs-ethash",
   "version": "4.0.0-alpha.1",
   "description": "An implementation of the Ethash consensus algorithm in JavaScript",
   "keywords": [
@@ -47,14 +47,14 @@
     "tsc": "../../config/cli/ts-compile.sh"
   },
   "dependencies": {
-    "@ethereumjs/block": "^6.0.0-alpha.1",
-    "@ethereumjs/rlp": "^6.0.0-alpha.1",
+    "@theqrl/zondjs-block": "^6.0.0-alpha.1",
+    "@theqrl/zondjs-rlp": "^6.0.0-alpha.1",
     "@theqrl/zondjs-util": "^10.0.0-alpha.1",
     "bigint-crypto-utils": "^3.2.2",
     "ethereum-cryptography": "^3.1.0"
   },
   "devDependencies": {
-    "@ethereumjs/common": "^5.0.0-alpha.1"
+    "@theqrl/zondjs-common": "^5.0.0-alpha.1"
   },
   "engines": {
     "node": ">=18"

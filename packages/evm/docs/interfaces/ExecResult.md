@@ -1,4 +1,4 @@
-[@ethereumjs/evm](../README.md) / ExecResult
+[@theqrl/zondjs-evm](../README.md) / ExecResult
 
 # Interface: ExecResult
 

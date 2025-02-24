@@ -1,8 +1,8 @@
 import type { SyncMode } from "./index.js";
 import type { Peer } from "./net/peer/index.js";
 import type { Server } from "./net/server/index.js";
-import type { Block, BlockHeader } from "@ethereumjs/block";
-import type { MerkleStateManager } from "@ethereumjs/statemanager";
+import type { Block, BlockHeader } from "@theqrl/zondjs-block";
+import type { MerkleStateManager } from "@theqrl/zondjs-statemanager";
 import type { Multiaddr } from "@multiformats/multiaddr";
 import type { Address } from "@theqrl/zondjs-util";
 import type * as promClient from "prom-client";

@@ -1,4 +1,4 @@
-import { Common, Mainnet } from "@ethereumjs/common";
+import { Common, Mainnet } from "@theqrl/zondjs-common";
 import {
   Address,
   MAX_INTEGER,

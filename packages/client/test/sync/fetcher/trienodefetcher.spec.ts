@@ -1,5 +1,5 @@
-import { decodeMPTNode } from "@ethereumjs/mpt";
-import { RLP } from "@ethereumjs/rlp";
+import { decodeMPTNode } from "@theqrl/zondjs-mpt";
+import { RLP } from "@theqrl/zondjs-rlp";
 import { bytesToHex, hexToBytes } from "@theqrl/zondjs-util";
 import { OrderedMap } from "@js-sdsl/ordered-map";
 import { assert, describe, it, vi } from "vitest";
@@ -9,7 +9,7 @@ import { Config } from "../../../src/config.js";
 import { SnapProtocol } from "../../../src/net/protocol/index.js";
 import { wait } from "../../integration/util.js";
 
-import type { BranchMPTNode } from "@ethereumjs/mpt";
+import type { BranchMPTNode } from "@theqrl/zondjs-mpt";
 
 // Collected from Sepolia:
 // getTrieNodes({

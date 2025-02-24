@@ -1,8 +1,8 @@
-import { createBlock } from "@ethereumjs/block";
-import { createBlockchain } from "@ethereumjs/blockchain";
-import { Common, Hardfork, Mainnet } from "@ethereumjs/common";
-import { getGenesis } from "@ethereumjs/genesis";
-import { createLegacyTx, createTx } from "@ethereumjs/tx";
+import { createBlock } from "@theqrl/zondjs-block";
+import { createBlockchain } from "@theqrl/zondjs-blockchain";
+import { Common, Hardfork, Mainnet } from "@theqrl/zondjs-common";
+import { getGenesis } from "@theqrl/zondjs-genesis";
+import { createLegacyTx, createTx } from "@theqrl/zondjs-tx";
 import {
   Account,
   createAddressFromPrivateKey,
@@ -10,7 +10,7 @@ import {
   hexToBytes,
   randomBytes,
 } from "@theqrl/zondjs-util";
-import { runBlock } from "@ethereumjs/vm";
+import { runBlock } from "@theqrl/zondjs-vm";
 import { assert, describe, it } from "vitest";
 
 import {
@@ -20,7 +20,7 @@ import {
   startRPC,
 } from "../helpers.js";
 
-import type { Block } from "@ethereumjs/block";
+import type { Block } from "@theqrl/zondjs-block";
 
 const method = "eth_getTransactionCount";
 

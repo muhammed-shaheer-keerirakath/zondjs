@@ -46,12 +46,12 @@ See [RC1 release notes](https://github.com/ethereumjs/ethereumjs-monorepo/releas
 
 This is the first release of this library under a new namespaced package name switching from:
 
-- `ethereumjs-wallet` -> `@ethereumjs/wallet`
+- `ethereumjs-wallet` -> `@theqrl/zondjs-wallet`
 
 So the new version of the library can now be installed with:
 
 ```shell
-npm i @ethereumjs/wallet
+npm i @theqrl/zondjs-wallet
 ```
 
 The wallet library has now also been integrated into the EthereumJS monorepo, see PR [#2729](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2729) and PR [#2739](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2739) and got a general update along the way aligning with the other EthereumJS libraries by e.g. switching from Buffer usage to Uint8Array and providing a hybrid CJS/ESM build.
@@ -64,13 +64,13 @@ So imports needs to be updated as follows:
 
 ```ts
 import Wallet from 'ethereumjs-wallet'
-import { Wallet } from '@ethereumjs/wallet'
+import { Wallet } from '@theqrl/zondjs-wallet'
 
 import { thirdparty } from 'ethereumjs-wallet'
-import { thirdparty } from '@ethereumjs/wallet'
+import { thirdparty } from '@theqrl/zondjs-wallet'
 
 import { hdkey } from 'ethereumjs-wallet'
-import { hdkey } from '@ethereumjs/wallet'
+import { hdkey } from '@theqrl/zondjs-wallet'
 ```
 
 ### Hybrid CJS/ESM Build
@@ -84,14 +84,14 @@ Both builds have respective separate entrypoints in the distributed `package.jso
 A CommonJS import of our libraries can then be done like this:
 
 ```ts
-const { Chain, Common } = require('@ethereumjs/common')
+const { Chain, Common } = require('@theqrl/zondjs-common')
 const common = new Common({ chain: Chain.Mainnet })
 ```
 
 And this is how an ESM import looks like:
 
 ```ts
-import { Chain, Common } from '@ethereumjs/common'
+import { Chain, Common } from '@theqrl/zondjs-common'
 const common = new Common({ chain: Chain.Mainnet })
 ```
 
@@ -122,7 +122,7 @@ Wallet.toV3()
 EthereumHDKey.fromMasterSeed()
 ```
 
-We have converted existing Buffer conversion methods to Uint8Array conversion methods in the [@ethereumjs/util](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/util) `bytes` module, see the respective README section for guidance.
+We have converted existing Buffer conversion methods to Uint8Array conversion methods in the [@theqrl/zondjs-util](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/util) `bytes` module, see the respective README section for guidance.
 
 #### Prefixed Hex Strings as Default
 

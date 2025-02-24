@@ -1,5 +1,5 @@
-import { Hardfork } from "@ethereumjs/common";
-import { Blob4844Tx } from "@ethereumjs/tx";
+import { Hardfork } from "@theqrl/zondjs-common";
+import { Blob4844Tx } from "@theqrl/zondjs-tx";
 import {
   BIGINT_1,
   BIGINT_2,
@@ -12,20 +12,20 @@ import {
   toBytes,
   toType,
 } from "@theqrl/zondjs-util";
-import { BuildStatus, buildBlock } from "@ethereumjs/vm";
+import { BuildStatus, buildBlock } from "@theqrl/zondjs-vm";
 import { keccak256 } from "ethereum-cryptography/keccak";
 
 import type { Config } from "../config.js";
 import type { TxPool } from "../service/txpool.js";
-import type { Block, HeaderData } from "@ethereumjs/block";
-import type { TypedTransaction } from "@ethereumjs/tx";
+import type { Block, HeaderData } from "@theqrl/zondjs-block";
+import type { TypedTransaction } from "@theqrl/zondjs-tx";
 import type {
   CLRequest,
   CLRequestType,
   PrefixedHexString,
   WithdrawalData,
 } from "@theqrl/zondjs-util";
-import type { BlockBuilder, TxReceipt, VM } from "@ethereumjs/vm";
+import type { BlockBuilder, TxReceipt, VM } from "@theqrl/zondjs-vm";
 
 interface PendingBlockOpts {
   /* Config */

@@ -6,7 +6,7 @@ import {
   hexToBytes,
   toType,
 } from "@theqrl/zondjs-util";
-import { type VM, encodeReceipt, runTx } from "@ethereumjs/vm";
+import { type VM, encodeReceipt, runTx } from "@theqrl/zondjs-vm";
 
 import { INTERNAL_ERROR, INVALID_PARAMS } from "../error-code.js";
 import { callWithStackTrace, getBlockByOption } from "../helpers.js";
@@ -16,7 +16,7 @@ import type { Chain } from "../../blockchain/index.js";
 import type { EthereumClient } from "../../index.js";
 import type { FullEthereumService } from "../../service/index.js";
 import type { RPCTx } from "../types.js";
-import type { Block } from "@ethereumjs/block";
+import type { Block } from "@theqrl/zondjs-block";
 import type { PrefixedHexString } from "@theqrl/zondjs-util";
 
 export interface tracerOpts {

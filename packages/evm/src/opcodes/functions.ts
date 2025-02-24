@@ -47,7 +47,7 @@ import {
 } from "./util.js";
 
 import type { RunState } from "../interpreter.js";
-import type { Common } from "@ethereumjs/common";
+import type { Common } from "@theqrl/zondjs-common";
 
 export interface SyncOpHandler {
   (runState: RunState, common: Common): void;

@@ -3,8 +3,8 @@ import {
   Hardfork,
   Mainnet,
   createCommonFromGethGenesis,
-} from "@ethereumjs/common";
-import { createBlob4844Tx } from "@ethereumjs/tx";
+} from "@theqrl/zondjs-common";
+import { createBlob4844Tx } from "@theqrl/zondjs-tx";
 import {
   blobsToCommitments,
   commitmentsToVersionedHashes,
@@ -21,7 +21,7 @@ import { paramsBlock } from "../src/params.js";
 
 import { hardfork4844Data } from "./testdata/4844-hardfork.js";
 
-import type { TypedTransaction } from "@ethereumjs/tx";
+import type { TypedTransaction } from "@theqrl/zondjs-tx";
 
 describe("EIP4844 header tests", () => {
   const kzg = new microEthKZG(trustedSetup);

@@ -1,4 +1,4 @@
-[@ethereumjs/wallet](../README.md) / [thirdparty](../modules/thirdparty.md) / EtherWalletOptions
+[@theqrl/zondjs-wallet](../README.md) / [thirdparty](../modules/thirdparty.md) / EtherWalletOptions
 
 # Interface: EtherWalletOptions
 

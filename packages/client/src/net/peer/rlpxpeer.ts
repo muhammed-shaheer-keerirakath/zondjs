@@ -2,7 +2,7 @@ import {
   ETH as Devp2pETH,
   RLPx as Devp2pRLPx,
   SNAP as Devp2pSNAP,
-} from "@ethereumjs/devp2p";
+} from "@theqrl/zondjs-devp2p";
 import { randomBytes, unprefixedHexToBytes } from "@theqrl/zondjs-util";
 
 import { Event } from "../../types.js";
@@ -16,7 +16,7 @@ import type { PeerOptions } from "./peer.js";
 import type {
   Capabilities as Devp2pCapabilities,
   Peer as Devp2pRlpxPeer,
-} from "@ethereumjs/devp2p";
+} from "@theqrl/zondjs-devp2p";
 const devp2pCapabilities = {
   snap1: Devp2pSNAP.snap,
   eth66: Devp2pETH.eth66,

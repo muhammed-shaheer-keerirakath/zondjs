@@ -1,4 +1,4 @@
-import { Common, Hardfork, Mainnet } from '@ethereumjs/common'
+import { Common, Hardfork, Mainnet } from '@theqrl/zondjs-common'
 import { assert, describe, it } from 'vitest'
 
 import { createEVM } from '../src/index.js'

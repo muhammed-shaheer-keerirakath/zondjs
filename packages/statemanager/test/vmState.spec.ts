@@ -1,5 +1,5 @@
-import { Chain } from "@ethereumjs/common";
-import { getGenesis } from "@ethereumjs/genesis";
+import { Chain } from "@theqrl/zondjs-common";
+import { getGenesis } from "@theqrl/zondjs-genesis";
 import { Account, Address, hexToBytes, utf8ToBytes } from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 

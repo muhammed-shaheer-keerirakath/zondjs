@@ -1,4 +1,4 @@
-[@ethereumjs/vm](../README.md) / BlockBuilder
+[@theqrl/zondjs-vm](../README.md) / BlockBuilder
 
 # Class: BlockBuilder
 

@@ -1,5 +1,5 @@
-import { createBlock } from "@ethereumjs/block";
-import { Common, Mainnet } from "@ethereumjs/common";
+import { createBlock } from "@theqrl/zondjs-block";
+import { Common, Mainnet } from "@theqrl/zondjs-common";
 import { Address, hexToBytes } from "@theqrl/zondjs-util";
 
 import type { WithdrawalData } from "@theqrl/zondjs-util";

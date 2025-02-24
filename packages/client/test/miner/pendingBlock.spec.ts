@@ -1,17 +1,17 @@
-import { BlockHeader, createBlockHeader } from "@ethereumjs/block";
-import { createBlockchain } from "@ethereumjs/blockchain";
+import { BlockHeader, createBlockHeader } from "@theqrl/zondjs-block";
+import { createBlockchain } from "@theqrl/zondjs-blockchain";
 import {
   Common,
   Hardfork,
   Mainnet,
   createCommonFromGethGenesis,
-} from "@ethereumjs/common";
-import { MerkleStateManager } from "@ethereumjs/statemanager";
+} from "@theqrl/zondjs-common";
+import { MerkleStateManager } from "@theqrl/zondjs-statemanager";
 import {
   createBlob4844Tx,
   createFeeMarket1559Tx,
   createLegacyTx,
-} from "@ethereumjs/tx";
+} from "@theqrl/zondjs-tx";
 import {
   Account,
   Address,
@@ -25,7 +25,7 @@ import {
   intToHex,
   randomBytes,
 } from "@theqrl/zondjs-util";
-import { createVM } from "@ethereumjs/vm";
+import { createVM } from "@theqrl/zondjs-vm";
 import { trustedSetup } from "@paulmillr/trusted-setups/fast.js";
 import { KZG as microEthKZG } from "micro-eth-signer/kzg";
 import { assert, describe, it, vi } from "vitest";
@@ -38,10 +38,10 @@ import { TxPool } from "../../src/service/txpool.js";
 import { mockBlockchain } from "../rpc/mockBlockchain.js";
 import { Goerli } from "../testdata/common/goerliCommon.js";
 
-import type { Blockchain } from "@ethereumjs/blockchain";
-import type { TypedTransaction } from "@ethereumjs/tx";
+import type { Blockchain } from "@theqrl/zondjs-blockchain";
+import type { TypedTransaction } from "@theqrl/zondjs-tx";
 import type { PrefixedHexString } from "@theqrl/zondjs-util";
-import type { VM } from "@ethereumjs/vm";
+import type { VM } from "@theqrl/zondjs-vm";
 
 const kzg = new microEthKZG(trustedSetup);
 
@@ -114,7 +114,7 @@ const setup = () => {
 
 describe("[PendingBlock]", async () => {
   BlockHeader.prototype["_consensusFormatValidation"] = vi.fn();
-  vi.doMock("@ethereumjs/block", () => {
+  vi.doMock("@theqrl/zondjs-block", () => {
     return {
       BlockHeader,
     };

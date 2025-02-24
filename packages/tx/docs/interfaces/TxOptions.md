@@ -1,4 +1,4 @@
-[@ethereumjs/tx](../README.md) / TxOptions
+[@theqrl/zondjs-tx](../README.md) / TxOptions
 
 # Interface: TxOptions
 
@@ -25,7 +25,7 @@ Gas cost for initcode size analysis will still be charged. Use with caution.
 
 [tx/src/types.ts:78](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L78)
 
-___
+---
 
 ### common
 
@@ -44,7 +44,7 @@ Current default hardfork: `istanbul`
 
 [tx/src/types.ts:60](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L60)
 
-___
+---
 
 ### freeze
 

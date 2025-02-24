@@ -1,4 +1,4 @@
-[@ethereumjs/ethash](../README.md) / Miner
+[@theqrl/zondjs-ethash](../README.md) / Miner
 
 # Class: Miner
 
@@ -28,10 +28,10 @@ Create a Miner object
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name         | Type                     | Description                                                       |
+| :----------- | :----------------------- | :---------------------------------------------------------------- |
 | `mineObject` | `BlockHeader` \| `Block` | The object to mine on, either a `BlockHeader` or a `Block` object |
-| `ethash` | [`Ethash`](Ethash.md) | Ethash object to use for mining |
+| `ethash`     | [`Ethash`](Ethash.md)    | Ethash object to use for mining                                   |
 
 #### Defined in
 
@@ -57,9 +57,9 @@ Iterate `iterations` times over nonces to find a valid PoW. Caches solution if o
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `iterations` | `number` | `0` | Number of iterations to iterate over. If `-1` is passed, the loop runs until a solution is found |
+| Name         | Type     | Default value | Description                                                                                      |
+| :----------- | :------- | :------------ | :----------------------------------------------------------------------------------------------- |
+| `iterations` | `number` | `0`           | Number of iterations to iterate over. If `-1` is passed, the loop runs until a solution is found |
 
 #### Returns
 
@@ -71,7 +71,7 @@ Iterate `iterations` times over nonces to find a valid PoW. Caches solution if o
 
 [index.ts:114](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/ethash/src/index.ts#L114)
 
-___
+---
 
 ### mine
 
@@ -81,22 +81,22 @@ Iterate `iterations` time over nonces, returns a `BlockHeader` or `Block` if a s
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `iterations` | `number` | `0` | Number of iterations to iterate over. If `-1` is passed, the loop runs until a solution is found |
+| Name         | Type     | Default value | Description                                                                                      |
+| :----------- | :------- | :------------ | :----------------------------------------------------------------------------------------------- |
+| `iterations` | `number` | `0`           | Number of iterations to iterate over. If `-1` is passed, the loop runs until a solution is found |
 
 #### Returns
 
 `Promise`<`undefined` \| `BlockHeader` \| `Block`\>
 
 - `undefined` if no solution was found within the iterations, or a `BlockHeader` or `Block`
-          with valid PoW based upon what was passed in the constructor
+  with valid PoW based upon what was passed in the constructor
 
 #### Defined in
 
 [index.ts:91](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/ethash/src/index.ts#L91)
 
-___
+---
 
 ### stop
 

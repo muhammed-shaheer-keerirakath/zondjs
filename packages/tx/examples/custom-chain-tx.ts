@@ -1,5 +1,5 @@
-import { Mainnet, createCustomCommon } from "@ethereumjs/common";
-import { createLegacyTx } from "@ethereumjs/tx";
+import { Mainnet, createCustomCommon } from "@theqrl/zondjs-common";
+import { createLegacyTx } from "@theqrl/zondjs-tx";
 import { createAddressFromPrivateKey, hexToBytes } from "@theqrl/zondjs-util";
 
 // In this example we create a transaction for a custom network.

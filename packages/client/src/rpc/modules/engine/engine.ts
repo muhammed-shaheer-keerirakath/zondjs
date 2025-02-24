@@ -1,4 +1,4 @@
-import { Hardfork } from "@ethereumjs/common";
+import { Hardfork } from "@theqrl/zondjs-common";
 import {
   BIGINT_1,
   bytesToHex,
@@ -72,9 +72,9 @@ import type {
   PayloadAttributesV2,
   PayloadAttributesV3,
 } from "./types.js";
-import type { Block, ExecutionPayload } from "@ethereumjs/block";
+import type { Block, ExecutionPayload } from "@theqrl/zondjs-block";
 import type { PrefixedHexString } from "@theqrl/zondjs-util";
-import type { VM } from "@ethereumjs/vm";
+import type { VM } from "@theqrl/zondjs-vm";
 
 const zeroBlockHash = new Uint8Array(32);
 

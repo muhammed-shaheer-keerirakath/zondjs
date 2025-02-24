@@ -1,7 +1,7 @@
-[@ethereumjs/statemanager](../README.md) / VerkleState
+[@theqrl/zondjs-statemanager](../README.md) / VerkleState
 
 # Interface: VerkleState
 
 ## Indexable
 
-▪ [key: `PrefixedHexString`]: `PrefixedHexString` \| ``null``
+▪ [key: `PrefixedHexString`]: `PrefixedHexString` \| `null`

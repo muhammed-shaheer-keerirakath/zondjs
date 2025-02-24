@@ -1,4 +1,4 @@
-[@ethereumjs/statemanager](../README.md) / AccountCache
+[@theqrl/zondjs-statemanager](../README.md) / AccountCache
 
 # Class: AccountCache
 
@@ -45,8 +45,8 @@
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name   | Type                                      |
+| :----- | :---------------------------------------- |
 | `opts` | [`CacheOpts`](../interfaces/CacheOpts.md) |
 
 #### Overrides
@@ -71,7 +71,7 @@ Cache.\_checkpoints
 
 [cache/cache.ts:9](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/cache/cache.ts#L9)
 
-___
+---
 
 ### \_debug
 
@@ -85,7 +85,7 @@ Cache.\_debug
 
 [cache/cache.ts:7](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/cache/cache.ts#L7)
 
-___
+---
 
 ### \_diffCache
 
@@ -103,7 +103,7 @@ before.
 
 [cache/account.ts:35](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/cache/account.ts#L35)
 
-___
+---
 
 ### \_lruCache
 
@@ -113,7 +113,7 @@ ___
 
 [cache/account.ts:23](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/cache/account.ts#L23)
 
-___
+---
 
 ### \_orderedMapCache
 
@@ -123,7 +123,7 @@ ___
 
 [cache/account.ts:24](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/cache/account.ts#L24)
 
-___
+---
 
 ### \_stats
 
@@ -131,12 +131,12 @@ ___
 
 #### Type declaration
 
-| Name | Type |
-| :------ | :------ |
-| `dels` | `number` |
-| `hits` | `number` |
-| `reads` | `number` |
-| `size` | `number` |
+| Name     | Type     |
+| :------- | :------- |
+| `dels`   | `number` |
+| `hits`   | `number` |
+| `reads`  | `number` |
+| `size`   | `number` |
 | `writes` | `number` |
 
 #### Inherited from
@@ -151,12 +151,12 @@ Cache.\_stats
 
 ### \_saveCachePreState
 
-▸ **_saveCachePreState**(`cacheKeyHex`): `void`
+▸ **\_saveCachePreState**(`cacheKeyHex`): `void`
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name          | Type     |
+| :------------ | :------- |
 | `cacheKeyHex` | `string` |
 
 #### Returns
@@ -167,7 +167,7 @@ Cache.\_stats
 
 [cache/account.ts:51](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/cache/account.ts#L51)
 
-___
+---
 
 ### checkpoint
 
@@ -184,7 +184,7 @@ later on be reverted or committed.
 
 [cache/account.ts:214](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/cache/account.ts#L214)
 
-___
+---
 
 ### clear
 
@@ -200,7 +200,7 @@ Clears cache.
 
 [cache/account.ts:256](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/cache/account.ts#L256)
 
-___
+---
 
 ### commit
 
@@ -216,7 +216,7 @@ Commits to current state of cache (no effect on trie).
 
 [cache/account.ts:194](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/cache/account.ts#L194)
 
-___
+---
 
 ### del
 
@@ -226,9 +226,9 @@ Marks address as deleted in cache.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `address` | `Address` | Address |
+| Name      | Type      | Description |
+| :-------- | :-------- | :---------- |
+| `address` | `Address` | Address     |
 
 #### Returns
 
@@ -238,7 +238,7 @@ Marks address as deleted in cache.
 
 [cache/account.ts:114](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/cache/account.ts#L114)
 
-___
+---
 
 ### flush
 
@@ -255,7 +255,7 @@ or deleted and resetting the diff cache (at checkpoint height).
 
 [cache/account.ts:137](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/cache/account.ts#L137)
 
-___
+---
 
 ### get
 
@@ -265,8 +265,8 @@ Returns the queried account or undefined if account doesn't exist
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name      | Type      | Description        |
+| :-------- | :-------- | :----------------- |
 | `address` | `Address` | Address of account |
 
 #### Returns
@@ -277,7 +277,7 @@ Returns the queried account or undefined if account doesn't exist
 
 [cache/account.ts:91](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/cache/account.ts#L91)
 
-___
+---
 
 ### put
 
@@ -287,9 +287,9 @@ Puts account to cache under its address.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `address` | `Address` | Address of account |
+| Name      | Type                     | Description                                               |
+| :-------- | :----------------------- | :-------------------------------------------------------- |
+| `address` | `Address`                | Address of account                                        |
 | `account` | `undefined` \| `Account` | Account or undefined if account doesn't exist in the trie |
 
 #### Returns
@@ -300,7 +300,7 @@ Puts account to cache under its address.
 
 [cache/account.ts:69](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/cache/account.ts#L69)
 
-___
+---
 
 ### revert
 
@@ -316,7 +316,7 @@ Revert changes to cache last checkpoint (no effect on trie).
 
 [cache/account.ts:166](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/cache/account.ts#L166)
 
-___
+---
 
 ### size
 
@@ -332,7 +332,7 @@ Returns the size of the cache
 
 [cache/account.ts:226](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/cache/account.ts#L226)
 
-___
+---
 
 ### stats
 
@@ -342,20 +342,20 @@ Returns a dict with cache stats
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `reset` | `boolean` | `true` |
+| Name    | Type      | Default value |
+| :------ | :-------- | :------------ |
+| `reset` | `boolean` | `true`        |
 
 #### Returns
 
 `Object`
 
-| Name | Type |
-| :------ | :------ |
-| `dels` | `number` |
-| `hits` | `number` |
-| `reads` | `number` |
-| `size` | `number` |
+| Name     | Type     |
+| :------- | :------- |
+| `dels`   | `number` |
+| `hits`   | `number` |
+| `reads`  | `number` |
+| `size`   | `number` |
 | `writes` | `number` |
 
 #### Defined in

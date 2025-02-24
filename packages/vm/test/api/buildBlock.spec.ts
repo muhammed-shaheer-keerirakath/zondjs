@@ -3,17 +3,17 @@ import {
   cliqueVerifySignature,
   createBlock,
   createSealedCliqueBlock,
-} from "@ethereumjs/block";
-import { EthashConsensus, createBlockchain } from "@ethereumjs/blockchain";
+} from "@theqrl/zondjs-block";
+import { EthashConsensus, createBlockchain } from "@theqrl/zondjs-blockchain";
 import {
   Common,
   ConsensusAlgorithm,
   Hardfork,
   Mainnet,
   createCommonFromGethGenesis,
-} from "@ethereumjs/common";
-import { Ethash } from "@ethereumjs/ethash";
-import { createFeeMarket1559Tx, createLegacyTx } from "@ethereumjs/tx";
+} from "@theqrl/zondjs-common";
+import { Ethash } from "@theqrl/zondjs-ethash";
+import { createFeeMarket1559Tx, createLegacyTx } from "@theqrl/zondjs-tx";
 import {
   Address,
   concatBytes,
@@ -28,7 +28,7 @@ import { buildBlock, createVM, runBlock } from "../../src/index.js";
 
 import { setBalance } from "./utils.js";
 
-import type { Blockchain, ConsensusDict } from "@ethereumjs/blockchain";
+import type { Blockchain, ConsensusDict } from "@theqrl/zondjs-blockchain";
 
 const privateKey = hexToBytes(
   "0xe331b6d69882b4cb4ea581d88e0b604039a3de5967688d3dcffdd2270c0fd109",

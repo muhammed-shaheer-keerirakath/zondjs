@@ -1,4 +1,4 @@
-[@ethereumjs/devp2p](../README.md) / Peer
+[@theqrl/zondjs-devp2p](../README.md) / Peer
 
 # Class: Peer
 

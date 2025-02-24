@@ -25,17 +25,17 @@ There is a new Common API for simplification and better tree shaking, see PR [#3
 
 ```ts
 // old
-import { Chain, Common } from '@ethereumjs/common'
+import { Chain, Common } from '@theqrl/zondjs-common'
 const common = new Common({ chain: Chain.Mainnet })
 
 // new
-import { Common, Mainnet } from '@ethereumjs/common'
+import { Common, Mainnet } from '@theqrl/zondjs-common'
 const common = new Common({ chain: Mainnet })
 ```
 
 ### No Consensus Validation by Default
 
-Along the transition to Proof-of-Stake, Ethereum consensus validation has moved to the consensus layer. Therefore the consensus integration of this library has been reworked (see PR [#3504](https://github.com/ethereumjs/ethereumjs-monorepo/pull/3504)) and there is now no consensus validation/integration by default anymore (reflected by the `validateConsensus` flag now being set to `false` by default). This allows for substantial tree shaking gains by eliminating the need for by-default bundle all consensus code as well as external dependencies like the `@ethereumjs/ethash` library.
+Along the transition to Proof-of-Stake, Ethereum consensus validation has moved to the consensus layer. Therefore the consensus integration of this library has been reworked (see PR [#3504](https://github.com/ethereumjs/ethereumjs-monorepo/pull/3504)) and there is now no consensus validation/integration by default anymore (reflected by the `validateConsensus` flag now being set to `false` by default). This allows for substantial tree shaking gains by eliminating the need for by-default bundle all consensus code as well as external dependencies like the `@theqrl/zondjs-ethash` library.
 
 It is still easy to set up a `Clique` or `Ethash` blockchain by using the new `consensusDict` option and pass in an instantiated consensus instance, see the respective option documentation or the related [example](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/blockchain/examples/clique.ts) in the blockchain `examples` folder.
 
@@ -58,7 +58,7 @@ For the `Blockchain` library this means that it is not supported to operate on a
 
 This library now supports `EIP-6110` deposit requests, see PR [#3390](https://github.com/ethereumjs/ethereumjs-monorepo/pull/3390), `EIP-7002` withdrawal requests, see PR [#3385](https://github.com/ethereumjs/ethereumjs-monorepo/pull/3385) and `EIP-7251` consolidation requests, see PR [#3477](https://github.com/ethereumjs/ethereumjs-monorepo/pull/3477) as well as the underlying generic execution layer request logic introduced with `EIP-7685` (PR [#3372](https://github.com/ethereumjs/ethereumjs-monorepo/pull/3372)).
 
-These new request types will be activated with the `Prague` hardfork, see [@ethereumjs/block](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/block) README for detailed documentation.
+These new request types will be activated with the `Prague` hardfork, see [@theqrl/zondjs-block](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/block) README for detailed documentation.
 
 ### Verkle Updates
 
@@ -67,7 +67,7 @@ These new request types will be activated with the `Prague` hardfork, see [@ethe
 
 ### Other Features
 
-- Support for EIP-7685 blocks containing withdrawal and/or deposit requests (see @ethereumjs/block for main documentation), PR [#3372](https://github.com/ethereumjs/ethereumjs-monorepo/pull/3372)
+- Support for EIP-7685 blocks containing withdrawal and/or deposit requests (see @theqrl/zondjs-block for main documentation), PR [#3372](https://github.com/ethereumjs/ethereumjs-monorepo/pull/3372)
 - Stricter prefixed hex typing, PRs [#3348](https://github.com/ethereumjs/ethereumjs-monorepo/pull/3348), [#3427](https://github.com/ethereumjs/ethereumjs-monorepo/pull/3427) and [#3357](https://github.com/ethereumjs/ethereumjs-monorepo/pull/3357) (some changes removed in PR [#3382](https://github.com/ethereumjs/ethereumjs-monorepo/pull/3382) for backwards compatibility reasons, will be reintroduced along upcoming breaking releases)
 
 ## 7.2.0 - 2024-03-18
@@ -86,7 +86,7 @@ Note that `kzg-wasm` needs to be added manually to your own dependencies and the
 
 ```typescript
 import { loadKZG } from 'kzg-wasm'
-import { Chain, Common, Hardfork } from '@ethereumjs/common'
+import { Chain, Common, Hardfork } from '@theqrl/zondjs-common'
 
 const kzg = await loadKZG()
 
@@ -104,7 +104,7 @@ Note that passing in the KZG setup file is not necessary anymore, since this is 
 
 #### Trie Node.js Import Bug
 
-Since this fits well also to be placed here relatively prominently for awareness: we had a relatively nasty bug in the `@ethereumjs/trie` library with a `Node.js` web stream import also affecting browser compatibility, see PR [#3280](https://github.com/ethereumjs/ethereumjs-monorepo/pull/3280). This bug has been fixed along with these releases and this library now references the updated trie library version.
+Since this fits well also to be placed here relatively prominently for awareness: we had a relatively nasty bug in the `@theqrl/zondjs-trie` library with a `Node.js` web stream import also affecting browser compatibility, see PR [#3280](https://github.com/ethereumjs/ethereumjs-monorepo/pull/3280). This bug has been fixed along with these releases and this library now references the updated trie library version.
 
 ### Other Changes
 
@@ -121,8 +121,8 @@ Dencun hardfork on the execution side is called [Cancun](https://github.com/ethe
 
 ```typescript
 import * as kzg from 'c-kzg'
-import { Common, Chain, Hardfork } from '@ethereumjs/common'
-import { initKZG } from '@ethereumjs/util'
+import { Common, Chain, Hardfork } from '@theqrl/zondjs-common'
+import { initKZG } from '@theqrl/zondjs-util'
 
 initKZG(kzg, __dirname + '/../../client/src/trustedSetups/official.txt')
 const common = new Common({
@@ -139,18 +139,18 @@ At the moment using the Node.js bindings for the `c-kzg` library is the only opt
 
 While `EIP-4844` - activating shard blob transactions - is for sure the most prominent EIP from this hardfork, enabling better scaling for the Ethereum ecosystem by providing cheaper block space for L2s, there are in total 6 EIPs contained in the Dencun hardfork. The following is an overview of which EthereumJS libraries mainly implement the various EIPs:
 
-- EIP-1153: Transient storage opcodes (`@ethereumjs/evm`)
-- EIP-4788: Beacon block root in the EVM (`@ethereumjs/block`, `@ethereumjs/evm`, `@ethereumjs/vm`)
-- EIP-4844: Shard Blob Transactions (`@ethereumjs/tx`, `@ethereumjs/block`, `@ethereumjs/evm`)
-- EIP-5656: MCOPY - Memory copying instruction (`@ethereumjs/evm`)
-- EIP-6780: SELFDESTRUCT only in same transaction (`@ethereumjs/vm`)
-- EIP-7516: BLOBBASEFEE opcode (`@ethereumjs/block`, `@ethereumjs/evm`)
+- EIP-1153: Transient storage opcodes (`@theqrl/zondjs-evm`)
+- EIP-4788: Beacon block root in the EVM (`@theqrl/zondjs-block`, `@theqrl/zondjs-evm`, `@theqrl/zondjs-vm`)
+- EIP-4844: Shard Blob Transactions (`@theqrl/zondjs-tx`, `@theqrl/zondjs-block`, `@theqrl/zondjs-evm`)
+- EIP-5656: MCOPY - Memory copying instruction (`@theqrl/zondjs-evm`)
+- EIP-6780: SELFDESTRUCT only in same transaction (`@theqrl/zondjs-vm`)
+- EIP-7516: BLOBBASEFEE opcode (`@theqrl/zondjs-block`, `@theqrl/zondjs-evm`)
 
 ### WASM Crypto Support
 
 With this release round there is a new way to replace the native JS crypto primitives used within the EthereumJS ecosystem by custom/other implementations in a controlled fashion, see PR [#3192](https://github.com/ethereumjs/ethereumjs-monorepo/pull/3192).
 
-This can e.g. be used to replace time-consuming primitives like the commonly used `keccak256` hash function with a more performant WASM based implementation, see `@ethereumjs/common` [README](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/common) for some detailed guidance on how to use.
+This can e.g. be used to replace time-consuming primitives like the commonly used `keccak256` hash function with a more performant WASM based implementation, see `@theqrl/zondjs-common` [README](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/common) for some detailed guidance on how to use.
 
 ### Self-Contained (and Working 🙂) README Examples
 
@@ -213,19 +213,19 @@ The EthereumJS Team
 
 ### Default Shanghai HF / Merge -> Paris Renaming / Full Cancun Hardfork Support
 
-The Shanghai hardfork is now the default HF in `@ethereumjs/common` and therefore for all libraries who use a Common-based HF setting internally (e.g. Tx, Block or EVM), see PR [#2655](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2655).
+The Shanghai hardfork is now the default HF in `@theqrl/zondjs-common` and therefore for all libraries who use a Common-based HF setting internally (e.g. Tx, Block or EVM), see PR [#2655](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2655).
 
 Also the Merge HF has been renamed to Paris (`Hardfork.Paris`) which is the correct HF name on the execution side, see [#2652](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2652). To set the HF to Paris in Common you can do:
 
 ```ts
-import { Chain, Common, Hardfork } from '@ethereumjs/common'
+import { Chain, Common, Hardfork } from '@theqrl/zondjs-common'
 const common = new Common({ chain: Chain.Mainnet, hardfork: Hardfork.Paris })
 ```
 
 And third on hardforks 🙂: the upcoming Cancun hardfork is now fully supported and all EIPs are included (see PRs [#2659](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2659) and [#2892](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2892)). The Cancun HF can be activated with:
 
 ```ts
-import { Chain, Common, Hardfork } from '@ethereumjs/common'
+import { Chain, Common, Hardfork } from '@theqrl/zondjs-common'
 const common = new Common({ chain: Chain.Mainnet, hardfork: Hardfork.Cancun })
 ```
 
@@ -235,9 +235,9 @@ Note that not all Cancun EIPs are in a `FINAL` EIP state though and particularly
 
 Up to this release the backend store for the blockchain library was tied to be a `LevelDB` database, which was unfortunate since `level` is a dependency which doesn't play so well in the browser and beyond there are many use cases for this library where a persistent data store is just not needed.
 
-With this release the database therefore gets an additional abstraction layer which allows to switch the backend to whatever is fitting the best for a use case, see PR [#2669](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2669) and PR [#2673](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2673). The database just needs to conform to the new [DB](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/db.ts) interface which we provide in the `@ethereumjs/util` package (since this is used in other places as well).
+With this release the database therefore gets an additional abstraction layer which allows to switch the backend to whatever is fitting the best for a use case, see PR [#2669](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2669) and PR [#2673](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2673). The database just needs to conform to the new [DB](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/db.ts) interface which we provide in the `@theqrl/zondjs-util` package (since this is used in other places as well).
 
-By default the blockchain package now uses a [MapDB](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/mapDB.ts) non-persistent data storage which is also generically provided in the `@ethereumjs/util` package.
+By default the blockchain package now uses a [MapDB](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/mapDB.ts) non-persistent data storage which is also generically provided in the `@theqrl/zondjs-util` package.
 
 If you need a persistent data store for your use case you can consider using the wrapper we have written within our [client](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/client/src/execution/level.ts) library.
 
@@ -245,7 +245,7 @@ If you need a persistent data store for your use case you can consider using the
 
 Genesis state was huge and had previously been bundled with the `Blockchain` package with the burden going over to the VM, since `Blockchain` is a dependency.
 
-With this release genesis state has been removed from `blockchain` and moved into its own auxiliary package [@ethereumjs/genesis](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/genesis), from which it can be included if needed (for most - especially VM - use cases it is not necessary), see PR [#2844](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2844).
+With this release genesis state has been removed from `blockchain` and moved into its own auxiliary package [@theqrl/zondjs-genesis](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/genesis), from which it can be included if needed (for most - especially VM - use cases it is not necessary), see PR [#2844](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2844).
 
 This goes along with some changes in Blockchain and VM API:
 
@@ -264,14 +264,14 @@ Both builds have respective separate entrypoints in the distributed `package.jso
 A CommonJS import of our libraries can then be done like this:
 
 ```ts
-const { Chain, Common } = require('@ethereumjs/common')
+const { Chain, Common } = require('@theqrl/zondjs-common')
 const common = new Common({ chain: Chain.Mainnet })
 ```
 
 And this is how an ESM import looks like:
 
 ```ts
-import { Chain, Common } from '@ethereumjs/common'
+import { Chain, Common } from '@theqrl/zondjs-common'
 const common = new Common({ chain: Chain.Mainnet })
 ```
 
@@ -302,7 +302,7 @@ Blockchain.safeNumberToHash(number: bigint): Promise<Uint8Array | false>
 Blockchain.createGenesisBlock(stateRoot: Uint8Array): Block
 ```
 
-We have converted existing Buffer conversion methods to Uint8Array conversion methods in the [@ethereumjs/util](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/util) `bytes` module, see the respective README section for guidance.
+We have converted existing Buffer conversion methods to Uint8Array conversion methods in the [@theqrl/zondjs-util](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/util) `bytes` module, see the respective README section for guidance.
 
 #### Prefixed Hex Strings as Default
 
@@ -327,11 +327,11 @@ Please therefore check you code base on updating and ensure that values you are 
 ## 6.2.2 - 2023-04-20
 
 - Update ethereum-cryptography from 1.2 to 2.0 (switch from noble-secp256k1 to noble-curves), PR [#2641](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2641)
-- Bump `@ethereumjs/util` `@chainsafe/ssz` dependency to 0.11.1 (no WASM, native SHA-256 implementation, ES2019 compatible, explicit imports), PRs [#2622](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2622), [#2564](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2564) and [#2656](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2656)
+- Bump `@theqrl/zondjs-util` `@chainsafe/ssz` dependency to 0.11.1 (no WASM, native SHA-256 implementation, ES2019 compatible, explicit imports), PRs [#2622](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2622), [#2564](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2564) and [#2656](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2656)
 
 ## 6.2.1 - 2023-02-27
 
-- Pinned `@ethereumjs/util` `@chainsafe/ssz` dependency to `v0.9.4` due to ES2021 features used in `v0.10.+` causing compatibility issues, PR [#2555](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2555)
+- Pinned `@theqrl/zondjs-util` `@chainsafe/ssz` dependency to `v0.9.4` due to ES2021 features used in `v0.10.+` causing compatibility issues, PR [#2555](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2555)
 - Fixed `kzg` imports, PR [#2552](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2552)
 
 ## 6.2.0 - 2023-02-21
@@ -345,7 +345,7 @@ This release fully supports all EIPs included in the [Shanghai](https://github.c
 You can instantiate a Shanghai-enabled Common instance for your transactions with:
 
 ```ts
-import { Common, Chain, Hardfork } from '@ethereumjs/common'
+import { Common, Chain, Hardfork } from '@theqrl/zondjs-common'
 
 const common = new Common({ chain: Chain.Mainnet, hardfork: Hardfork.Shanghai })
 ```
@@ -385,23 +385,23 @@ A bit on the verge of breaking vs. bug fixing, sorry if you are eventually affec
 
 ### Experimental EIP-4895 Beacon Chain Withdrawals Support
 
-This release comes with experimental [EIP-4895](https://eips.ethereum.org/EIPS/eip-4895) beacon chain withdrawals support, see PR [#2353](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2353) for the plain implementation and PR [#2401](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2401) for updated calls for the CL/EL engine API. Also note that there is a new helper module in [@ethereumjs/util](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/util) with a new dedicated `Withdrawal` class together with additional TypeScript types to ease withdrawal handling.
+This release comes with experimental [EIP-4895](https://eips.ethereum.org/EIPS/eip-4895) beacon chain withdrawals support, see PR [#2353](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2353) for the plain implementation and PR [#2401](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2401) for updated calls for the CL/EL engine API. Also note that there is a new helper module in [@theqrl/zondjs-util](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/util) with a new dedicated `Withdrawal` class together with additional TypeScript types to ease withdrawal handling.
 
-Withdrawals support can be activated by initializing a respective `Common` object, see [@ethereumjs/block](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/block) library README for an example how to create an Ethereum Block containing withdrawal operations.
+Withdrawals support can be activated by initializing a respective `Common` object, see [@theqrl/zondjs-block](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/block) library README for an example how to create an Ethereum Block containing withdrawal operations.
 
 ```ts
-import { Common, Chain } from '@ethereumjs/common'
+import { Common, Chain } from '@theqrl/zondjs-common'
 ```
 
 The Blockchain class now fully supports including/adding withdrawal blocks as well as directly start with a genesis block including withdrawal operations.
 
 ### Hardfork-By-Time Support
 
-The Blockchain library is now ready to work with hardforks triggered by timestamp, which will first be applied along the `Shanghai` HF, see PR [#2437](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2437). This is achieved by integrating a new timestamp supporting `@ethereumjs/common` library version.
+The Blockchain library is now ready to work with hardforks triggered by timestamp, which will first be applied along the `Shanghai` HF, see PR [#2437](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2437). This is achieved by integrating a new timestamp supporting `@theqrl/zondjs-common` library version.
 
 ## 6.0.2 - 2022-10-25
 
-- Updated `@ethereumjs/util` minimal package version to `v8.0.2` to ensure functioning of the library (otherwise the newly exported `Lock` functionality might be missing)
+- Updated `@theqrl/zondjs-util` minimal package version to `v8.0.2` to ensure functioning of the library (otherwise the newly exported `Lock` functionality might be missing)
 
 ## 6.0.1 - 2022-10-18
 
@@ -412,11 +412,11 @@ For lots of custom chains (for e.g. devnets and testnets), you might come across
 `Common` now has a new constructor `Common.fromGethGenesis()` - see PRs [#2300](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2300) and [#2319](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2319) - which can be used in following manner to instantiate for example a VM run or a tx with a `genesis.json` based Common:
 
 ```ts
-import { Common } from '@ethereumjs/common'
+import { Common } from '@theqrl/zondjs-common'
 // Load geth genesis json file into lets say `genesisJson` and optional `chain` and `genesisHash`
 const common = Common.fromGethGenesis(genesisJson, { chain: 'customChain', genesisHash })
 // If you don't have `genesisHash` while initiating common, you can later configure common (for e.g.
-// calculating it afterwards by using the `@ethereumjs/blockchain` package)
+// calculating it afterwards by using the `@theqrl/zondjs-blockchain` package)
 common.setForkHashes(genesisHash)
 ```
 
@@ -439,7 +439,7 @@ Release candidate 1 for the upcoming breaking release round on the [EthereumJS m
 
 ### Fixed Mainnet Merge HF Default
 
-Since this bug was so severe it gets its own section: `mainnet` in the underlying `@ethereumjs/common` library (`Chain.Mainnet`) was accidentally not updated yet to default to the `merge` HF (`Hardfork.Merge`) by an undiscovered overwrite back to `london`.
+Since this bug was so severe it gets its own section: `mainnet` in the underlying `@theqrl/zondjs-common` library (`Chain.Mainnet`) was accidentally not updated yet to default to the `merge` HF (`Hardfork.Merge`) by an undiscovered overwrite back to `london`.
 
 This has been fixed in PR [#2206](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2206) and `mainnet` now default to the `merge` as well.
 
@@ -488,12 +488,12 @@ Now every import is a named import and we think the long term benefits will very
 
 #### Common Library Import Updates
 
-Since our [@ethereumjs/common](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/common) library is used all across our libraries for chain and HF instantiation this will likely be the one being the most prevalent regarding the need for some import updates.
+Since our [@theqrl/zondjs-common](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/common) library is used all across our libraries for chain and HF instantiation this will likely be the one being the most prevalent regarding the need for some import updates.
 
 So Common import and usage is changing from:
 
 ```ts
-import Common, { Chain, Hardfork } from '@ethereumjs/common'
+import Common, { Chain, Hardfork } from '@theqrl/zondjs-common'
 
 const common = new Common({ chain: Chain.Mainnet, hardfork: Hardfork.Merge })
 ```
@@ -501,7 +501,7 @@ const common = new Common({ chain: Chain.Mainnet, hardfork: Hardfork.Merge })
 to:
 
 ```ts
-import { Common, Chain, Hardfork } from '@ethereumjs/common'
+import { Common, Chain, Hardfork } from '@theqrl/zondjs-common'
 
 const common = new Common({ chain: Chain.Mainnet, hardfork: Hardfork.Merge })
 ```
@@ -511,13 +511,13 @@ const common = new Common({ chain: Chain.Mainnet, hardfork: Hardfork.Merge })
 The main `Blockchain` class import has been updated, so import changes from:
 
 ```ts
-import Blockchain from '@ethereumjs/blockchain'
+import Blockchain from '@theqrl/zondjs-blockchain'
 ```
 
 to:
 
 ```ts
-import { Blockchain } from '@ethereumjs/blockchain'
+import { Blockchain } from '@theqrl/zondjs-blockchain'
 ```
 
 ## Blockchain Consensus Option
@@ -532,7 +532,7 @@ The Blockchain library now has a new optional `consensus` constructor options pa
 
 This release is part of a larger breaking release round where all [EthereumJS monorepo](https://github.com/ethereumjs/ethereumjs-monorepo) libraries (VM, Tx, Trie, other) get major version upgrades. This round of releases has been prepared for a long time and we are really pleased with and proud of the result, thanks to all team members and contributors who worked so hard and made this possible! 🙂 ❤️
 
-We have gotten rid of a lot of technical debt and inconsistencies and removed unused functionality, renamed methods, improved on the API and on TypeScript typing, to name a few of the more local type of refactoring changes. There are also broader structural changes like a full transition to native JavaScript `BigInt` values as well as various somewhat deep-reaching refactorings, both within a single package as well as some reaching beyond the scope of a single package. Also two completely new packages - `@ethereumjs/evm` (in addition to the existing `@ethereumjs/vm` package) and `@ethereumjs/statemanager` - have been created, leading to a more modular Ethereum JavaScript VM.
+We have gotten rid of a lot of technical debt and inconsistencies and removed unused functionality, renamed methods, improved on the API and on TypeScript typing, to name a few of the more local type of refactoring changes. There are also broader structural changes like a full transition to native JavaScript `BigInt` values as well as various somewhat deep-reaching refactorings, both within a single package as well as some reaching beyond the scope of a single package. Also two completely new packages - `@theqrl/zondjs-evm` (in addition to the existing `@theqrl/zondjs-vm` package) and `@theqrl/zondjs-statemanager` - have been created, leading to a more modular Ethereum JavaScript VM.
 
 We are very much confident that users of the libraries will greatly benefit from the changes being introduced. However - along the upgrade process - these releases require some extra attention and care since the changeset is both so big and deep reaching. We highly recommend to closely read the release notes, we have done our best to create a full picture on the changes with some special emphasis on delicate code and API parts and give some explicit guidance on how to upgrade and where problems might arise!
 
@@ -590,11 +590,11 @@ There is now a new `Blockchain` option `consensus`. This makes it very easy to p
 
 PRs [#1916](https://github.com/ethereumjs/ethereumjs-monorepo/pull/1916) and - as some follow-up work - [#1924](https://github.com/ethereumjs/ethereumjs-monorepo/pull/1924) rework the genesis code throughout the EthereumJS library stack, with benefits on the bundle size of the lower level libraries (like `Block` or `Transaction`).
 
-In return the `Blockchain` class has gotten new responsibilities on handling genesis state. Genesis state and block functionality previously in the `@ethereumjs/common` class has been integrated here, see PR [#1916](https://github.com/ethereumjs/ethereumjs-monorepo/pull/1916).
+In return the `Blockchain` class has gotten new responsibilities on handling genesis state. Genesis state and block functionality previously in the `@theqrl/zondjs-common` class has been integrated here, see PR [#1916](https://github.com/ethereumjs/ethereumjs-monorepo/pull/1916).
 
-A genesis state can now be set along `Blockchain` creation by passing in a custom `genesisBlock` and `genesisState`. For `mainnet` and the official test networks like `sepolia` or `goerli` genesis is already provided with the block data still coming from `@ethereumjs/common`, with genesis state now being integrated into the `Blockchain` library directly.
+A genesis state can now be set along `Blockchain` creation by passing in a custom `genesisBlock` and `genesisState`. For `mainnet` and the official test networks like `sepolia` or `goerli` genesis is already provided with the block data still coming from `@theqrl/zondjs-common`, with genesis state now being integrated into the `Blockchain` library directly.
 
-The genesis block from the initialized `Blockchain` can be retrieved via the new `Blockchain.genesisBlock` getter. For creating a genesis block from the params in `@ethereumjs/common`, the new `createGenesisBlock(stateRoot: Buffer): Block` method can be used.
+The genesis block from the initialized `Blockchain` can be retrieved via the new `Blockchain.genesisBlock` getter. For creating a genesis block from the params in `@theqrl/zondjs-common`, the new `createGenesisBlock(stateRoot: Buffer): Block` method can be used.
 
 Note that this is a very large refactoring with mainly the lower-level libraries benefitting. If you miss some functionality here let us know, we are happy to discuss!
 
@@ -637,8 +637,8 @@ Please note that for backwards-compatibility reasons the associated Common is st
 An ArrowGlacier blockchain object can be instantiated with:
 
 ```ts
-import Blockchain from '@ethereumjs/blockchain'
-import Common, { Chain, Hardfork } from '@ethereumjs/common'
+import Blockchain from '@theqrl/zondjs-blockchain'
+import Common, { Chain, Hardfork } from '@theqrl/zondjs-common'
 
 const common = new Common({ chain: Chain.Mainnet, hardfork: Hardfork.ArrowGlacier })
 const blockchain = await Blockchain.create({ common })
@@ -657,7 +657,7 @@ const blockchain = await Blockchain.create({ common })
 
 ### Experimental Casper/PoS and Merge Support
 
-This release adds first experimental Casper/PoS respectively Merge HF support by allowing to build a blockchain which switches to Casper/PoS consensus validation at some point triggered by a merge HF occurred. The `Blockchain` library now allows for taking in the respective Casper/PoS conforming blocks (see `@ethereumjs/block` release v3.5.0), do the correct validations and set the HF accordingly (Merge HF-related logic and a new PoS consensus type have been added to the `Common` library along with the v2.5.0 release).
+This release adds first experimental Casper/PoS respectively Merge HF support by allowing to build a blockchain which switches to Casper/PoS consensus validation at some point triggered by a merge HF occurred. The `Blockchain` library now allows for taking in the respective Casper/PoS conforming blocks (see `@theqrl/zondjs-block` release v3.5.0), do the correct validations and set the HF accordingly (Merge HF-related logic and a new PoS consensus type have been added to the `Common` library along with the v2.5.0 release).
 
 See: PR [#1408](https://github.com/ethereumjs/ethereumjs-monorepo/pull/1408)
 
@@ -692,8 +692,8 @@ This release comes with full functional `london` HF support (all EIPs are finali
 Please note that the default HF is still set to `istanbul`. You therefore need to explicitly set the `hardfork` parameter for instantiating a `Blockchain` instance with a `london` HF activated:
 
 ```ts
-import Blockchain from '@ethereumjs/blockchain'
-import Common from '@ethereumjs/common'
+import Blockchain from '@theqrl/zondjs-blockchain'
+import Common from '@theqrl/zondjs-common'
 const common = new Common({ chain: 'mainnet', hardfork: 'london' })
 const blockchain = await Blockchain.create({ common })
 ```
@@ -715,8 +715,8 @@ This release comes with full `berlin` HF support by setting the `Block`, `Tx` an
 Please note that the default HF is still set to `istanbul`. You therefore need to explicitly set the `hardfork` parameter for instantiating a `Blockchain` instance with a `berlin` HF activated:
 
 ```ts
-import Blockchain from '@ethereumjs/blockchain'
-import Common from '@ethereumjs/common'
+import Blockchain from '@theqrl/zondjs-blockchain'
+import Common from '@theqrl/zondjs-common'
 const common = new Common({ chain: 'mainnet', hardfork: 'berlin' })
 const blockchain = await Blockchain.create({ common })
 ```
@@ -725,11 +725,11 @@ const blockchain = await Blockchain.create({ common })
 
 If you are using this library in conjunction with other EthereumJS libraries make sure to minimally have the following library versions installed for typed transaction support:
 
-- `@ethereumjs/common` `v2.2.0`
-- `@ethereumjs/tx` `v3.1.0`
-- `@ethereumjs/block` `v3.2.0`
-- `@ethereumjs/blockchain` `v5.2.0`
-- `@ethereumjs/vm` `v5.2.0`
+- `@theqrl/zondjs-common` `v2.2.0`
+- `@theqrl/zondjs-tx` `v3.1.0`
+- `@theqrl/zondjs-block` `v3.2.0`
+- `@theqrl/zondjs-blockchain` `v5.2.0`
+- `@theqrl/zondjs-vm` `v5.2.0`
 
 ## 5.1.0 2021-02-22
 
@@ -754,12 +754,12 @@ The blockchain package now keeps track of the latest signers and votes on new Cl
 
 **Attention!** This new version is part of a series of EthereumJS releases all moving to a new scoped package name format. In this case the library is renamed as follows:
 
-- `ethereumjs-blockchain` -> `@ethereumjs/blockchain`
+- `ethereumjs-blockchain` -> `@theqrl/zondjs-blockchain`
 
 Please update your library references accordingly or install with:
 
 ```shell
-npm i @ethereumjs/blockchain
+npm i @theqrl/zondjs-blockchain
 ```
 
 ### Library Promisification
@@ -788,7 +788,7 @@ See `Blockchain` [README](https://github.com/ethereumjs/ethereumjs-monorepo/tree
 The library now has an additional safe static constructor `Blockchain.create()` which awaits the init method and throws if the init method throws:
 
 ```ts
-import Blockchain from '@ethereumjs/blockchain'
+import Blockchain from '@theqrl/zondjs-blockchain'
 const common = new Common({ chain: 'ropsten' })
 const blockchain = await Blockchain.create({ common })
 ```
@@ -824,7 +824,7 @@ Packages now target `ES2017` for Node.js builds (the `main` entrypoint from `pac
 - Made internal `_` methods like `_saveHeads()` private, if you are using these functions in your code this will be a **potentially breaking** change for you, PR [#930](https://github.com/ethereumjs/ethereumjs-monorepo/pull/930)
 - Improved code documentation, PR [#930](https://github.com/ethereumjs/ethereumjs-monorepo/pull/930)
 - Fixed potential blockchain DB concurrency issues along PR [#930](https://github.com/ethereumjs/ethereumjs-monorepo/pull/930)
-- Use `@ethereumjs/block` `v3.0.0` block library version, PR [#883](https://github.com/ethereumjs/ethereumjs-monorepo/pull/883)
+- Use `@theqrl/zondjs-block` `v3.0.0` block library version, PR [#883](https://github.com/ethereumjs/ethereumjs-monorepo/pull/883)
 - Removed `async` dependency, PR [#779](https://github.com/ethereumjs/ethereumjs-monorepo/pull/779)
 - Updated `ethereumjs-util` to v7, PR [#748](https://github.com/ethereumjs/ethereumjs-monorepo/pull/748)
 
@@ -885,12 +885,12 @@ Genesis handling has been reworked to now be safer and reduce the risk of wiping
 
 **Attention!** This new version is part of a series of EthereumJS releases all moving to a new scoped package name format. In this case the library is renamed as follows:
 
-- `ethereumjs-blockchain` -> `@ethereumjs/blockchain`
+- `ethereumjs-blockchain` -> `@theqrl/zondjs-blockchain`
 
 Please update your library references accordingly or install with:
 
 ```shell
-npm i @ethereumjs/blockchain
+npm i @theqrl/zondjs-blockchain
 ```
 
 ### Library Promisification
@@ -923,7 +923,7 @@ Constructor options for chain setup on all VM monorepo libraries have been simpl
 Example:
 
 ```ts
-import Blockchain from '@ethereumjs/blockchain'
+import Blockchain from '@theqrl/zondjs-blockchain'
 const common = new Common({ chain: 'ropsten', hardfork: 'byzantium' })
 const blockchain = new Blockchain({ common })
 ```
@@ -947,7 +947,7 @@ in performance benefits for Node.js consumers, see [here](https://github.com/eth
 
 **Changes and Refactoring**
 
-- Use `@ethereumjs/block` `v3.0.0` block library version,
+- Use `@theqrl/zondjs-block` `v3.0.0` block library version,
   PR [#883](https://github.com/ethereumjs/ethereumjs-monorepo/pull/883)
 - Removed `async` dependency,
   PR [#779](https://github.com/ethereumjs/ethereumjs-monorepo/pull/779)

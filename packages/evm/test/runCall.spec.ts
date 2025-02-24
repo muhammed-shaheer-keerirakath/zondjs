@@ -3,7 +3,7 @@ import {
   Hardfork,
   Mainnet,
   createCommonFromGethGenesis,
-} from "@ethereumjs/common";
+} from "@theqrl/zondjs-common";
 import {
   Account,
   Address,

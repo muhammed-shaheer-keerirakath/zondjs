@@ -9,7 +9,7 @@ import type {
   AccountFields,
   Common,
   StateManagerInterface,
-} from "@ethereumjs/common";
+} from "@theqrl/zondjs-common";
 import type { Address, PrefixedHexString } from "@theqrl/zondjs-util";
 
 /**
@@ -25,7 +25,7 @@ import type { Address, PrefixedHexString } from "@theqrl/zondjs-util";
  * cases and the state manager is used as default there.
  *
  * For a more full fledged and MPT-backed state manager implementation
- * have a look at the `@ethereumjs/statemanager` package.
+ * have a look at the `@theqrl/zondjs-statemanager` package.
  */
 export class SimpleStateManager implements StateManagerInterface {
   public accountStack: Map<PrefixedHexString, Account | undefined>[] = [];

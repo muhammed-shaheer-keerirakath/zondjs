@@ -1,6 +1,6 @@
 ---
-name: 'Package: @ethereumjs/ethash'
-about: Create issue for @ethereumjs/ethash
+name: 'Package: @theqrl/zondjs-ethash'
+about: Create issue for @theqrl/zondjs-ethash
 title: ''
 labels: 'package: ethash'
 assignees: ''

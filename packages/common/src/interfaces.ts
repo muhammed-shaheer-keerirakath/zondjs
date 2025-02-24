@@ -131,7 +131,7 @@ export interface VerkleAccessWitnessInterface {
 }
 
 /*
- * Generic StateManager interface corresponding with the @ethereumjs/statemanager package
+ * Generic StateManager interface corresponding with the @theqrl/zondjs-statemanager package
  *
  */
 export interface StateManagerInterface {

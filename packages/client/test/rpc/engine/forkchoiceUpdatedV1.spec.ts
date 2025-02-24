@@ -1,5 +1,5 @@
-import { BlockHeader, createBlock } from "@ethereumjs/block";
-import { Common, Hardfork, Mainnet } from "@ethereumjs/common";
+import { BlockHeader, createBlock } from "@theqrl/zondjs-block";
+import { Common, Hardfork, Mainnet } from "@theqrl/zondjs-common";
 import { bytesToHex, randomBytes } from "@theqrl/zondjs-util";
 import { assert, describe, it, vi } from "vitest";
 
@@ -17,7 +17,7 @@ import {
   setupChain,
 } from "../helpers.js";
 
-import type { Block } from "@ethereumjs/block";
+import type { Block } from "@theqrl/zondjs-block";
 
 const method = "engine_forkchoiceUpdatedV1";
 

@@ -1,4 +1,4 @@
-import { DPT as Devp2pDPT, RLPx as Devp2pRLPx } from "@ethereumjs/devp2p";
+import { DPT as Devp2pDPT, RLPx as Devp2pRLPx } from "@theqrl/zondjs-devp2p";
 import {
   bytesToUnprefixedHex,
   unprefixedHexToBytes,
@@ -12,7 +12,7 @@ import { RlpxPeer } from "../peer/rlpxpeer.js";
 import { Server } from "./server.js";
 
 import type { ServerOptions } from "./server.js";
-import type { Peer as Devp2pRLPxPeer } from "@ethereumjs/devp2p";
+import type { Peer as Devp2pRLPxPeer } from "@theqrl/zondjs-devp2p";
 
 export interface RlpxServerOptions extends ServerOptions {
   /* List of supported clients */

@@ -1,6 +1,6 @@
-@ethereumjs/ethash
+@theqrl/zondjs-ethash
 
-# @ethereumjs/ethash
+# @theqrl/zondjs-ethash
 
 ## Table of contents
 
@@ -21,10 +21,10 @@
 
 #### Type declaration
 
-| Name | Type |
-| :------ | :------ |
+| Name      | Type         |
+| :-------- | :----------- |
 | `mixHash` | `Uint8Array` |
-| `nonce` | `Uint8Array` |
+| `nonce`   | `Uint8Array` |
 
 #### Defined in
 

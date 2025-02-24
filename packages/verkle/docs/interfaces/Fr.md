@@ -1,3 +1,3 @@
-[@ethereumjs/verkle](../README.md) / Fr
+[@theqrl/zondjs-verkle](../README.md) / Fr
 
 # Interface: Fr

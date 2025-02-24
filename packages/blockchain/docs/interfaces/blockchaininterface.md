@@ -1,4 +1,4 @@
-[@ethereumjs/blockchain](../README.md) / BlockchainInterface
+[@theqrl/zondjs-blockchain](../README.md) / BlockchainInterface
 
 # Interface: BlockchainInterface
 

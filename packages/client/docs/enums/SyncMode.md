@@ -1,4 +1,4 @@
-[@ethereumjs/client](../README.md) / SyncMode
+[@theqrl/zondjs-client](../README.md) / SyncMode
 
 # Enumeration: SyncMode
 
@@ -14,27 +14,27 @@
 
 ### Full
 
-• **Full** = ``"full"``
+• **Full** = `"full"`
 
 #### Defined in
 
 [config.ts:24](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/client/src/config.ts#L24)
 
-___
+---
 
 ### Light
 
-• **Light** = ``"light"``
+• **Light** = `"light"`
 
 #### Defined in
 
 [config.ts:25](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/client/src/config.ts#L25)
 
-___
+---
 
 ### None
 
-• **None** = ``"none"``
+• **None** = `"none"`
 
 #### Defined in
 

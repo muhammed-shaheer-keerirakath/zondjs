@@ -2,7 +2,7 @@ import {
   MerklePatriciaTrie,
   createMPT,
   createMPTFromProof,
-} from "@ethereumjs/mpt";
+} from "@theqrl/zondjs-mpt";
 import {
   Account,
   KECCAK256_RLP,

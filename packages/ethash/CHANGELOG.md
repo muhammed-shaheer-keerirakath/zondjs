@@ -73,15 +73,15 @@ Both builds have respective separate entrypoints in the distributed `package.jso
 A CommonJS import of our libraries can then be done like this:
 
 ```ts
-const { Chain, Common } = require('@ethereumjs/common')
-const common = new Common({ chain: Chain.Mainnet })
+const { Chain, Common } = require("@theqrl/zondjs-common");
+const common = new Common({ chain: Chain.Mainnet });
 ```
 
 And this is how an ESM import looks like:
 
 ```ts
-import { Chain, Common } from '@ethereumjs/common'
-const common = new Common({ chain: Chain.Mainnet })
+import { Chain, Common } from "@theqrl/zondjs-common";
+const common = new Common({ chain: Chain.Mainnet });
 ```
 
 Using ESM will give you additional advantages over CJS beyond browser usage like static code analysis / Tree Shaking which CJS can not provide.
@@ -108,7 +108,7 @@ Ethash.getMiner()
 Ethash.verifyPOW(block: Block)
 ```
 
-We have converted existing Buffer conversion methods to Uint8Array conversion methods in the [@ethereumjs/util](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/util) `bytes` module, see the respective README section for guidance.
+We have converted existing Buffer conversion methods to Uint8Array conversion methods in the [@theqrl/zondjs-util](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/util) `bytes` module, see the respective README section for guidance.
 
 #### Prefixed Hex Strings as Default
 
@@ -129,12 +129,12 @@ Please therefore check you code base on updating and ensure that values you are 
 ## 2.0.5 - 2023-04-30
 
 - Update ethereum-cryptography from 1.2 to 2.0 (switch from noble-secp256k1 to noble-curves), PR [#2641](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2641)
-- Bump `@ethereumjs/util` `@chainsafe/ssz` dependency to 0.11.1 (no WASM, native SHA-256 implementation, ES2019 compatible, explicit imports), PRs [#2622](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2622), [#2564](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2564) and [#2656](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2656)
+- Bump `@theqrl/zondjs-util` `@chainsafe/ssz` dependency to 0.11.1 (no WASM, native SHA-256 implementation, ES2019 compatible, explicit imports), PRs [#2622](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2622), [#2564](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2564) and [#2656](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2656)
 
 ## 2.0.4 - 2023-02-27
 
-- Pinned `@ethereumjs/util` `@chainsafe/ssz` dependency to `v0.9.4` due to ES2021 features used in `v0.10.+` causing compatibility issues, PR [#2555](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2555)
-- Fixed `kzg` imports in `@ethereumjs/tx`, PR [#2552](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2552)
+- Pinned `@theqrl/zondjs-util` `@chainsafe/ssz` dependency to `v0.9.4` due to ES2021 features used in `v0.10.+` causing compatibility issues, PR [#2555](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2555)
+- Fixed `kzg` imports in `@theqrl/zondjs-tx`, PR [#2552](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2552)
 
 ## 2.0.3 - 2023-02-21
 
@@ -148,7 +148,7 @@ Maintenance release with dependency updates, PR [#2445](https://github.com/ether
 
 ## 2.0.1 - 2022-10-18
 
-- Updated `@ethereumjs/block` dependency version to `v4.0.1`
+- Updated `@theqrl/zondjs-block` dependency version to `v4.0.1`
 
 ## 2.0.0 - 2022-09-06
 
@@ -174,7 +174,7 @@ Beta 3 release for the upcoming breaking release round on the [EthereumJS monore
 
 ### Merge Hardfork Default
 
-Since the Merge HF is getting close we have decided to directly jump on the `Merge` HF (before: `Istanbul`) as default in the underlying `@ethereumjs/common` library and skip the `London` default HF as we initially intended to set (see Beta 1 CHANGELOG), see PR [#2087](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2087).
+Since the Merge HF is getting close we have decided to directly jump on the `Merge` HF (before: `Istanbul`) as default in the underlying `@theqrl/zondjs-common` library and skip the `London` default HF as we initially intended to set (see Beta 1 CHANGELOG), see PR [#2087](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2087).
 
 This change should not directly affect this library but might be relevant since it is not recommended to use different Common library versions between the different EthereumJS libraries.
 
@@ -192,22 +192,22 @@ Now every import is a named import and we think the long term benefits will very
 
 #### Common Library Import Updates
 
-Since our [@ethereumjs/common](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/common) library is used all across our libraries for chain and HF instantiation this will likely be the one being the most prevalent regarding the need for some import updates.
+Since our [@theqrl/zondjs-common](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/common) library is used all across our libraries for chain and HF instantiation this will likely be the one being the most prevalent regarding the need for some import updates.
 
 So Common import and usage is changing from:
 
 ```ts
-import Common, { Chain, Hardfork } from '@ethereumjs/common'
+import Common, { Chain, Hardfork } from "@theqrl/zondjs-common";
 
-const common = new Common({ chain: Chain.Mainnet, hardfork: Hardfork.Merge })
+const common = new Common({ chain: Chain.Mainnet, hardfork: Hardfork.Merge });
 ```
 
 to:
 
 ```ts
-import { Common, Chain, Hardfork } from '@ethereumjs/common'
+import { Common, Chain, Hardfork } from "@theqrl/zondjs-common";
 
-const common = new Common({ chain: Chain.Mainnet, hardfork: Hardfork.Merge })
+const common = new Common({ chain: Chain.Mainnet, hardfork: Hardfork.Merge });
 ```
 
 ### Removed Default Imports in this Library
@@ -215,13 +215,13 @@ const common = new Common({ chain: Chain.Mainnet, hardfork: Hardfork.Merge })
 The main `Ethash` class import has been updated, so import changes from:
 
 ```ts
-import Ethash from '@ethereumjs/ethash'
+import Ethash from "@theqrl/zondjs-ethash";
 ```
 
 to:
 
 ```ts
-import { Ethash } from '@ethereumjs/ethash'
+import { Ethash } from "@theqrl/zondjs-ethash";
 ```
 
 ## Other Changes
@@ -232,7 +232,7 @@ import { Ethash } from '@ethereumjs/ethash'
 
 This release is part of a larger breaking release round where all [EthereumJS monorepo](https://github.com/ethereumjs/ethereumjs-monorepo) libraries (VM, Tx, Trie, other) get major version upgrades. This round of releases has been prepared for a long time and we are really pleased with and proud of the result, thanks to all team members and contributors who worked so hard and made this possible! 🙂 ❤️
 
-We have gotten rid of a lot of technical debt and inconsistencies and removed unused functionality, renamed methods, improved on the API and on TypeScript typing, to name a few of the more local type of refactoring changes. There are also broader structural changes like a full transition to native JavaScript `BigInt` values as well as various somewhat deep-reaching refactorings, both within a single package as well as some reaching beyond the scope of a single package. Also two completely new packages - `@ethereumjs/evm` (in addition to the existing `@ethereumjs/vm` package) and `@ethereumjs/statemanager` - have been created, leading to a more modular Ethereum JavaScript VM.
+We have gotten rid of a lot of technical debt and inconsistencies and removed unused functionality, renamed methods, improved on the API and on TypeScript typing, to name a few of the more local type of refactoring changes. There are also broader structural changes like a full transition to native JavaScript `BigInt` values as well as various somewhat deep-reaching refactorings, both within a single package as well as some reaching beyond the scope of a single package. Also two completely new packages - `@theqrl/zondjs-evm` (in addition to the existing `@theqrl/zondjs-vm` package) and `@theqrl/zondjs-statemanager` - have been created, leading to a more modular Ethereum JavaScript VM.
 
 We are very much confident that users of the libraries will greatly benefit from the changes being introduced. However - along the upgrade process - these releases require some extra attention and care since the changeset is both so big and deep reaching. We highly recommend to closely read the release notes, we have done our best to create a full picture on the changes with some special emphasis on delicate code and API parts and give some explicit guidance on how to upgrade and where problems might arise!
 
@@ -273,23 +273,23 @@ There is now a new simple CPU miner added to the `Ethash` package which can be u
 See the following example on how to use the new `Miner` class:
 
 ```ts
-import { Block } from '@ethereumjs/block'
-import Ethash from '@ethereumjs/ethash'
-import Common from '@ethereumjs/common'
-import { BN } from 'ethereumjs-util'
-const level = require('level-mem')
+import { Block } from "@theqrl/zondjs-block";
+import Ethash from "@theqrl/zondjs-ethash";
+import Common from "@theqrl/zondjs-common";
+import { BN } from "ethereumjs-util";
+const level = require("level-mem");
 
-const cacheDB = level()
+const cacheDB = level();
 const block = Block.fromBlockData({
   header: {
     difficulty: new BN(100),
     number: new BN(1),
   },
-})
+});
 
-const e = new Ethash(cacheDB)
-const miner = e.getMiner(block.header)
-const solution = await miner.iterate(-1) // iterate until solution is found
+const e = new Ethash(cacheDB);
+const miner = e.getMiner(block.header);
+const solution = await miner.iterate(-1); // iterate until solution is found
 ```
 
 ### Included Source Files
@@ -302,12 +302,12 @@ Source files from the `src` folder are now included in the distribution build, s
 
 **Attention!** This new version is part of a series of EthereumJS releases all moving to a new scoped package name format. In this case the library is renamed as follows:
 
-- `ethashjs` -> `@ethereumjs/ethash`
+- `ethashjs` -> `@theqrl/zondjs-ethash`
 
 Please update your library references accordingly or install with:
 
 ```shell
-npm i @ethereumjs/ethash
+npm i @theqrl/zondjs-ethash
 ```
 
 ### Library Promisification
@@ -318,15 +318,15 @@ Old API:
 
 ```ts
 ethash.verifyPOW(validblock, (result) => {
-  console.log(result)
-})
+  console.log(result);
+});
 ```
 
 New API:
 
 ```ts
-const result = await ethash.verifyPOW(validBlock)
-console.log(result) // => true
+const result = await ethash.verifyPOW(validBlock);
+console.log(result); // => true
 ```
 
 See `Ethash` [README](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/ethash#usage) for a complete example.
@@ -341,7 +341,7 @@ Packages now target `ES2017` for Node.js builds (the `main` entrypoint from `pac
 
 ### Other Changes
 
-- Updated Block dependency to `@ethereumjs/block` `v3.0.0`, PR [#883](https://github.com/ethereumjs/ethereumjs-monorepo/pull/883)
+- Updated Block dependency to `@theqrl/zondjs-block` `v3.0.0`, PR [#883](https://github.com/ethereumjs/ethereumjs-monorepo/pull/883)
 - Removed `async` dependency, PR [#779](https://github.com/ethereumjs/ethereumjs-monorepo/pull/779)
 
 ## 1.0.0-rc.1 - 2020-11-19
@@ -357,12 +357,12 @@ No changes since `beta.1` release.
 **Attention!** This new version is part of a series of EthereumJS releases all moving to a
 new scoped package name format. In this case the library is renamed as follows:
 
-- `ethashjs` -> `@ethereumjs/ethash`
+- `ethashjs` -> `@theqrl/zondjs-ethash`
 
 Please update your library references accordingly or install with:
 
 ```shell
-npm i @ethereumjs/ethash
+npm i @theqrl/zondjs-ethash
 ```
 
 ### Library Promisification
@@ -375,15 +375,15 @@ Old API:
 
 ```ts
 ethash.verifyPOW(validblock, (result) => {
-  console.log(result)
-})
+  console.log(result);
+});
 ```
 
 New API:
 
 ```ts
-const result = await ethash.verifyPOW(validBlock)
-console.log(result) // => true
+const result = await ethash.verifyPOW(validBlock);
+console.log(result); // => true
 ```
 
 See `Ethash` [README](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/ethash#usage)
@@ -404,7 +404,7 @@ in performance benefits for Node.js consumers, see [here](https://github.com/eth
 
 ### Other Changes
 
-- Updated Block dependency to `@ethereumjs/block` `v3.0.0`,
+- Updated Block dependency to `@theqrl/zondjs-block` `v3.0.0`,
   PR [#883](https://github.com/ethereumjs/ethereumjs-monorepo/pull/883)
 - Removed `async` dependency,
   PR [#779](https://github.com/ethereumjs/ethereumjs-monorepo/pull/779)

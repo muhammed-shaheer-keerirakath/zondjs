@@ -1,4 +1,4 @@
-[@ethereumjs/evm](../README.md) / InterpreterStep
+[@theqrl/zondjs-evm](../README.md) / InterpreterStep
 
 # Interface: InterpreterStep
 

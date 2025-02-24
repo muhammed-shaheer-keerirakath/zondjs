@@ -1,4 +1,4 @@
-[@ethereumjs/vm](../README.md) / SealBlockOpts
+[@theqrl/zondjs-vm](../README.md) / SealBlockOpts
 
 # Interface: SealBlockOpts
 

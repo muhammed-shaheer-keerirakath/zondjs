@@ -1,6 +1,6 @@
-@ethereumjs/vm
+@theqrl/zondjs-vm
 
-# @ethereumjs/vm
+# @theqrl/zondjs-vm
 
 ## Table of contents
 

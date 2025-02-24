@@ -1,5 +1,5 @@
-import { Common, Mainnet } from '@ethereumjs/common'
-import { createEVM } from '@ethereumjs/evm'
+import { Common, Mainnet } from '@theqrl/zondjs-common'
+import { createEVM } from '@theqrl/zondjs-evm'
 
 const main = async () => {
   const common = new Common({ chain: Mainnet, eips: [7702] })

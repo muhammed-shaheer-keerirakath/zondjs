@@ -1,4 +1,4 @@
-[@ethereumjs/devp2p](../README.md) / SNAP
+[@theqrl/zondjs-devp2p](../README.md) / SNAP
 
 # Class: SNAP
 

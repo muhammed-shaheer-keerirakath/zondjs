@@ -1,5 +1,5 @@
-import { createBlockchain } from "@ethereumjs/blockchain";
-import { TransactionType, createTx } from "@ethereumjs/tx";
+import { createBlockchain } from "@theqrl/zondjs-blockchain";
+import { TransactionType, createTx } from "@theqrl/zondjs-tx";
 import {
   Account,
   blobsToCommitments,
@@ -15,8 +15,8 @@ import { LevelDB } from "./level.js";
 
 import type { VMOpts } from "../../src/types.js";
 import type { VM } from "../../src/vm.js";
-import type { Block } from "@ethereumjs/block";
-import type { Common } from "@ethereumjs/common";
+import type { Block } from "@theqrl/zondjs-block";
+import type { Common } from "@theqrl/zondjs-common";
 import type { Address, PrefixedHexString } from "@theqrl/zondjs-util";
 
 export function createAccountWithDefaults(

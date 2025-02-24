@@ -1,4 +1,4 @@
-[@ethereumjs/devp2p](../README.md) / DPTOptions
+[@theqrl/zondjs-devp2p](../README.md) / DPTOptions
 
 # Interface: DPTOptions
 

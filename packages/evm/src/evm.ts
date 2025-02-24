@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-use-before-define */
-import { Hardfork } from "@ethereumjs/common";
+import { Hardfork } from "@theqrl/zondjs-common";
 import {
   Account,
   Address,
@@ -60,7 +60,7 @@ import type {
 import type { OpHandler, OpcodeList, OpcodeMap } from "./opcodes/index.js";
 import type { CustomPrecompile, PrecompileFunc } from "./precompiles/index.js";
 import type { VerkleAccessWitness } from "./verkleAccessWitness.js";
-import type { Common, StateManagerInterface } from "@ethereumjs/common";
+import type { Common, StateManagerInterface } from "@theqrl/zondjs-common";
 
 const debug = debugDefault("evm:evm");
 const debugGas = debugDefault("evm:gas");

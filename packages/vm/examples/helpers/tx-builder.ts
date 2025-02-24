@@ -1,6 +1,6 @@
 import { AbiCoder, Interface } from 'ethers' // cspell:disable-line
 
-import type { LegacyTxData } from '@ethereumjs/tx'
+import type { LegacyTxData } from '@theqrl/zondjs-tx'
 
 export const encodeFunction = (
   method: string,

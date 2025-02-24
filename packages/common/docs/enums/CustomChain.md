@@ -1,4 +1,4 @@
-[@ethereumjs/common](../README.md) / CustomChain
+[@theqrl/zondjs-common](../README.md) / CustomChain
 
 # Enumeration: CustomChain
 

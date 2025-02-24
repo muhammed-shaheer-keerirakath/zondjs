@@ -3,9 +3,9 @@ import {
   cliqueIsEpochTransition,
   cliqueSigner,
   cliqueVerifySignature,
-} from "@ethereumjs/block";
-import { ConsensusAlgorithm } from "@ethereumjs/common";
-import { RLP } from "@ethereumjs/rlp";
+} from "@theqrl/zondjs-block";
+import { ConsensusAlgorithm } from "@theqrl/zondjs-common";
+import { RLP } from "@theqrl/zondjs-rlp";
 import {
   Address,
   BIGINT_0,
@@ -22,8 +22,8 @@ import debugDefault from "debug";
 
 import type { Blockchain } from "../index.js";
 import type { Consensus, ConsensusOptions } from "../types.js";
-import type { Block, BlockHeader } from "@ethereumjs/block";
-import type { CliqueConfig } from "@ethereumjs/common";
+import type { Block, BlockHeader } from "@theqrl/zondjs-block";
+import type { CliqueConfig } from "@theqrl/zondjs-common";
 
 const debug = debugDefault("blockchain:clique");
 

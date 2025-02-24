@@ -1,4 +1,4 @@
-[@ethereumjs/devp2p](../README.md) / DISCONNECT\_REASON
+[@theqrl/zondjs-devp2p](../README.md) / DISCONNECT\_REASON
 
 # Enumeration: DISCONNECT\_REASON
 

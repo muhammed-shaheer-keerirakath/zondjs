@@ -1,4 +1,4 @@
-[@ethereumjs/block](../README.md) / JsonHeader
+[@theqrl/zondjs-block](../README.md) / JsonHeader
 
 # Interface: JsonHeader
 

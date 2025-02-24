@@ -1,11 +1,11 @@
-import { createBlock } from "@ethereumjs/block";
-import { Common, Hardfork, Mainnet } from "@ethereumjs/common";
+import { createBlock } from "@theqrl/zondjs-block";
+import { Common, Hardfork, Mainnet } from "@theqrl/zondjs-common";
 import { MapDB } from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
 import { Ethash } from "../src/index.js";
 
-import type { Block, BlockHeader } from "@ethereumjs/block";
+import type { Block, BlockHeader } from "@theqrl/zondjs-block";
 import type { DBObject } from "@theqrl/zondjs-util";
 
 const cacheDb = new MapDB<number, DBObject>();

@@ -1,4 +1,4 @@
-[@ethereumjs/verkle](../README.md) / InternalNode
+[@theqrl/zondjs-verkle](../README.md) / InternalNode
 
 # Class: InternalNode
 

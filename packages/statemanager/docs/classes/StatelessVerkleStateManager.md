@@ -1,4 +1,4 @@
-[@ethereumjs/statemanager](../README.md) / StatelessVerkleStateManager
+[@theqrl/zondjs-statemanager](../README.md) / StatelessVerkleStateManager
 
 # Class: StatelessVerkleStateManager
 
@@ -79,8 +79,8 @@ Instantiate the StateManager interface.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name   | Type                                                                                  |
+| :----- | :------------------------------------------------------------------------------------ |
 | `opts` | [`StatelessVerkleStateManagerOpts`](../interfaces/StatelessVerkleStateManagerOpts.md) |
 
 #### Defined in
@@ -97,7 +97,7 @@ Instantiate the StateManager interface.
 
 [statelessVerkleStateManager.ts:138](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/statelessVerkleStateManager.ts#L138)
 
-___
+---
 
 ### \_codeCache
 
@@ -107,7 +107,7 @@ ___
 
 [statelessVerkleStateManager.ts:140](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/statelessVerkleStateManager.ts#L140)
 
-___
+---
 
 ### \_storageCache
 
@@ -117,7 +117,7 @@ ___
 
 [statelessVerkleStateManager.ts:139](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/statelessVerkleStateManager.ts#L139)
 
-___
+---
 
 ### accessWitness
 
@@ -127,7 +127,7 @@ ___
 
 [statelessVerkleStateManager.ts:171](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/statelessVerkleStateManager.ts#L171)
 
-___
+---
 
 ### originalStorageCache
 
@@ -149,10 +149,10 @@ EVMStateManagerInterface.originalStorageCache
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `address` | `Address` |
-| `codeOffset` | `number` |
+| Name         | Type      |
+| :----------- | :-------- |
+| `address`    | `Address` |
+| `codeOffset` | `number`  |
 
 #### Returns
 
@@ -162,7 +162,7 @@ EVMStateManagerInterface.originalStorageCache
 
 [statelessVerkleStateManager.ts:344](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/statelessVerkleStateManager.ts#L344)
 
-___
+---
 
 ### checkpoint
 
@@ -184,7 +184,7 @@ EVMStateManagerInterface.checkpoint
 
 [statelessVerkleStateManager.ts:806](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/statelessVerkleStateManager.ts#L806)
 
-___
+---
 
 ### chunkifyCode
 
@@ -192,8 +192,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name   | Type         |
+| :----- | :----------- |
 | `code` | `Uint8Array` |
 
 #### Returns
@@ -204,7 +204,7 @@ ___
 
 [statelessVerkleStateManager.ts:328](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/statelessVerkleStateManager.ts#L328)
 
-___
+---
 
 ### clearCaches
 
@@ -220,7 +220,7 @@ Clears all underlying caches
 
 [statelessVerkleStateManager.ts:881](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/statelessVerkleStateManager.ts#L881)
 
-___
+---
 
 ### clearContractStorage
 
@@ -230,8 +230,8 @@ Clears all storage entries for the account corresponding to `address`.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name      | Type      | Description                     |
+| :-------- | :-------- | :------------------------------ |
 | `address` | `Address` | Address to clear the storage of |
 
 #### Returns
@@ -246,7 +246,7 @@ EVMStateManagerInterface.clearContractStorage
 
 [statelessVerkleStateManager.ts:495](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/statelessVerkleStateManager.ts#L495)
 
-___
+---
 
 ### commit
 
@@ -267,7 +267,7 @@ EVMStateManagerInterface.commit
 
 [statelessVerkleStateManager.ts:817](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/statelessVerkleStateManager.ts#L817)
 
-___
+---
 
 ### deleteAccount
 
@@ -277,8 +277,8 @@ Deletes an account from state under the provided `address`.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name      | Type      | Description                                    |
+| :-------- | :-------- | :--------------------------------------------- |
 | `address` | `Address` | Address of the account which should be deleted |
 
 #### Returns
@@ -293,7 +293,7 @@ EVMStateManagerInterface.deleteAccount
 
 [statelessVerkleStateManager.ts:595](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/statelessVerkleStateManager.ts#L595)
 
-___
+---
 
 ### dumpStorage
 
@@ -303,17 +303,17 @@ Dumps the RLP-encoded storage values for an `account` specified by `address`.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `_` | `Address` |
+| Name | Type      |
+| :--- | :-------- |
+| `_`  | `Address` |
 
 #### Returns
 
 `Promise`<`StorageDump`\>
 
 - The state of the account as an `Object` map.
-Keys are are the storage keys, values are the storage values as strings.
-Both are represented as hex strings without the `0x` prefix.
+  Keys are are the storage keys, values are the storage values as strings.
+  Both are represented as hex strings without the `0x` prefix.
 
 #### Implementation of
 
@@ -323,7 +323,7 @@ EVMStateManagerInterface.dumpStorage
 
 [statelessVerkleStateManager.ts:870](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/statelessVerkleStateManager.ts#L870)
 
-___
+---
 
 ### dumpStorageRange
 
@@ -331,11 +331,11 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `_` | `Address` |
-| `__` | `bigint` |
-| `___` | `number` |
+| Name  | Type      |
+| :---- | :-------- |
+| `_`   | `Address` |
+| `__`  | `bigint`  |
+| `___` | `number`  |
 
 #### Returns
 
@@ -349,7 +349,7 @@ EVMStateManagerInterface.dumpStorageRange
 
 [statelessVerkleStateManager.ts:874](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/statelessVerkleStateManager.ts#L874)
 
-___
+---
 
 ### flush
 
@@ -365,7 +365,7 @@ Writes all cache items to the trie
 
 [statelessVerkleStateManager.ts:844](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/statelessVerkleStateManager.ts#L844)
 
-___
+---
 
 ### generateCanonicalGenesis
 
@@ -373,8 +373,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name         | Type  |
+| :----------- | :---- |
 | `_initState` | `any` |
 
 #### Returns
@@ -389,7 +389,7 @@ EVMStateManagerInterface.generateCanonicalGenesis
 
 [statelessVerkleStateManager.ts:887](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/statelessVerkleStateManager.ts#L887)
 
-___
+---
 
 ### getAccount
 
@@ -397,8 +397,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name      | Type      |
+| :-------- | :-------- |
 | `address` | `Address` |
 
 #### Returns
@@ -413,7 +413,7 @@ EVMStateManagerInterface.getAccount
 
 [statelessVerkleStateManager.ts:505](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/statelessVerkleStateManager.ts#L505)
 
-___
+---
 
 ### getAppliedKey
 
@@ -421,9 +421,9 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `_` | `Uint8Array` |
+| Name | Type         |
+| :--- | :----------- |
+| `_`  | `Uint8Array` |
 
 #### Returns
 
@@ -437,27 +437,27 @@ EVMStateManagerInterface.getAppliedKey
 
 [statelessVerkleStateManager.ts:891](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/statelessVerkleStateManager.ts#L891)
 
-___
+---
 
 ### getComputedValue
 
-▸ **getComputedValue**(`accessedState`): ``null`` \| `string`
+▸ **getComputedValue**(`accessedState`): `null` \| `string`
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name            | Type                                                                |
+| :-------------- | :------------------------------------------------------------------ |
 | `accessedState` | [`AccessedStateWithAddress`](../README.md#accessedstatewithaddress) |
 
 #### Returns
 
-``null`` \| `string`
+`null` \| `string`
 
 #### Defined in
 
 [statelessVerkleStateManager.ts:717](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/statelessVerkleStateManager.ts#L717)
 
-___
+---
 
 ### getContractCode
 
@@ -467,16 +467,16 @@ Gets the code corresponding to the provided `address`.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name      | Type      | Description                   |
+| :-------- | :-------- | :---------------------------- |
 | `address` | `Address` | Address to get the `code` for |
 
 #### Returns
 
 `Promise`<`Uint8Array`\>
 
--  Resolves with the code corresponding to the provided address.
-Returns an empty `Uint8Array` if the account has no associated code.
+- Resolves with the code corresponding to the provided address.
+  Returns an empty `Uint8Array` if the account has no associated code.
 
 #### Implementation of
 
@@ -486,7 +486,7 @@ EVMStateManagerInterface.getContractCode
 
 [statelessVerkleStateManager.ts:391](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/statelessVerkleStateManager.ts#L391)
 
-___
+---
 
 ### getContractStorage
 
@@ -497,18 +497,18 @@ the shortest representation of the stored value.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `address` | `Address` | Address of the account to get the storage for |
-| `key` | `Uint8Array` | Key in the account's storage to get the value for. Must be 32 bytes long. |
+| Name      | Type         | Description                                                               |
+| :-------- | :----------- | :------------------------------------------------------------------------ |
+| `address` | `Address`    | Address of the account to get the storage for                             |
+| `key`     | `Uint8Array` | Key in the account's storage to get the value for. Must be 32 bytes long. |
 
 #### Returns
 
 `Promise`<`Uint8Array`\>
 
 - The storage value for the account
-corresponding to the provided address at the provided key.
-If this does not exist an empty `Uint8Array` is returned.
+  corresponding to the provided address at the provided key.
+  If this does not exist an empty `Uint8Array` is returned.
 
 #### Implementation of
 
@@ -518,7 +518,7 @@ EVMStateManagerInterface.getContractStorage
 
 [statelessVerkleStateManager.ts:455](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/statelessVerkleStateManager.ts#L455)
 
-___
+---
 
 ### getProof
 
@@ -526,10 +526,10 @@ ___
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `_` | `Address` | `undefined` |
-| `__` | `Uint8Array`[] | `[]` |
+| Name | Type           | Default value |
+| :--- | :------------- | :------------ |
+| `_`  | `Address`      | `undefined`   |
+| `__` | `Uint8Array`[] | `[]`          |
 
 #### Returns
 
@@ -543,7 +543,7 @@ EVMStateManagerInterface.getProof
 
 [statelessVerkleStateManager.ts:621](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/statelessVerkleStateManager.ts#L621)
 
-___
+---
 
 ### getStateRoot
 
@@ -567,7 +567,7 @@ EVMStateManagerInterface.getStateRoot
 
 [statelessVerkleStateManager.ts:852](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/statelessVerkleStateManager.ts#L852)
 
-___
+---
 
 ### getTransitionStateRoot
 
@@ -575,10 +575,10 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `_` | [`DefaultStateManager`](DefaultStateManager.md) |
-| `__` | `Uint8Array` |
+| Name | Type                                            |
+| :--- | :---------------------------------------------- |
+| `_`  | [`DefaultStateManager`](DefaultStateManager.md) |
+| `__` | `Uint8Array`                                    |
 
 #### Returns
 
@@ -588,7 +588,7 @@ ___
 
 [statelessVerkleStateManager.ts:242](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/statelessVerkleStateManager.ts#L242)
 
-___
+---
 
 ### getTreeKeyForBalance
 
@@ -596,8 +596,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name   | Type         |
+| :----- | :----------- |
 | `stem` | `Uint8Array` |
 
 #### Returns
@@ -608,7 +608,7 @@ ___
 
 [statelessVerkleStateManager.ts:307](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/statelessVerkleStateManager.ts#L307)
 
-___
+---
 
 ### getTreeKeyForCodeChunk
 
@@ -616,10 +616,10 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name      | Type      |
+| :-------- | :-------- |
 | `address` | `Address` |
-| `chunkId` | `number` |
+| `chunkId` | `number`  |
 
 #### Returns
 
@@ -629,7 +629,7 @@ ___
 
 [statelessVerkleStateManager.ts:323](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/statelessVerkleStateManager.ts#L323)
 
-___
+---
 
 ### getTreeKeyForCodeHash
 
@@ -637,8 +637,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name   | Type         |
+| :----- | :----------- |
 | `stem` | `Uint8Array` |
 
 #### Returns
@@ -649,7 +649,7 @@ ___
 
 [statelessVerkleStateManager.ts:315](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/statelessVerkleStateManager.ts#L315)
 
-___
+---
 
 ### getTreeKeyForCodeSize
 
@@ -657,8 +657,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name   | Type         |
+| :----- | :----------- |
 | `stem` | `Uint8Array` |
 
 #### Returns
@@ -669,7 +669,7 @@ ___
 
 [statelessVerkleStateManager.ts:319](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/statelessVerkleStateManager.ts#L319)
 
-___
+---
 
 ### getTreeKeyForNonce
 
@@ -677,8 +677,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name   | Type         |
+| :----- | :----------- |
 | `stem` | `Uint8Array` |
 
 #### Returns
@@ -689,7 +689,7 @@ ___
 
 [statelessVerkleStateManager.ts:311](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/statelessVerkleStateManager.ts#L311)
 
-___
+---
 
 ### getTreeKeyForStorageSlot
 
@@ -697,10 +697,10 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `address` | `Address` |
-| `storageKey` | `bigint` |
+| Name         | Type      |
+| :----------- | :-------- |
+| `address`    | `Address` |
+| `storageKey` | `bigint`  |
 
 #### Returns
 
@@ -710,7 +710,7 @@ ___
 
 [statelessVerkleStateManager.ts:338](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/statelessVerkleStateManager.ts#L338)
 
-___
+---
 
 ### getTreeKeyForVersion
 
@@ -718,8 +718,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name   | Type         |
+| :----- | :----------- |
 | `stem` | `Uint8Array` |
 
 #### Returns
@@ -730,7 +730,7 @@ ___
 
 [statelessVerkleStateManager.ts:303](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/statelessVerkleStateManager.ts#L303)
 
-___
+---
 
 ### hasStateRoot
 
@@ -738,9 +738,9 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `_` | `Uint8Array` |
+| Name | Type         |
+| :--- | :----------- |
+| `_`  | `Uint8Array` |
 
 #### Returns
 
@@ -754,7 +754,7 @@ EVMStateManagerInterface.hasStateRoot
 
 [statelessVerkleStateManager.ts:825](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/statelessVerkleStateManager.ts#L825)
 
-___
+---
 
 ### initVerkleExecutionWitness
 
@@ -762,10 +762,10 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `executionWitness?` | ``null`` \| `VerkleExecutionWitness` |
-| `accessWitness?` | [`AccessWitness`](AccessWitness.md) |
+| Name                | Type                                |
+| :------------------ | :---------------------------------- |
+| `executionWitness?` | `null` \| `VerkleExecutionWitness`  |
+| `accessWitness?`    | [`AccessWitness`](AccessWitness.md) |
 
 #### Returns
 
@@ -775,7 +775,7 @@ ___
 
 [statelessVerkleStateManager.ts:246](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/statelessVerkleStateManager.ts#L246)
 
-___
+---
 
 ### modifyAccountFields
 
@@ -783,10 +783,10 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `address` | `Address` |
-| `accountFields` | `Partial`<`Pick`<`Account`, ``"nonce"`` \| ``"balance"`` \| ``"storageRoot"`` \| ``"codeHash"``\>\> |
+| Name            | Type                                                                                        |
+| :-------------- | :------------------------------------------------------------------------------------------ |
+| `address`       | `Address`                                                                                   |
+| `accountFields` | `Partial`<`Pick`<`Account`, `"nonce"` \| `"balance"` \| `"storageRoot"` \| `"codeHash"`\>\> |
 
 #### Returns
 
@@ -800,7 +800,7 @@ EVMStateManagerInterface.modifyAccountFields
 
 [statelessVerkleStateManager.ts:608](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/statelessVerkleStateManager.ts#L608)
 
-___
+---
 
 ### putAccount
 
@@ -808,8 +808,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name      | Type      |
+| :-------- | :-------- |
 | `address` | `Address` |
 | `account` | `Account` |
 
@@ -825,7 +825,7 @@ EVMStateManagerInterface.putAccount
 
 [statelessVerkleStateManager.ts:561](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/statelessVerkleStateManager.ts#L561)
 
-___
+---
 
 ### putContractCode
 
@@ -836,10 +836,10 @@ corresponding to `address` to reference this.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `address` | `Address` | Address of the `account` to add the `code` for |
-| `value` | `Uint8Array` | The value of the `code` |
+| Name      | Type         | Description                                    |
+| :-------- | :----------- | :--------------------------------------------- |
+| `address` | `Address`    | Address of the `account` to add the `code` for |
+| `value`   | `Uint8Array` | The value of the `code`                        |
 
 #### Returns
 
@@ -853,7 +853,7 @@ EVMStateManagerInterface.putContractCode
 
 [statelessVerkleStateManager.ts:367](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/statelessVerkleStateManager.ts#L367)
 
-___
+---
 
 ### putContractStorage
 
@@ -864,11 +864,11 @@ corresponding to `address` at the provided `key`.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `address` | `Address` | Address to set a storage value for |
-| `key` | `Uint8Array` | Key to set the value at. Must be 32 bytes long. |
-| `value` | `Uint8Array` | Value to set at `key` for account corresponding to `address`. Cannot be more than 32 bytes. Leading zeros are stripped. If it is a empty or filled with zeros, deletes the value. |
+| Name      | Type         | Description                                                                                                                                                                       |
+| :-------- | :----------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `address` | `Address`    | Address to set a storage value for                                                                                                                                                |
+| `key`     | `Uint8Array` | Key to set the value at. Must be 32 bytes long.                                                                                                                                   |
+| `value`   | `Uint8Array` | Value to set at `key` for account corresponding to `address`. Cannot be more than 32 bytes. Leading zeros are stripped. If it is a empty or filled with zeros, deletes the value. |
 
 #### Returns
 
@@ -882,7 +882,7 @@ EVMStateManagerInterface.putContractStorage
 
 [statelessVerkleStateManager.ts:480](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/statelessVerkleStateManager.ts#L480)
 
-___
+---
 
 ### revert
 
@@ -903,7 +903,7 @@ EVMStateManagerInterface.revert
 
 [statelessVerkleStateManager.ts:833](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/statelessVerkleStateManager.ts#L833)
 
-___
+---
 
 ### setStateRoot
 
@@ -914,9 +914,9 @@ Maybe in this context: reset to original pre state suffice
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `_` | `Uint8Array` |
+| Name | Type         |
+| :--- | :----------- |
+| `_`  | `Uint8Array` |
 
 #### Returns
 
@@ -930,7 +930,7 @@ EVMStateManagerInterface.setStateRoot
 
 [statelessVerkleStateManager.ts:861](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/statelessVerkleStateManager.ts#L861)
 
-___
+---
 
 ### shallowCopy
 
@@ -952,7 +952,7 @@ EVMStateManagerInterface.shallowCopy
 
 [statelessVerkleStateManager.ts:355](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/statelessVerkleStateManager.ts#L355)
 
-___
+---
 
 ### verifyPostState
 
@@ -966,7 +966,7 @@ ___
 
 [statelessVerkleStateManager.ts:648](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/statelessVerkleStateManager.ts#L648)
 
-___
+---
 
 ### verifyProof
 
@@ -974,8 +974,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name               | Type         |
+| :----------------- | :----------- |
 | `parentVerkleRoot` | `Uint8Array` |
 
 #### Returns

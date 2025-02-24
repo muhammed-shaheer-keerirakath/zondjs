@@ -1,4 +1,4 @@
-[@ethereumjs/trie](../README.md) / CheckpointDBOpts
+[@theqrl/zondjs-trie](../README.md) / CheckpointDBOpts
 
 # Interface: CheckpointDBOpts
 
@@ -22,7 +22,7 @@ Cache size (default: 0)
 
 [packages/trie/src/types.ts:132](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/types.ts#L132)
 
-___
+---
 
 ### db
 
@@ -34,7 +34,7 @@ A database instance.
 
 [packages/trie/src/types.ts:122](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/types.ts#L122)
 
-___
+---
 
 ### valueEncoding
 

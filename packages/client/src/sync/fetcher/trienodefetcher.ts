@@ -6,8 +6,8 @@ import {
   decodeMPTNode,
   mergeAndFormatKeyPaths,
   pathToHexKey,
-} from "@ethereumjs/mpt";
-import { MerkleStateManager } from "@ethereumjs/statemanager";
+} from "@theqrl/zondjs-mpt";
+import { MerkleStateManager } from "@theqrl/zondjs-statemanager";
 import {
   BIGINT_0,
   KECCAK256_NULL,

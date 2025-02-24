@@ -1,4 +1,4 @@
-import { StatefulVerkleStateManager } from "@ethereumjs/statemanager";
+import { StatefulVerkleStateManager } from "@theqrl/zondjs-statemanager";
 import {
   Account,
   bytesToHex,
@@ -9,7 +9,7 @@ import {
   setLengthLeft,
 } from "@theqrl/zondjs-util";
 
-import type { Common } from "@ethereumjs/common";
+import type { Common } from "@theqrl/zondjs-common";
 import type {
   GenesisState,
   PrefixedHexString,

@@ -1,4 +1,4 @@
-import { RLP } from "@ethereumjs/rlp";
+import { RLP } from "@theqrl/zondjs-rlp";
 
 import { isTerminator } from "../util/hex.js";
 import { bytesToNibbles } from "../util/nibbles.js";

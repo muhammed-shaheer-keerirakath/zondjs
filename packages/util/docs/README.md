@@ -1,6 +1,6 @@
-@ethereumjs/util
+@theqrl/zondjs-util
 
-# @ethereumjs/util
+# @theqrl/zondjs-util
 
 ## Table of contents
 
@@ -53,45 +53,45 @@
 
 ### Variables
 
-- [BIGINT\_0](README.md#bigint_0)
-- [BIGINT\_1](README.md#bigint_1)
-- [BIGINT\_100](README.md#bigint_100)
-- [BIGINT\_128](README.md#bigint_128)
-- [BIGINT\_160](README.md#bigint_160)
-- [BIGINT\_2](README.md#bigint_2)
-- [BIGINT\_224](README.md#bigint_224)
-- [BIGINT\_255](README.md#bigint_255)
-- [BIGINT\_256](README.md#bigint_256)
-- [BIGINT\_27](README.md#bigint_27)
-- [BIGINT\_28](README.md#bigint_28)
-- [BIGINT\_2EXP160](README.md#bigint_2exp160)
-- [BIGINT\_2EXP224](README.md#bigint_2exp224)
-- [BIGINT\_2EXP256](README.md#bigint_2exp256)
-- [BIGINT\_2EXP96](README.md#bigint_2exp96)
-- [BIGINT\_3](README.md#bigint_3)
-- [BIGINT\_31](README.md#bigint_31)
-- [BIGINT\_32](README.md#bigint_32)
-- [BIGINT\_64](README.md#bigint_64)
-- [BIGINT\_7](README.md#bigint_7)
-- [BIGINT\_8](README.md#bigint_8)
-- [BIGINT\_96](README.md#bigint_96)
-- [BIGINT\_NEG1](README.md#bigint_neg1)
-- [GWEI\_TO\_WEI](README.md#gwei_to_wei)
-- [KECCAK256\_NULL](README.md#keccak256_null)
-- [KECCAK256\_NULL\_S](README.md#keccak256_null_s)
-- [KECCAK256\_RLP](README.md#keccak256_rlp)
-- [KECCAK256\_RLP\_ARRAY](README.md#keccak256_rlp_array)
-- [KECCAK256\_RLP\_ARRAY\_S](README.md#keccak256_rlp_array_s)
-- [KECCAK256\_RLP\_S](README.md#keccak256_rlp_s)
-- [MAX\_INTEGER](README.md#max_integer)
-- [MAX\_INTEGER\_BIGINT](README.md#max_integer_bigint)
-- [MAX\_UINT64](README.md#max_uint64)
-- [MAX\_WITHDRAWALS\_PER\_PAYLOAD](README.md#max_withdrawals_per_payload)
-- [RIPEMD160\_ADDRESS\_STRING](README.md#ripemd160_address_string)
-- [RLP\_EMPTY\_STRING](README.md#rlp_empty_string)
-- [SECP256K1\_ORDER](README.md#secp256k1_order)
-- [SECP256K1\_ORDER\_DIV\_2](README.md#secp256k1_order_div_2)
-- [TWO\_POW256](README.md#two_pow256)
+- [BIGINT_0](README.md#bigint_0)
+- [BIGINT_1](README.md#bigint_1)
+- [BIGINT_100](README.md#bigint_100)
+- [BIGINT_128](README.md#bigint_128)
+- [BIGINT_160](README.md#bigint_160)
+- [BIGINT_2](README.md#bigint_2)
+- [BIGINT_224](README.md#bigint_224)
+- [BIGINT_255](README.md#bigint_255)
+- [BIGINT_256](README.md#bigint_256)
+- [BIGINT_27](README.md#bigint_27)
+- [BIGINT_28](README.md#bigint_28)
+- [BIGINT_2EXP160](README.md#bigint_2exp160)
+- [BIGINT_2EXP224](README.md#bigint_2exp224)
+- [BIGINT_2EXP256](README.md#bigint_2exp256)
+- [BIGINT_2EXP96](README.md#bigint_2exp96)
+- [BIGINT_3](README.md#bigint_3)
+- [BIGINT_31](README.md#bigint_31)
+- [BIGINT_32](README.md#bigint_32)
+- [BIGINT_64](README.md#bigint_64)
+- [BIGINT_7](README.md#bigint_7)
+- [BIGINT_8](README.md#bigint_8)
+- [BIGINT_96](README.md#bigint_96)
+- [BIGINT_NEG1](README.md#bigint_neg1)
+- [GWEI_TO_WEI](README.md#gwei_to_wei)
+- [KECCAK256_NULL](README.md#keccak256_null)
+- [KECCAK256_NULL_S](README.md#keccak256_null_s)
+- [KECCAK256_RLP](README.md#keccak256_rlp)
+- [KECCAK256_RLP_ARRAY](README.md#keccak256_rlp_array)
+- [KECCAK256_RLP_ARRAY_S](README.md#keccak256_rlp_array_s)
+- [KECCAK256_RLP_S](README.md#keccak256_rlp_s)
+- [MAX_INTEGER](README.md#max_integer)
+- [MAX_INTEGER_BIGINT](README.md#max_integer_bigint)
+- [MAX_UINT64](README.md#max_uint64)
+- [MAX_WITHDRAWALS_PER_PAYLOAD](README.md#max_withdrawals_per_payload)
+- [RIPEMD160_ADDRESS_STRING](README.md#ripemd160_address_string)
+- [RLP_EMPTY_STRING](README.md#rlp_empty_string)
+- [SECP256K1_ORDER](README.md#secp256k1_order)
+- [SECP256K1_ORDER_DIV_2](README.md#secp256k1_order_div_2)
+- [TWO_POW256](README.md#two_pow256)
 - [kzg](README.md#kzg)
 
 ### Functions
@@ -189,7 +189,7 @@
 
 [packages/util/src/account.ts:29](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/account.ts#L29)
 
-___
+---
 
 ### AccountState
 
@@ -199,7 +199,7 @@ ___
 
 [packages/util/src/genesis.ts:8](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/genesis.ts#L8)
 
-___
+---
 
 ### AddressLike
 
@@ -211,7 +211,7 @@ A type that represents an input that can be converted to an Address.
 
 [packages/util/src/types.ts:31](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/types.ts#L31)
 
-___
+---
 
 ### BatchDBOp
 
@@ -219,16 +219,16 @@ ___
 
 #### Type parameters
 
-| Name | Type |
-| :------ | :------ |
-| `TKey` | extends `Uint8Array` \| `string` \| `number` = `Uint8Array` |
+| Name     | Type                                                                                |
+| :------- | :---------------------------------------------------------------------------------- |
+| `TKey`   | extends `Uint8Array` \| `string` \| `number` = `Uint8Array`                         |
 | `TValue` | extends `Uint8Array` \| `string` \| [`DBObject`](README.md#dbobject) = `Uint8Array` |
 
 #### Defined in
 
 [packages/util/src/db.ts:4](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/db.ts#L4)
 
-___
+---
 
 ### BigIntLike
 
@@ -238,7 +238,7 @@ ___
 
 [packages/util/src/types.ts:10](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/types.ts#L10)
 
-___
+---
 
 ### BytesLike
 
@@ -248,7 +248,7 @@ ___
 
 [packages/util/src/types.ts:15](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/types.ts#L15)
 
-___
+---
 
 ### DBObject
 
@@ -262,7 +262,7 @@ ___
 
 [packages/util/src/db.ts:1](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/db.ts#L1)
 
-___
+---
 
 ### EncodingOpts
 
@@ -270,16 +270,16 @@ ___
 
 #### Type declaration
 
-| Name | Type |
-| :------ | :------ |
-| `keyEncoding?` | [`KeyEncoding`](enums/KeyEncoding.md) |
+| Name             | Type                                      |
+| :--------------- | :---------------------------------------- |
+| `keyEncoding?`   | [`KeyEncoding`](enums/KeyEncoding.md)     |
 | `valueEncoding?` | [`ValueEncoding`](enums/ValueEncoding.md) |
 
 #### Defined in
 
 [packages/util/src/db.ts:21](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/db.ts#L21)
 
-___
+---
 
 ### NestedUint8Array
 
@@ -289,7 +289,7 @@ ___
 
 [packages/util/src/types.ts:37](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/types.ts#L37)
 
-___
+---
 
 ### PrefixedHexString
 
@@ -299,7 +299,7 @@ ___
 
 [packages/util/src/types.ts:26](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/types.ts#L26)
 
-___
+---
 
 ### StoragePair
 
@@ -309,17 +309,17 @@ ___
 
 [packages/util/src/genesis.ts:6](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/genesis.ts#L6)
 
-___
+---
 
 ### ToBytesInputTypes
 
-Ƭ **ToBytesInputTypes**: [`PrefixedHexString`](README.md#prefixedhexstring) \| `number` \| `bigint` \| `Uint8Array` \| `number`[] \| [`TransformabletoBytes`](interfaces/TransformabletoBytes.md) \| ``null`` \| `undefined`
+Ƭ **ToBytesInputTypes**: [`PrefixedHexString`](README.md#prefixedhexstring) \| `number` \| `bigint` \| `Uint8Array` \| `number`[] \| [`TransformabletoBytes`](interfaces/TransformabletoBytes.md) \| `null` \| `undefined`
 
 #### Defined in
 
 [packages/util/src/bytes.ts:267](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/bytes.ts#L267)
 
-___
+---
 
 ### TypeOutputReturnType
 
@@ -327,18 +327,18 @@ ___
 
 #### Type declaration
 
-| Name | Type |
-| :------ | :------ |
-| `0` | `number` |
-| `1` | `bigint` |
-| `2` | `Uint8Array` |
-| `3` | [`PrefixedHexString`](README.md#prefixedhexstring) |
+| Name | Type                                               |
+| :--- | :------------------------------------------------- |
+| `0`  | `number`                                           |
+| `1`  | `bigint`                                           |
+| `2`  | `Uint8Array`                                       |
+| `3`  | [`PrefixedHexString`](README.md#prefixedhexstring) |
 
 #### Defined in
 
 [packages/util/src/types.ts:49](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/types.ts#L49)
 
-___
+---
 
 ### WithdrawalBytes
 
@@ -348,7 +348,7 @@ ___
 
 [packages/util/src/withdrawal.ts:30](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/withdrawal.ts#L30)
 
-___
+---
 
 ### WithdrawalData
 
@@ -359,12 +359,12 @@ match CL representation and for eventual ssz withdrawalsRoot
 
 #### Type declaration
 
-| Name | Type |
-| :------ | :------ |
-| `address` | [`AddressLike`](README.md#addresslike) |
-| `amount` | [`BigIntLike`](README.md#bigintlike) |
-| `index` | [`BigIntLike`](README.md#bigintlike) |
-| `validatorIndex` | [`BigIntLike`](README.md#bigintlike) |
+| Name             | Type                                   |
+| :--------------- | :------------------------------------- |
+| `address`        | [`AddressLike`](README.md#addresslike) |
+| `amount`         | [`BigIntLike`](README.md#bigintlike)   |
+| `index`          | [`BigIntLike`](README.md#bigintlike)   |
+| `validatorIndex` | [`BigIntLike`](README.md#bigintlike)   |
 
 #### Defined in
 
@@ -372,229 +372,229 @@ match CL representation and for eventual ssz withdrawalsRoot
 
 ## Variables
 
-### BIGINT\_0
+### BIGINT_0
 
-• `Const` **BIGINT\_0**: `bigint`
+• `Const` **BIGINT_0**: `bigint`
 
 #### Defined in
 
 [packages/util/src/constants.ts:82](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/constants.ts#L82)
 
-___
+---
 
-### BIGINT\_1
+### BIGINT_1
 
-• `Const` **BIGINT\_1**: `bigint`
+• `Const` **BIGINT_1**: `bigint`
 
 #### Defined in
 
 [packages/util/src/constants.ts:83](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/constants.ts#L83)
 
-___
+---
 
-### BIGINT\_100
+### BIGINT_100
 
-• `Const` **BIGINT\_100**: `bigint`
+• `Const` **BIGINT_100**: `bigint`
 
 #### Defined in
 
 [packages/util/src/constants.ts:100](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/constants.ts#L100)
 
-___
+---
 
-### BIGINT\_128
+### BIGINT_128
 
-• `Const` **BIGINT\_128**: `bigint`
+• `Const` **BIGINT_128**: `bigint`
 
 #### Defined in
 
 [packages/util/src/constants.ts:95](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/constants.ts#L95)
 
-___
+---
 
-### BIGINT\_160
+### BIGINT_160
 
-• `Const` **BIGINT\_160**: `bigint`
+• `Const` **BIGINT_160**: `bigint`
 
 #### Defined in
 
 [packages/util/src/constants.ts:101](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/constants.ts#L101)
 
-___
+---
 
-### BIGINT\_2
+### BIGINT_2
 
-• `Const` **BIGINT\_2**: `bigint`
+• `Const` **BIGINT_2**: `bigint`
 
 #### Defined in
 
 [packages/util/src/constants.ts:84](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/constants.ts#L84)
 
-___
+---
 
-### BIGINT\_224
+### BIGINT_224
 
-• `Const` **BIGINT\_224**: `bigint`
+• `Const` **BIGINT_224**: `bigint`
 
 #### Defined in
 
 [packages/util/src/constants.ts:102](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/constants.ts#L102)
 
-___
+---
 
-### BIGINT\_255
+### BIGINT_255
 
-• `Const` **BIGINT\_255**: `bigint`
+• `Const` **BIGINT_255**: `bigint`
 
 #### Defined in
 
 [packages/util/src/constants.ts:96](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/constants.ts#L96)
 
-___
+---
 
-### BIGINT\_256
+### BIGINT_256
 
-• `Const` **BIGINT\_256**: `bigint`
+• `Const` **BIGINT_256**: `bigint`
 
 #### Defined in
 
 [packages/util/src/constants.ts:97](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/constants.ts#L97)
 
-___
+---
 
-### BIGINT\_27
+### BIGINT_27
 
-• `Const` **BIGINT\_27**: `bigint`
+• `Const` **BIGINT_27**: `bigint`
 
 #### Defined in
 
 [packages/util/src/constants.ts:89](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/constants.ts#L89)
 
-___
+---
 
-### BIGINT\_28
+### BIGINT_28
 
-• `Const` **BIGINT\_28**: `bigint`
+• `Const` **BIGINT_28**: `bigint`
 
 #### Defined in
 
 [packages/util/src/constants.ts:90](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/constants.ts#L90)
 
-___
+---
 
-### BIGINT\_2EXP160
+### BIGINT_2EXP160
 
-• `Const` **BIGINT\_2EXP160**: `bigint`
+• `Const` **BIGINT_2EXP160**: `bigint`
 
 #### Defined in
 
 [packages/util/src/constants.ts:104](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/constants.ts#L104)
 
-___
+---
 
-### BIGINT\_2EXP224
+### BIGINT_2EXP224
 
-• `Const` **BIGINT\_2EXP224**: `bigint`
+• `Const` **BIGINT_2EXP224**: `bigint`
 
 #### Defined in
 
 [packages/util/src/constants.ts:105](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/constants.ts#L105)
 
-___
+---
 
-### BIGINT\_2EXP256
+### BIGINT_2EXP256
 
-• `Const` **BIGINT\_2EXP256**: `bigint`
+• `Const` **BIGINT_2EXP256**: `bigint`
 
 #### Defined in
 
 [packages/util/src/constants.ts:107](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/constants.ts#L107)
 
-___
+---
 
-### BIGINT\_2EXP96
+### BIGINT_2EXP96
 
-• `Const` **BIGINT\_2EXP96**: `bigint`
+• `Const` **BIGINT_2EXP96**: `bigint`
 
 #### Defined in
 
 [packages/util/src/constants.ts:103](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/constants.ts#L103)
 
-___
+---
 
-### BIGINT\_3
+### BIGINT_3
 
-• `Const` **BIGINT\_3**: `bigint`
+• `Const` **BIGINT_3**: `bigint`
 
 #### Defined in
 
 [packages/util/src/constants.ts:85](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/constants.ts#L85)
 
-___
+---
 
-### BIGINT\_31
+### BIGINT_31
 
-• `Const` **BIGINT\_31**: `bigint`
+• `Const` **BIGINT_31**: `bigint`
 
 #### Defined in
 
 [packages/util/src/constants.ts:91](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/constants.ts#L91)
 
-___
+---
 
-### BIGINT\_32
+### BIGINT_32
 
-• `Const` **BIGINT\_32**: `bigint`
+• `Const` **BIGINT_32**: `bigint`
 
 #### Defined in
 
 [packages/util/src/constants.ts:92](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/constants.ts#L92)
 
-___
+---
 
-### BIGINT\_64
+### BIGINT_64
 
-• `Const` **BIGINT\_64**: `bigint`
+• `Const` **BIGINT_64**: `bigint`
 
 #### Defined in
 
 [packages/util/src/constants.ts:93](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/constants.ts#L93)
 
-___
+---
 
-### BIGINT\_7
+### BIGINT_7
 
-• `Const` **BIGINT\_7**: `bigint`
+• `Const` **BIGINT_7**: `bigint`
 
 #### Defined in
 
 [packages/util/src/constants.ts:86](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/constants.ts#L86)
 
-___
+---
 
-### BIGINT\_8
+### BIGINT_8
 
-• `Const` **BIGINT\_8**: `bigint`
+• `Const` **BIGINT_8**: `bigint`
 
 #### Defined in
 
 [packages/util/src/constants.ts:87](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/constants.ts#L87)
 
-___
+---
 
-### BIGINT\_96
+### BIGINT_96
 
-• `Const` **BIGINT\_96**: `bigint`
+• `Const` **BIGINT_96**: `bigint`
 
 #### Defined in
 
 [packages/util/src/constants.ts:99](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/constants.ts#L99)
 
-___
+---
 
-### BIGINT\_NEG1
+### BIGINT_NEG1
 
-• `Const` **BIGINT\_NEG1**: `bigint`
+• `Const` **BIGINT_NEG1**: `bigint`
 
 BigInt constants
 
@@ -602,11 +602,11 @@ BigInt constants
 
 [packages/util/src/constants.ts:80](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/constants.ts#L80)
 
-___
+---
 
-### GWEI\_TO\_WEI
+### GWEI_TO_WEI
 
-• `Const` **GWEI\_TO\_WEI**: `bigint`
+• `Const` **GWEI_TO_WEI**: `bigint`
 
 Easy conversion from Gwei to wei
 
@@ -614,11 +614,11 @@ Easy conversion from Gwei to wei
 
 [packages/util/src/units.ts:3](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/units.ts#L3)
 
-___
+---
 
-### KECCAK256\_NULL
+### KECCAK256_NULL
 
-• `Const` **KECCAK256\_NULL**: `Uint8Array`
+• `Const` **KECCAK256_NULL**: `Uint8Array`
 
 Keccak-256 hash of null
 
@@ -626,11 +626,11 @@ Keccak-256 hash of null
 
 [packages/util/src/constants.ts:44](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/constants.ts#L44)
 
-___
+---
 
-### KECCAK256\_NULL\_S
+### KECCAK256_NULL_S
 
-• `Const` **KECCAK256\_NULL\_S**: ``"0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470"``
+• `Const` **KECCAK256_NULL_S**: `"0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470"`
 
 Keccak-256 hash of null
 
@@ -638,11 +638,11 @@ Keccak-256 hash of null
 
 [packages/util/src/constants.ts:39](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/constants.ts#L39)
 
-___
+---
 
-### KECCAK256\_RLP
+### KECCAK256_RLP
 
-• `Const` **KECCAK256\_RLP**: `Uint8Array`
+• `Const` **KECCAK256_RLP**: `Uint8Array`
 
 Keccak-256 hash of the RLP of null
 
@@ -650,11 +650,11 @@ Keccak-256 hash of the RLP of null
 
 [packages/util/src/constants.ts:65](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/constants.ts#L65)
 
-___
+---
 
-### KECCAK256\_RLP\_ARRAY
+### KECCAK256_RLP_ARRAY
 
-• `Const` **KECCAK256\_RLP\_ARRAY**: `Uint8Array`
+• `Const` **KECCAK256_RLP_ARRAY**: `Uint8Array`
 
 Keccak-256 of an RLP of an empty array
 
@@ -662,11 +662,11 @@ Keccak-256 of an RLP of an empty array
 
 [packages/util/src/constants.ts:55](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/constants.ts#L55)
 
-___
+---
 
-### KECCAK256\_RLP\_ARRAY\_S
+### KECCAK256_RLP_ARRAY_S
 
-• `Const` **KECCAK256\_RLP\_ARRAY\_S**: ``"0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347"``
+• `Const` **KECCAK256_RLP_ARRAY_S**: `"0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347"`
 
 Keccak-256 of an RLP of an empty array
 
@@ -674,11 +674,11 @@ Keccak-256 of an RLP of an empty array
 
 [packages/util/src/constants.ts:49](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/constants.ts#L49)
 
-___
+---
 
-### KECCAK256\_RLP\_S
+### KECCAK256_RLP_S
 
-• `Const` **KECCAK256\_RLP\_S**: ``"0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421"``
+• `Const` **KECCAK256_RLP_S**: `"0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421"`
 
 Keccak-256 hash of the RLP of null
 
@@ -686,11 +686,11 @@ Keccak-256 hash of the RLP of null
 
 [packages/util/src/constants.ts:60](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/constants.ts#L60)
 
-___
+---
 
-### MAX\_INTEGER
+### MAX_INTEGER
 
-• `Const` **MAX\_INTEGER**: `bigint`
+• `Const` **MAX_INTEGER**: `bigint`
 
 The max integer that the evm can handle (2^256-1)
 
@@ -698,11 +698,11 @@ The max integer that the evm can handle (2^256-1)
 
 [packages/util/src/constants.ts:13](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/constants.ts#L13)
 
-___
+---
 
-### MAX\_INTEGER\_BIGINT
+### MAX_INTEGER_BIGINT
 
-• `Const` **MAX\_INTEGER\_BIGINT**: `bigint`
+• `Const` **MAX_INTEGER_BIGINT**: `bigint`
 
 The max integer that the evm can handle (2^256-1) as a bigint
 2^256-1 equals to 340282366920938463463374607431768211455
@@ -712,11 +712,11 @@ We use literal value instead of calculated value for compatibility issue.
 
 [packages/util/src/constants.ts:22](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/constants.ts#L22)
 
-___
+---
 
-### MAX\_UINT64
+### MAX_UINT64
 
-• `Const` **MAX\_UINT64**: `bigint`
+• `Const` **MAX_UINT64**: `bigint`
 
 2^64-1
 
@@ -724,31 +724,31 @@ ___
 
 [packages/util/src/constants.ts:8](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/constants.ts#L8)
 
-___
+---
 
-### MAX\_WITHDRAWALS\_PER\_PAYLOAD
+### MAX_WITHDRAWALS_PER_PAYLOAD
 
-• `Const` **MAX\_WITHDRAWALS\_PER\_PAYLOAD**: ``16``
+• `Const` **MAX_WITHDRAWALS_PER_PAYLOAD**: `16`
 
 #### Defined in
 
 [packages/util/src/constants.ts:72](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/constants.ts#L72)
 
-___
+---
 
-### RIPEMD160\_ADDRESS\_STRING
+### RIPEMD160_ADDRESS_STRING
 
-• `Const` **RIPEMD160\_ADDRESS\_STRING**: ``"0000000000000000000000000000000000000003"``
+• `Const` **RIPEMD160_ADDRESS_STRING**: `"0000000000000000000000000000000000000003"`
 
 #### Defined in
 
 [packages/util/src/constants.ts:74](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/constants.ts#L74)
 
-___
+---
 
-### RLP\_EMPTY\_STRING
+### RLP_EMPTY_STRING
 
-• `Const` **RLP\_EMPTY\_STRING**: `Uint8Array`
+• `Const` **RLP_EMPTY_STRING**: `Uint8Array`
 
 RLP encoded empty string
 
@@ -756,31 +756,31 @@ RLP encoded empty string
 
 [packages/util/src/constants.ts:70](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/constants.ts#L70)
 
-___
+---
 
-### SECP256K1\_ORDER
+### SECP256K1_ORDER
 
-• `Const` **SECP256K1\_ORDER**: `bigint` = `secp256k1.CURVE.n`
+• `Const` **SECP256K1_ORDER**: `bigint` = `secp256k1.CURVE.n`
 
 #### Defined in
 
 [packages/util/src/constants.ts:26](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/constants.ts#L26)
 
-___
+---
 
-### SECP256K1\_ORDER\_DIV\_2
+### SECP256K1_ORDER_DIV_2
 
-• `Const` **SECP256K1\_ORDER\_DIV\_2**: `bigint`
+• `Const` **SECP256K1_ORDER_DIV_2**: `bigint`
 
 #### Defined in
 
 [packages/util/src/constants.ts:27](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/constants.ts#L27)
 
-___
+---
 
-### TWO\_POW256
+### TWO_POW256
 
-• `Const` **TWO\_POW256**: `bigint`
+• `Const` **TWO_POW256**: `bigint`
 
 2^256
 
@@ -788,7 +788,7 @@ ___
 
 [packages/util/src/constants.ts:32](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/constants.ts#L32)
 
-___
+---
 
 ### kzg
 
@@ -806,8 +806,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name   | Type                                             |
+| :----- | :----------------------------------------------- |
 | `body` | [`AccountBodyBytes`](README.md#accountbodybytes) |
 
 #### Returns
@@ -818,7 +818,7 @@ ___
 
 [packages/util/src/account.ts:357](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/account.ts#L357)
 
-___
+---
 
 ### accountBodyToRLP
 
@@ -828,10 +828,10 @@ Converts a slim account (per snap protocol spec) to the RLP encoded version of t
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `body` | [`AccountBodyBytes`](README.md#accountbodybytes) | `undefined` | Array of 4 Uint8Array-like items to represent the account |
-| `couldBeSlim` | `boolean` | `true` | - |
+| Name          | Type                                             | Default value | Description                                               |
+| :------------ | :----------------------------------------------- | :------------ | :-------------------------------------------------------- |
+| `body`        | [`AccountBodyBytes`](README.md#accountbodybytes) | `undefined`   | Array of 4 Uint8Array-like items to represent the account |
+| `couldBeSlim` | `boolean`                                        | `true`        | -                                                         |
 
 #### Returns
 
@@ -843,7 +843,7 @@ RLP encoded version of the account
 
 [packages/util/src/account.ts:383](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/account.ts#L383)
 
-___
+---
 
 ### accountBodyToSlim
 
@@ -851,8 +851,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name   | Type                                             |
+| :----- | :----------------------------------------------- |
 | `body` | [`AccountBodyBytes`](README.md#accountbodybytes) |
 
 #### Returns
@@ -863,7 +863,7 @@ ___
 
 [packages/util/src/account.ts:368](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/account.ts#L368)
 
-___
+---
 
 ### addHexPrefix
 
@@ -873,8 +873,8 @@ Adds "0x" to a given `string` if it does not already start with "0x".
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name  | Type     |
+| :---- | :------- |
 | `str` | `string` |
 
 #### Returns
@@ -885,7 +885,7 @@ Adds "0x" to a given `string` if it does not already start with "0x".
 
 [packages/util/src/bytes.ts:347](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/bytes.ts#L347)
 
-___
+---
 
 ### arrayContainsArray
 
@@ -896,11 +896,11 @@ from the second one. FALSE otherwise.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name       | Type        |
+| :--------- | :---------- |
 | `superset` | `unknown`[] |
-| `subset` | `unknown`[] |
-| `some?` | `boolean` |
+| `subset`   | `unknown`[] |
+| `some?`    | `boolean`   |
 
 #### Returns
 
@@ -910,7 +910,7 @@ from the second one. FALSE otherwise.
 
 [packages/util/src/internal.ts:91](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/internal.ts#L91)
 
-___
+---
 
 ### bigInt64ToBytes
 
@@ -922,10 +922,10 @@ Convert a 64-bit bigint to a Uint8Array.
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `value` | `bigint` | `undefined` | The 64-bit bigint to convert. |
-| `littleEndian` | `boolean` | `false` | True for little-endian, undefined or false for big-endian. |
+| Name           | Type      | Default value | Description                                                |
+| :------------- | :-------- | :------------ | :--------------------------------------------------------- |
+| `value`        | `bigint`  | `undefined`   | The 64-bit bigint to convert.                              |
+| `littleEndian` | `boolean` | `false`       | True for little-endian, undefined or false for big-endian. |
 
 #### Returns
 
@@ -937,7 +937,7 @@ A Uint8Array of length 8 containing the bigint.
 
 [packages/util/src/bytes.ts:529](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/bytes.ts#L529)
 
-___
+---
 
 ### bigIntMax
 
@@ -947,8 +947,8 @@ Calculates max bigint from an array of bigints
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name      | Type       | Description      |
+| :-------- | :--------- | :--------------- |
 | `...args` | `bigint`[] | array of bigints |
 
 #### Returns
@@ -959,7 +959,7 @@ Calculates max bigint from an array of bigints
 
 [packages/util/src/bytes.ts:409](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/bytes.ts#L409)
 
-___
+---
 
 ### bigIntMin
 
@@ -969,8 +969,8 @@ Calculates min BigInt from an array of BigInts
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name      | Type       | Description      |
+| :-------- | :--------- | :--------------- |
 | `...args` | `bigint`[] | array of bigints |
 
 #### Returns
@@ -981,21 +981,22 @@ Calculates min BigInt from an array of BigInts
 
 [packages/util/src/bytes.ts:415](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/bytes.ts#L415)
 
-___
+---
 
 ### bigIntToBytes
 
 ▸ **bigIntToBytes**(`num`, `littleEndian?`): `Uint8Array`
 
 Converts a bigint to a Uint8Array
- *
+
+-
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `num` | `bigint` | `undefined` | the bigint to convert |
-| `littleEndian` | `boolean` | `false` | - |
+| Name           | Type      | Default value | Description           |
+| :------------- | :-------- | :------------ | :-------------------- |
+| `num`          | `bigint`  | `undefined`   | the bigint to convert |
+| `littleEndian` | `boolean` | `false`       | -                     |
 
 #### Returns
 
@@ -1005,7 +1006,7 @@ Converts a bigint to a Uint8Array
 
 [packages/util/src/bytes.ts:156](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/bytes.ts#L156)
 
-___
+---
 
 ### bigIntToHex
 
@@ -1015,8 +1016,8 @@ Converts a bigint to a `0x` prefixed hex string
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name  | Type     | Description           |
+| :---- | :------- | :-------------------- |
 | `num` | `bigint` | the bigint to convert |
 
 #### Returns
@@ -1027,7 +1028,7 @@ Converts a bigint to a `0x` prefixed hex string
 
 [packages/util/src/bytes.ts:401](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/bytes.ts#L401)
 
-___
+---
 
 ### bigIntToUnpaddedBytes
 
@@ -1038,8 +1039,8 @@ Convert value from bigint to an unpadded Uint8Array
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name    | Type     | Description           |
+| :------ | :------- | :-------------------- |
 | `value` | `bigint` | the bigint to convert |
 
 #### Returns
@@ -1050,7 +1051,7 @@ Convert value from bigint to an unpadded Uint8Array
 
 [packages/util/src/bytes.ts:423](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/bytes.ts#L423)
 
-___
+---
 
 ### blobsToCommitments
 
@@ -1058,8 +1059,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name    | Type           |
+| :------ | :------------- |
 | `blobs` | `Uint8Array`[] |
 
 #### Returns
@@ -1070,7 +1071,7 @@ ___
 
 [packages/util/src/blobs.ts:58](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/blobs.ts#L58)
 
-___
+---
 
 ### blobsToProofs
 
@@ -1078,9 +1079,9 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `blobs` | `Uint8Array`[] |
+| Name          | Type           |
+| :------------ | :------------- |
+| `blobs`       | `Uint8Array`[] |
 | `commitments` | `Uint8Array`[] |
 
 #### Returns
@@ -1091,7 +1092,7 @@ ___
 
 [packages/util/src/blobs.ts:66](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/blobs.ts#L66)
 
-___
+---
 
 ### bytesToBigInt
 
@@ -1101,10 +1102,10 @@ Converts a Uint8Array to a bigint
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `bytes` | `Uint8Array` | `undefined` | the bytes to convert |
-| `littleEndian` | `boolean` | `false` | - |
+| Name           | Type         | Default value | Description          |
+| :------------- | :----------- | :------------ | :------------------- |
+| `bytes`        | `Uint8Array` | `undefined`   | the bytes to convert |
+| `littleEndian` | `boolean`    | `false`       | -                    |
 
 #### Returns
 
@@ -1114,7 +1115,7 @@ Converts a Uint8Array to a bigint
 
 [packages/util/src/bytes.ts:80](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/bytes.ts#L80)
 
-___
+---
 
 ### bytesToBigInt64
 
@@ -1126,10 +1127,10 @@ Convert a Uint8Array to a 64-bit bigint
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `bytes` | `Uint8Array` | `undefined` | The input Uint8Array from which to read the 64-bit bigint. |
-| `littleEndian` | `boolean` | `false` | True for little-endian, undefined or false for big-endian. |
+| Name           | Type         | Default value | Description                                                |
+| :------------- | :----------- | :------------ | :--------------------------------------------------------- |
+| `bytes`        | `Uint8Array` | `undefined`   | The input Uint8Array from which to read the 64-bit bigint. |
+| `littleEndian` | `boolean`    | `false`       | True for little-endian, undefined or false for big-endian. |
 
 #### Returns
 
@@ -1141,7 +1142,7 @@ The 64-bit bigint read from the input Uint8Array.
 
 [packages/util/src/bytes.ts:502](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/bytes.ts#L502)
 
-___
+---
 
 ### bytesToHex
 
@@ -1149,8 +1150,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name    | Type         |
+| :------ | :----------- |
 | `bytes` | `Uint8Array` |
 
 #### Returns
@@ -1161,7 +1162,7 @@ ___
 
 [packages/util/src/bytes.ts:60](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/bytes.ts#L60)
 
-___
+---
 
 ### bytesToInt
 
@@ -1175,8 +1176,8 @@ If the input number exceeds 53 bits.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name    | Type         | Description          |
+| :------ | :----------- | :------------------- |
 | `bytes` | `Uint8Array` | the bytes to convert |
 
 #### Returns
@@ -1187,7 +1188,7 @@ If the input number exceeds 53 bits.
 
 [packages/util/src/bytes.ts:104](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/bytes.ts#L104)
 
-___
+---
 
 ### bytesToInt32
 
@@ -1199,10 +1200,10 @@ Convert a Uint8Array to a 32-bit integer
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `bytes` | `Uint8Array` | `undefined` | The input Uint8Array from which to read the 32-bit integer. |
-| `littleEndian` | `boolean` | `false` | True for little-endian, undefined or false for big-endian. |
+| Name           | Type         | Default value | Description                                                 |
+| :------------- | :----------- | :------------ | :---------------------------------------------------------- |
+| `bytes`        | `Uint8Array` | `undefined`   | The input Uint8Array from which to read the 32-bit integer. |
+| `littleEndian` | `boolean`    | `false`       | True for little-endian, undefined or false for big-endian.  |
 
 #### Returns
 
@@ -1214,7 +1215,7 @@ The 32-bit integer read from the input Uint8Array.
 
 [packages/util/src/bytes.ts:488](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/bytes.ts#L488)
 
-___
+---
 
 ### bytesToUnprefixedHex
 
@@ -1223,13 +1224,13 @@ ___
 **`Example`**
 
 ```ts
-bytesToHex(Uint8Array.from([0xca, 0xfe, 0x01, 0x23])) // 'cafe0123'
+bytesToHex(Uint8Array.from([0xca, 0xfe, 0x01, 0x23])); // 'cafe0123'
 ```
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name    | Type         |
+| :------ | :----------- |
 | `bytes` | `Uint8Array` |
 
 #### Returns
@@ -1240,7 +1241,7 @@ bytesToHex(Uint8Array.from([0xca, 0xfe, 0x01, 0x23])) // 'cafe0123'
 
 node_modules/@noble/hashes/utils.d.ts:11
 
-___
+---
 
 ### bytesToUtf8
 
@@ -1248,8 +1249,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name   | Type         |
+| :----- | :----------- |
 | `data` | `Uint8Array` |
 
 #### Returns
@@ -1260,7 +1261,7 @@ ___
 
 node_modules/ethereum-cryptography/utils.d.ts:5
 
-___
+---
 
 ### calculateSigRecovery
 
@@ -1268,9 +1269,9 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `v` | `bigint` |
+| Name       | Type     |
+| :--------- | :------- |
+| `v`        | `bigint` |
 | `chainId?` | `bigint` |
 
 #### Returns
@@ -1281,7 +1282,7 @@ ___
 
 [packages/util/src/signature.ts:53](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/signature.ts#L53)
 
-___
+---
 
 ### commitmentsToVersionedHashes
 
@@ -1291,8 +1292,8 @@ Generate an array of versioned hashes from corresponding kzg commitments
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name          | Type           | Description              |
+| :------------ | :------------- | :----------------------- |
 | `commitments` | `Uint8Array`[] | array of kzg commitments |
 
 #### Returns
@@ -1306,7 +1307,7 @@ Note: assumes KZG commitments (version 1 version hashes)
 
 [packages/util/src/blobs.ts:93](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/blobs.ts#L93)
 
-___
+---
 
 ### compareBytes
 
@@ -1316,9 +1317,9 @@ Compares two Uint8Arrays and returns a number indicating their order in a sorted
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `value1` | `Uint8Array` | The first Uint8Array to compare. |
+| Name     | Type         | Description                       |
+| :------- | :----------- | :-------------------------------- |
+| `value1` | `Uint8Array` | The first Uint8Array to compare.  |
 | `value2` | `Uint8Array` | The second Uint8Array to compare. |
 
 #### Returns
@@ -1326,29 +1327,29 @@ Compares two Uint8Arrays and returns a number indicating their order in a sorted
 `number`
 
 A positive number if value1 is larger than value2,
-                  A negative number if value1 is smaller than value2,
-                  or 0 if value1 and value2 are equal.
+A negative number if value1 is smaller than value2,
+or 0 if value1 and value2 are equal.
 
 #### Defined in
 
 [packages/util/src/bytes.ts:446](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/bytes.ts#L446)
 
-___
+---
 
 ### computeVersionedHash
 
 ▸ **computeVersionedHash**(`commitment`, `blobCommitmentVersion`): `Uint8Array`
 
-Converts a vector commitment for a given data blob to its versioned hash.  For 4844, this version
+Converts a vector commitment for a given data blob to its versioned hash. For 4844, this version
 number will be 0x01 for KZG vector commitments but could be different if future vector commitment
 types are introduced
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `commitment` | `Uint8Array` | a vector commitment to a blob |
-| `blobCommitmentVersion` | `number` | the version number corresponding to the type of vector commitment |
+| Name                    | Type         | Description                                                       |
+| :---------------------- | :----------- | :---------------------------------------------------------------- |
+| `commitment`            | `Uint8Array` | a vector commitment to a blob                                     |
+| `blobCommitmentVersion` | `number`     | the version number corresponding to the type of vector commitment |
 
 #### Returns
 
@@ -1360,7 +1361,7 @@ a versioned hash corresponding to a given blob vector commitment
 
 [packages/util/src/blobs.ts:80](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/blobs.ts#L80)
 
-___
+---
 
 ### concatBytes
 
@@ -1372,8 +1373,8 @@ Can give small performance gains on large arrays
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name        | Type           | Description             |
+| :---------- | :------------- | :---------------------- |
 | `...arrays` | `Uint8Array`[] | an array of Uint8Arrays |
 
 #### Returns
@@ -1387,7 +1388,7 @@ works like `Buffer.concat`
 
 [packages/util/src/bytes.ts:470](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/bytes.ts#L470)
 
-___
+---
 
 ### ecrecover
 
@@ -1398,13 +1399,13 @@ NOTE: Accepts `v === 0 | v === 1` for EIP1559 transactions
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `msgHash` | `Uint8Array` |
-| `v` | `bigint` |
-| `r` | `Uint8Array` |
-| `s` | `Uint8Array` |
-| `chainId?` | `bigint` |
+| Name       | Type         |
+| :--------- | :----------- |
+| `msgHash`  | `Uint8Array` |
+| `v`        | `bigint`     |
+| `r`        | `Uint8Array` |
+| `s`        | `Uint8Array` |
+| `chainId?` | `bigint`     |
 
 #### Returns
 
@@ -1416,7 +1417,7 @@ Recovered public key
 
 [packages/util/src/signature.ts:71](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/signature.ts#L71)
 
-___
+---
 
 ### ecsign
 
@@ -1429,11 +1430,11 @@ accordingly, otherwise return a "static" `v` just derived from the `recovery` bi
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `msgHash` | `Uint8Array` |
+| Name         | Type         |
+| :----------- | :----------- |
+| `msgHash`    | `Uint8Array` |
 | `privateKey` | `Uint8Array` |
-| `chainId?` | `bigint` |
+| `chainId?`   | `bigint`     |
 
 #### Returns
 
@@ -1443,7 +1444,7 @@ accordingly, otherwise return a "static" `v` just derived from the `recovery` bi
 
 [packages/util/src/signature.ts:35](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/signature.ts#L35)
 
-___
+---
 
 ### equalsBytes
 
@@ -1451,10 +1452,10 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `a` | `Uint8Array` |
-| `b` | `Uint8Array` |
+| Name | Type         |
+| :--- | :----------- |
+| `a`  | `Uint8Array` |
+| `b`  | `Uint8Array` |
 
 #### Returns
 
@@ -1464,7 +1465,7 @@ ___
 
 node_modules/ethereum-cryptography/utils.d.ts:7
 
-___
+---
 
 ### fetchFromProvider
 
@@ -1475,7 +1476,7 @@ No parameter or response validation is done.
 
 **`Example`**
 
-```ts
+````ts
 const provider = 'https://mainnet.infura.io/v3/...'
 const params = {
   method: 'eth_getBlockByNumber',
@@ -1724,18 +1725,19 @@ Returns the keys from an array of objects.
 ```js
 getKeys([{a: '1', b: '2'}, {a: '3', b: '4'}], 'a') => ['1', '3']
 ````
-@param  params
-@param  key
-@param  allowEmpty
+
+@param params
+@param key
+@param allowEmpty
 @returns output just a simple array of output keys
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `params` | `Record`<`string`, `string`\>[] |
-| `key` | `string` |
-| `allowEmpty?` | `boolean` |
+| Name          | Type                            |
+| :------------ | :------------------------------ |
+| `params`      | `Record`<`string`, `string`\>[] |
+| `key`         | `string`                        |
+| `allowEmpty?` | `boolean`                       |
 
 #### Returns
 
@@ -1745,7 +1747,7 @@ getKeys([{a: '1', b: '2'}, {a: '3', b: '4'}], 'a') => ['1', '3']
 
 [packages/util/src/internal.ts:174](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/internal.ts#L174)
 
-___
+---
 
 ### getProvider
 
@@ -1753,8 +1755,8 @@ ___
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name       | Type                                                         | Description                                                    |
+| :--------- | :----------------------------------------------------------- | :------------------------------------------------------------- |
 | `provider` | `string` \| [`EthersProvider`](interfaces/EthersProvider.md) | a URL string or [EthersProvider](interfaces/EthersProvider.md) |
 
 #### Returns
@@ -1767,7 +1769,7 @@ the extracted URL string for the JSON-RPC Provider
 
 [packages/util/src/provider.ts:63](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/provider.ts#L63)
 
-___
+---
 
 ### hashPersonalMessage
 
@@ -1780,8 +1782,8 @@ used to produce the signature.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name      | Type         |
+| :-------- | :----------- |
 | `message` | `Uint8Array` |
 
 #### Returns
@@ -1792,7 +1794,7 @@ used to produce the signature.
 
 [packages/util/src/signature.ts:219](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/signature.ts#L219)
 
-___
+---
 
 ### hexToBytes
 
@@ -1800,8 +1802,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name  | Type     |
+| :---- | :------- |
 | `hex` | `string` |
 
 #### Returns
@@ -1812,7 +1814,7 @@ ___
 
 [packages/util/src/bytes.ts:110](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/bytes.ts#L110)
 
-___
+---
 
 ### importPublic
 
@@ -1822,8 +1824,8 @@ Converts a public key to the Ethereum format.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name        | Type         |
+| :---------- | :----------- |
 | `publicKey` | `Uint8Array` |
 
 #### Returns
@@ -1834,7 +1836,7 @@ Converts a public key to the Ethereum format.
 
 [packages/util/src/account.ts:326](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/account.ts#L326)
 
-___
+---
 
 ### initKZG
 
@@ -1842,10 +1844,10 @@ ___
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `kzgLib` | [`Kzg`](interfaces/Kzg.md) | a KZG implementation (defaults to c-kzg) |
-| `trustedSetupPath?` | `string` | the full path (e.g. "/home/linux/devnet4.txt") to a kzg trusted setup text file |
+| Name                | Type                       | Description                                                                     |
+| :------------------ | :------------------------- | :------------------------------------------------------------------------------ |
+| `kzgLib`            | [`Kzg`](interfaces/Kzg.md) | a KZG implementation (defaults to c-kzg)                                        |
+| `trustedSetupPath?` | `string`                   | the full path (e.g. "/home/linux/devnet4.txt") to a kzg trusted setup text file |
 
 #### Returns
 
@@ -1855,7 +1857,7 @@ ___
 
 [packages/util/src/kzg.ts:38](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/kzg.ts#L38)
 
-___
+---
 
 ### int32ToBytes
 
@@ -1867,10 +1869,10 @@ Convert a 32-bit integer to a Uint8Array.
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `value` | `number` | `undefined` | The 32-bit integer to convert. |
-| `littleEndian` | `boolean` | `false` | True for little-endian, undefined or false for big-endian. |
+| Name           | Type      | Default value | Description                                                |
+| :------------- | :-------- | :------------ | :--------------------------------------------------------- |
+| `value`        | `number`  | `undefined`   | The 32-bit integer to convert.                             |
+| `littleEndian` | `boolean` | `false`       | True for little-endian, undefined or false for big-endian. |
 
 #### Returns
 
@@ -1882,7 +1884,7 @@ A Uint8Array of length 4 containing the integer.
 
 [packages/util/src/bytes.ts:516](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/bytes.ts#L516)
 
-___
+---
 
 ### intToBytes
 
@@ -1892,9 +1894,9 @@ Converts an number to a Uint8Array
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `i` | `number` |
+| Name | Type     |
+| :--- | :------- |
+| `i`  | `number` |
 
 #### Returns
 
@@ -1904,7 +1906,7 @@ Converts an number to a Uint8Array
 
 [packages/util/src/bytes.ts:146](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/bytes.ts#L146)
 
-___
+---
 
 ### intToHex
 
@@ -1914,9 +1916,9 @@ Converts a number into a [PrefixedHexString](README.md#prefixedhexstring)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `i` | `number` |
+| Name | Type     |
+| :--- | :------- |
+| `i`  | `number` |
 
 #### Returns
 
@@ -1926,7 +1928,7 @@ Converts a number into a [PrefixedHexString](README.md#prefixedhexstring)
 
 [packages/util/src/bytes.ts:134](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/bytes.ts#L134)
 
-___
+---
 
 ### intToUnpaddedBytes
 
@@ -1937,8 +1939,8 @@ Convert value from number to an unpadded Uint8Array
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name    | Type     | Description           |
+| :------ | :------- | :-------------------- |
 | `value` | `number` | the bigint to convert |
 
 #### Returns
@@ -1949,7 +1951,7 @@ Convert value from number to an unpadded Uint8Array
 
 [packages/util/src/bytes.ts:433](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/bytes.ts#L433)
 
-___
+---
 
 ### isHexPrefixed
 
@@ -1963,8 +1965,8 @@ if the str input is not a string
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name  | Type     | Description            |
+| :---- | :------- | :--------------------- |
 | `str` | `string` | the string input value |
 
 #### Returns
@@ -1977,7 +1979,7 @@ a boolean if it is or is not hex prefixed
 
 [packages/util/src/internal.ts:33](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/internal.ts#L33)
 
-___
+---
 
 ### isHexString
 
@@ -1987,9 +1989,9 @@ Is the string a hex string.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `string` |
+| Name      | Type     |
+| :-------- | :------- |
+| `value`   | `string` |
 | `length?` | `number` |
 
 #### Returns
@@ -2002,7 +2004,7 @@ output the string is a hex string
 
 [packages/util/src/internal.ts:206](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/internal.ts#L206)
 
-___
+---
 
 ### isValidAddress
 
@@ -2012,8 +2014,8 @@ Checks if the address is a valid. Accepts checksummed addresses too.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name         | Type     |
+| :----------- | :------- |
 | `hexAddress` | `string` |
 
 #### Returns
@@ -2024,7 +2026,7 @@ Checks if the address is a valid. Accepts checksummed addresses too.
 
 [packages/util/src/account.ts:140](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/account.ts#L140)
 
-___
+---
 
 ### isValidChecksumAddress
 
@@ -2036,9 +2038,9 @@ See toChecksumAddress' documentation for details about the eip1191ChainId parame
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `hexAddress` | `string` |
+| Name              | Type                                 |
+| :---------------- | :----------------------------------- |
+| `hexAddress`      | `string`                             |
 | `eip1191ChainId?` | [`BigIntLike`](README.md#bigintlike) |
 
 #### Returns
@@ -2049,7 +2051,7 @@ See toChecksumAddress' documentation for details about the eip1191ChainId parame
 
 [packages/util/src/account.ts:195](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/account.ts#L195)
 
-___
+---
 
 ### isValidPrivate
 
@@ -2059,8 +2061,8 @@ Checks if the private key satisfies the rules of the curve secp256k1.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name         | Type         |
+| :----------- | :----------- |
 | `privateKey` | `Uint8Array` |
 
 #### Returns
@@ -2071,7 +2073,7 @@ Checks if the private key satisfies the rules of the curve secp256k1.
 
 [packages/util/src/account.ts:251](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/account.ts#L251)
 
-___
+---
 
 ### isValidPublic
 
@@ -2082,10 +2084,10 @@ and the requirements of Ethereum.
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `publicKey` | `Uint8Array` | `undefined` | The two points of an uncompressed key, unless sanitize is enabled |
-| `sanitize` | `boolean` | `false` | Accept public keys in other formats |
+| Name        | Type         | Default value | Description                                                       |
+| :---------- | :----------- | :------------ | :---------------------------------------------------------------- |
+| `publicKey` | `Uint8Array` | `undefined`   | The two points of an uncompressed key, unless sanitize is enabled |
+| `sanitize`  | `boolean`    | `false`       | Accept public keys in other formats                               |
 
 #### Returns
 
@@ -2095,7 +2097,7 @@ and the requirements of Ethereum.
 
 [packages/util/src/account.ts:261](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/account.ts#L261)
 
-___
+---
 
 ### isValidSignature
 
@@ -2106,13 +2108,13 @@ NOTE: Accepts `v === 0 | v === 1` for EIP1559 transactions
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `v` | `bigint` | `undefined` | - |
-| `r` | `Uint8Array` | `undefined` | - |
-| `s` | `Uint8Array` | `undefined` | - |
-| `homesteadOrLater` | `boolean` | `true` | Indicates whether this is being used on either the homestead hardfork or a later one |
-| `chainId?` | `bigint` | `undefined` | - |
+| Name               | Type         | Default value | Description                                                                          |
+| :----------------- | :----------- | :------------ | :----------------------------------------------------------------------------------- |
+| `v`                | `bigint`     | `undefined`   | -                                                                                    |
+| `r`                | `Uint8Array` | `undefined`   | -                                                                                    |
+| `s`                | `Uint8Array` | `undefined`   | -                                                                                    |
+| `homesteadOrLater` | `boolean`    | `true`        | Indicates whether this is being used on either the homestead hardfork or a later one |
+| `chainId?`         | `bigint`     | `undefined`   | -                                                                                    |
 
 #### Returns
 
@@ -2122,7 +2124,7 @@ NOTE: Accepts `v === 0 | v === 1` for EIP1559 transactions
 
 [packages/util/src/signature.ts:179](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/signature.ts#L179)
 
-___
+---
 
 ### isZeroAddress
 
@@ -2132,8 +2134,8 @@ Checks if a given address is the zero address.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name         | Type     |
+| :----------- | :------- |
 | `hexAddress` | `string` |
 
 #### Returns
@@ -2144,7 +2146,7 @@ Checks if a given address is the zero address.
 
 [packages/util/src/account.ts:346](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/account.ts#L346)
 
-___
+---
 
 ### padToEven
 
@@ -2154,8 +2156,8 @@ Pads a `String` to have an even length
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name    | Type     |
+| :------ | :------- |
 | `value` | `string` |
 
 #### Returns
@@ -2168,7 +2170,7 @@ output
 
 [packages/util/src/internal.ts:58](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/internal.ts#L58)
 
-___
+---
 
 ### parseGethGenesisState
 
@@ -2178,8 +2180,8 @@ Parses the geth genesis state into Blockchain [GenesisState](interfaces/GenesisS
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name   | Type  | Description                                         |
+| :----- | :---- | :-------------------------------------------------- |
 | `json` | `any` | representing the `alloc` key in a Geth genesis file |
 
 #### Returns
@@ -2190,7 +2192,7 @@ Parses the geth genesis state into Blockchain [GenesisState](interfaces/GenesisS
 
 [packages/util/src/genesis.ts:47](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/genesis.ts#L47)
 
-___
+---
 
 ### privateToAddress
 
@@ -2200,8 +2202,8 @@ Returns the ethereum address of a given private key.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name         | Type         | Description                         |
+| :----------- | :----------- | :---------------------------------- |
 | `privateKey` | `Uint8Array` | A private key must be 256 bits wide |
 
 #### Returns
@@ -2212,7 +2214,7 @@ Returns the ethereum address of a given private key.
 
 [packages/util/src/account.ts:319](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/account.ts#L319)
 
-___
+---
 
 ### privateToPublic
 
@@ -2222,8 +2224,8 @@ Returns the ethereum public key of a given private key.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name         | Type         | Description                         |
+| :----------- | :----------- | :---------------------------------- |
 | `privateKey` | `Uint8Array` | A private key must be 256 bits wide |
 
 #### Returns
@@ -2234,7 +2236,7 @@ Returns the ethereum public key of a given private key.
 
 [packages/util/src/account.ts:309](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/account.ts#L309)
 
-___
+---
 
 ### pubToAddress
 
@@ -2245,10 +2247,10 @@ Accepts "Ethereum public keys" and SEC1 encoded keys.
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `pubKey` | `Uint8Array` | `undefined` | The two points of an uncompressed key, unless sanitize is enabled |
-| `sanitize` | `boolean` | `false` | Accept public keys in other formats |
+| Name       | Type         | Default value | Description                                                       |
+| :--------- | :----------- | :------------ | :---------------------------------------------------------------- |
+| `pubKey`   | `Uint8Array` | `undefined`   | The two points of an uncompressed key, unless sanitize is enabled |
+| `sanitize` | `boolean`    | `false`       | Accept public keys in other formats                               |
 
 #### Returns
 
@@ -2258,7 +2260,7 @@ Accepts "Ethereum public keys" and SEC1 encoded keys.
 
 [packages/util/src/account.ts:292](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/account.ts#L292)
 
-___
+---
 
 ### publicToAddress
 
@@ -2269,10 +2271,10 @@ Accepts "Ethereum public keys" and SEC1 encoded keys.
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `pubKey` | `Uint8Array` | `undefined` | The two points of an uncompressed key, unless sanitize is enabled |
-| `sanitize` | `boolean` | `false` | Accept public keys in other formats |
+| Name       | Type         | Default value | Description                                                       |
+| :--------- | :----------- | :------------ | :---------------------------------------------------------------- |
+| `pubKey`   | `Uint8Array` | `undefined`   | The two points of an uncompressed key, unless sanitize is enabled |
+| `sanitize` | `boolean`    | `false`       | Accept public keys in other formats                               |
 
 #### Returns
 
@@ -2282,7 +2284,7 @@ Accepts "Ethereum public keys" and SEC1 encoded keys.
 
 [packages/util/src/account.ts:292](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/account.ts#L292)
 
-___
+---
 
 ### randomBytes
 
@@ -2292,8 +2294,8 @@ Generates a Uint8Array of random bytes of specified length.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name     | Type     | Description                   |
+| :------- | :------- | :---------------------------- |
 | `length` | `number` | The length of the Uint8Array. |
 
 #### Returns
@@ -2306,7 +2308,7 @@ A Uint8Array of random bytes of specified length.
 
 [packages/util/src/bytes.ts:458](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/bytes.ts#L458)
 
-___
+---
 
 ### setLengthLeft
 
@@ -2317,10 +2319,10 @@ Or it truncates the beginning if it exceeds.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `msg` | `Uint8Array` | the value to pad |
-| `length` | `number` | the number of bytes the output should be |
+| Name     | Type         | Description                              |
+| :------- | :----------- | :--------------------------------------- |
+| `msg`    | `Uint8Array` | the value to pad                         |
+| `length` | `number`     | the number of bytes the output should be |
 
 #### Returns
 
@@ -2330,7 +2332,7 @@ Or it truncates the beginning if it exceeds.
 
 [packages/util/src/bytes.ts:201](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/bytes.ts#L201)
 
-___
+---
 
 ### setLengthRight
 
@@ -2341,10 +2343,10 @@ it truncates the end if it exceeds.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `msg` | `Uint8Array` | the value to pad |
-| `length` | `number` | the number of bytes the output should be |
+| Name     | Type         | Description                              |
+| :------- | :----------- | :--------------------------------------- |
+| `msg`    | `Uint8Array` | the value to pad                         |
+| `length` | `number`     | the number of bytes the output should be |
 
 #### Returns
 
@@ -2354,25 +2356,25 @@ it truncates the end if it exceeds.
 
 [packages/util/src/bytes.ts:213](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/bytes.ts#L213)
 
-___
+---
 
 ### short
 
 ▸ **short**(`bytes`, `maxLength?`): `string`
 
-Shortens a string  or Uint8Array's hex string representation to maxLength (default 50).
+Shortens a string or Uint8Array's hex string representation to maxLength (default 50).
 
 Examples:
 
-Input:  '657468657265756d000000000000000000000000000000000000000000000000'
+Input: '657468657265756d000000000000000000000000000000000000000000000000'
 Output: '657468657265756d0000000000000000000000000000000000…'
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `bytes` | `string` \| `Uint8Array` | `undefined` |
-| `maxLength` | `number` | `50` |
+| Name        | Type                     | Default value |
+| :---------- | :----------------------- | :------------ |
+| `bytes`     | `string` \| `Uint8Array` | `undefined`   |
+| `maxLength` | `number`                 | `50`          |
 
 #### Returns
 
@@ -2382,7 +2384,7 @@ Output: '657468657265756d0000000000000000000000000000000000…'
 
 [packages/util/src/bytes.ts:366](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/bytes.ts#L366)
 
-___
+---
 
 ### stripHexPrefix
 
@@ -2392,8 +2394,8 @@ Removes '0x' from a given `String` if present
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name  | Type     | Description      |
+| :---- | :------- | :--------------- |
 | `str` | `string` | the string value |
 
 #### Returns
@@ -2406,7 +2408,7 @@ the string without 0x prefix
 
 [packages/util/src/internal.ts:46](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/internal.ts#L46)
 
-___
+---
 
 ### toAscii
 
@@ -2416,8 +2418,8 @@ Should be called to get ascii from its hex representation
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name  | Type     |
+| :---- | :------- |
 | `hex` | `string` |
 
 #### Returns
@@ -2430,7 +2432,7 @@ ascii string representation of hex value
 
 [packages/util/src/internal.ts:116](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/internal.ts#L116)
 
-___
+---
 
 ### toBytes
 
@@ -2442,9 +2444,9 @@ with a `toArray()` or `toBytes()` method.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `v` | [`ToBytesInputTypes`](README.md#tobytesinputtypes) | the value |
+| Name | Type                                               | Description |
+| :--- | :------------------------------------------------- | :---------- |
+| `v`  | [`ToBytesInputTypes`](README.md#tobytesinputtypes) | the value   |
 
 #### Returns
 
@@ -2454,7 +2456,7 @@ with a `toArray()` or `toBytes()` method.
 
 [packages/util/src/bytes.ts:285](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/bytes.ts#L285)
 
-___
+---
 
 ### toChecksumAddress
 
@@ -2473,9 +2475,9 @@ Usage of this EIP is therefore discouraged unless you have a very targeted use c
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `hexAddress` | `string` |
+| Name              | Type                                 |
+| :---------------- | :----------------------------------- |
+| `hexAddress`      | `string`                             |
 | `eip1191ChainId?` | [`BigIntLike`](README.md#bigintlike) |
 
 #### Returns
@@ -2486,7 +2488,7 @@ Usage of this EIP is therefore discouraged unless you have a very targeted use c
 
 [packages/util/src/account.ts:162](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/account.ts#L162)
 
-___
+---
 
 ### toCompactSig
 
@@ -2497,12 +2499,12 @@ NOTE: Accepts `v === 0 | v === 1` for EIP1559 transactions
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `v` | `bigint` |
-| `r` | `Uint8Array` |
-| `s` | `Uint8Array` |
-| `chainId?` | `bigint` |
+| Name       | Type         |
+| :--------- | :----------- |
+| `v`        | `bigint`     |
+| `r`        | `Uint8Array` |
+| `s`        | `Uint8Array` |
+| `chainId?` | `bigint`     |
 
 #### Returns
 
@@ -2514,7 +2516,7 @@ Signature
 
 [packages/util/src/signature.ts:115](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/signature.ts#L115)
 
-___
+---
 
 ### toRpcSig
 
@@ -2525,12 +2527,12 @@ NOTE: Accepts `v === 0 | v === 1` for EIP1559 transactions
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `v` | `bigint` |
-| `r` | `Uint8Array` |
-| `s` | `Uint8Array` |
-| `chainId?` | `bigint` |
+| Name       | Type         |
+| :--------- | :----------- |
+| `v`        | `bigint`     |
+| `r`        | `Uint8Array` |
+| `s`        | `Uint8Array` |
+| `chainId?` | `bigint`     |
 
 #### Returns
 
@@ -2542,31 +2544,31 @@ Signature
 
 [packages/util/src/signature.ts:94](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/signature.ts#L94)
 
-___
+---
 
 ### toType
 
-▸ **toType**<`T`\>(`input`, `outputType`): ``null``
+▸ **toType**<`T`\>(`input`, `outputType`): `null`
 
 Convert an input to a specified type.
 Input of null/undefined returns null/undefined regardless of the output type.
 
 #### Type parameters
 
-| Name | Type |
-| :------ | :------ |
-| `T` | extends [`TypeOutput`](enums/TypeOutput.md) |
+| Name | Type                                        |
+| :--- | :------------------------------------------ |
+| `T`  | extends [`TypeOutput`](enums/TypeOutput.md) |
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `input` | ``null`` | value to convert |
-| `outputType` | `T` | type to output |
+| Name         | Type   | Description      |
+| :----------- | :----- | :--------------- |
+| `input`      | `null` | value to convert |
+| `outputType` | `T`    | type to output   |
 
 #### Returns
 
-``null``
+`null`
 
 #### Defined in
 
@@ -2576,16 +2578,16 @@ Input of null/undefined returns null/undefined regardless of the output type.
 
 #### Type parameters
 
-| Name | Type |
-| :------ | :------ |
-| `T` | extends [`TypeOutput`](enums/TypeOutput.md) |
+| Name | Type                                        |
+| :--- | :------------------------------------------ |
+| `T`  | extends [`TypeOutput`](enums/TypeOutput.md) |
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `input` | `undefined` |
-| `outputType` | `T` |
+| Name         | Type        |
+| :----------- | :---------- |
+| `input`      | `undefined` |
+| `outputType` | `T`         |
 
 #### Returns
 
@@ -2599,16 +2601,16 @@ Input of null/undefined returns null/undefined regardless of the output type.
 
 #### Type parameters
 
-| Name | Type |
-| :------ | :------ |
-| `T` | extends [`TypeOutput`](enums/TypeOutput.md) |
+| Name | Type                                        |
+| :--- | :------------------------------------------ |
+| `T`  | extends [`TypeOutput`](enums/TypeOutput.md) |
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `input` | [`ToBytesInputTypes`](README.md#tobytesinputtypes) |
-| `outputType` | `T` |
+| Name         | Type                                               |
+| :----------- | :------------------------------------------------- |
+| `input`      | [`ToBytesInputTypes`](README.md#tobytesinputtypes) |
+| `outputType` | `T`                                                |
 
 #### Returns
 
@@ -2618,7 +2620,7 @@ Input of null/undefined returns null/undefined regardless of the output type.
 
 [packages/util/src/types.ts:64](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/types.ts#L64)
 
-___
+---
 
 ### toUnsigned
 
@@ -2628,8 +2630,8 @@ Converts a `BigInt` to an unsigned integer and returns it as a `Uint8Array`. Ass
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name  | Type     |
+| :---- | :------- |
 | `num` | `bigint` |
 
 #### Returns
@@ -2640,7 +2642,7 @@ Converts a `BigInt` to an unsigned integer and returns it as a `Uint8Array`. Ass
 
 [packages/util/src/bytes.ts:338](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/bytes.ts#L338)
 
-___
+---
 
 ### unpadArray
 
@@ -2650,9 +2652,9 @@ Trims leading zeros from an `Array` (of numbers).
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `a` | `number`[] |
+| Name | Type       |
+| :--- | :--------- |
+| `a`  | `number`[] |
 
 #### Returns
 
@@ -2662,7 +2664,7 @@ Trims leading zeros from an `Array` (of numbers).
 
 [packages/util/src/bytes.ts:251](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/bytes.ts#L251)
 
-___
+---
 
 ### unpadBytes
 
@@ -2672,9 +2674,9 @@ Trims leading zeros from a `Uint8Array`.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `a` | `Uint8Array` |
+| Name | Type         |
+| :--- | :----------- |
+| `a`  | `Uint8Array` |
 
 #### Returns
 
@@ -2684,7 +2686,7 @@ Trims leading zeros from a `Uint8Array`.
 
 [packages/util/src/bytes.ts:241](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/bytes.ts#L241)
 
-___
+---
 
 ### unpadHex
 
@@ -2694,9 +2696,9 @@ Trims leading zeros from a `PrefixedHexString`.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `a` | `string` |
+| Name | Type     |
+| :--- | :------- |
+| `a`  | `string` |
 
 #### Returns
 
@@ -2706,7 +2708,7 @@ Trims leading zeros from a `PrefixedHexString`.
 
 [packages/util/src/bytes.ts:261](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/bytes.ts#L261)
 
-___
+---
 
 ### unprefixedHexToBytes
 
@@ -2716,8 +2718,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name  | Type     |
+| :---- | :------- |
 | `inp` | `string` |
 
 #### Returns
@@ -2728,7 +2730,7 @@ ___
 
 [packages/util/src/bytes.ts:48](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/bytes.ts#L48)
 
-___
+---
 
 ### utf8ToBytes
 
@@ -2737,13 +2739,13 @@ ___
 **`Example`**
 
 ```ts
-utf8ToBytes('abc') // new Uint8Array([97, 98, 99])
+utf8ToBytes("abc"); // new Uint8Array([97, 98, 99])
 ```
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name  | Type     |
+| :---- | :------- |
 | `str` | `string` |
 
 #### Returns
@@ -2754,7 +2756,7 @@ utf8ToBytes('abc') // new Uint8Array([97, 98, 99])
 
 node_modules/@noble/hashes/utils.d.ts:21
 
-___
+---
 
 ### validateNoLeadingZeroes
 
@@ -2776,8 +2778,8 @@ if any provided value is found to have leading zero bytes
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name     | Type     | Description                                            |
+| :------- | :------- | :----------------------------------------------------- |
 | `values` | `Object` | An object containing string keys and Uint8Array values |
 
 #### Returns
@@ -2788,7 +2790,7 @@ if any provided value is found to have leading zero bytes
 
 [packages/util/src/bytes.ts:388](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/bytes.ts#L388)
 
-___
+---
 
 ### zeroAddress
 
@@ -2804,7 +2806,7 @@ Returns the zero address.
 
 [packages/util/src/account.ts:337](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/account.ts#L337)
 
-___
+---
 
 ### zeros
 
@@ -2814,8 +2816,8 @@ Returns a Uint8Array filled with 0s.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name    | Type     | Description                           |
+| :------ | :------- | :------------------------------------ |
 | `bytes` | `number` | the number of bytes of the Uint8Array |
 
 #### Returns

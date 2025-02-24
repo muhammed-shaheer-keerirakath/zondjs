@@ -1,6 +1,6 @@
-@ethereumjs/trie
+@theqrl/zondjs-trie
 
-# @ethereumjs/trie
+# @theqrl/zondjs-trie
 
 ## Table of contents
 
@@ -36,7 +36,7 @@
 
 ### Variables
 
-- [ROOT\_DB\_KEY](README.md#root_db_key)
+- [ROOT_DB_KEY](README.md#root_db_key)
 
 ### Functions
 
@@ -65,16 +65,16 @@
 
 #### Type declaration
 
-| Name | Type |
-| :------ | :------ |
+| Name          | Type                                          |
+| :------------ | :-------------------------------------------- |
 | `keyValueMap` | `Map`<`string`, `Uint8Array` \| `undefined`\> |
-| `root` | `Uint8Array` |
+| `root`        | `Uint8Array`                                  |
 
 #### Defined in
 
 [packages/trie/src/types.ts:135](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/types.ts#L135)
 
-___
+---
 
 ### EmbeddedNode
 
@@ -84,11 +84,11 @@ ___
 
 [packages/trie/src/types.ts:13](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/types.ts#L13)
 
-___
+---
 
 ### FoundNodeFunction
 
-Ƭ **FoundNodeFunction**: (`nodeRef`: `Uint8Array`, `node`: [`TrieNode`](README.md#trienode) \| ``null``, `key`: [`Nibbles`](README.md#nibbles), `walkController`: [`WalkController`](classes/WalkController.md)) => `void`
+Ƭ **FoundNodeFunction**: (`nodeRef`: `Uint8Array`, `node`: [`TrieNode`](README.md#trienode) \| `null`, `key`: [`Nibbles`](README.md#nibbles), `walkController`: [`WalkController`](classes/WalkController.md)) => `void`
 
 #### Type declaration
 
@@ -96,11 +96,11 @@ ___
 
 ##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `nodeRef` | `Uint8Array` |
-| `node` | [`TrieNode`](README.md#trienode) \| ``null`` |
-| `key` | [`Nibbles`](README.md#nibbles) |
+| Name             | Type                                          |
+| :--------------- | :-------------------------------------------- |
+| `nodeRef`        | `Uint8Array`                                  |
+| `node`           | [`TrieNode`](README.md#trienode) \| `null`    |
+| `key`            | [`Nibbles`](README.md#nibbles)                |
 | `walkController` | [`WalkController`](classes/WalkController.md) |
 
 ##### Returns
@@ -111,7 +111,7 @@ ___
 
 [packages/trie/src/types.ts:29](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/types.ts#L29)
 
-___
+---
 
 ### HashKeysFunction
 
@@ -123,8 +123,8 @@ ___
 
 ##### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name  | Type         |
+| :---- | :----------- |
 | `msg` | `Uint8Array` |
 
 ##### Returns
@@ -135,7 +135,7 @@ ___
 
 [packages/trie/src/types.ts:36](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/types.ts#L36)
 
-___
+---
 
 ### Nibbles
 
@@ -145,7 +145,7 @@ ___
 
 [packages/trie/src/types.ts:9](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/types.ts#L9)
 
-___
+---
 
 ### Proof
 
@@ -155,7 +155,7 @@ ___
 
 [packages/trie/src/types.ts:15](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/types.ts#L15)
 
-___
+---
 
 ### TrieNode
 
@@ -165,11 +165,11 @@ ___
 
 [packages/trie/src/types.ts:7](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/types.ts#L7)
 
-___
+---
 
 ### TrieOptsWithDefaults
 
-Ƭ **TrieOptsWithDefaults**: [`TrieOpts`](interfaces/TrieOpts.md) & { `cacheSize`: `number` ; `useKeyHashing`: `boolean` ; `useKeyHashingFunction`: [`HashKeysFunction`](README.md#hashkeysfunction) ; `useNodePruning`: `boolean` ; `useRootPersistence`: `boolean`  }
+Ƭ **TrieOptsWithDefaults**: [`TrieOpts`](interfaces/TrieOpts.md) & { `cacheSize`: `number` ; `useKeyHashing`: `boolean` ; `useKeyHashingFunction`: [`HashKeysFunction`](README.md#hashkeysfunction) ; `useNodePruning`: `boolean` ; `useRootPersistence`: `boolean` }
 
 #### Defined in
 
@@ -177,9 +177,9 @@ ___
 
 ## Variables
 
-### ROOT\_DB\_KEY
+### ROOT_DB_KEY
 
-• `Const` **ROOT\_DB\_KEY**: `Uint8Array`
+• `Const` **ROOT_DB_KEY**: `Uint8Array`
 
 #### Defined in
 
@@ -195,8 +195,8 @@ Turns each byte into a single nibble, only extracting the lower nibble of each b
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name  | Type         | Description                 |
+| :---- | :----------- | :-------------------------- |
 | `key` | `Uint8Array` | Uint8Array typed byte array |
 
 #### Returns
@@ -209,7 +209,7 @@ Nibble typed nibble array
 
 [packages/trie/src/util/encoding.ts:144](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/util/encoding.ts#L144)
 
-___
+---
 
 ### bytesToNibbles
 
@@ -217,8 +217,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name  | Type         |
+| :---- | :----------- |
 | `str` | `Uint8Array` |
 
 #### Returns
@@ -229,7 +229,7 @@ ___
 
 [packages/trie/src/util/encoding.ts:77](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/util/encoding.ts#L77)
 
-___
+---
 
 ### compactBytesToNibbles
 
@@ -237,8 +237,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name      | Type         |
+| :-------- | :----------- |
 | `compact` | `Uint8Array` |
 
 #### Returns
@@ -249,7 +249,7 @@ ___
 
 [packages/trie/src/util/encoding.ts:91](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/util/encoding.ts#L91)
 
-___
+---
 
 ### decodeNode
 
@@ -257,8 +257,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name   | Type         |
+| :----- | :----------- |
 | `node` | `Uint8Array` |
 
 #### Returns
@@ -269,7 +269,7 @@ ___
 
 [packages/trie/src/node/util.ts:30](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/node/util.ts#L30)
 
-___
+---
 
 ### decodeRawNode
 
@@ -277,8 +277,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name  | Type           |
+| :---- | :------------- |
 | `raw` | `Uint8Array`[] |
 
 #### Returns
@@ -289,7 +289,7 @@ ___
 
 [packages/trie/src/node/util.ts:12](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/node/util.ts#L12)
 
-___
+---
 
 ### genesisStateRoot
 
@@ -299,8 +299,8 @@ Derives the stateRoot of the genesis block based on genesis allocations
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name           | Type           |
+| :------------- | :------------- |
 | `genesisState` | `GenesisState` |
 
 #### Returns
@@ -311,7 +311,7 @@ Derives the stateRoot of the genesis block based on genesis allocations
 
 [packages/trie/src/util/genesisState.ts:12](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/util/genesisState.ts#L12)
 
-___
+---
 
 ### hasTerminator
 
@@ -319,8 +319,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name      | Type         |
+| :-------- | :----------- |
 | `nibbles` | `Uint8Array` |
 
 #### Returns
@@ -328,13 +328,13 @@ ___
 `boolean`
 
 boolean indicating if input hex nibble sequence has terminator indicating leaf-node
-         terminator is represented with 16 because a nibble ranges from 0 - 15(f)
+terminator is represented with 16 because a nibble ranges from 0 - 15(f)
 
 #### Defined in
 
 [packages/trie/src/util/encoding.ts:31](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/util/encoding.ts#L31)
 
-___
+---
 
 ### hexToKeybytes
 
@@ -342,8 +342,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name  | Type         |
+| :---- | :----------- |
 | `hex` | `Uint8Array` |
 
 #### Returns
@@ -354,7 +354,7 @@ ___
 
 [packages/trie/src/util/encoding.ts:41](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/util/encoding.ts#L41)
 
-___
+---
 
 ### isRawNode
 
@@ -362,9 +362,9 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `n` | `Uint8Array` \| `NestedUint8Array` |
+| Name | Type                               |
+| :--- | :--------------------------------- |
+| `n`  | `Uint8Array` \| `NestedUint8Array` |
 
 #### Returns
 
@@ -374,7 +374,7 @@ n is Uint8Array[]
 
 [packages/trie/src/node/util.ts:26](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/node/util.ts#L26)
 
-___
+---
 
 ### mergeAndFormatKeyPaths
 
@@ -382,8 +382,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name          | Type       |
+| :------------ | :--------- |
 | `pathStrings` | `string`[] |
 
 #### Returns
@@ -394,7 +394,7 @@ ___
 
 [packages/trie/src/util/encoding.ts:175](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/util/encoding.ts#L175)
 
-___
+---
 
 ### nibbleTypeToByteType
 
@@ -404,8 +404,8 @@ Converts each nibble into a single byte
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name  | Type                           | Description               |
+| :---- | :----------------------------- | :------------------------ |
 | `arr` | [`Nibbles`](README.md#nibbles) | Nibble typed nibble array |
 
 #### Returns
@@ -418,7 +418,7 @@ Uint8Array typed byte array
 
 [packages/trie/src/util/encoding.ts:128](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/util/encoding.ts#L128)
 
-___
+---
 
 ### nibbleTypeToPackedBytes
 
@@ -428,8 +428,8 @@ Packs every two nibbles into a single byte
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name  | Type                           | Description               |
+| :---- | :----------------------------- | :------------------------ |
 | `arr` | [`Nibbles`](README.md#nibbles) | Nibble typed nibble array |
 
 #### Returns
@@ -442,7 +442,7 @@ Uint8Array typed byte array
 
 [packages/trie/src/util/encoding.ts:112](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/util/encoding.ts#L112)
 
-___
+---
 
 ### nibblesToBytes
 
@@ -450,10 +450,10 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name      | Type         |
+| :-------- | :----------- |
 | `nibbles` | `Uint8Array` |
-| `bytes` | `Uint8Array` |
+| `bytes`   | `Uint8Array` |
 
 #### Returns
 
@@ -463,7 +463,7 @@ ___
 
 [packages/trie/src/util/encoding.ts:35](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/util/encoding.ts#L35)
 
-___
+---
 
 ### nibblesToCompactBytes
 
@@ -471,8 +471,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name      | Type         |
+| :-------- | :----------- |
 | `nibbles` | `Uint8Array` |
 
 #### Returns
@@ -483,7 +483,7 @@ ___
 
 [packages/trie/src/util/encoding.ts:55](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/util/encoding.ts#L55)
 
-___
+---
 
 ### pathToHexKey
 
@@ -493,11 +493,11 @@ Takes a string path and extends it by the given extension nibbles
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `path` | `string` | String node path |
-| `extension` | [`Nibbles`](README.md#nibbles) | nibbles to extend by |
-| `retType` | `string` | string indicating whether to return the key in "keybyte" or "hex" encoding |
+| Name        | Type                           | Description                                                                |
+| :---------- | :----------------------------- | :------------------------------------------------------------------------- |
+| `path`      | `string`                       | String node path                                                           |
+| `extension` | [`Nibbles`](README.md#nibbles) | nibbles to extend by                                                       |
+| `retType`   | `string`                       | string indicating whether to return the key in "keybyte" or "hex" encoding |
 
 #### Returns
 
@@ -509,7 +509,7 @@ hex-encoded key
 
 [packages/trie/src/util/encoding.ts:164](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/util/encoding.ts#L164)
 
-___
+---
 
 ### verifyRangeProof
 
@@ -536,15 +536,15 @@ NOTE: Currently only supports verification when the length of firstKey and lastK
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `rootHash` | `Uint8Array` | root hash of state trie this proof is being verified against. |
-| `firstKey` | ``null`` \| [`Nibbles`](README.md#nibbles) | first key of range being proven. |
-| `lastKey` | ``null`` \| [`Nibbles`](README.md#nibbles) | last key of range being proven. |
-| `keys` | [`Nibbles`](README.md#nibbles)[] | key list of leaf data being proven. |
-| `values` | `Uint8Array`[] | value list of leaf data being proven, one-to-one correspondence with keys. |
-| `proof` | ``null`` \| `Uint8Array`[] | proof node list, if all-elements-proof where no proof is needed, proof should be null, and both `firstKey` and `lastKey` must be null as well |
-| `useKeyHashingFunction` | [`HashKeysFunction`](README.md#hashkeysfunction) | - |
+| Name                    | Type                                             | Description                                                                                                                                   |
+| :---------------------- | :----------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------- |
+| `rootHash`              | `Uint8Array`                                     | root hash of state trie this proof is being verified against.                                                                                 |
+| `firstKey`              | `null` \| [`Nibbles`](README.md#nibbles)         | first key of range being proven.                                                                                                              |
+| `lastKey`               | `null` \| [`Nibbles`](README.md#nibbles)         | last key of range being proven.                                                                                                               |
+| `keys`                  | [`Nibbles`](README.md#nibbles)[]                 | key list of leaf data being proven.                                                                                                           |
+| `values`                | `Uint8Array`[]                                   | value list of leaf data being proven, one-to-one correspondence with keys.                                                                    |
+| `proof`                 | `null` \| `Uint8Array`[]                         | proof node list, if all-elements-proof where no proof is needed, proof should be null, and both `firstKey` and `lastKey` must be null as well |
+| `useKeyHashingFunction` | [`HashKeysFunction`](README.md#hashkeysfunction) | -                                                                                                                                             |
 
 #### Returns
 

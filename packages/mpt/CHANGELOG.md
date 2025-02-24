@@ -16,7 +16,7 @@ This is a first round of `alpha` releases for our upcoming breaking release roun
 
 The trie package itself has been renamed, see PR [#3719](https://github.com/ethereumjs/ethereumjs-monorepo/pull/3719):
 
-- `@ethereumjs/trie` -> `@ethereumjs/mpt`
+- `@theqrl/zondjs-trie` -> `@theqrl/zondjs-mpt`
 
 This is to avoid confusion with Verkle in the future! Please update your dependencies and imports accordingly! The versioning of the package will be continuous from the old package and not "restart" in whatever way.
 
@@ -101,13 +101,13 @@ There are also new static methods for the verification of proofs, namely `Trie.v
 
 Additionally all proof related functionality is now better documented and there are README examples allowing for an easier entry to the topic.
 
-Also note that along with this release round there is additional higher level proof functionality available shipped within the `@ethereumjs/statemanager` package.
+Also note that along with this release round there is additional higher level proof functionality available shipped within the `@theqrl/zondjs-statemanager` package.
 
 ### WASM Crypto Support
 
 With this release round there is a new way to replace the native JS crypto primitives used within the EthereumJS ecosystem by custom/other implementations in a controlled fashion, see PR [#3192](https://github.com/ethereumjs/ethereumjs-monorepo/pull/3192).
 
-This can e.g. be used to replace time-consuming primitives like the commonly used `keccak256` hash function with a more performant WASM based implementation, see `@ethereumjs/common` [README](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/common) for some detailed guidance on how to use.
+This can e.g. be used to replace time-consuming primitives like the commonly used `keccak256` hash function with a more performant WASM based implementation, see `@theqrl/zondjs-common` [README](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/common) for some detailed guidance on how to use.
 
 ### Self-Contained (and Working 🙂) README Examples
 
@@ -145,7 +145,7 @@ See [Debugging](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/pa
 - Performance: `findPath()` optimizations, PR [#3066](https://github.com/ethereumjs/ethereumjs-monorepo/pull/3066)
 - Make `null` available as type option for `put()` method value, PR [#3020](https://github.com/ethereumjs/ethereumjs-monorepo/pull/3020)
 - Allow partial trie options for `shallowCopy()` (e.g. for a more flexible cache configuration for the trie copy), PR [#3063](https://github.com/ethereumjs/ethereumjs-monorepo/pull/3063)
-- Use `lock` class from `@ethereumjs/util`, PR [#3109](https://github.com/ethereumjs/ethereumjs-monorepo/pull/3109)
+- Use `lock` class from `@theqrl/zondjs-util`, PR [#3109](https://github.com/ethereumjs/ethereumjs-monorepo/pull/3109)
 - Improve util types and handling, PR [#2951](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2951)
 
 ## 6.0.0 - 2023-08-09
@@ -163,10 +163,10 @@ Starting with this release there is a new API for walking and iterating a trie b
 The new walk functionality can be used like the following:
 
 ```ts
-import { Trie } from '@ethereumjs/trie'
+import { Trie } from "@theqrl/zondjs-trie";
 
-const trie = await Trie.create()
-const walk = trie.walkTrieIterable(trie.root())
+const trie = await Trie.create();
+const walk = trie.walkTrieIterable(trie.root());
 
 for await (const { node, currentKey } of walk) {
   // ... do something i.e. console.log( { node, currentKey } )
@@ -218,15 +218,15 @@ Both builds have respective separate entrypoints in the distributed `package.jso
 A CommonJS import of our libraries can then be done like this:
 
 ```ts
-const { Chain, Common } = require('@ethereumjs/common')
-const common = new Common({ chain: Chain.Mainnet })
+const { Chain, Common } = require("@theqrl/zondjs-common");
+const common = new Common({ chain: Chain.Mainnet });
 ```
 
 And this is how an ESM import looks like:
 
 ```ts
-import { Chain, Common } from '@ethereumjs/common'
-const common = new Common({ chain: Chain.Mainnet })
+import { Chain, Common } from "@theqrl/zondjs-common";
+const common = new Common({ chain: Chain.Mainnet });
 ```
 
 Using ESM will give you additional advantages over CJS beyond browser usage like static code analysis / Tree Shaking which CJS can not provide.
@@ -261,7 +261,7 @@ Trie.hash(msg: Uint8Array): Uint8Array
 
 So basically the whole API. Lol. 😋
 
-We have converted existing Buffer conversion methods to Uint8Array conversion methods in the [@ethereumjs/util](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/util) `bytes` module, see the respective README section for guidance.
+We have converted existing Buffer conversion methods to Uint8Array conversion methods in the [@theqrl/zondjs-util](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/util) `bytes` module, see the respective README section for guidance.
 
 #### Prefixed Hex Strings as Default
 
@@ -276,17 +276,17 @@ Please therefore check you code base on updating and ensure that values you are 
 ### Other Changes
 
 - Support for `Node.js 16` has been removed (minimal version: `Node.js 18`), PR [#2859](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2859)
-- Breaking: `DB` interface and `MapDB` implementation have been moved to [@ethereumjs/util](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/db.ts) (for re-usage), PR [#2669](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2669)
+- Breaking: `DB` interface and `MapDB` implementation have been moved to [@theqrl/zondjs-util](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/db.ts) (for re-usage), PR [#2669](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2669)
 - Breaking: The `copy()` method has been renamed to `shallowCopy()` (same underlying state DB), PR [#2826](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2826)
 
 ## 5.0.5 - 2023-04-20
 
 - Update ethereum-cryptography from 1.2 to 2.0 (switch from noble-secp256k1 to noble-curves), PR [#2641](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2641)
-- Bump `@ethereumjs/util` `@chainsafe/ssz` dependency to 0.11.1 (no WASM, native SHA-256 implementation, ES2019 compatible, explicit imports), PRs [#2622](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2622), [#2564](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2564) and [#2656](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2656)
+- Bump `@theqrl/zondjs-util` `@chainsafe/ssz` dependency to 0.11.1 (no WASM, native SHA-256 implementation, ES2019 compatible, explicit imports), PRs [#2622](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2622), [#2564](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2564) and [#2656](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2656)
 
 ## 5.0.4 - 2023-02-27
 
-- Pinned `@ethereumjs/util` `@chainsafe/ssz` dependency to `v0.9.4` due to ES2021 features used in `v0.10.+` causing compatibility issues, PR [#2555](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2555)
+- Pinned `@theqrl/zondjs-util` `@chainsafe/ssz` dependency to `v0.9.4` due to ES2021 features used in `v0.10.+` causing compatibility issues, PR [#2555](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2555)
 
 ## 5.0.3 - 2023-02-21
 
@@ -340,10 +340,10 @@ Updating is a straightforward process:
 
 ```ts
 // Old
-const trie = new SecureTrie()
+const trie = new SecureTrie();
 
 // New
-const trie = new MerklePatriciaTrie({ useKeyHashing: true })
+const trie = new MerklePatriciaTrie({ useKeyHashing: true });
 ```
 
 ### Removed Getter and Setter Functions
@@ -358,24 +358,24 @@ For this reason, a single `root(hash?: Buffer): Buffer` function serves as a rep
 
 ```tsx
 // Old
-const trie = new MerklePatriciaTrie()
-trie.root
+const trie = new MerklePatriciaTrie();
+trie.root;
 
 // New
-const trie = new MerklePatriciaTrie()
-trie.root()
+const trie = new MerklePatriciaTrie();
+trie.root();
 ```
 
 ##### Setter Example
 
 ```tsx
 // Old
-const trie = new MerklePatriciaTrie()
-trie.root = Buffer.alloc(32)
+const trie = new MerklePatriciaTrie();
+trie.root = Buffer.alloc(32);
 
 // New
-const trie = new MerklePatriciaTrie()
-trie.root(Buffer.alloc(32))
+const trie = new MerklePatriciaTrie();
+trie.root(Buffer.alloc(32));
 ```
 
 #### Trie `isCheckpoint` Getter
@@ -384,12 +384,12 @@ The `isCheckpoint` getter function has been removed, see PR [#2218](https://gith
 
 ```tsx
 // Old
-const trie = new MerklePatriciaTrie()
-trie.isCheckpoint
+const trie = new MerklePatriciaTrie();
+trie.isCheckpoint;
 
 // New
-const trie = new MerklePatriciaTrie()
-trie.hasCheckpoints()
+const trie = new MerklePatriciaTrie();
+trie.hasCheckpoints();
 ```
 
 ### Database Abstraction
@@ -434,13 +434,13 @@ The trie library now comes with a new constructor option `useRootPersistence` (n
 To activate root hash persistence you can set the `useRootPersistence` option on instantiation:
 
 ```ts
-import { Trie, LevelDB } from '@ethereumjs/trie'
-import { Level } from 'level'
+import { Trie, LevelDB } from "@theqrl/zondjs-trie";
+import { Level } from "level";
 
 const trie = new MerklePatriciaTrie({
-  db: new LevelDB(new Level('MY_TRIE_DB_LOCATION')),
+  db: new LevelDB(new Level("MY_TRIE_DB_LOCATION")),
   useRootPersistence: true,
-})
+});
 ```
 
 ### Other Changes
@@ -483,7 +483,7 @@ So the usage of the following methods change and need to be updated (for all typ
 
 This release is part of a larger breaking release round where all [EthereumJS monorepo](https://github.com/ethereumjs/ethereumjs-monorepo) libraries (VM, Tx, Trie, other) get major version upgrades. This round of releases has been prepared for a long time and we are really pleased with and proud of the result, thanks to all team members and contributors who worked so hard and made this possible! 🙂 ❤️
 
-We have gotten rid of a lot of technical debt and inconsistencies and removed unused functionality, renamed methods, improved on the API and on TypeScript typing, to name a few of the more local type of refactoring changes. There are also broader structural changes like a full transition to native JavaScript `BigInt` values as well as various somewhat deep-reaching refactorings, both within a single package as well as some reaching beyond the scope of a single package. Also two completely new packages - `@ethereumjs/evm` (in addition to the existing `@ethereumjs/vm` package) and `@ethereumjs/statemanager` - have been created, leading to a more modular Ethereum JavaScript VM.
+We have gotten rid of a lot of technical debt and inconsistencies and removed unused functionality, renamed methods, improved on the API and on TypeScript typing, to name a few of the more local type of refactoring changes. There are also broader structural changes like a full transition to native JavaScript `BigInt` values as well as various somewhat deep-reaching refactorings, both within a single package as well as some reaching beyond the scope of a single package. Also two completely new packages - `@theqrl/zondjs-evm` (in addition to the existing `@theqrl/zondjs-vm` package) and `@theqrl/zondjs-statemanager` - have been created, leading to a more modular Ethereum JavaScript VM.
 
 We are very much confident that users of the libraries will greatly benefit from the changes being introduced. However - along the upgrade process - these releases require some extra attention and care since the changeset is both so big and deep reaching. We highly recommend to closely read the release notes, we have done our best to create a full picture on the changes with some special emphasis on delicate code and API parts and give some explicit guidance on how to upgrade and where problems might arise!
 
@@ -495,12 +495,12 @@ The EthereumJS Team
 
 **Attention!** This library release aligns (and therefore: changes!) the library name with the other EthereumJS libraries and switches to the new scoped package name format, see PR [#1953](https://github.com/ethereumjs/ethereumjs-monorepo/pull/1953). In this case the library is renamed as follows:
 
-- `merkle-patricia-tree` -> `@ethereumjs/trie`
+- `merkle-patricia-tree` -> `@theqrl/zondjs-trie`
 
 Please update your library references accordingly and install with:
 
 ```shell
-npm i @ethereumjs/trie
+npm i @theqrl/zondjs-trie
 ```
 
 ### BigInt Introduction / ES2020 Build Target
@@ -536,10 +536,12 @@ The base trie implementation (`Trie`) as well as all subclass implementations (`
 The new `DB` interface can be used like this for LevelDB:
 
 ```ts
-import { Trie, LevelDB } from '@ethereumjs/trie'
-import { Level } from 'level'
+import { Trie, LevelDB } from "@theqrl/zondjs-trie";
+import { Level } from "level";
 
-const trie = new MerklePatriciaTrie({ db: new LevelDB(new Level('MY_TRIE_DB_LOCATION')) })
+const trie = new MerklePatriciaTrie({
+  db: new LevelDB(new Level("MY_TRIE_DB_LOCATION")),
+});
 ```
 
 If no `db` option is provided an in-memory [memory-level](https://github.com/Level/memory-level) data storage will be instantiated and used. (Side note: some internal non-persistent trie operations (e.g. proof trie creation for range proofs) will always use the internal `level` based data storage, so there will be some continued `level` DB usage also when you switch to an alternative data store for permanent trie storage).
@@ -639,14 +641,14 @@ This release introduces a major API upgrade from callbacks to Promises.
 Example using async/await syntax:
 
 ```ts
-import { BaseTrie as Trie } from 'merkle-patricia-tree'
-const trie = new MerklePatriciaTrie()
+import { BaseTrie as Trie } from "merkle-patricia-tree";
+const trie = new MerklePatriciaTrie();
 async function test() {
-  await trie.put(Buffer.from('test'), Buffer.from('one'))
-  const value = await trie.get(Buffer.from('test'))
-  console.log(value.toString()) // 'one'
+  await trie.put(Buffer.from("test"), Buffer.from("one"));
+  const value = await trie.get(Buffer.from("test"));
+  console.log(value.toString()); // 'one'
 }
-test()
+test();
 ```
 
 ### Breaking Changes

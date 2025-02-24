@@ -1,4 +1,4 @@
-# @ethereumjs/statemanager
+# @theqrl/zondjs-statemanager
 
 [![NPM Package][statemanager-npm-badge]][statemanager-npm-link]
 [![GitHub Issues][statemanager-issues-badge]][statemanager-issues-link]
@@ -14,7 +14,7 @@
 To obtain the latest version, simply require the project using `npm`:
 
 ```shell
-npm install @ethereumjs/statemanager
+npm install @theqrl/zondjs-statemanager
 ```
 
 ## Usage
@@ -26,7 +26,7 @@ The `StateManager` provides high-level access and manipulation methods to and fo
 This library includes several different implementations that all implement the `StateManager` interface which is accepted by the `vm` library. These include:
 
 - [`SimpleStateManager`](./src/simpleStateManager.ts) -a minimally functional (and dependency minimized) version of the state manager suitable for most basic EVM bytecode operations
-- [`MerkleStateManager`](./src//stateManager.ts) - a Merkle-Patricia Trie-based `MerkleStateManager` implementation that is used by the `@ethereumjs/client` and `@ethereumjs/vm`
+- [`MerkleStateManager`](./src//stateManager.ts) - a Merkle-Patricia Trie-based `MerkleStateManager` implementation that is used by the `@theqrl/zondjs-client` and `@theqrl/zondjs-vm`
 - [`RPCStateManager`](./src/rpcStateManager.ts) - a light-weight implementation that sources state and history data from an external JSON-RPC provider
 - [`StatelessVerkleStateManager`](./src/statelessVerkleStateManager.ts) - an experimental implementation of a "stateless" state manager that uses Verkle proofs to provide necessary state access for processing verkle-trie based blocks
 
@@ -39,26 +39,28 @@ It also includes a checkpoint/revert/commit mechanism to either persist or rever
 ```ts
 // ./examples/basicUsage.ts
 
-import { MerkleStateManager } from '@ethereumjs/statemanager'
-import { Account, Address, hexToBytes } from '@ethereumjs/util'
+import { MerkleStateManager } from "@theqrl/zondjs-statemanager";
+import { Account, Address, hexToBytes } from "@theqrl/zondjs-util";
 
 const main = async () => {
-  const stateManager = new MerkleStateManager()
-  const address = new Address(hexToBytes('0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b'))
-  const account = new Account(BigInt(0), BigInt(1000))
-  await stateManager.checkpoint()
-  await stateManager.putAccount(address, account)
-  await stateManager.commit()
-  await stateManager.flush()
+  const stateManager = new MerkleStateManager();
+  const address = new Address(
+    hexToBytes("0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b"),
+  );
+  const account = new Account(BigInt(0), BigInt(1000));
+  await stateManager.checkpoint();
+  await stateManager.putAccount(address, account);
+  await stateManager.commit();
+  await stateManager.flush();
 
   // Account at address 0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b has balance 1000
   console.log(
     `Account at address ${address.toString()} has balance ${
       (await stateManager.getAccount(address))?.balance
     }`,
-  )
-}
-void main()
+  );
+};
+void main();
 ```
 
 #### Account, Storage and Code Caches
@@ -80,19 +82,23 @@ This state manager can be instantiated and used as follows:
 ```ts
 // ./examples/simple.ts
 
-import { Account, createAddressFromPrivateKey, randomBytes } from '@ethereumjs/util'
+import {
+  Account,
+  createAddressFromPrivateKey,
+  randomBytes,
+} from "@theqrl/zondjs-util";
 
-import { SimpleStateManager } from '../src/index.js'
+import { SimpleStateManager } from "../src/index.js";
 
 const main = async () => {
-  const sm = new SimpleStateManager()
-  const address = createAddressFromPrivateKey(randomBytes(32))
-  const account = new Account(0n, 0xfffffn)
-  await sm.putAccount(address, account)
-  console.log(await sm.getAccount(address))
-}
+  const sm = new SimpleStateManager();
+  const address = createAddressFromPrivateKey(randomBytes(32));
+  const account = new Account(0n, 0xfffffn);
+  await sm.putAccount(address, account);
+  console.log(await sm.getAccount(address));
+};
 
-void main()
+void main();
 ```
 
 ### `MerkleStateManager` -> Proofs
@@ -104,10 +110,10 @@ The `MerkleStateManager` has a standalone constructor function `fromMerkleStateP
 Therefore, if you need to use a customized trie (e.g. one that does not use key hashing) or specify caching options, you can pass them in here. If you do instantiate a trie and pass it into the `createTrieFromProof` constructor, you also need to instantiate the trie using the corresponding `createStateManagerFromProof` constructor to ensure the state root matches when the proof data is added to the trie, consider an example:
 
 ```ts
-const newTrie = await createTrieFromProof(proof, { useKeyHashing: false })
+const newTrie = await createTrieFromProof(proof, { useKeyHashing: false });
 const partialSM = await fromMerkleStateProof([proof], true, {
   trie: newTrie,
-})
+});
 ```
 
 See below example for common usage:
@@ -120,50 +126,66 @@ import {
   addMerkleStateProofData,
   fromMerkleStateProof,
   getMerkleStateProof,
-} from '@ethereumjs/statemanager'
-import { Address, hexToBytes } from '@ethereumjs/util'
+} from "@theqrl/zondjs-statemanager";
+import { Address, hexToBytes } from "@theqrl/zondjs-util";
 
 const main = async () => {
   // setup `stateManager` with some existing address
-  const stateManager = new MerkleStateManager()
-  const contractAddress = new Address(hexToBytes('0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b'))
-  const byteCode = hexToBytes('0x67ffffffffffffffff600160006000fb')
+  const stateManager = new MerkleStateManager();
+  const contractAddress = new Address(
+    hexToBytes("0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b"),
+  );
+  const byteCode = hexToBytes("0x67ffffffffffffffff600160006000fb");
   const storageKey1 = hexToBytes(
-    '0x0000000000000000000000000000000000000000000000000000000000000001',
-  )
+    "0x0000000000000000000000000000000000000000000000000000000000000001",
+  );
   const storageKey2 = hexToBytes(
-    '0x0000000000000000000000000000000000000000000000000000000000000002',
-  )
-  const storageValue1 = hexToBytes('0x01')
-  const storageValue2 = hexToBytes('0x02')
+    "0x0000000000000000000000000000000000000000000000000000000000000002",
+  );
+  const storageValue1 = hexToBytes("0x01");
+  const storageValue2 = hexToBytes("0x02");
 
-  await stateManager.putCode(contractAddress, byteCode)
-  await stateManager.putStorage(contractAddress, storageKey1, storageValue1)
-  await stateManager.putStorage(contractAddress, storageKey2, storageValue2)
+  await stateManager.putCode(contractAddress, byteCode);
+  await stateManager.putStorage(contractAddress, storageKey1, storageValue1);
+  await stateManager.putStorage(contractAddress, storageKey2, storageValue2);
 
-  const proof = await getMerkleStateProof(stateManager, contractAddress)
-  const proofWithStorage = await getMerkleStateProof(stateManager, contractAddress, [
-    storageKey1,
-    storageKey2,
-  ])
-  const partialStateManager = await fromMerkleStateProof(proof)
+  const proof = await getMerkleStateProof(stateManager, contractAddress);
+  const proofWithStorage = await getMerkleStateProof(
+    stateManager,
+    contractAddress,
+    [storageKey1, storageKey2],
+  );
+  const partialStateManager = await fromMerkleStateProof(proof);
 
   // To add more proof data, use `addMerkleStateProofData`
-  await addMerkleStateProofData(partialStateManager, proofWithStorage)
-  console.log(await partialStateManager.getCode(contractAddress)) // contract bytecode is not included in proof
-  console.log(await partialStateManager.getStorage(contractAddress, storageKey1), storageValue1) // should match
-  console.log(await partialStateManager.getStorage(contractAddress, storageKey2), storageValue2) // should match
+  await addMerkleStateProofData(partialStateManager, proofWithStorage);
+  console.log(await partialStateManager.getCode(contractAddress)); // contract bytecode is not included in proof
+  console.log(
+    await partialStateManager.getStorage(contractAddress, storageKey1),
+    storageValue1,
+  ); // should match
+  console.log(
+    await partialStateManager.getStorage(contractAddress, storageKey2),
+    storageValue2,
+  ); // should match
 
-  const accountFromNewSM = await partialStateManager.getAccount(contractAddress)
-  const accountFromOldSM = await stateManager.getAccount(contractAddress)
-  console.log(accountFromNewSM, accountFromOldSM) // should match
+  const accountFromNewSM =
+    await partialStateManager.getAccount(contractAddress);
+  const accountFromOldSM = await stateManager.getAccount(contractAddress);
+  console.log(accountFromNewSM, accountFromOldSM); // should match
 
-  const slot1FromNewSM = await stateManager.getStorage(contractAddress, storageKey1)
-  const slot2FromNewSM = await stateManager.getStorage(contractAddress, storageKey2)
-  console.log(slot1FromNewSM, storageValue1) // should match
-  console.log(slot2FromNewSM, storageValue2) // should match
-}
-void main()
+  const slot1FromNewSM = await stateManager.getStorage(
+    contractAddress,
+    storageKey1,
+  );
+  const slot2FromNewSM = await stateManager.getStorage(
+    contractAddress,
+    storageKey2,
+  );
+  console.log(slot1FromNewSM, storageValue1); // should match
+  console.log(slot2FromNewSM, storageValue2); // should match
+};
+void main();
 ```
 
 ### `RPCStateManager`
@@ -175,21 +197,23 @@ A simple example of usage:
 ```ts
 // ./examples/rpcStateManager.ts
 
-import { RPCStateManager } from '@ethereumjs/statemanager'
-import { createAddressFromString } from '@ethereumjs/util'
+import { RPCStateManager } from "@theqrl/zondjs-statemanager";
+import { createAddressFromString } from "@theqrl/zondjs-util";
 
 const main = async () => {
   try {
-    const provider = 'https://path.to.my.provider.com'
-    const stateManager = new RPCStateManager({ provider, blockTag: 500000n })
-    const vitalikDotEth = createAddressFromString('0xd8da6bf26964af9d7eed9e03e53415d37aa96045')
-    const account = await stateManager.getAccount(vitalikDotEth)
-    console.log('Vitalik has a current ETH balance of ', account?.balance)
+    const provider = "https://path.to.my.provider.com";
+    const stateManager = new RPCStateManager({ provider, blockTag: 500000n });
+    const vitalikDotEth = createAddressFromString(
+      "0xd8da6bf26964af9d7eed9e03e53415d37aa96045",
+    );
+    const account = await stateManager.getAccount(vitalikDotEth);
+    console.log("Vitalik has a current ETH balance of ", account?.balance);
   } catch (e) {
-    console.log(e.message) // fetch fails because provider url is not real. please replace provider with a valid rpc url string.
+    console.log(e.message); // fetch fails because provider url is not real. please replace provider with a valid rpc url string.
   }
-}
-void main()
+};
+void main();
 ```
 
 **Note:** Usage of this StateManager can cause a heavy load regarding state request API calls, so be careful (or at least: aware) if used in combination with a JSON-RPC provider connecting to a third-party API service like Infura!
@@ -203,21 +227,21 @@ In order to have an EVM instance that supports the BLOCKHASH opcode (which requi
 ```ts
 // ./examples/evm.ts
 
-import { createEVM } from '@ethereumjs/evm'
-import { RPCBlockChain, RPCStateManager } from '@ethereumjs/statemanager'
+import { createEVM } from "@theqrl/zondjs-evm";
+import { RPCBlockChain, RPCStateManager } from "@theqrl/zondjs-statemanager";
 
 const main = async () => {
   try {
-    const provider = 'https://path.to.my.provider.com'
-    const blockchain = new RPCBlockChain(provider)
-    const blockTag = 1n
-    const state = new RPCStateManager({ provider, blockTag })
-    const evm = await createEVM({ blockchain, stateManager: state }) // note that evm is ready to run BLOCKHASH opcodes (over RPC)
+    const provider = "https://path.to.my.provider.com";
+    const blockchain = new RPCBlockChain(provider);
+    const blockTag = 1n;
+    const state = new RPCStateManager({ provider, blockTag });
+    const evm = await createEVM({ blockchain, stateManager: state }); // note that evm is ready to run BLOCKHASH opcodes (over RPC)
   } catch (e) {
-    console.log(e.message) // fetch would fail because provider url is not real. please replace provider with a valid RPC url string.
+    console.log(e.message); // fetch would fail because provider url is not real. please replace provider with a valid RPC url string.
   }
-}
-void main()
+};
+void main();
 ```
 
 Note: Failing to provide the `RPCBlockChain` instance when instantiating the EVM means that the `BLOCKHASH` opcode will fail to work correctly during EVM execution.
@@ -251,7 +275,7 @@ See [PRs around Verkle](https://github.com/search?q=repo%3Aethereumjs%2Fethereum
 
 ### WASM Crypto Support
 
-This library by default uses JavaScript implementations for the basic standard crypto primitives like hashing for underlying trie keys. See `@ethereumjs/common` [README](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/common) for instructions on how to replace with e.g. a more performant WASM implementation by using a shared `common` instance.
+This library by default uses JavaScript implementations for the basic standard crypto primitives like hashing for underlying trie keys. See `@theqrl/zondjs-common` [README](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/common) for instructions on how to replace with e.g. a more performant WASM implementation by using a shared `common` instance.
 
 ## Browser
 
@@ -272,13 +296,13 @@ With the breaking releases from Summer 2023 we have started to ship our librarie
 If you use an ES6-style `import` in your code files from the ESM build will be used:
 
 ```ts
-import { EthereumJSClass } from '@ethereumjs/[PACKAGE_NAME]'
+import { EthereumJSClass } from "@theqrl/zondjs-[PACKAGE_NAME]";
 ```
 
 If you use Node.js specific `require`, the CJS build will be used:
 
 ```ts
-const { EthereumJSClass } = require('@ethereumjs/[PACKAGE_NAME]')
+const { EthereumJSClass } = require("@theqrl/zondjs-[PACKAGE_NAME]");
 ```
 
 Using ESM will give you additional advantages over CJS beyond browser usage like static code analysis / Tree Shaking which CJS can not provide.
@@ -287,7 +311,7 @@ Using ESM will give you additional advantages over CJS beyond browser usage like
 
 With the breaking releases from Summer 2023 we have removed all Node.js specific `Buffer` usages from our libraries and replace these with [Uint8Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array) representations, which are available both in Node.js and the browser (`Buffer` is a subclass of `Uint8Array`).
 
-We have converted existing Buffer conversion methods to Uint8Array conversion methods in the [@ethereumjs/util](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/util) `bytes` module, see the respective README section for guidance.
+We have converted existing Buffer conversion methods to Uint8Array conversion methods in the [@theqrl/zondjs-util](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/util) `bytes` module, see the respective README section for guidance.
 
 ### BigInt Support
 
@@ -309,8 +333,8 @@ See our organizational [documentation](https://ethereumjs.readthedocs.io) for an
 
 [discord-badge]: https://img.shields.io/static/v1?logo=discord&label=discord&message=Join&color=blue
 [discord-link]: https://discord.gg/TNwARpR
-[statemanager-npm-badge]: https://img.shields.io/npm/v/@ethereumjs/statemanager.svg
-[statemanager-npm-link]: https://www.npmjs.com/package/@ethereumjs/statemanager
+[statemanager-npm-badge]: https://img.shields.io/npm/v/@theqrl/zondjs-statemanager.svg
+[statemanager-npm-link]: https://www.npmjs.com/package/@theqrl/zondjs-statemanager
 [statemanager-issues-badge]: https://img.shields.io/github/issues/ethereumjs/ethereumjs-monorepo/package:%20statemanager?label=issues
 [statemanager-issues-link]: https://github.com/ethereumjs/ethereumjs-monorepo/issues?q=is%3Aopen+is%3Aissue+label%3A"package%3A+statemanager"
 [statemanager-actions-badge]: https://github.com/ethereumjs/ethereumjs-monorepo/workflows/StateManager/badge.svg

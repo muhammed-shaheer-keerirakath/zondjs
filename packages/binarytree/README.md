@@ -1,4 +1,4 @@
-# @ethereumjs/binarytree
+# @theqrl/zondjs-binarytree
 
 [![NPM Package][binarytree-npm-badge]][binarytree-npm-link]
 [![GitHub Issues][binarytree-issues-badge]][binarytree-issues-link]
@@ -18,7 +18,7 @@ This package is currently in early alpha and is a work in progress. It is not in
 To obtain the latest version, simply install the project using `npm`:
 
 ```shell
-npm install @ethereumjs/binarytree
+npm install @theqrl/zondjs-binarytree
 ```
 ## EthereumJS
 
@@ -30,8 +30,8 @@ See our organizational [documentation](https://ethereumjs.readthedocs.io) for an
 
 [discord-badge]: https://img.shields.io/static/v1?logo=discord&label=discord&message=Join&color=blue
 [discord-link]: https://discord.gg/TNwARpR
-[binarytree-npm-badge]: https://img.shields.io/npm/v/@ethereumjs/binarytree.svg
-[binarytree-npm-link]: https://www.npmjs.com/package/@ethereumjs/binarytree
+[binarytree-npm-badge]: https://img.shields.io/npm/v/@theqrl/zondjs-binarytree.svg
+[binarytree-npm-link]: https://www.npmjs.com/package/@theqrl/zondjs-binarytree
 [binarytree-issues-badge]: https://img.shields.io/github/issues/ethereumjs/ethereumjs-monorepo/package:%20binarytree?label=issues
 [binarytree-issues-link]: https://github.com/ethereumjs/ethereumjs-monorepo/issues?q=is%3Aopen+is%3Aissue+label%3A"package%3A+binarytree"
 [binarytree-actions-badge]: https://github.com/ethereumjs/ethereumjs-monorepo/workflows/binarytree/badge.svg

@@ -1,4 +1,4 @@
-[@ethereumjs/vm](../README.md) / RunTxOpts
+[@theqrl/zondjs-vm](../README.md) / RunTxOpts
 
 # Interface: RunTxOpts
 
@@ -24,7 +24,7 @@ Options for the `runTx` method.
 
 • `Optional` **block**: `Block`
 
-The `@ethereumjs/block` the `tx` belongs to.
+The `@theqrl/zondjs-block` the `tx` belongs to.
 If omitted, a default blank block will be used.
 
 #### Defined in
@@ -131,7 +131,7 @@ ___
 
 • **tx**: `TypedTransaction`
 
-An `@ethereumjs/tx` to run
+An `@theqrl/zondjs-tx` to run
 
 #### Defined in
 

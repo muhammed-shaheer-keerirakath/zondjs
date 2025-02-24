@@ -1,7 +1,7 @@
-import { createBlock, createBlockHeader } from "@ethereumjs/block";
-import { Hardfork } from "@ethereumjs/common";
-import { MerkleStateManager } from "@ethereumjs/statemanager";
-import { createTx } from "@ethereumjs/tx";
+import { createBlock, createBlockHeader } from "@theqrl/zondjs-block";
+import { Hardfork } from "@theqrl/zondjs-common";
+import { MerkleStateManager } from "@theqrl/zondjs-statemanager";
+import { createTx } from "@theqrl/zondjs-tx";
 import {
   Account,
   Units,

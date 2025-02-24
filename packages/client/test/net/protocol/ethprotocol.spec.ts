@@ -1,10 +1,10 @@
-import { createBlock } from "@ethereumjs/block";
-import { Common, Hardfork, Holesky } from "@ethereumjs/common";
+import { createBlock } from "@theqrl/zondjs-block";
+import { Common, Hardfork, Holesky } from "@theqrl/zondjs-common";
 import {
   TransactionType,
   createFeeMarket1559Tx,
   createTx,
-} from "@ethereumjs/tx";
+} from "@theqrl/zondjs-tx";
 import {
   bigIntToBytes,
   bytesToBigInt,

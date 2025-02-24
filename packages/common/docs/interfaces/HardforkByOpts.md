@@ -1,4 +1,4 @@
-[@ethereumjs/common](../README.md) / HardforkByOpts
+[@theqrl/zondjs-common](../README.md) / HardforkByOpts
 
 # Interface: HardforkByOpts
 

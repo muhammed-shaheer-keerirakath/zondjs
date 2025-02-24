@@ -1,4 +1,4 @@
-import type { BlockData } from '@ethereumjs/block'
+import type { BlockData } from '@theqrl/zondjs-block'
 
 export const blocksMainnetData: BlockData[] = [
   {

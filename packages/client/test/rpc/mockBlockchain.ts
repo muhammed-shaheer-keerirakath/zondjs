@@ -1,10 +1,10 @@
-import { createBlock } from "@ethereumjs/block";
-import { createLegacyTx } from "@ethereumjs/tx";
+import { createBlock } from "@theqrl/zondjs-block";
+import { createLegacyTx } from "@theqrl/zondjs-tx";
 import { equalsBytes, toBytes } from "@theqrl/zondjs-util";
 
 import { dummy } from "./helpers.js";
 
-import type { LegacyTx } from "@ethereumjs/tx";
+import type { LegacyTx } from "@theqrl/zondjs-tx";
 
 export function mockBlockchain(options: any = {}) {
   const number = options.number ?? "0x444444";

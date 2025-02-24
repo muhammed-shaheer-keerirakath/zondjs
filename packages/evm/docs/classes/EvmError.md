@@ -1,4 +1,4 @@
-[@ethereumjs/evm](../README.md) / EvmError
+[@theqrl/zondjs-evm](../README.md) / EvmError
 
 # Class: EvmError
 

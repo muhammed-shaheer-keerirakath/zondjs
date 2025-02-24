@@ -1,6 +1,6 @@
 // Adapted from - https://github.com/Inphi/eip4844-interop/blob/master/blob_tx_generator/blob.js
-import { createCommonFromGethGenesis, Hardfork } from "@ethereumjs/common";
-import { createTx, TransactionType, TxData } from "@ethereumjs/tx";
+import { createCommonFromGethGenesis, Hardfork } from "@theqrl/zondjs-common";
+import { createTx, TransactionType, TxData } from "@theqrl/zondjs-tx";
 import {
   blobsToCommitments,
   commitmentsToVersionedHashes,

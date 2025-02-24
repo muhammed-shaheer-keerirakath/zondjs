@@ -1,4 +1,4 @@
-[@ethereumjs/wallet](../README.md) / thirdparty
+[@theqrl/zondjs-wallet](../README.md) / thirdparty
 
 # Namespace: thirdparty
 

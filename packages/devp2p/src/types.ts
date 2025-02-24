@@ -3,8 +3,8 @@ import type { ETH } from './protocol/eth.js'
 import type { Protocol } from './protocol/protocol.js'
 import type { SNAP } from './protocol/snap.js'
 import type { Peer } from './rlpx/peer.js'
-import type { Common } from '@ethereumjs/common'
-import type { NestedUint8Array } from '@ethereumjs/rlp'
+import type { Common } from '@theqrl/zondjs-common'
+import type { NestedUint8Array } from '@theqrl/zondjs-rlp'
 import type { Socket } from 'net'
 
 export interface RLPxEvent {

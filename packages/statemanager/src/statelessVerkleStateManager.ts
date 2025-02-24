@@ -1,4 +1,4 @@
-import { VerkleAccessedStateType } from "@ethereumjs/common";
+import { VerkleAccessedStateType } from "@theqrl/zondjs-common";
 import {
   Account,
   KECCAK256_NULL,
@@ -37,7 +37,7 @@ import type {
   StateManagerInterface,
   VerkleAccessWitnessInterface,
   VerkleAccessedStateWithAddress,
-} from "@ethereumjs/common";
+} from "@theqrl/zondjs-common";
 import type {
   Address,
   PrefixedHexString,

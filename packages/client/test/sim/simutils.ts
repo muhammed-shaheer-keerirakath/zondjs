@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
-import { executionPayloadFromBeaconPayload } from "@ethereumjs/block";
-import { type Common } from "@ethereumjs/common";
-import { createBlob4844Tx, createFeeMarket1559Tx } from "@ethereumjs/tx";
+import { executionPayloadFromBeaconPayload } from "@theqrl/zondjs-block";
+import { type Common } from "@theqrl/zondjs-common";
+import { createBlob4844Tx, createFeeMarket1559Tx } from "@theqrl/zondjs-tx";
 import {
   BIGINT_1,
   blobsToCommitments,
@@ -24,7 +24,7 @@ import { RPCManager } from "../../src/rpc/index.js";
 import { Event } from "../../src/types.js";
 
 import type { EthereumClient } from "../../src/client.js";
-import type { TransactionType, TxData, TxOptions } from "@ethereumjs/tx";
+import type { TransactionType, TxData, TxOptions } from "@theqrl/zondjs-tx";
 import type { PrefixedHexString } from "@theqrl/zondjs-util";
 import type { ChildProcessWithoutNullStreams } from "child_process";
 import type { Client } from "jayson/promise";

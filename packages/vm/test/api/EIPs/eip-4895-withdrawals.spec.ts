@@ -1,13 +1,13 @@
-import { createBlock, genWithdrawalsTrieRoot } from "@ethereumjs/block";
-import { createBlockchain } from "@ethereumjs/blockchain";
+import { createBlock, genWithdrawalsTrieRoot } from "@theqrl/zondjs-block";
+import { createBlockchain } from "@theqrl/zondjs-blockchain";
 import {
   Common,
   Hardfork,
   Mainnet,
   createCommonFromGethGenesis,
-} from "@ethereumjs/common";
-import { decode } from "@ethereumjs/rlp";
-import { createFeeMarket1559Tx } from "@ethereumjs/tx";
+} from "@theqrl/zondjs-common";
+import { decode } from "@theqrl/zondjs-rlp";
+import { createFeeMarket1559Tx } from "@theqrl/zondjs-tx";
 import {
   Account,
   Address,
@@ -23,7 +23,7 @@ import { assert, describe, it } from "vitest";
 import { withdrawalsData } from "../../../../client/test/testdata/geth-genesis/withdrawals.js";
 import { buildBlock, createVM, runBlock } from "../../../src/index.js";
 
-import type { Block } from "@ethereumjs/block";
+import type { Block } from "@theqrl/zondjs-block";
 import type { WithdrawalBytes, WithdrawalData } from "@theqrl/zondjs-util";
 
 const common = new Common({

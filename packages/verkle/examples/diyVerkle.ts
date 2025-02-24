@@ -1,5 +1,5 @@
 import { MapDB, bytesToHex } from "@theqrl/zondjs-util";
-import { VerkleTree } from "@ethereumjs/verkle";
+import { VerkleTree } from "@theqrl/zondjs-verkle";
 import * as verkle from "micro-eth-signer/verkle";
 
 const main = async () => {

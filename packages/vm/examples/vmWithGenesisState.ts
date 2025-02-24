@@ -1,7 +1,7 @@
-import { Chain } from "@ethereumjs/common";
-import { getGenesis } from "@ethereumjs/genesis";
+import { Chain } from "@theqrl/zondjs-common";
+import { getGenesis } from "@theqrl/zondjs-genesis";
 import { createAddressFromString } from "@theqrl/zondjs-util";
-import { createVM } from "@ethereumjs/vm";
+import { createVM } from "@theqrl/zondjs-vm";
 
 const main = async () => {
   const genesisState = getGenesis(Chain.Mainnet);

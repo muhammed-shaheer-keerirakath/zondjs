@@ -1,4 +1,4 @@
-[@ethereumjs/evm](../README.md) / EVMRunCodeOpts
+[@theqrl/zondjs-evm](../README.md) / EVMRunCodeOpts
 
 # Interface: EVMRunCodeOpts
 

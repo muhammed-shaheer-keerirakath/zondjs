@@ -1,4 +1,4 @@
-[@ethereumjs/tx](../README.md) / FeeMarketEIP1559TxData
+[@theqrl/zondjs-tx](../README.md) / FeeMarketEIP1559TxData
 
 # Interface: FeeMarketEIP1559TxData
 
@@ -35,7 +35,7 @@
 
 ### accessList
 
-• `Optional` **accessList**: ``null`` \| [`AccessListBytes`](../README.md#accesslistbytes) \| [`AccessList`](../README.md#accesslist)
+• `Optional` **accessList**: `null` \| [`AccessListBytes`](../README.md#accesslistbytes) \| [`AccessList`](../README.md#accesslist)
 
 The access list which contains the addresses/storage slots which the transaction wishes to access
 
@@ -47,7 +47,7 @@ The access list which contains the addresses/storage slots which the transaction
 
 [tx/src/types.ts:303](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L303)
 
-___
+---
 
 ### chainId
 
@@ -63,7 +63,7 @@ The transaction's chain ID
 
 [tx/src/types.ts:298](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L298)
 
-___
+---
 
 ### data
 
@@ -79,7 +79,7 @@ This will contain the data of the message or the init of a contract.
 
 [tx/src/types.ts:267](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L267)
 
-___
+---
 
 ### gasLimit
 
@@ -95,13 +95,13 @@ The transaction's gas limit.
 
 [tx/src/types.ts:252](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L252)
 
-___
+---
 
 ### gasPrice
 
-• `Optional` **gasPrice**: ``null``
+• `Optional` **gasPrice**: `null`
 
-The transaction's gas price, inherited from [Transaction](Transaction.md).  This property is not used for EIP1559
+The transaction's gas price, inherited from [Transaction](Transaction.md). This property is not used for EIP1559
 transactions and should always be undefined for this specific transaction type.
 
 #### Overrides
@@ -112,7 +112,7 @@ transactions and should always be undefined for this specific transaction type.
 
 [tx/src/types.ts:314](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L314)
 
-___
+---
 
 ### maxFeePerGas
 
@@ -124,7 +124,7 @@ The maximum total fee
 
 [tx/src/types.ts:322](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L322)
 
-___
+---
 
 ### maxPriorityFeePerGas
 
@@ -136,7 +136,7 @@ The maximum inclusion fee per gas (this fee is given to the miner)
 
 [tx/src/types.ts:318](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L318)
 
-___
+---
 
 ### nonce
 
@@ -152,7 +152,7 @@ The transaction's nonce.
 
 [tx/src/types.ts:242](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L242)
 
-___
+---
 
 ### r
 
@@ -168,7 +168,7 @@ EC signature parameter.
 
 [tx/src/types.ts:277](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L277)
 
-___
+---
 
 ### s
 
@@ -184,7 +184,7 @@ EC signature parameter.
 
 [tx/src/types.ts:282](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L282)
 
-___
+---
 
 ### to
 
@@ -200,7 +200,7 @@ The transaction's the address is sent to.
 
 [tx/src/types.ts:257](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L257)
 
-___
+---
 
 ### type
 
@@ -216,7 +216,7 @@ The transaction type
 
 [tx/src/types.ts:288](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L288)
 
-___
+---
 
 ### v
 
@@ -232,7 +232,7 @@ EC recovery ID.
 
 [tx/src/types.ts:272](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L272)
 
-___
+---
 
 ### value
 

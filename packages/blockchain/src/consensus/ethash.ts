@@ -1,10 +1,10 @@
-import { ConsensusAlgorithm } from "@ethereumjs/common";
+import { ConsensusAlgorithm } from "@theqrl/zondjs-common";
 import { bytesToHex } from "@theqrl/zondjs-util";
 import debugDefault from "debug";
 
 import type { Blockchain } from "../index.js";
 import type { Consensus, ConsensusOptions } from "../types.js";
-import type { Block, BlockHeader } from "@ethereumjs/block";
+import type { Block, BlockHeader } from "@theqrl/zondjs-block";
 import type { Debugger } from "debug";
 
 export type MinimalEthashInterface = {

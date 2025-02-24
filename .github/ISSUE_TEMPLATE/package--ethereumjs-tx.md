@@ -1,6 +1,6 @@
 ---
-name: 'Package: @ethereumjs/tx'
-about: Create issue for @ethereumjs/tx package
+name: 'Package: @theqrl/zondjs-tx'
+about: Create issue for @theqrl/zondjs-tx package
 title: ''
 labels: 'package: tx'
 assignees: ''

@@ -1,6 +1,6 @@
-@ethereumjs/wallet
+@theqrl/zondjs-wallet
 
-# @ethereumjs/wallet
+# @theqrl/zondjs-wallet
 
 ## Table of contents
 

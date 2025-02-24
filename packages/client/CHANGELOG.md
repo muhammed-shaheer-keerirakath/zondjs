@@ -100,12 +100,12 @@ This release now officially supports networks running with or switching to the D
 
 While `EIP-4844` - activating shard blob transactions - is for sure the most prominent EIP from this hardfork, enabling better scaling for the Ethereum ecosystem by providing cheaper block space for L2s, there are in total 6 EIPs contained in the Dencun hardfork. The following is an overview of EIPs now supported along a Dencun switch (called `Cancun` for the execution switch part):
 
-- EIP-1153: Transient storage opcodes (`@ethereumjs/evm`)
-- EIP-4788: Beacon block root in the EVM (`@ethereumjs/block`, `@ethereumjs/evm`, `@ethereumjs/vm`)
-- EIP-4844: Shard Blob Transactions (`@ethereumjs/tx`, `@ethereumjs/block`, `@ethereumjs/evm`)
-- EIP-5656: MCOPY - Memory copying instruction (`@ethereumjs/evm`)
-- EIP-6780: SELFDESTRUCT only in same transaction (`@ethereumjs/vm`)
-- EIP-7516: BLOBBASEFEE opcode (`@ethereumjs/block`, `@ethereumjs/evm`)
+- EIP-1153: Transient storage opcodes (`@theqrl/zondjs-evm`)
+- EIP-4788: Beacon block root in the EVM (`@theqrl/zondjs-block`, `@theqrl/zondjs-evm`, `@theqrl/zondjs-vm`)
+- EIP-4844: Shard Blob Transactions (`@theqrl/zondjs-tx`, `@theqrl/zondjs-block`, `@theqrl/zondjs-evm`)
+- EIP-5656: MCOPY - Memory copying instruction (`@theqrl/zondjs-evm`)
+- EIP-6780: SELFDESTRUCT only in same transaction (`@theqrl/zondjs-vm`)
+- EIP-7516: BLOBBASEFEE opcode (`@theqrl/zondjs-block`, `@theqrl/zondjs-evm`)
 
 Note that while HF timestamp switches for all testnets are included, a mainnet HF timestamp has not yet been set in this release.
 
@@ -399,7 +399,7 @@ Furthermore this client release can now run chain including blocks with `EIP-489
 
 ### Hardfork-By-Time Support
 
-The Client is now ready to work with hardforks triggered by timestamp, which will first be applied along the `Shanghai` HF, see PR [#2437](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2437). This is achieved by integrating a new timestamp supporting `@ethereumjs/common` library version.
+The Client is now ready to work with hardforks triggered by timestamp, which will first be applied along the `Shanghai` HF, see PR [#2437](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2437). This is achieved by integrating a new timestamp supporting `@theqrl/zondjs-common` library version.
 
 ### Other Changes and Bug Fixes
 
@@ -415,13 +415,13 @@ The Client is now ready to work with hardforks triggered by timestamp, which wil
 
 ## 0.6.5 - 2022-10-19
 
-- Fixes broken release v0.6.4 (wrong @ethereumjs/util dependency)
+- Fixes broken release v0.6.4 (wrong @theqrl/zondjs-util dependency)
 
 ## 0.6.4 - 2022-10-18
 
-[ BROKEN] (wrong @ethereumjs/util dependency)
+[ BROKEN] (wrong @theqrl/zondjs-util dependency)
 
-- Fixed reorg handling in the underlying `@ethereumjs/blockchain` library `iterator()` function, PR [#2308](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2308)
+- Fixed reorg handling in the underlying `@theqrl/zondjs-blockchain` library `iterator()` function, PR [#2308](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2308)
 - Fixed a bug leading to exclusion of subsequent transactions build on top of previous ones, PR [#2333](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2333)
 - Fixed a bug in the `eth_estimateGas` RPC call where the parameter logic was being applied to an optional parameter when the optional parameter didn't exist, PR [#2358](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2358)
 
@@ -459,8 +459,8 @@ This release updates the underlying EthereumJS libraries to the newly released B
 - More robust beacon sync (additional recovery and reorg scenarios handled), PR [#1968](https://github.com/ethereumjs/ethereumjs-monorepo/pull/1968)
 - Allow `eth_call` RPC call without providing the `to` parameter, PR [#2084](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2084)
 - Bring back client browser support from a non-working to an experimental state, PR [#2091](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2091)
-- Set `goerli` Merge TTD to 10790000 (underlying `@ethereumjs/common library), PR [#2079](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2079)
-- Update `sepolia` `mergeForkIdTransition` Merge transition HF (separate "artificial" HF construct only for networking layer) (underlying `@ethereumjs/common library), PR [#2098](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2098)
+- Set `goerli` Merge TTD to 10790000 (underlying `@theqrl/zondjs-common library), PR [#2079](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2079)
+- Update `sepolia` `mergeForkIdTransition` Merge transition HF (separate "artificial" HF construct only for networking layer) (underlying `@theqrl/zondjs-common library), PR [#2098](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2098)
 
 ## 0.6.0 - 2022-07-15
 
@@ -656,7 +656,7 @@ to our monorepo
 - Full transition to `TypeScript`, PR [#144](https://github.com/ethereumjs/ethereumjs-client/pull/144) and subsequent PRs
 - Integration with our monorepo CI config, e.g. PR [#153](https://github.com/ethereumjs/ethereumjs-client/pull/153)
 - Full alignment with the latest versions of the `EthereumJS` monorepo libraries (`Block`, `Tx`, `VM`,...), e.g. PR [#158](https://github.com/ethereumjs/ethereumjs-client/pull/158)
-- Integration of the `@ethereumjs/vm` to execute on blocks, PR [#1028](https://github.com/ethereumjs/ethereumjs-monorepo/pull/1028)
+- Integration of the `@theqrl/zondjs-vm` to execute on blocks, PR [#1028](https://github.com/ethereumjs/ethereumjs-monorepo/pull/1028)
 - EIP-1459: DNS peer recovery, PR [#1070](https://github.com/ethereumjs/ethereumjs-monorepo/pull/1070)
 - Following the VM integration: working down various HF bugs like this one from TangerineWhistle (hardening our VM along the way): PR [#1101](https://github.com/ethereumjs/ethereumjs-monorepo/pull/1101)
 - Tip-of-the-chain syncing behavior, PR [#1132](https://github.com/ethereumjs/ethereumjs-monorepo/pull/1132)

@@ -1,6 +1,6 @@
-@ethereumjs/client
+@theqrl/zondjs-client
 
-# @ethereumjs/client
+# @theqrl/zondjs-client
 
 ## Table of contents
 

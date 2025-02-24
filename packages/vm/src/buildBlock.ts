@@ -4,14 +4,14 @@ import {
   genRequestsRoot,
   genTransactionsTrieRoot,
   genWithdrawalsTrieRoot,
-} from "@ethereumjs/block";
-import { ConsensusType, Hardfork } from "@ethereumjs/common";
-import { MerklePatriciaTrie } from "@ethereumjs/mpt";
-import { RLP } from "@ethereumjs/rlp";
+} from "@theqrl/zondjs-block";
+import { ConsensusType, Hardfork } from "@theqrl/zondjs-common";
+import { MerklePatriciaTrie } from "@theqrl/zondjs-mpt";
+import { RLP } from "@theqrl/zondjs-rlp";
 import {
   Blob4844Tx,
   createMinimal4844TxFromNetworkWrapper,
-} from "@ethereumjs/tx";
+} from "@theqrl/zondjs-tx";
 import {
   Address,
   BIGINT_0,
@@ -46,8 +46,8 @@ import type {
   SealBlockOpts,
 } from "./types.js";
 import type { VM } from "./vm.js";
-import type { Block, HeaderData } from "@ethereumjs/block";
-import type { TypedTransaction } from "@ethereumjs/tx";
+import type { Block, HeaderData } from "@theqrl/zondjs-block";
+import type { TypedTransaction } from "@theqrl/zondjs-tx";
 import type { Withdrawal } from "@theqrl/zondjs-util";
 
 export enum BuildStatus {

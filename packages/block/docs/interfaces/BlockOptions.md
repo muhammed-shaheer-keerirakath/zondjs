@@ -1,4 +1,4 @@
-[@ethereumjs/block](../README.md) / BlockOptions
+[@theqrl/zondjs-block](../README.md) / BlockOptions
 
 # Interface: BlockOptions
 

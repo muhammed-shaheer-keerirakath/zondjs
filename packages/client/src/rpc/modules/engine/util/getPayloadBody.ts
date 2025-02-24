@@ -1,7 +1,7 @@
 import { bytesToHex } from "@theqrl/zondjs-util";
 
 import type { ExecutionPayloadBodyV1 } from "../types.js";
-import type { Block } from "@ethereumjs/block";
+import type { Block } from "@theqrl/zondjs-block";
 
 export const getPayloadBody = (block: Block): ExecutionPayloadBodyV1 => {
   const transactions = block.transactions.map((tx) =>

@@ -38,7 +38,7 @@ echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
 echo "Debugging output - yarn list ethereumjs deps"
 echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
 
-yarn list --pattern "@ethereumjs/block|@ethereumjs/blockchain|@ethereumjs/common|@ethereumjs/tx|@ethereumjs/vm|ethereumjs-util|merkle-patricia-tree"
+yarn list --pattern "@theqrl/zondjs-block|@theqrl/zondjs-blockchain|@theqrl/zondjs-common|@theqrl/zondjs-tx|@theqrl/zondjs-vm|ethereumjs-util|merkle-patricia-tree"
 
 echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
 echo "Debugging output - root package.json        "

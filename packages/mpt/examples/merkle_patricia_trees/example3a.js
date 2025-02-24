@@ -1,6 +1,6 @@
 // Example 3a - Generating a hash
 
-const rlp = require("@ethereumjs/rlp");
+const rlp = require("@theqrl/zondjs-rlp");
 const { bytesToHex, utf8ToBytes } = require("@theqrl/zondjs-util");
 const { keccak256 } = require("ethereum-cryptography/keccak");
 

@@ -1,4 +1,4 @@
-[@ethereumjs/blockchain](../README.md) / Consensus
+[@theqrl/zondjs-blockchain](../README.md) / Consensus
 
 # Interface: Consensus
 

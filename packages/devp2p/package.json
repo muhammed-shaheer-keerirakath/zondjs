@@ -1,5 +1,5 @@
 {
-  "name": "@ethereumjs/devp2p",
+  "name": "@theqrl/zondjs-devp2p",
   "version": "7.0.0-alpha.1",
   "description": "A JavaScript implementation of ÐΞVp2p",
   "keywords": [
@@ -60,8 +60,8 @@
     "tsc": "../../config/cli/ts-compile.sh"
   },
   "dependencies": {
-    "@ethereumjs/common": "^5.0.0-alpha.1",
-    "@ethereumjs/rlp": "^6.0.0-alpha.1",
+    "@theqrl/zondjs-common": "^5.0.0-alpha.1",
+    "@theqrl/zondjs-rlp": "^6.0.0-alpha.1",
     "@theqrl/zondjs-util": "^10.0.0-alpha.1",
     "@scure/base": "^1.1.7",
     "debug": "^4.3.3",
@@ -72,8 +72,8 @@
     "snappyjs": "^0.6.1"
   },
   "devDependencies": {
-    "@ethereumjs/block": "^6.0.0-alpha.1",
-    "@ethereumjs/tx": "^6.0.0-alpha.1",
+    "@theqrl/zondjs-block": "^6.0.0-alpha.1",
+    "@theqrl/zondjs-tx": "^6.0.0-alpha.1",
     "@types/debug": "^4.1.9",
     "@types/k-bucket": "^5.0.0",
     "@types/node": "^22.7.6",

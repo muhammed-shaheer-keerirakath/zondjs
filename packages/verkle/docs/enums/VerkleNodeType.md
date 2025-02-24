@@ -1,4 +1,4 @@
-[@ethereumjs/verkle](../README.md) / VerkleNodeType
+[@theqrl/zondjs-verkle](../README.md) / VerkleNodeType
 
 # Enumeration: VerkleNodeType
 

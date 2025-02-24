@@ -1,9 +1,9 @@
-import { Hardfork, createCommonFromGethGenesis } from "@ethereumjs/common";
+import { Hardfork, createCommonFromGethGenesis } from "@theqrl/zondjs-common";
 import {
   createBlob4844Tx,
   createFeeMarket1559Tx,
   createLegacyTx,
-} from "@ethereumjs/tx";
+} from "@theqrl/zondjs-tx";
 import {
   bigIntToHex,
   blobsToCommitments,

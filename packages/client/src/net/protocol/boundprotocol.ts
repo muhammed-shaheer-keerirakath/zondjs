@@ -12,9 +12,9 @@ import type {
   SnapProtocolMethods,
   StorageData,
 } from "./snapprotocol.js";
-import type { BlockBodyBytes, BlockHeader } from "@ethereumjs/block";
-import type { TypedTransaction } from "@ethereumjs/tx";
-import type { TxReceipt } from "@ethereumjs/vm";
+import type { BlockBodyBytes, BlockHeader } from "@theqrl/zondjs-block";
+import type { TypedTransaction } from "@theqrl/zondjs-tx";
+import type { TxReceipt } from "@theqrl/zondjs-vm";
 
 export interface BoundProtocolOptions {
   /* Config */

@@ -1,4 +1,4 @@
-# @ethereumjs/util
+# @theqrl/zondjs-util
 
 [![NPM Package][util-npm-badge]][util-npm-link]
 [![GitHub Issues][util-issues-badge]][util-issues-link]
@@ -14,7 +14,7 @@
 To obtain the latest version, simply require the project using `npm`:
 
 ```shell
-npm install @ethereumjs/util
+npm install @theqrl/zondjs-util
 ```
 
 ## Usage
@@ -24,7 +24,7 @@ This package contains the following modules providing respective helper methods,
 All helpers are re-exported from the root level and deep imports are not necessary. So an import can be done like this:
 
 ```ts
-import { hexToBytes, isValidChecksumAddress } from '@ethereumjs/util'
+import { hexToBytes, isValidChecksumAddress } from "@theqrl/zondjs-util";
 ```
 
 ### Module: [account](src/account.ts)
@@ -34,15 +34,19 @@ Class representing an `Account` and providing private/public key and address-rel
 ```ts
 // ./examples/account.ts
 
-import { createAccount } from '@ethereumjs/util'
+import { createAccount } from "@theqrl/zondjs-util";
 
 const account = createAccount({
-  nonce: '0x02',
-  balance: '0x0384',
-  storageRoot: '0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421',
-  codeHash: '0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470',
-})
-console.log(`Account with nonce=${account.nonce} and balance=${account.balance} created`)
+  nonce: "0x02",
+  balance: "0x0384",
+  storageRoot:
+    "0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421",
+  codeHash:
+    "0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470",
+});
+console.log(
+  `Account with nonce=${account.nonce} and balance=${account.balance} created`,
+);
 ```
 
 For Verkle or other contexts it can be useful to create partial accounts not containing all the account parameters. This is supported starting with v9.1.0:
@@ -50,13 +54,15 @@ For Verkle or other contexts it can be useful to create partial accounts not con
 ```ts
 // ./examples/accountPartial.ts
 
-import { createPartialAccount } from '@ethereumjs/util'
+import { createPartialAccount } from "@theqrl/zondjs-util";
 
 const account = createPartialAccount({
-  nonce: '0x02',
-  balance: '0x0384',
-})
-console.log(`Partial account with nonce=${account.nonce} and balance=${account.balance} created`)
+  nonce: "0x02",
+  balance: "0x0384",
+});
+console.log(
+  `Partial account with nonce=${account.nonce} and balance=${account.balance} created`,
+);
 ```
 
 ### Module: [address](src/address.ts)
@@ -66,10 +72,12 @@ Class representing an Ethereum `Address` with instantiation helpers and validati
 ```ts
 // ./examples/address.ts
 
-import { createAddressFromString } from '@ethereumjs/util'
+import { createAddressFromString } from "@theqrl/zondjs-util";
 
-const address = createAddressFromString('0x2f015c60e0be116b1f0cd534704db9c92118fb6a')
-console.log(`Ethereum address ${address.toString()} created`)
+const address = createAddressFromString(
+  "0x2f015c60e0be116b1f0cd534704db9c92118fb6a",
+);
+console.log(`Ethereum address ${address.toString()} created`);
 ```
 
 ### Module: [blobs](src/blobs.ts)
@@ -79,18 +87,22 @@ Module providing helpers for 4844 blobs and versioned hashes.
 ```ts
 // ./examples/blobs.ts
 
-import { bytesToHex, computeVersionedHash, getBlobs } from '@ethereumjs/util'
+import {
+  bytesToHex,
+  computeVersionedHash,
+  getBlobs,
+} from "@theqrl/zondjs-util";
 
-const blobs = getBlobs('test input')
+const blobs = getBlobs("test input");
 
-console.log('Created the following blobs:')
-console.log(blobs)
+console.log("Created the following blobs:");
+console.log(blobs);
 
-const commitment = bytesToHex(new Uint8Array([1, 2, 3]))
-const blobCommitmentVersion = 0x01
-const versionedHash = computeVersionedHash(commitment, blobCommitmentVersion)
+const commitment = bytesToHex(new Uint8Array([1, 2, 3]));
+const blobCommitmentVersion = 0x01;
+const versionedHash = computeVersionedHash(commitment, blobCommitmentVersion);
 
-console.log(`Versioned hash ${versionedHash} computed`)
+console.log(`Versioned hash ${versionedHash} computed`);
 ```
 
 ### Module: [bytes](src/bytes.ts)
@@ -100,12 +112,12 @@ Byte-related helper and conversion functions.
 ```ts
 // ./examples/bytes.ts
 
-import { bytesToBigInt } from '@ethereumjs/util'
+import { bytesToBigInt } from "@theqrl/zondjs-util";
 
-const bytesValue = new Uint8Array([97])
-const bigIntValue = bytesToBigInt(bytesValue)
+const bytesValue = new Uint8Array([97]);
+const bigIntValue = bytesToBigInt(bytesValue);
 
-console.log(`Converted value: ${bigIntValue}`)
+console.log(`Converted value: ${bigIntValue}`);
 ```
 
 ### Module: [constants](src/constants.ts)
@@ -115,15 +127,17 @@ Exposed constants (e.g. `KECCAK256_NULL_S` for string representation of Keccak-2
 ```ts
 // ./examples/constants.ts
 
-import { BIGINT_2EXP96, KECCAK256_NULL_S } from '@ethereumjs/util'
+import { BIGINT_2EXP96, KECCAK256_NULL_S } from "@theqrl/zondjs-util";
 
-console.log(`The keccak-256 hash of null: ${KECCAK256_NULL_S}`)
-console.log(`BigInt constants (performance), e.g. BIGINT_2EXP96: ${BIGINT_2EXP96}`)
+console.log(`The keccak-256 hash of null: ${KECCAK256_NULL_S}`);
+console.log(
+  `BigInt constants (performance), e.g. BIGINT_2EXP96: ${BIGINT_2EXP96}`,
+);
 ```
 
 ### Module: [db](src/db.ts)
 
-DB interface for database abstraction (Blockchain, Trie), see e.g. [@ethereumjs/trie recipes](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/trie/recipes/level.ts)) for usage.
+DB interface for database abstraction (Blockchain, Trie), see e.g. [@theqrl/zondjs-trie recipes](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/trie/recipes/level.ts)) for usage.
 
 ### Module: [genesis](src/genesis.ts)
 
@@ -135,7 +149,7 @@ Internalized simple helper methods like `isHexString`. Note that methods from th
 
 ### Module: [kzg](src/kzg.ts)
 
-KZG interface (used for 4844 blob txs), see [@ethereumjs/tx](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/tx/README.md#kzg-setup) README for main usage instructions.
+KZG interface (used for 4844 blob txs), see [@theqrl/zondjs-tx](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/tx/README.md#kzg-setup) README for main usage instructions.
 
 ### Module: [mapDB](src/mapDB.ts)
 
@@ -149,7 +163,7 @@ Module with various type and an abstract base class for [EIP-7685](https://eips.
 - [EIP-7002](https://eips.ethereum.org/EIPS/eip-7002): `WithdrawalRequest` (Prague Hardfork)
 - [EIP-7251](https://eips.ethereum.org/EIPS/eip-7251): `ConsolidationRequest` (Prague Hardfork)
 
-These request types are mainly used within the [@ethereumjs/block](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/block) library where applied usage instructions are provided in the README.
+These request types are mainly used within the [@theqrl/zondjs-block](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/block) library where applied usage instructions are provided in the README.
 
 ### Module: [signature](src/signature.ts)
 
@@ -158,18 +172,26 @@ Functionality for signing, signature validation, conversion, recovery.
 ```ts
 // ./examples/signature.ts
 
-import { bytesToHex, ecrecover, hexToBytes } from '@ethereumjs/util'
+import { bytesToHex, ecrecover, hexToBytes } from "@theqrl/zondjs-util";
 
-const chainId = BigInt(3) // Ropsten
+const chainId = BigInt(3); // Ropsten
 
-const ecHash = hexToBytes('0x82ff40c0a986c6a5cfad4ddf4c3aa6996f1a7837f9c398e17e5de5cbd5a12b28')
-const r = hexToBytes('0x99e71a99cb2270b8cac5254f9e99b6210c6c10224a1579cf389ef88b20a1abe9')
-const s = hexToBytes('0x129ff05af364204442bdb53ab6f18a99ab48acc9326fa689f228040429e3ca66')
-const v = BigInt(41)
+const ecHash = hexToBytes(
+  "0x82ff40c0a986c6a5cfad4ddf4c3aa6996f1a7837f9c398e17e5de5cbd5a12b28",
+);
+const r = hexToBytes(
+  "0x99e71a99cb2270b8cac5254f9e99b6210c6c10224a1579cf389ef88b20a1abe9",
+);
+const s = hexToBytes(
+  "0x129ff05af364204442bdb53ab6f18a99ab48acc9326fa689f228040429e3ca66",
+);
+const v = BigInt(41);
 
-const pubkey = ecrecover(ecHash, v, r, s, chainId)
+const pubkey = ecrecover(ecHash, v, r, s, chainId);
 
-console.log(`Recovered public key ${bytesToHex(pubkey)} from valid signature values`)
+console.log(
+  `Recovered public key ${bytesToHex(pubkey)} from valid signature values`,
+);
 ```
 
 ### Module: [types](src/types.ts)
@@ -189,27 +211,29 @@ import {
   decodeVerkleLeafBasicData,
   getVerkleKey,
   hexToBytes,
-} from '@ethereumjs/util'
+} from "@theqrl/zondjs-util";
 
 const state = {
-  '0xdf67dea9181141d6255ac05c7ada5a590fb30a375023f16c31223f067319e300':
-    '0x0100000001000000000000000000000001000000000000000000000000000000',
-  '0xdf67dea9181141d6255ac05c7ada5a590fb30a375023f16c31223f067319e301':
-    '0x923672e5275a0104000000000000000000000000000000000000000000000000',
-  '0xdf67dea9181141d6255ac05c7ada5a590fb30a375023f16c31223f067319e302':
-    '0x2c01000000000000000000000000000000000000000000000000000000000000',
-  '0xdf67dea9181141d6255ac05c7ada5a590fb30a375023f16c31223f067319e303':
-    '0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470',
-  '0xdf67dea9181141d6255ac05c7ada5a590fb30a375023f16c31223f067319e304': null,
-}
+  "0xdf67dea9181141d6255ac05c7ada5a590fb30a375023f16c31223f067319e300":
+    "0x0100000001000000000000000000000001000000000000000000000000000000",
+  "0xdf67dea9181141d6255ac05c7ada5a590fb30a375023f16c31223f067319e301":
+    "0x923672e5275a0104000000000000000000000000000000000000000000000000",
+  "0xdf67dea9181141d6255ac05c7ada5a590fb30a375023f16c31223f067319e302":
+    "0x2c01000000000000000000000000000000000000000000000000000000000000",
+  "0xdf67dea9181141d6255ac05c7ada5a590fb30a375023f16c31223f067319e303":
+    "0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470",
+  "0xdf67dea9181141d6255ac05c7ada5a590fb30a375023f16c31223f067319e304": null,
+};
 
-const stem = hexToBytes('0xdf67dea9181141d6255ac05c7ada5a590fb30a375023f16c31223f067319e3')
+const stem = hexToBytes(
+  "0xdf67dea9181141d6255ac05c7ada5a590fb30a375023f16c31223f067319e3",
+);
 
-const basicDataKey = getVerkleKey(stem, VerkleLeafType.BasicData)
-const basicDataRaw = state[bytesToHex(basicDataKey)]
-const basicData = decodeVerkleLeafBasicData(hexToBytes(basicDataRaw!))
+const basicDataKey = getVerkleKey(stem, VerkleLeafType.BasicData);
+const basicDataRaw = state[bytesToHex(basicDataKey)];
+const basicData = decodeVerkleLeafBasicData(hexToBytes(basicDataRaw!));
 
-console.log(basicData) // { version: 1, nonce: 1n, codeSize: 0, balance: 1n }
+console.log(basicData); // { version: 1, nonce: 1n, codeSize: 0, balance: 1n }
 ```
 
 ### Module: [withdrawal](src/withdrawal.ts)
@@ -219,17 +243,17 @@ Class representing an `EIP-4895` `Withdrawal` with different constructors as wel
 ```ts
 // ./examples/withdrawal.ts
 
-import { createWithdrawal } from '@ethereumjs/util'
+import { createWithdrawal } from "@theqrl/zondjs-util";
 
 const withdrawal = createWithdrawal({
   index: 0n,
   validatorIndex: 65535n,
-  address: '0x0000000000000000000000000000000000000000',
+  address: "0x0000000000000000000000000000000000000000",
   amount: 0n,
-})
+});
 
-console.log('Withdrawal object created:')
-console.log(withdrawal.toJSON())
+console.log("Withdrawal object created:");
+console.log(withdrawal.toJSON());
 ```
 
 ## Browser
@@ -248,7 +272,7 @@ Read the [API docs](docs/).
 
 Depending on the extend of `Buffer` usage within your own libraries and other planning considerations, there are the two upgrade options to do the switch to `Uint8Array` yourself or keep `Buffer` and do transitions for input and output values.
 
-We have updated the `@ethereumjs/util` `bytes` module with helpers for the most common conversions:
+We have updated the `@theqrl/zondjs-util` `bytes` module with helpers for the most common conversions:
 
 ```ts
 Buffer.alloc(97) // Allocate a Buffer with length 97
@@ -277,7 +301,7 @@ toBytes(v: ToBytesInputTypes) // Converts various byte compatible types to Uint8
 Helper methods can be imported like this:
 
 ```ts
-import { hexToBytes } from '@ethereumjs/util'
+import { hexToBytes } from "@theqrl/zondjs-util";
 ```
 
 ### Hybrid CJS/ESM Builds
@@ -287,13 +311,13 @@ With the breaking releases from Summer 2023 we have started to ship our librarie
 If you use an ES6-style `import` in your code files from the ESM build will be used:
 
 ```ts
-import { EthereumJSClass } from '@ethereumjs/[PACKAGE_NAME]'
+import { EthereumJSClass } from "@theqrl/zondjs-[PACKAGE_NAME]";
 ```
 
 If you use Node.js specific `require`, the CJS build will be used:
 
 ```ts
-const { EthereumJSClass } = require('@ethereumjs/[PACKAGE_NAME]')
+const { EthereumJSClass } = require("@theqrl/zondjs-[PACKAGE_NAME]");
 ```
 
 Using ESM will give you additional advantages over CJS beyond browser usage like static code analysis / Tree Shaking which CJS can not provide.
@@ -302,7 +326,7 @@ Using ESM will give you additional advantages over CJS beyond browser usage like
 
 With the breaking releases from Summer 2023 we have removed all Node.js specific `Buffer` usages from our libraries and replace these with [Uint8Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array) representations, which are available both in Node.js and the browser (`Buffer` is a subclass of `Uint8Array`).
 
-We have converted existing Buffer conversion methods to Uint8Array conversion methods in the [@ethereumjs/util](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/util) `bytes` module, see the respective README section for guidance.
+We have converted existing Buffer conversion methods to Uint8Array conversion methods in the [@theqrl/zondjs-util](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/util) `bytes` module, see the respective README section for guidance.
 
 ### BigInt Support
 
@@ -329,7 +353,7 @@ The following methods are available by an internalized version of the [ethjs-uti
 They can be imported by name:
 
 ```ts
-import { stripHexPrefix } from '@ethereumjs/util'
+import { stripHexPrefix } from "@theqrl/zondjs-util";
 ```
 
 ## EthereumJS
@@ -340,8 +364,8 @@ See our organizational [documentation](https://ethereumjs.readthedocs.io) for an
 
 [MPL-2.0](<https://tldrlegal.com/license/mozilla-public-license-2.0-(mpl-2)>)
 
-[util-npm-badge]: https://img.shields.io/npm/v/@ethereumjs/util.svg
-[util-npm-link]: https://www.npmjs.org/package/@ethereumjs/util
+[util-npm-badge]: https://img.shields.io/npm/v/@theqrl/zondjs-util.svg
+[util-npm-link]: https://www.npmjs.org/package/@theqrl/zondjs-util
 [util-issues-badge]: https://img.shields.io/github/issues/ethereumjs/ethereumjs-monorepo/package:%20util?label=issues
 [util-issues-link]: https://github.com/ethereumjs/ethereumjs-monorepo/issues?q=is%3Aopen+is%3Aissue+label%3A"package%3A+util"
 [util-actions-badge]: https://github.com/ethereumjs/ethereumjs-monorepo/workflows/Util/badge.svg

@@ -1,8 +1,8 @@
-import { ChainGenesis } from "@ethereumjs/common";
-import { genesisMPTStateRoot } from "@ethereumjs/mpt";
+import { ChainGenesis } from "@theqrl/zondjs-common";
+import { genesisMPTStateRoot } from "@theqrl/zondjs-mpt";
 import { type GenesisState } from "@theqrl/zondjs-util";
 
-import type { Chain, Common } from "@ethereumjs/common";
+import type { Chain, Common } from "@theqrl/zondjs-common";
 
 /**
  * Safe creation of a new Blockchain object awaiting the initialization function,

@@ -3,19 +3,19 @@ import {
   createBlockFromBytesArray,
   createBlockFromRLP,
   createSealedCliqueBlock,
-} from "@ethereumjs/block";
-import { createBlockchain } from "@ethereumjs/blockchain";
+} from "@theqrl/zondjs-block";
+import { createBlockchain } from "@theqrl/zondjs-blockchain";
 import {
   Common,
   Hardfork,
   Mainnet,
   createCustomCommon,
-} from "@ethereumjs/common";
-import { RLP } from "@ethereumjs/rlp";
+} from "@theqrl/zondjs-common";
+import { RLP } from "@theqrl/zondjs-rlp";
 import {
   type MerkleStateManager,
   StatefulVerkleStateManager,
-} from "@ethereumjs/statemanager";
+} from "@theqrl/zondjs-statemanager";
 import {
   Capability,
   LegacyTx,
@@ -23,7 +23,7 @@ import {
   createEOACode7702Tx,
   createFeeMarket1559Tx,
   createLegacyTx,
-} from "@ethereumjs/tx";
+} from "@theqrl/zondjs-tx";
 import {
   Account,
   Address,
@@ -60,11 +60,11 @@ import type {
   PreByzantiumTxReceipt,
   RunBlockOpts,
 } from "../../src/types.js";
-import type { Block, BlockBytes } from "@ethereumjs/block";
+import type { Block, BlockBytes } from "@theqrl/zondjs-block";
 import type {
   AuthorizationListBytesItem,
   TypedTransaction,
-} from "@ethereumjs/tx";
+} from "@theqrl/zondjs-tx";
 import type {
   NestedUint8Array,
   PrefixedHexString,

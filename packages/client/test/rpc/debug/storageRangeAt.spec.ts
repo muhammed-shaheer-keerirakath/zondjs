@@ -1,4 +1,4 @@
-import { createTx } from "@ethereumjs/tx";
+import { createTx } from "@theqrl/zondjs-tx";
 import {
   Units,
   bigIntToHex,
@@ -7,7 +7,7 @@ import {
   hexToBytes,
   setLengthLeft,
 } from "@theqrl/zondjs-util";
-import { buildBlock } from "@ethereumjs/vm";
+import { buildBlock } from "@theqrl/zondjs-vm";
 import { keccak256 } from "ethereum-cryptography/keccak.js";
 import { assert, beforeEach, describe, it } from "vitest";
 
@@ -15,8 +15,8 @@ import { INTERNAL_ERROR, INVALID_PARAMS } from "../../../src/rpc/error-code.js";
 import { debugData } from "../../testdata/geth-genesis/debug.js";
 import { dummy, getRPCClient, setupChain } from "../helpers.js";
 
-import type { Block } from "@ethereumjs/block";
-import type { StorageRange } from "@ethereumjs/common";
+import type { Block } from "@theqrl/zondjs-block";
+import type { StorageRange } from "@theqrl/zondjs-common";
 import type { Address } from "@theqrl/zondjs-util";
 import type { HttpClient } from "jayson/promise";
 

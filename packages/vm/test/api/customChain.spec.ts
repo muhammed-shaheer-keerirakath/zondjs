@@ -1,7 +1,7 @@
-import { createBlock } from "@ethereumjs/block";
-import { createBlockchain } from "@ethereumjs/blockchain";
-import { Hardfork, Mainnet, createCustomCommon } from "@ethereumjs/common";
-import { createTx } from "@ethereumjs/tx";
+import { createBlock } from "@theqrl/zondjs-block";
+import { createBlockchain } from "@theqrl/zondjs-blockchain";
+import { Hardfork, Mainnet, createCustomCommon } from "@theqrl/zondjs-common";
+import { createTx } from "@theqrl/zondjs-tx";
 import {
   bytesToHex,
   createAddressFromPrivateKey,

@@ -1,4 +1,4 @@
-import { Common, Hardfork, Mainnet, Sepolia } from "@ethereumjs/common";
+import { Common, Hardfork, Mainnet, Sepolia } from "@theqrl/zondjs-common";
 import { hexToBytes, intToBytes } from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 

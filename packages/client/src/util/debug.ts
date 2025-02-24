@@ -3,7 +3,7 @@ import { bytesToHex } from "@theqrl/zondjs-util";
 import { DataDirectory } from "../index.js";
 
 import type { VMExecution } from "../execution/index.js";
-import type { Block } from "@ethereumjs/block";
+import type { Block } from "@theqrl/zondjs-block";
 
 /**
  * Generates a code snippet which can be used to replay an erroneous block
@@ -29,12 +29,12 @@ export async function debugCodeReplayBlock(
  */
 
 import { Level } from 'level';
-import { Common } from '@ethereumjs/common'
-import { Block } from '@ethereumjs/block'
+import { Common } from '@theqrl/zondjs-common'
+import { Block } from '@theqrl/zondjs-block'
 import { VM, runBlock, createVM }  from './src'
-import { MerklePatriciaTrie } from '@ethereumjs/mpt'
+import { MerklePatriciaTrie } from '@theqrl/zondjs-mpt'
 import { MerkleStateManager } from './src/state'
-import { Blockchain } from '@ethereumjs/blockchain'
+import { Blockchain } from '@theqrl/zondjs-blockchain'
 
 const main = async () => {
   const common = new Common({ chain: '${execution.config.execCommon.chainName()}', hardfork: '${

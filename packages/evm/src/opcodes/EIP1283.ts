@@ -1,7 +1,7 @@
 import { equalsBytes } from "@theqrl/zondjs-util";
 
 import type { RunState } from "../interpreter.js";
-import type { Common } from "@ethereumjs/common";
+import type { Common } from "@theqrl/zondjs-common";
 
 /**
  * Adjusts gas usage and refunds of SStore ops per EIP-1283 (Constantinople)

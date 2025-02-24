@@ -1,3 +1,3 @@
-[@ethereumjs/verkle](../README.md) / PrioritizedTaskExecutor
+[@theqrl/zondjs-verkle](../README.md) / PrioritizedTaskExecutor
 
 # Class: PrioritizedTaskExecutor

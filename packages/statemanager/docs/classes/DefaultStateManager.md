@@ -1,4 +1,4 @@
-[@ethereumjs/statemanager](../README.md) / DefaultStateManager
+[@theqrl/zondjs-statemanager](../README.md) / DefaultStateManager
 
 # Class: DefaultStateManager
 
@@ -9,7 +9,7 @@ by providing higher level access to accounts, contract code
 and storage slots.
 
 The default state manager implementation uses a
-`@ethereumjs/trie` trie as a data backend.
+`@theqrl/zondjs-trie` trie as a data backend.
 
 ## Implements
 
@@ -65,8 +65,8 @@ Instantiate the StateManager interface.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name   | Type                                                                  |
+| :----- | :-------------------------------------------------------------------- |
 | `opts` | [`DefaultStateManagerOpts`](../interfaces/DefaultStateManagerOpts.md) |
 
 #### Defined in
@@ -83,7 +83,7 @@ Instantiate the StateManager interface.
 
 [stateManager.ts:173](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/stateManager.ts#L173)
 
-___
+---
 
 ### originalStorageCache
 
@@ -107,10 +107,10 @@ Add proof(s) into an already existing trie
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `proof` | [`Proof`](../README.md#proof) \| [`Proof`](../README.md#proof)[] | `undefined` | The proof(s) retrieved from `getProof` |
-| `safe` | `boolean` | `false` | - |
+| Name    | Type                                                             | Default value | Description                            |
+| :------ | :--------------------------------------------------------------- | :------------ | :------------------------------------- |
+| `proof` | [`Proof`](../README.md#proof) \| [`Proof`](../README.md#proof)[] | `undefined`   | The proof(s) retrieved from `getProof` |
+| `safe`  | `boolean`                                                        | `false`       | -                                      |
 
 #### Returns
 
@@ -120,7 +120,7 @@ Add proof(s) into an already existing trie
 
 [stateManager.ts:819](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/stateManager.ts#L819)
 
-___
+---
 
 ### checkpoint
 
@@ -142,7 +142,7 @@ EVMStateManagerInterface.checkpoint
 
 [stateManager.ts:593](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/stateManager.ts#L593)
 
-___
+---
 
 ### clearCaches
 
@@ -158,7 +158,7 @@ Clears all underlying caches
 
 [stateManager.ts:1148](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/stateManager.ts#L1148)
 
-___
+---
 
 ### clearContractStorage
 
@@ -168,8 +168,8 @@ Clears all storage entries for the account corresponding to `address`.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name      | Type      | Description                     |
+| :-------- | :-------- | :------------------------------ |
 | `address` | `Address` | Address to clear the storage of |
 
 #### Returns
@@ -184,7 +184,7 @@ EVMStateManagerInterface.clearContractStorage
 
 [stateManager.ts:576](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/stateManager.ts#L576)
 
-___
+---
 
 ### commit
 
@@ -205,7 +205,7 @@ EVMStateManagerInterface.commit
 
 [stateManager.ts:605](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/stateManager.ts#L605)
 
-___
+---
 
 ### deleteAccount
 
@@ -215,8 +215,8 @@ Deletes an account from state under the provided `address`.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name      | Type      | Description                                    |
+| :-------- | :-------- | :--------------------------------------------- |
 | `address` | `Address` | Address of the account which should be deleted |
 
 #### Returns
@@ -231,7 +231,7 @@ EVMStateManagerInterface.deleteAccount
 
 [stateManager.ts:333](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/stateManager.ts#L333)
 
-___
+---
 
 ### dumpStorage
 
@@ -241,8 +241,8 @@ Dumps the RLP-encoded storage values for an `account` specified by `address`.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name      | Type      | Description                                        |
+| :-------- | :-------- | :------------------------------------------------- |
 | `address` | `Address` | The address of the `account` to return storage for |
 
 #### Returns
@@ -250,8 +250,8 @@ Dumps the RLP-encoded storage values for an `account` specified by `address`.
 `Promise`<`StorageDump`\>
 
 - The state of the account as an `Object` map.
-Keys are are the storage keys, values are the storage values as strings.
-Both are represented as hex strings without the `0x` prefix.
+  Keys are are the storage keys, values are the storage values as strings.
+  Both are represented as hex strings without the `0x` prefix.
 
 #### Implementation of
 
@@ -261,7 +261,7 @@ EVMStateManagerInterface.dumpStorage
 
 [stateManager.ts:962](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/stateManager.ts#L962)
 
-___
+---
 
 ### dumpStorageRange
 
@@ -272,18 +272,18 @@ starting from `startKey` or greater.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `address` | `Address` | The address of the `account` to return storage for. |
-| `startKey` | `bigint` | The bigint representation of the smallest storage key that will be returned. |
-| `limit` | `number` | The maximum number of storage values that will be returned. |
+| Name       | Type      | Description                                                                  |
+| :--------- | :-------- | :--------------------------------------------------------------------------- |
+| `address`  | `Address` | The address of the `account` to return storage for.                          |
+| `startKey` | `bigint`  | The bigint representation of the smallest storage key that will be returned. |
+| `limit`    | `number`  | The maximum number of storage values that will be returned.                  |
 
 #### Returns
 
 `Promise`<`StorageRange`\>
 
 - A StorageRange object that will contain at most `limit` entries in its `storage` field.
-The object will also contain `nextKey`, the next (hashed) storage key after the range included in `storage`.
+  The object will also contain `nextKey`, the next (hashed) storage key after the range included in `storage`.
 
 #### Implementation of
 
@@ -293,7 +293,7 @@ EVMStateManagerInterface.dumpStorageRange
 
 [stateManager.ts:995](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/stateManager.ts#L995)
 
-___
+---
 
 ### flush
 
@@ -309,7 +309,7 @@ Writes all cache items to the trie
 
 [stateManager.ts:647](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/stateManager.ts#L647)
 
-___
+---
 
 ### generateCanonicalGenesis
 
@@ -320,8 +320,8 @@ Will error if there are uncommitted checkpoints on the instance.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name        | Type  | Description                                    |
+| :---------- | :---- | :--------------------------------------------- |
 | `initState` | `any` | address -> balance \| [balance, code, storage] |
 
 #### Returns
@@ -336,7 +336,7 @@ EVMStateManagerInterface.generateCanonicalGenesis
 
 [stateManager.ts:1051](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/stateManager.ts#L1051)
 
-___
+---
 
 ### getAccount
 
@@ -346,8 +346,8 @@ Gets the account associated with `address` or `undefined` if account does not ex
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name      | Type      | Description                     |
+| :-------- | :-------- | :------------------------------ |
 | `address` | `Address` | Address of the `account` to get |
 
 #### Returns
@@ -362,7 +362,7 @@ EVMStateManagerInterface.getAccount
 
 [stateManager.ts:260](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/stateManager.ts#L260)
 
-___
+---
 
 ### getAppliedKey
 
@@ -373,8 +373,8 @@ Used for saving preimages
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name      | Type         | Description                           |
+| :-------- | :----------- | :------------------------------------ |
 | `address` | `Uint8Array` | The address to return the applied key |
 
 #### Returns
@@ -391,7 +391,7 @@ EVMStateManagerInterface.getAppliedKey
 
 [stateManager.ts:1160](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/stateManager.ts#L1160)
 
-___
+---
 
 ### getContractCode
 
@@ -401,16 +401,16 @@ Gets the code corresponding to the provided `address`.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name      | Type      | Description                   |
+| :-------- | :-------- | :---------------------------- |
 | `address` | `Address` | Address to get the `code` for |
 
 #### Returns
 
 `Promise`<`Uint8Array`\>
 
--  Resolves with the code corresponding to the provided address.
-Returns an empty `Uint8Array` if the account has no associated code.
+- Resolves with the code corresponding to the provided address.
+  Returns an empty `Uint8Array` if the account has no associated code.
 
 #### Implementation of
 
@@ -420,7 +420,7 @@ EVMStateManagerInterface.getContractCode
 
 [stateManager.ts:379](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/stateManager.ts#L379)
 
-___
+---
 
 ### getContractStorage
 
@@ -431,18 +431,18 @@ the shortest representation of the stored value.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `address` | `Address` | Address of the account to get the storage for |
-| `key` | `Uint8Array` | Key in the account's storage to get the value for. Must be 32 bytes long. |
+| Name      | Type         | Description                                                               |
+| :-------- | :----------- | :------------------------------------------------------------------------ |
+| `address` | `Address`    | Address of the account to get the storage for                             |
+| `key`     | `Uint8Array` | Key in the account's storage to get the value for. Must be 32 bytes long. |
 
 #### Returns
 
 `Promise`<`Uint8Array`\>
 
 - The storage value for the account
-corresponding to the provided address at the provided key.
-If this does not exist an empty `Uint8Array` is returned.
+  corresponding to the provided address at the provided key.
+  If this does not exist an empty `Uint8Array` is returned.
 
 #### Implementation of
 
@@ -452,7 +452,7 @@ EVMStateManagerInterface.getContractStorage
 
 [stateManager.ts:462](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/stateManager.ts#L462)
 
-___
+---
 
 ### getProof
 
@@ -462,10 +462,10 @@ Get an EIP-1186 proof
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `address` | `Address` | `undefined` | address to get proof of |
-| `storageSlots` | `Uint8Array`[] | `[]` | storage slots to get proof of |
+| Name           | Type           | Default value | Description                   |
+| :------------- | :------------- | :------------ | :---------------------------- |
+| `address`      | `Address`      | `undefined`   | address to get proof of       |
+| `storageSlots` | `Uint8Array`[] | `[]`          | storage slots to get proof of |
 
 #### Returns
 
@@ -479,7 +479,7 @@ EVMStateManagerInterface.getProof
 
 [stateManager.ts:707](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/stateManager.ts#L707)
 
-___
+---
 
 ### getStateRoot
 
@@ -503,7 +503,7 @@ EVMStateManagerInterface.getStateRoot
 
 [stateManager.ts:920](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/stateManager.ts#L920)
 
-___
+---
 
 ### hasStateRoot
 
@@ -513,8 +513,8 @@ Checks whether there is a state corresponding to a stateRoot
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name   | Type         |
+| :----- | :----------- |
 | `root` | `Uint8Array` |
 
 #### Returns
@@ -529,7 +529,7 @@ EVMStateManagerInterface.hasStateRoot
 
 [stateManager.ts:1087](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/stateManager.ts#L1087)
 
-___
+---
 
 ### modifyAccountFields
 
@@ -541,10 +541,10 @@ fields, then saves the account into state. Account fields can include
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `address` | `Address` | Address of the account to modify |
-| `accountFields` | `Partial`<`Pick`<`Account`, ``"nonce"`` \| ``"balance"`` \| ``"storageRoot"`` \| ``"codeHash"``\>\> | Object containing account fields and values to modify |
+| Name            | Type                                                                                        | Description                                           |
+| :-------------- | :------------------------------------------------------------------------------------------ | :---------------------------------------------------- |
+| `address`       | `Address`                                                                                   | Address of the account to modify                      |
+| `accountFields` | `Partial`<`Pick`<`Account`, `"nonce"` \| `"balance"` \| `"storageRoot"` \| `"codeHash"`\>\> | Object containing account fields and values to modify |
 
 #### Returns
 
@@ -558,7 +558,7 @@ EVMStateManagerInterface.modifyAccountFields
 
 [stateManager.ts:317](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/stateManager.ts#L317)
 
-___
+---
 
 ### putAccount
 
@@ -568,9 +568,9 @@ Saves an account into state under the provided `address`.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `address` | `Address` | Address under which to store `account` |
+| Name      | Type                     | Description                                        |
+| :-------- | :----------------------- | :------------------------------------------------- |
+| `address` | `Address`                | Address under which to store `account`             |
 | `account` | `undefined` \| `Account` | The account to store or undefined if to be deleted |
 
 #### Returns
@@ -585,7 +585,7 @@ EVMStateManagerInterface.putAccount
 
 [stateManager.ts:284](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/stateManager.ts#L284)
 
-___
+---
 
 ### putContractCode
 
@@ -596,10 +596,10 @@ corresponding to `address` to reference this.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `address` | `Address` | Address of the `account` to add the `code` for |
-| `value` | `Uint8Array` | The value of the `code` |
+| Name      | Type         | Description                                    |
+| :-------- | :----------- | :--------------------------------------------- |
+| `address` | `Address`    | Address of the `account` to add the `code` for |
+| `value`   | `Uint8Array` | The value of the `code`                        |
 
 #### Returns
 
@@ -613,7 +613,7 @@ EVMStateManagerInterface.putContractCode
 
 [stateManager.ts:356](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/stateManager.ts#L356)
 
-___
+---
 
 ### putContractStorage
 
@@ -624,11 +624,11 @@ corresponding to `address` at the provided `key`.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `address` | `Address` | Address to set a storage value for |
-| `key` | `Uint8Array` | Key to set the value at. Must be 32 bytes long. |
-| `value` | `Uint8Array` | Value to set at `key` for account corresponding to `address`. Cannot be more than 32 bytes. Leading zeros are stripped. If it is a empty or filled with zeros, deletes the value. |
+| Name      | Type         | Description                                                                                                                                                                       |
+| :-------- | :----------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `address` | `Address`    | Address to set a storage value for                                                                                                                                                |
+| `key`     | `Uint8Array` | Key to set the value at. Must be 32 bytes long.                                                                                                                                   |
+| `value`   | `Uint8Array` | Value to set at `key` for account corresponding to `address`. Cannot be more than 32 bytes. Leading zeros are stripped. If it is a empty or filled with zeros, deletes the value. |
 
 #### Returns
 
@@ -642,7 +642,7 @@ EVMStateManagerInterface.putContractStorage
 
 [stateManager.ts:549](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/stateManager.ts#L549)
 
-___
+---
 
 ### revert
 
@@ -663,7 +663,7 @@ EVMStateManagerInterface.revert
 
 [stateManager.ts:627](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/stateManager.ts#L627)
 
-___
+---
 
 ### setStateRoot
 
@@ -676,10 +676,10 @@ the state trie.
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `stateRoot` | `Uint8Array` | `undefined` | The state-root to reset the instance to |
-| `clearCache` | `boolean` | `true` | - |
+| Name         | Type         | Default value | Description                             |
+| :----------- | :----------- | :------------ | :-------------------------------------- |
+| `stateRoot`  | `Uint8Array` | `undefined`   | The state-root to reset the instance to |
+| `clearCache` | `boolean`    | `true`        | -                                       |
 
 #### Returns
 
@@ -693,7 +693,7 @@ EVMStateManagerInterface.setStateRoot
 
 [stateManager.ts:932](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/stateManager.ts#L932)
 
-___
+---
 
 ### shallowCopy
 
@@ -707,11 +707,12 @@ Caches are downleveled (so: adopted for short-term usage)
 by default.
 
 This means in particular:
+
 1. For caches instantiated as an LRU cache type
-the copy() method will instantiate with an ORDERED_MAP cache
-instead, since copied instantances are mostly used in
-short-term usage contexts and LRU cache instantation would create
-a large overhead here.
+   the copy() method will instantiate with an ORDERED_MAP cache
+   instead, since copied instantances are mostly used in
+   short-term usage contexts and LRU cache instantation would create
+   a large overhead here.
 2. The underlying trie object is initialized with 0 cache size
 
 Both adoptions can be deactivated by setting `downlevelCaches` to
@@ -722,9 +723,9 @@ Cache values are generally not copied along regardless of the
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `downlevelCaches` | `boolean` | `true` |
+| Name              | Type      | Default value |
+| :---------------- | :-------- | :------------ |
+| `downlevelCaches` | `boolean` | `true`        |
 
 #### Returns
 
@@ -738,7 +739,7 @@ EVMStateManagerInterface.shallowCopy
 
 [stateManager.ts:1113](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/stateManager.ts#L1113)
 
-___
+---
 
 ### verifyProof
 
@@ -748,8 +749,8 @@ Verify an EIP-1186 proof. Throws if proof is invalid, otherwise returns true.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name    | Type                          | Description        |
+| :------ | :---------------------------- | :----------------- |
 | `proof` | [`Proof`](../README.md#proof) | the proof to prove |
 
 #### Returns
@@ -760,7 +761,7 @@ Verify an EIP-1186 proof. Throws if proof is invalid, otherwise returns true.
 
 [stateManager.ts:842](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/stateManager.ts#L842)
 
-___
+---
 
 ### fromProof
 
@@ -771,11 +772,11 @@ This generates a (partial) StateManager where one can retrieve all items from th
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `proof` | [`Proof`](../README.md#proof) \| [`Proof`](../README.md#proof)[] | `undefined` | Either a proof retrieved from `getProof`, or an array of those proofs |
-| `safe` | `boolean` | `false` | Whether or not to verify that the roots of the proof items match the reported roots |
-| `opts` | [`DefaultStateManagerOpts`](../interfaces/DefaultStateManagerOpts.md) | `{}` | a dictionary of StateManager opts |
+| Name    | Type                                                                  | Default value | Description                                                                         |
+| :------ | :-------------------------------------------------------------------- | :------------ | :---------------------------------------------------------------------------------- |
+| `proof` | [`Proof`](../README.md#proof) \| [`Proof`](../README.md#proof)[]      | `undefined`   | Either a proof retrieved from `getProof`, or an array of those proofs               |
+| `safe`  | `boolean`                                                             | `false`       | Whether or not to verify that the roots of the proof items match the reported roots |
+| `opts`  | [`DefaultStateManagerOpts`](../interfaces/DefaultStateManagerOpts.md) | `{}`          | a dictionary of StateManager opts                                                   |
 
 #### Returns
 

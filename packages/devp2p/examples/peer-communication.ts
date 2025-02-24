@@ -1,11 +1,11 @@
 import {
   createBlockFromBytesArray,
   createBlockHeaderFromBytesArray,
-} from "@ethereumjs/block";
-import { Common, Hardfork, Mainnet } from "@ethereumjs/common";
-import * as devp2p from "@ethereumjs/devp2p";
-import { RLP } from "@ethereumjs/rlp";
-import { createTxFromBlockBodyData } from "@ethereumjs/tx";
+} from "@theqrl/zondjs-block";
+import { Common, Hardfork, Mainnet } from "@theqrl/zondjs-common";
+import * as devp2p from "@theqrl/zondjs-devp2p";
+import { RLP } from "@theqrl/zondjs-rlp";
+import { createTxFromBlockBodyData } from "@theqrl/zondjs-tx";
 import {
   bytesToInt,
   bytesToUnprefixedHex,
@@ -18,9 +18,9 @@ import chalk from "chalk";
 import { LRUCache } from "lru-cache";
 import ms from "ms";
 
-import type { Block } from "@ethereumjs/block";
-import type { ETH, Peer } from "@ethereumjs/devp2p";
-import type { TypedTransaction } from "@ethereumjs/tx";
+import type { Block } from "@theqrl/zondjs-block";
+import type { ETH, Peer } from "@theqrl/zondjs-devp2p";
+import type { TypedTransaction } from "@theqrl/zondjs-tx";
 
 const PRIVATE_KEY = randomBytes(32);
 

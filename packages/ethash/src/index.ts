@@ -3,8 +3,8 @@ import {
   BlockHeader,
   createBlock,
   createBlockHeader,
-} from "@ethereumjs/block";
-import { RLP } from "@ethereumjs/rlp";
+} from "@theqrl/zondjs-block";
+import { RLP } from "@theqrl/zondjs-rlp";
 import {
   BIGINT_0,
   KeyEncoding,
@@ -31,7 +31,7 @@ import {
   params,
 } from "./util.js";
 
-import type { BlockData, HeaderData } from "@ethereumjs/block";
+import type { BlockData, HeaderData } from "@theqrl/zondjs-block";
 import type { DB, DBObject, PrefixedHexString } from "@theqrl/zondjs-util";
 
 function xor(a: Uint8Array, b: Uint8Array) {

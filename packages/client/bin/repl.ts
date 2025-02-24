@@ -9,7 +9,7 @@ import { generateClientConfig, getArgs } from "./utils.js";
 import type { Config } from "../src/config.js";
 import type { EthereumClient } from "../src/index.js";
 import type { ClientOpts } from "../src/types.js";
-import type { Common } from "@ethereumjs/common";
+import type { Common } from "@theqrl/zondjs-common";
 import type { GenesisState } from "@theqrl/zondjs-util";
 
 const setupClient = async (

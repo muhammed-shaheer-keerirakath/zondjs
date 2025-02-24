@@ -1,4 +1,4 @@
-import { createFeeMarket1559Tx, createLegacyTx } from "@ethereumjs/tx";
+import { createFeeMarket1559Tx, createLegacyTx } from "@theqrl/zondjs-tx";
 import { bigIntToHex, intToHex } from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
@@ -11,7 +11,7 @@ import {
   setupChain,
 } from "../helpers.js";
 
-import type { LegacyTx } from "@ethereumjs/tx";
+import type { LegacyTx } from "@theqrl/zondjs-tx";
 
 const method = "eth_gasPrice";
 

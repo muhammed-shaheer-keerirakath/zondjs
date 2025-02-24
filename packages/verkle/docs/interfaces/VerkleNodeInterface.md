@@ -1,4 +1,4 @@
-[@ethereumjs/verkle](../README.md) / VerkleNodeInterface
+[@theqrl/zondjs-verkle](../README.md) / VerkleNodeInterface
 
 # Interface: VerkleNodeInterface
 

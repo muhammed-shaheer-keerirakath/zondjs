@@ -1,5 +1,5 @@
-import { CliqueConsensus, createBlockchain } from "@ethereumjs/blockchain";
-import { type Common, ConsensusAlgorithm } from "@ethereumjs/common";
+import { CliqueConsensus, createBlockchain } from "@theqrl/zondjs-blockchain";
+import { type Common, ConsensusAlgorithm } from "@theqrl/zondjs-common";
 import { Level } from "level";
 import { MemoryLevel } from "memory-level";
 
@@ -7,7 +7,7 @@ import { EthereumClient } from "../../src/client.js";
 import { Config } from "../../src/config.js";
 import { LevelDB } from "../../src/execution/level.js";
 
-import type { ConsensusDict } from "@ethereumjs/blockchain";
+import type { ConsensusDict } from "@theqrl/zondjs-blockchain";
 import type { GenesisState } from "@theqrl/zondjs-util";
 
 export async function createInlineClient(

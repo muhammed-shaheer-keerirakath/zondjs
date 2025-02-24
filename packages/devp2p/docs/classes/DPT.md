@@ -1,4 +1,4 @@
-[@ethereumjs/devp2p](../README.md) / DPT
+[@theqrl/zondjs-devp2p](../README.md) / DPT
 
 # Class: DPT
 

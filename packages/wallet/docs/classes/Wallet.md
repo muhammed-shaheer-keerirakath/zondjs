@@ -1,4 +1,4 @@
-[@ethereumjs/wallet](../README.md) / Wallet
+[@theqrl/zondjs-wallet](../README.md) / Wallet
 
 # Class: Wallet
 

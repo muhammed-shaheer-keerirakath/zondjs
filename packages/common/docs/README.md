@@ -1,6 +1,6 @@
-@ethereumjs/common
+@theqrl/zondjs-common
 
-# @ethereumjs/common
+# @theqrl/zondjs-common
 
 ## Table of contents
 

@@ -5,7 +5,7 @@ import {
   MerklePatriciaTrie,
   createMerkleProof,
   verifyMPTWithMerkleProof,
-} from "@ethereumjs/mpt";
+} from "@theqrl/zondjs-mpt";
 import { utf8ToBytes } from "@theqrl/zondjs-util";
 
 const trie_entries: [string, string | null][] = [

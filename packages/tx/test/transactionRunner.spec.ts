@@ -1,4 +1,4 @@
-import { Common, Mainnet } from "@ethereumjs/common";
+import { Common, Mainnet } from "@theqrl/zondjs-common";
 import { bytesToHex, hexToBytes } from "@theqrl/zondjs-util";
 import minimist from "minimist";
 import { assert, describe, it } from "vitest";

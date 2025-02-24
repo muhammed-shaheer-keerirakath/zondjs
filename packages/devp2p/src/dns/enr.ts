@@ -1,4 +1,4 @@
-import { RLP } from "@ethereumjs/rlp";
+import { RLP } from "@theqrl/zondjs-rlp";
 import { bytesToUtf8, utf8ToBytes } from "@theqrl/zondjs-util";
 import { base32, base64url } from "@scure/base";
 import { keccak256 } from "ethereum-cryptography/keccak.js";
@@ -8,7 +8,7 @@ import { sscanf } from "scanf";
 import { ipToString } from "../util.js";
 
 import type { PeerInfo } from "../types.js";
-import type { Common } from "@ethereumjs/common";
+import type { Common } from "@theqrl/zondjs-common";
 
 type ENRRootValues = {
   eRoot: string;

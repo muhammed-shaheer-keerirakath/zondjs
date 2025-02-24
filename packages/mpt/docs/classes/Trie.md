@@ -1,8 +1,8 @@
-[@ethereumjs/trie](../README.md) / Trie
+[@theqrl/zondjs-trie](../README.md) / Trie
 
 # Class: Trie
 
-The basic trie interface, use with `import { Trie } from '@ethereumjs/trie'`.
+The basic trie interface, use with `import { Trie } from '@theqrl/zondjs-trie'`.
 
 ## Table of contents
 
@@ -12,7 +12,7 @@ The basic trie interface, use with `import { Trie } from '@ethereumjs/trie'`.
 
 ### Properties
 
-- [EMPTY\_TRIE\_ROOT](Trie.md#empty_trie_root)
+- [EMPTY_TRIE_ROOT](Trie.md#empty_trie_root)
 - [walkTrieIterable](Trie.md#walktrieiterable)
 
 ### Methods
@@ -60,9 +60,9 @@ Creates a new trie.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `opts?` | [`TrieOpts`](../interfaces/TrieOpts.md) | Options for instantiating the trie  Note: in most cases, the static [create](Trie.md#create) constructor should be used.  It uses the same API but provides sensible defaults |
+| Name    | Type                                    | Description                                                                                                                                                                 |
+| :------ | :-------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `opts?` | [`TrieOpts`](../interfaces/TrieOpts.md) | Options for instantiating the trie Note: in most cases, the static [create](Trie.md#create) constructor should be used. It uses the same API but provides sensible defaults |
 
 #### Defined in
 
@@ -70,9 +70,9 @@ Creates a new trie.
 
 ## Properties
 
-### EMPTY\_TRIE\_ROOT
+### EMPTY_TRIE_ROOT
 
-• **EMPTY\_TRIE\_ROOT**: `Uint8Array`
+• **EMPTY_TRIE_ROOT**: `Uint8Array`
 
 The root for an empty trie
 
@@ -80,25 +80,25 @@ The root for an empty trie
 
 [packages/trie/src/trie.ts:66](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/trie.ts#L66)
 
-___
+---
 
 ### walkTrieIterable
 
-• **walkTrieIterable**: (...`args`: [nodeHash: Uint8Array, currentKey: number[], onFound: OnFound, filter: NodeFilter, visited: Set<string\>]) => `AsyncIterable`<{ `currentKey`: `number`[] ; `node`: [`TrieNode`](../README.md#trienode)  }\>
+• **walkTrieIterable**: (...`args`: [nodeHash: Uint8Array, currentKey: number[], onFound: OnFound, filter: NodeFilter, visited: Set<string\>]) => `AsyncIterable`<{ `currentKey`: `number`[] ; `node`: [`TrieNode`](../README.md#trienode) }\>
 
 #### Type declaration
 
-▸ (...`args`): `AsyncIterable`<{ `currentKey`: `number`[] ; `node`: [`TrieNode`](../README.md#trienode)  }\>
+▸ (...`args`): `AsyncIterable`<{ `currentKey`: `number`[] ; `node`: [`TrieNode`](../README.md#trienode) }\>
 
 ##### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name      | Type                                                                                                      |
+| :-------- | :-------------------------------------------------------------------------------------------------------- |
 | `...args` | [nodeHash: Uint8Array, currentKey: number[], onFound: OnFound, filter: NodeFilter, visited: Set<string\>] |
 
 ##### Returns
 
-`AsyncIterable`<{ `currentKey`: `number`[] ; `node`: [`TrieNode`](../README.md#trienode)  }\>
+`AsyncIterable`<{ `currentKey`: `number`[] ; `node`: [`TrieNode`](../README.md#trienode) }\>
 
 #### Defined in
 
@@ -117,21 +117,37 @@ The given hash of operations (key additions or deletions) are executed on the tr
 
 ```ts
 const ops = [
-   { type: 'del', key: Uint8Array.from('father') }
- , { type: 'put', key: Uint8Array.from('name'), value: Uint8Array.from('Yuri Irsenovich Kim') }
- , { type: 'put', key: Uint8Array.from('dob'), value: Uint8Array.from('16 February 1941') }
- , { type: 'put', key: Uint8Array.from('spouse'), value: Uint8Array.from('Kim Young-sook') }
- , { type: 'put', key: Uint8Array.from('occupation'), value: Uint8Array.from('Clown') }
-]
-await trie.batch(ops)
+  { type: "del", key: Uint8Array.from("father") },
+  {
+    type: "put",
+    key: Uint8Array.from("name"),
+    value: Uint8Array.from("Yuri Irsenovich Kim"),
+  },
+  {
+    type: "put",
+    key: Uint8Array.from("dob"),
+    value: Uint8Array.from("16 February 1941"),
+  },
+  {
+    type: "put",
+    key: Uint8Array.from("spouse"),
+    value: Uint8Array.from("Kim Young-sook"),
+  },
+  {
+    type: "put",
+    key: Uint8Array.from("occupation"),
+    value: Uint8Array.from("Clown"),
+  },
+];
+await trie.batch(ops);
 ```
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `ops` | `BatchDBOp`<`Uint8Array`, `Uint8Array`\>[] |
-| `skipKeyTransform?` | `boolean` |
+| Name                | Type                                       |
+| :------------------ | :----------------------------------------- |
+| `ops`               | `BatchDBOp`<`Uint8Array`, `Uint8Array`\>[] |
+| `skipKeyTransform?` | `boolean`                                  |
 
 #### Returns
 
@@ -141,7 +157,7 @@ await trie.batch(ops)
 
 [packages/trie/src/trie.ts:1139](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/trie.ts#L1139)
 
-___
+---
 
 ### checkRoot
 
@@ -151,8 +167,8 @@ Checks if a given root exists.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name   | Type         |
+| :----- | :----------- |
 | `root` | `Uint8Array` |
 
 #### Returns
@@ -163,7 +179,7 @@ Checks if a given root exists.
 
 [packages/trie/src/trie.ts:458](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/trie.ts#L458)
 
-___
+---
 
 ### checkpoint
 
@@ -180,7 +196,7 @@ After this is called, all changes can be reverted until `commit` is called.
 
 [packages/trie/src/trie.ts:1306](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/trie.ts#L1306)
 
-___
+---
 
 ### commit
 
@@ -201,7 +217,7 @@ If not during a checkpoint phase
 
 [packages/trie/src/trie.ts:1316](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/trie.ts#L1316)
 
-___
+---
 
 ### createProof
 
@@ -213,8 +229,8 @@ serialized branch, extension, and/or leaf nodes.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name  | Type         | Description               |
+| :---- | :----------- | :------------------------ |
 | `key` | `Uint8Array` | key to create a proof for |
 
 #### Returns
@@ -225,7 +241,7 @@ serialized branch, extension, and/or leaf nodes.
 
 [packages/trie/src/trie.ts:269](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/trie.ts#L269)
 
-___
+---
 
 ### createReadStream
 
@@ -243,7 +259,7 @@ Returns a [stream](https://nodejs.org/dist/latest-v12.x/docs/api/stream.html#str
 
 [packages/trie/src/trie.ts:1211](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/trie.ts#L1211)
 
-___
+---
 
 ### database
 
@@ -251,10 +267,10 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `db?` | `DB`<`string`, `string` \| `Uint8Array`\> |
-| `valueEncoding?` | `ValueEncoding` |
+| Name             | Type                                      |
+| :--------------- | :---------------------------------------- |
+| `db?`            | `DB`<`string`, `string` \| `Uint8Array`\> |
+| `valueEncoding?` | `ValueEncoding`                           |
 
 #### Returns
 
@@ -264,7 +280,7 @@ ___
 
 [packages/trie/src/trie.ts:423](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/trie.ts#L423)
 
-___
+---
 
 ### del
 
@@ -275,10 +291,10 @@ Deletes a value given a `key` from the trie
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `key` | `Uint8Array` | `undefined` |
-| `skipKeyTransform` | `boolean` | `false` |
+| Name               | Type         | Default value |
+| :----------------- | :----------- | :------------ |
+| `key`              | `Uint8Array` | `undefined`   |
+| `skipKeyTransform` | `boolean`    | `false`       |
 
 #### Returns
 
@@ -290,7 +306,7 @@ A Promise that resolves once value is deleted.
 
 [packages/trie/src/trie.ts:559](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/trie.ts#L559)
 
-___
+---
 
 ### findPath
 
@@ -301,12 +317,12 @@ It returns a `stack` of nodes to the closest node.
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `key` | `Uint8Array` | `undefined` | the search key |
-| `throwIfMissing` | `boolean` | `false` | if true, throws if any nodes are missing. Used for verifying proofs. (default: false) |
-| `partialPath` | `Object` | `undefined` | - |
-| `partialPath.stack` | [`TrieNode`](../README.md#trienode)[] | `undefined` | - |
+| Name                | Type                                  | Default value | Description                                                                           |
+| :------------------ | :------------------------------------ | :------------ | :------------------------------------------------------------------------------------ |
+| `key`               | `Uint8Array`                          | `undefined`   | the search key                                                                        |
+| `throwIfMissing`    | `boolean`                             | `false`       | if true, throws if any nodes are missing. Used for verifying proofs. (default: false) |
+| `partialPath`       | `Object`                              | `undefined`   | -                                                                                     |
+| `partialPath.stack` | [`TrieNode`](../README.md#trienode)[] | `undefined`   | -                                                                                     |
 
 #### Returns
 
@@ -316,7 +332,7 @@ It returns a `stack` of nodes to the closest node.
 
 [packages/trie/src/trie.ts:599](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/trie.ts#L599)
 
-___
+---
 
 ### flushCheckpoints
 
@@ -332,7 +348,7 @@ Flushes all checkpoints, restoring the initial checkpoint state.
 
 [packages/trie/src/trie.ts:1348](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/trie.ts#L1348)
 
-___
+---
 
 ### fromProof
 
@@ -348,8 +364,8 @@ Use `updateFromProof`
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name    | Type                          | Description                               |
+| :------ | :---------------------------- | :---------------------------------------- |
 | `proof` | [`Proof`](../README.md#proof) | an EIP-1186 proof to update the trie from |
 
 #### Returns
@@ -360,24 +376,24 @@ Use `updateFromProof`
 
 [packages/trie/src/trie.ts:369](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/trie.ts#L369)
 
-___
+---
 
 ### get
 
-▸ **get**(`key`, `throwIfMissing?`): `Promise`<``null`` \| `Uint8Array`\>
+▸ **get**(`key`, `throwIfMissing?`): `Promise`<`null` \| `Uint8Array`\>
 
 Gets a value given a `key`
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `key` | `Uint8Array` | `undefined` | the key to search for |
-| `throwIfMissing` | `boolean` | `false` | if true, throws if any nodes are missing. Used for verifying proofs. (default: false) |
+| Name             | Type         | Default value | Description                                                                           |
+| :--------------- | :----------- | :------------ | :------------------------------------------------------------------------------------ |
+| `key`            | `Uint8Array` | `undefined`   | the key to search for                                                                 |
+| `throwIfMissing` | `boolean`    | `false`       | if true, throws if any nodes are missing. Used for verifying proofs. (default: false) |
 
 #### Returns
 
-`Promise`<``null`` \| `Uint8Array`\>
+`Promise`<`null` \| `Uint8Array`\>
 
 A Promise that resolves to `Uint8Array` if a value was found or `null` if no value was found.
 
@@ -385,7 +401,7 @@ A Promise that resolves to `Uint8Array` if a value was found or `null` if no val
 
 [packages/trie/src/trie.ts:477](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/trie.ts#L477)
 
-___
+---
 
 ### hasCheckpoints
 
@@ -401,7 +417,7 @@ Is the trie during a checkpoint phase?
 
 [packages/trie/src/trie.ts:1298](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/trie.ts#L1298)
 
-___
+---
 
 ### lookupNode
 
@@ -411,8 +427,8 @@ Retrieves a node from db by hash.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name   | Type                           |
+| :----- | :----------------------------- |
 | `node` | `Uint8Array` \| `Uint8Array`[] |
 
 #### Returns
@@ -423,7 +439,7 @@ Retrieves a node from db by hash.
 
 [packages/trie/src/trie.ts:787](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/trie.ts#L787)
 
-___
+---
 
 ### persistRoot
 
@@ -439,7 +455,7 @@ Persists the root hash in the underlying database
 
 [packages/trie/src/trie.ts:1245](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/trie.ts#L1245)
 
-___
+---
 
 ### put
 
@@ -450,11 +466,11 @@ Stores a given `value` at the given `key` or do a delete if `value` is empty
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `key` | `Uint8Array` | `undefined` |
-| `value` | ``null`` \| `Uint8Array` | `undefined` |
-| `skipKeyTransform` | `boolean` | `false` |
+| Name               | Type                   | Default value |
+| :----------------- | :--------------------- | :------------ |
+| `key`              | `Uint8Array`           | `undefined`   |
+| `value`            | `null` \| `Uint8Array` | `undefined`   |
+| `skipKeyTransform` | `boolean`              | `false`       |
 
 #### Returns
 
@@ -466,7 +482,7 @@ A Promise that resolves once value is stored.
 
 [packages/trie/src/trie.ts:495](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/trie.ts#L495)
 
-___
+---
 
 ### revert
 
@@ -484,7 +500,7 @@ parent checkpoint as current.
 
 [packages/trie/src/trie.ts:1332](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/trie.ts#L1332)
 
-___
+---
 
 ### root
 
@@ -494,9 +510,9 @@ Gets and/or Sets the current root of the `trie`
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value?` | ``null`` \| `Uint8Array` |
+| Name     | Type                   |
+| :------- | :--------------------- |
+| `value?` | `null` \| `Uint8Array` |
 
 #### Returns
 
@@ -506,7 +522,7 @@ Gets and/or Sets the current root of the `trie`
 
 [packages/trie/src/trie.ts:438](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/trie.ts#L438)
 
-___
+---
 
 ### saveStack
 
@@ -516,10 +532,10 @@ Saves a stack of nodes to the database.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `key` | [`Nibbles`](../README.md#nibbles) | the key. Should follow the stack |
-| `stack` | [`TrieNode`](../README.md#trienode)[] | a stack of nodes to the value given by the key |
+| Name      | Type                                       | Description                                                         |
+| :-------- | :----------------------------------------- | :------------------------------------------------------------------ |
+| `key`     | [`Nibbles`](../README.md#nibbles)          | the key. Should follow the stack                                    |
+| `stack`   | [`TrieNode`](../README.md#trienode)[]      | a stack of nodes to the value given by the key                      |
 | `opStack` | `BatchDBOp`<`Uint8Array`, `Uint8Array`\>[] | a stack of levelup operations to commit at the end of this function |
 
 #### Returns
@@ -530,7 +546,7 @@ Saves a stack of nodes to the database.
 
 [packages/trie/src/trie.ts:1053](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/trie.ts#L1053)
 
-___
+---
 
 ### shallowCopy
 
@@ -548,10 +564,10 @@ explicitly setting `cacheSize` as an option on the method.
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `includeCheckpoints` | `boolean` | `true` | If true and during a checkpoint, the copy will contain the checkpointing metadata and will use the same scratch as underlying db. |
-| `opts?` | [`TrieShallowCopyOpts`](../interfaces/TrieShallowCopyOpts.md) | `undefined` | - |
+| Name                 | Type                                                          | Default value | Description                                                                                                                       |
+| :------------------- | :------------------------------------------------------------ | :------------ | :-------------------------------------------------------------------------------------------------------------------------------- |
+| `includeCheckpoints` | `boolean`                                                     | `true`        | If true and during a checkpoint, the copy will contain the checkpointing metadata and will use the same scratch as underlying db. |
+| `opts?`              | [`TrieShallowCopyOpts`](../interfaces/TrieShallowCopyOpts.md) | `undefined`   | -                                                                                                                                 |
 
 #### Returns
 
@@ -561,7 +577,7 @@ explicitly setting `cacheSize` as an option on the method.
 
 [packages/trie/src/trie.ts:1228](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/trie.ts#L1228)
 
-___
+---
 
 ### updateFromProof
 
@@ -573,10 +589,10 @@ An (EIP-1186)[https://eips.ethereum.org/EIPS/eip-1186] proof contains the encode
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `proof` | [`Proof`](../README.md#proof) | `undefined` | An (EIP-1186)[https://eips.ethereum.org/EIPS/eip-1186] proof to update the trie from. |
-| `shouldVerifyRoot` | `boolean` | `false` | If `true`, verifies that the root key of the proof matches the trie root. Throws if this is not the case. |
+| Name               | Type                          | Default value | Description                                                                                               |
+| :----------------- | :---------------------------- | :------------ | :-------------------------------------------------------------------------------------------------------- |
+| `proof`            | [`Proof`](../README.md#proof) | `undefined`   | An (EIP-1186)[https://eips.ethereum.org/EIPS/eip-1186] proof to update the trie from.                     |
+| `shouldVerifyRoot` | `boolean`                     | `false`       | If `true`, verifies that the root key of the proof matches the trie root. Throws if this is not the case. |
 
 #### Returns
 
@@ -588,11 +604,11 @@ The root of the proof
 
 [packages/trie/src/trie.ts:287](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/trie.ts#L287)
 
-___
+---
 
 ### verifyProof
 
-▸ **verifyProof**(`rootHash`, `key`, `proof`): `Promise`<``null`` \| `Uint8Array`\>
+▸ **verifyProof**(`rootHash`, `key`, `proof`): `Promise`<`null` \| `Uint8Array`\>
 
 Verifies a proof by putting all of its nodes into a trie and attempting to get the proven key. An (EIP-1186)[https://eips.ethereum.org/EIPS/eip-1186] proof
 contains the encoded trie nodes from the root node to the leaf node storing state data. A static version of this function exists with the same name.
@@ -603,15 +619,15 @@ If proof is found to be invalid.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `rootHash` | `Uint8Array` | Root hash of the trie that this proof was created from and is being verified for |
-| `key` | `Uint8Array` | Key that is being verified and that the proof is created for |
-| `proof` | [`Proof`](../README.md#proof) | an EIP-1186 proof to verify the key against |
+| Name       | Type                          | Description                                                                      |
+| :--------- | :---------------------------- | :------------------------------------------------------------------------------- |
+| `rootHash` | `Uint8Array`                  | Root hash of the trie that this proof was created from and is being verified for |
+| `key`      | `Uint8Array`                  | Key that is being verified and that the proof is created for                     |
+| `proof`    | [`Proof`](../README.md#proof) | an EIP-1186 proof to verify the key against                                      |
 
 #### Returns
 
-`Promise`<``null`` \| `Uint8Array`\>
+`Promise`<`null` \| `Uint8Array`\>
 
 The value from the key, or null if valid proof of non-existence.
 
@@ -619,7 +635,7 @@ The value from the key, or null if valid proof of non-existence.
 
 [packages/trie/src/trie.ts:322](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/trie.ts#L322)
 
-___
+---
 
 ### verifyPrunedIntegrity
 
@@ -633,7 +649,7 @@ ___
 
 [packages/trie/src/trie.ts:1157](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/trie.ts#L1157)
 
-___
+---
 
 ### verifyRangeProof
 
@@ -646,14 +662,14 @@ version of this function also exists.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `rootHash` | `Uint8Array` | root hash of state trie this proof is being verified against. |
-| `firstKey` | ``null`` \| `Uint8Array` | first key of range being proven. |
-| `lastKey` | ``null`` \| `Uint8Array` | last key of range being proven. |
-| `keys` | `Uint8Array`[] | key list of leaf data being proven. |
-| `values` | `Uint8Array`[] | value list of leaf data being proven, one-to-one correspondence with keys. |
-| `proof` | ``null`` \| `Uint8Array`[] | proof node list, if all-elements-proof where no proof is needed, proof should be null, and both `firstKey` and `lastKey` must be null as well |
+| Name       | Type                     | Description                                                                                                                                   |
+| :--------- | :----------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------- |
+| `rootHash` | `Uint8Array`             | root hash of state trie this proof is being verified against.                                                                                 |
+| `firstKey` | `null` \| `Uint8Array`   | first key of range being proven.                                                                                                              |
+| `lastKey`  | `null` \| `Uint8Array`   | last key of range being proven.                                                                                                               |
+| `keys`     | `Uint8Array`[]           | key list of leaf data being proven.                                                                                                           |
+| `values`   | `Uint8Array`[]           | value list of leaf data being proven, one-to-one correspondence with keys.                                                                    |
+| `proof`    | `null` \| `Uint8Array`[] | proof node list, if all-elements-proof where no proof is needed, proof should be null, and both `firstKey` and `lastKey` must be null as well |
 
 #### Returns
 
@@ -665,7 +681,7 @@ a flag to indicate whether there exists more trie node in the trie
 
 [packages/trie/src/trie.ts:244](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/trie.ts#L244)
 
-___
+---
 
 ### walkAllNodes
 
@@ -675,8 +691,8 @@ Executes a callback for each node in the trie.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name      | Type      | Description                            |
+| :-------- | :-------- | :------------------------------------- |
 | `onFound` | `OnFound` | callback to call when a node is found. |
 
 #### Returns
@@ -689,7 +705,7 @@ Resolves when finished walking trie.
 
 [packages/trie/src/trie.ts:745](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/trie.ts#L745)
 
-___
+---
 
 ### walkAllValueNodes
 
@@ -699,8 +715,8 @@ Executes a callback for each value node in the trie.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name      | Type      | Description                            |
+| :-------- | :-------- | :------------------------------------- |
 | `onFound` | `OnFound` | callback to call when a node is found. |
 
 #### Returns
@@ -713,7 +729,7 @@ Resolves when finished walking trie.
 
 [packages/trie/src/trie.ts:756](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/trie.ts#L756)
 
-___
+---
 
 ### walkTrie
 
@@ -723,9 +739,9 @@ Walks a trie until finished.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `root` | `Uint8Array` |  |
+| Name      | Type                                                  | Description                                                                                                       |
+| :-------- | :---------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------- |
+| `root`    | `Uint8Array`                                          |                                                                                                                   |
 | `onFound` | [`FoundNodeFunction`](../README.md#foundnodefunction) | callback to call when a node is found. This schedules new tasks. If no tasks are available, the Promise resolves. |
 
 #### Returns
@@ -738,7 +754,7 @@ Resolves when finished walking trie.
 
 [packages/trie/src/trie.ts:734](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/trie.ts#L734)
 
-___
+---
 
 ### create
 
@@ -746,8 +762,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name    | Type                                    |
+| :------ | :-------------------------------------- |
 | `opts?` | [`TrieOpts`](../interfaces/TrieOpts.md) |
 
 #### Returns
@@ -758,7 +774,7 @@ ___
 
 [packages/trie/src/trie.ts:382](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/trie.ts#L382)
 
-___
+---
 
 ### createFromProof
 
@@ -769,11 +785,11 @@ from the root node to the leaf node storing state data.
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `proof` | [`Proof`](../README.md#proof) | `undefined` | an EIP-1186 proof to create trie from |
-| `trieOpts?` | [`TrieOpts`](../interfaces/TrieOpts.md) | `undefined` | trie opts to be applied to returned trie |
-| `shouldVerifyRoot` | `boolean` | `false` | If `true`, verifies that the root key of the proof matches the trie root. Throws if this is not the case. |
+| Name               | Type                                    | Default value | Description                                                                                               |
+| :----------------- | :-------------------------------------- | :------------ | :-------------------------------------------------------------------------------------------------------- |
+| `proof`            | [`Proof`](../README.md#proof)           | `undefined`   | an EIP-1186 proof to create trie from                                                                     |
+| `trieOpts?`        | [`TrieOpts`](../interfaces/TrieOpts.md) | `undefined`   | trie opts to be applied to returned trie                                                                  |
+| `shouldVerifyRoot` | `boolean`                               | `false`       | If `true`, verifies that the root key of the proof matches the trie root. Throws if this is not the case. |
 
 #### Returns
 
@@ -785,7 +801,7 @@ new trie created from given proof
 
 [packages/trie/src/trie.ts:144](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/trie.ts#L144)
 
-___
+---
 
 ### fromProof
 
@@ -800,10 +816,10 @@ Use `createFromProof`
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `proof` | [`Proof`](../README.md#proof) | An (EIP-1186)[https://eips.ethereum.org/EIPS/eip-1186] proof contains the encoded trie nodes from the root node to the leaf node storing state data. |
-| `opts?` | [`TrieOpts`](../interfaces/TrieOpts.md) | - |
+| Name    | Type                                    | Description                                                                                                                                          |
+| :------ | :-------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `proof` | [`Proof`](../README.md#proof)           | An (EIP-1186)[https://eips.ethereum.org/EIPS/eip-1186] proof contains the encoded trie nodes from the root node to the leaf node storing state data. |
+| `opts?` | [`TrieOpts`](../interfaces/TrieOpts.md) | -                                                                                                                                                    |
 
 #### Returns
 
@@ -813,11 +829,11 @@ Use `createFromProof`
 
 [packages/trie/src/trie.ts:220](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/trie.ts#L220)
 
-___
+---
 
 ### verifyProof
 
-▸ `Static` **verifyProof**(`key`, `proof`, `opts?`): `Promise`<``null`` \| `Uint8Array`\>
+▸ `Static` **verifyProof**(`key`, `proof`, `opts?`): `Promise`<`null` \| `Uint8Array`\>
 
 Static version of verifyProof function with the same behavior. An (EIP-1186)[https://eips.ethereum.org/EIPS/eip-1186] proof contains the encoded trie nodes
 from the root node to the leaf node storing state data.
@@ -828,15 +844,15 @@ If proof is found to be invalid.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `key` | `Uint8Array` | Key that is being verified and that the proof is created for |
-| `proof` | [`Proof`](../README.md#proof) | An (EIP-1186)[https://eips.ethereum.org/EIPS/eip-1186] proof contains the encoded trie nodes from the root node to the leaf node storing state data. |
-| `opts?` | [`TrieOpts`](../interfaces/TrieOpts.md) | optional, the opts may include a custom hashing function to use with the trie for proof verification |
+| Name    | Type                                    | Description                                                                                                                                          |
+| :------ | :-------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `key`   | `Uint8Array`                            | Key that is being verified and that the proof is created for                                                                                         |
+| `proof` | [`Proof`](../README.md#proof)           | An (EIP-1186)[https://eips.ethereum.org/EIPS/eip-1186] proof contains the encoded trie nodes from the root node to the leaf node storing state data. |
+| `opts?` | [`TrieOpts`](../interfaces/TrieOpts.md) | optional, the opts may include a custom hashing function to use with the trie for proof verification                                                 |
 
 #### Returns
 
-`Promise`<``null`` \| `Uint8Array`\>
+`Promise`<`null` \| `Uint8Array`\>
 
 The value from the key, or null if valid proof of non-existence.
 
@@ -844,7 +860,7 @@ The value from the key, or null if valid proof of non-existence.
 
 [packages/trie/src/trie.ts:166](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/trie.ts#L166)
 
-___
+---
 
 ### verifyRangeProof
 
@@ -857,15 +873,15 @@ version of this function also exists.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `rootHash` | `Uint8Array` | root hash of state trie this proof is being verified against. |
-| `firstKey` | ``null`` \| `Uint8Array` | first key of range being proven. |
-| `lastKey` | ``null`` \| `Uint8Array` | last key of range being proven. |
-| `keys` | `Uint8Array`[] | key list of leaf data being proven. |
-| `values` | `Uint8Array`[] | value list of leaf data being proven, one-to-one correspondence with keys. |
-| `proof` | ``null`` \| `Uint8Array`[] | proof node list, if all-elements-proof where no proof is needed, proof should be null, and both `firstKey` and `lastKey` must be null as well |
-| `opts?` | [`TrieOpts`](../interfaces/TrieOpts.md) | optional, the opts may include a custom hashing function to use with the trie for proof verification |
+| Name       | Type                                    | Description                                                                                                                                   |
+| :--------- | :-------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------- |
+| `rootHash` | `Uint8Array`                            | root hash of state trie this proof is being verified against.                                                                                 |
+| `firstKey` | `null` \| `Uint8Array`                  | first key of range being proven.                                                                                                              |
+| `lastKey`  | `null` \| `Uint8Array`                  | last key of range being proven.                                                                                                               |
+| `keys`     | `Uint8Array`[]                          | key list of leaf data being proven.                                                                                                           |
+| `values`   | `Uint8Array`[]                          | value list of leaf data being proven, one-to-one correspondence with keys.                                                                    |
+| `proof`    | `null` \| `Uint8Array`[]                | proof node list, if all-elements-proof where no proof is needed, proof should be null, and both `firstKey` and `lastKey` must be null as well |
+| `opts?`    | [`TrieOpts`](../interfaces/TrieOpts.md) | optional, the opts may include a custom hashing function to use with the trie for proof verification                                          |
 
 #### Returns
 

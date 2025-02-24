@@ -9,9 +9,9 @@
  *      - Input length < 32 bytes (reverts)
  */
 
-import { createBlock, createBlockHeader } from "@ethereumjs/block";
-import { Common, Hardfork, Mainnet } from "@ethereumjs/common";
-import { type TransactionType, type TxData, createTx } from "@ethereumjs/tx";
+import { createBlock, createBlockHeader } from "@theqrl/zondjs-block";
+import { Common, Hardfork, Mainnet } from "@theqrl/zondjs-common";
+import { type TransactionType, type TxData, createTx } from "@theqrl/zondjs-tx";
 import {
   bigIntToBytes,
   bytesToBigInt,
@@ -25,7 +25,7 @@ import { assert, describe, it } from "vitest";
 import { createVM, runBlock as runBlockVM } from "../../../src/index.js";
 
 import type { VM } from "../../../src/index.js";
-import type { Block } from "@ethereumjs/block";
+import type { Block } from "@theqrl/zondjs-block";
 import type { BigIntLike, PrefixedHexString } from "@theqrl/zondjs-util";
 
 const common = new Common({

@@ -1,4 +1,4 @@
-[@ethereumjs/statemanager](../README.md) / CacheType
+[@theqrl/zondjs-statemanager](../README.md) / CacheType
 
 # Enumeration: CacheType
 
@@ -7,23 +7,23 @@
 ### Enumeration Members
 
 - [LRU](CacheType.md#lru)
-- [ORDERED\_MAP](CacheType.md#ordered_map)
+- [ORDERED_MAP](CacheType.md#ordered_map)
 
 ## Enumeration Members
 
 ### LRU
 
-• **LRU** = ``"lru"``
+• **LRU** = `"lru"`
 
 #### Defined in
 
 [cache/types.ts:2](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/cache/types.ts#L2)
 
-___
+---
 
-### ORDERED\_MAP
+### ORDERED_MAP
 
-• **ORDERED\_MAP** = ``"ordered_map"``
+• **ORDERED_MAP** = `"ordered_map"`
 
 #### Defined in
 

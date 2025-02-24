@@ -1,7 +1,7 @@
-import { Hardfork } from "@ethereumjs/common";
-import { TransactionType } from "@ethereumjs/tx";
+import { Hardfork } from "@theqrl/zondjs-common";
+import { TransactionType } from "@theqrl/zondjs-tx";
 import { concatBytes, hexToBytes } from "@theqrl/zondjs-util";
-import { encodeReceipt } from "@ethereumjs/vm";
+import { encodeReceipt } from "@theqrl/zondjs-vm";
 
 import { SyncMode } from "../config.js";
 import { VMExecution } from "../execution/index.js";
@@ -22,8 +22,8 @@ import { TxPool } from "./txpool.js";
 import type { Peer } from "../net/peer/peer.js";
 import type { Protocol } from "../net/protocol/index.js";
 import type { ServiceOptions } from "./service.js";
-import type { Block } from "@ethereumjs/block";
-import type { Blob4844Tx } from "@ethereumjs/tx";
+import type { Block } from "@theqrl/zondjs-block";
+import type { Blob4844Tx } from "@theqrl/zondjs-tx";
 
 /**
  * Full Ethereum service

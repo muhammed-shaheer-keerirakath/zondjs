@@ -1,4 +1,4 @@
-[@ethereumjs/devp2p](../README.md) / KBucket
+[@theqrl/zondjs-devp2p](../README.md) / KBucket
 
 # Class: KBucket
 

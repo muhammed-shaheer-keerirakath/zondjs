@@ -1,5 +1,5 @@
-import { createCommonFromGethGenesis } from "@ethereumjs/common";
-import { genesisMPTStateRoot } from "@ethereumjs/mpt";
+import { createCommonFromGethGenesis } from "@theqrl/zondjs-common";
+import { genesisMPTStateRoot } from "@theqrl/zondjs-mpt";
 import { bytesToHex, parseGethGenesisState } from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 

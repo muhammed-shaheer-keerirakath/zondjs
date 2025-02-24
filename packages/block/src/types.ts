@@ -1,11 +1,11 @@
 import type { BlockHeader } from "./index.js";
-import type { Common, ParamsDict } from "@ethereumjs/common";
+import type { Common, ParamsDict } from "@theqrl/zondjs-common";
 import type {
   JSONRPCTx,
   JSONTx,
   TransactionType,
   TxData,
-} from "@ethereumjs/tx";
+} from "@theqrl/zondjs-tx";
 import type {
   AddressLike,
   BigIntLike,
@@ -45,7 +45,7 @@ export interface BlockOptions {
   setHardfork?: boolean;
   /**
    * Block parameters sorted by EIP can be found in the exported `paramsBlock` dictionary,
-   * which is internally passed to the associated `@ethereumjs/common` instance which
+   * which is internally passed to the associated `@theqrl/zondjs-common` instance which
    * manages parameter selection based on the hardfork and EIP settings.
    *
    * This option allows providing a custom set of parameters. Note that parameters

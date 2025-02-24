@@ -1,3 +1,3 @@
-[@ethereumjs/trie](../README.md) / PrioritizedTaskExecutor
+[@theqrl/zondjs-trie](../README.md) / PrioritizedTaskExecutor
 
 # Class: PrioritizedTaskExecutor

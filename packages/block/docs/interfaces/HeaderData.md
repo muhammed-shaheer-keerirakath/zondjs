@@ -1,4 +1,4 @@
-[@ethereumjs/block](../README.md) / HeaderData
+[@theqrl/zondjs-block](../README.md) / HeaderData
 
 # Interface: HeaderData
 

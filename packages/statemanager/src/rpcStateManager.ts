@@ -1,5 +1,5 @@
-import { Common, Mainnet } from "@ethereumjs/common";
-import { RLP } from "@ethereumjs/rlp";
+import { Common, Mainnet } from "@theqrl/zondjs-common";
+import { RLP } from "@theqrl/zondjs-rlp";
 import {
   Account,
   bigIntToHex,
@@ -23,7 +23,7 @@ import type {
   AccountFields,
   StateManagerInterface,
   StorageDump,
-} from "@ethereumjs/common";
+} from "@theqrl/zondjs-common";
 import type { Address } from "@theqrl/zondjs-util";
 import type { Debugger } from "debug";
 

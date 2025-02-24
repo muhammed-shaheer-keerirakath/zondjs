@@ -1,4 +1,4 @@
-[@ethereumjs/verkle](../README.md) / LeafNode
+[@theqrl/zondjs-verkle](../README.md) / LeafNode
 
 # Class: LeafNode
 

@@ -8,10 +8,10 @@ import {
   isHexString,
   toBytes,
 } from "@theqrl/zondjs-util";
-import { Common } from "@ethereumjs/common";
-import { Block } from "@ethereumjs/block";
-import { MerkleStateManager } from "@ethereumjs/statemanager";
-import { RunBlockResult } from "@ethereumjs/vm";
+import { Common } from "@theqrl/zondjs-common";
+import { Block } from "@theqrl/zondjs-block";
+import { MerkleStateManager } from "@theqrl/zondjs-statemanager";
+import { RunBlockResult } from "@theqrl/zondjs-vm";
 import { Mockchain } from "./mockchain.js";
 
 export interface BenchmarkType {

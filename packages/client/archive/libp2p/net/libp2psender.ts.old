@@ -1,11 +1,11 @@
-import { RLP } from '@ethereumjs/rlp'
-import { bytesToInt, bytesToUtf8, intToBytes, utf8ToBytes } from '@ethereumjs/util'
+import { RLP } from '@theqrl/zondjs-rlp'
+import { bytesToInt, bytesToUtf8, intToBytes, utf8ToBytes } from '@theqrl/zondjs-util'
 import pipe from 'it-pipe'
 import pushable from 'it-pushable'
 
 import { Sender } from '../../src/net/protocol/sender'
 
-import type { NestedUint8Array } from '@ethereumjs/util'
+import type { NestedUint8Array } from '@theqrl/zondjs-util'
 import type { MuxedStream } from 'libp2p-interfaces/dist/src/stream-muxer/types'
 
 // TypeScript doesn't have support yet for ReturnType

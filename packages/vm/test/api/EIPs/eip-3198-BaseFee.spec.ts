@@ -1,6 +1,6 @@
-import { createBlock } from "@ethereumjs/block";
-import { Common, Hardfork, Mainnet } from "@ethereumjs/common";
-import { FeeMarket1559Tx } from "@ethereumjs/tx";
+import { createBlock } from "@theqrl/zondjs-block";
+import { Common, Hardfork, Mainnet } from "@theqrl/zondjs-common";
+import { FeeMarket1559Tx } from "@theqrl/zondjs-tx";
 import {
   Address,
   Units,
@@ -11,7 +11,7 @@ import { assert, describe, it } from "vitest";
 
 import { createVM, runTx } from "../../../src/index.js";
 
-import type { TypedTransaction } from "@ethereumjs/tx";
+import type { TypedTransaction } from "@theqrl/zondjs-tx";
 
 const common = new Common({
   eips: [1559, 2718, 2930, 3198],

@@ -1,4 +1,4 @@
-[@ethereumjs/statemanager](../README.md) / DefaultStateManagerOpts
+[@theqrl/zondjs-statemanager](../README.md) / DefaultStateManagerOpts
 
 # Interface: DefaultStateManagerOpts
 
@@ -26,7 +26,7 @@ Options for constructing a StateManager.
 
 [stateManager.ts:134](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/stateManager.ts#L134)
 
-___
+---
 
 ### codeCacheOpts
 
@@ -36,7 +36,7 @@ ___
 
 [stateManager.ts:138](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/stateManager.ts#L138)
 
-___
+---
 
 ### common
 
@@ -48,7 +48,7 @@ The common to use
 
 [stateManager.ts:143](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/stateManager.ts#L143)
 
-___
+---
 
 ### prefixCodeHashes
 
@@ -63,7 +63,7 @@ E.g. by putting the code `0x80` into the empty trie, will lead to a corrupted tr
 
 [stateManager.ts:120](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/stateManager.ts#L120)
 
-___
+---
 
 ### prefixStorageTrieKeys
 
@@ -82,7 +82,7 @@ Default: false (for backwards compatibility reasons)
 
 [stateManager.ts:132](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/stateManager.ts#L132)
 
-___
+---
 
 ### storageCacheOpts
 
@@ -92,7 +92,7 @@ ___
 
 [stateManager.ts:136](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/stateManager.ts#L136)
 
-___
+---
 
 ### trie
 

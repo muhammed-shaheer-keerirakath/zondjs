@@ -1,4 +1,4 @@
-# @ethereumjs/trie examples
+# @theqrl/zondjs-trie examples
 
 This directory contains examples that demonstrate how to interact with the trie package.
 

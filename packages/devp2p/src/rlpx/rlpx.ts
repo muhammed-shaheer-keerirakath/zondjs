@@ -25,7 +25,7 @@ import type {
   RLPxEvent,
   RLPxOptions,
 } from "../types.js";
-import type { Common } from "@ethereumjs/common";
+import type { Common } from "@theqrl/zondjs-common";
 import type { Debugger } from "debug";
 
 // note: relative path only valid in .js file in dist

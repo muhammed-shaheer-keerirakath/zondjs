@@ -1,4 +1,4 @@
-import { createMPT } from "@ethereumjs/mpt";
+import { createMPT } from "@theqrl/zondjs-mpt";
 import { bytesToHex } from "@theqrl/zondjs-util";
 
 async function main() {

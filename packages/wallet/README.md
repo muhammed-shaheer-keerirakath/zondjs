@@ -1,4 +1,4 @@
-# @ethereumjs/wallet
+# @theqrl/zondjs-wallet
 
 [![NPM Package][npm-badge]][npm-link]
 [![Actions Status][actions-badge]][actions-link]
@@ -9,7 +9,7 @@ A lightweight wallet implementation. At the moment it supports key creation and 
 
 It is complemented by the following packages:
 
-- [@ethereumjs/tx](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/tx) to sign transactions
+- [@theqrl/zondjs-tx](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/tx) to sign transactions
 - [ethereumjs-icap](https://github.com/ethereumjs/ethereumjs-icap) to manipulate ICAP addresses
 - [store.js](https://github.com/marcuswestin/store.js) to use browser storage
 
@@ -17,7 +17,7 @@ Motivations are:
 
 - be lightweight
 - work in a browser
-- use a single, maintained version of crypto library (and that should be in line with [`@ethereumjs/util`](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/util) and `@ethereumjs/tx`)
+- use a single, maintained version of crypto library (and that should be in line with [`@theqrl/zondjs-util`](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/util) and `@theqrl/zondjs-tx`)
 - support import/export between various wallet formats
 - support BIP32 HD keys
 
@@ -37,7 +37,7 @@ Node.js / ES6:
 ```js
 // ./examples/wallet.cjs
 
-const { Wallet } = require('@ethereumjs/wallet')
+const { Wallet } = require('@theqrl/zondjs-wallet')
 
 const wallet = Wallet.generate()
 console.log(wallet.getAddressString()) // should output an Ethereum address
@@ -48,7 +48,7 @@ ESM / TypeScript:
 ```ts
 // ./examples/wallet.ts
 
-import { Wallet } from '@ethereumjs/wallet'
+import { Wallet } from '@theqrl/zondjs-wallet'
 
 const wallet = Wallet.generate()
 console.log(wallet.getAddressString()) // should output an Ethereum address
@@ -63,7 +63,7 @@ Node.js / ES5:
 ```js
 // ./examples/thirdparty.cjs
 
-const { thirdparty } = require('@ethereumjs/wallet')
+const { thirdparty } = require('@theqrl/zondjs-wallet')
 
 const wallet = thirdparty.fromQuorumWallet('mySecretQuorumWalletPassphrase', 'myPublicQuorumUserId')
 console.log(wallet.getAddressString()) // An Ethereum address
@@ -74,7 +74,7 @@ ESM / TypeScript:
 ```ts
 // ./examples/thirdparty.ts
 
-import { thirdparty } from '@ethereumjs/wallet'
+import { thirdparty } from '@theqrl/zondjs-wallet'
 
 const wallet = thirdparty.fromQuorumWallet('mySecretQuorumWalletPassphrase', 'myPublicQuorumUserId')
 console.log(wallet.getAddressString()) // An Ethereum address
@@ -91,7 +91,7 @@ Node.js / ES5:
 ```js
 // ./examples/hdKey.cjs
 
-const { hdkey } = require('@ethereumjs/wallet')
+const { hdkey } = require('@theqrl/zondjs-wallet')
 
 const wallet = hdkey.EthereumHDKey.fromMnemonic(
   'clown galaxy face oxygen birth round modify fame correct stumble kind excess',
@@ -104,7 +104,7 @@ ESM / TypeScript:
 ```ts
 // ./examples/hdKey.ts
 
-import { hdkey } from '@ethereumjs/wallet'
+import { hdkey } from '@theqrl/zondjs-wallet'
 
 const wallet = hdkey.EthereumHDKey.fromMnemonic(
   'clown galaxy face oxygen birth round modify fame correct stumble kind excess',
@@ -176,4 +176,4 @@ Copyright (C) 2016 Alex Beregszaszi
 [discord-badge]: https://img.shields.io/static/v1?logo=discord&label=discord&message=Join&color=blue
 [discord-link]: https://discord.gg/TNwARpR
 [npm-badge]: https://img.shields.io/npm/v/ethereumjs-wallet.svg
-[npm-link]: https://www.npmjs.org/package/@ethereumjs/wallet
+[npm-link]: https://www.npmjs.org/package/@theqrl/zondjs-wallet

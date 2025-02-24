@@ -1,6 +1,9 @@
 import { Account, bytesToHex } from "@theqrl/zondjs-util";
 
-import type { AccountFields, StateManagerInterface } from "@ethereumjs/common";
+import type {
+  AccountFields,
+  StateManagerInterface,
+} from "@theqrl/zondjs-common";
 import type { Address } from "@theqrl/zondjs-util";
 
 export async function modifyAccountFields(

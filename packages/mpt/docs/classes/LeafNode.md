@@ -1,4 +1,4 @@
-[@ethereumjs/trie](../README.md) / LeafNode
+[@theqrl/zondjs-trie](../README.md) / LeafNode
 
 # Class: LeafNode
 
@@ -39,10 +39,10 @@
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name      | Type                              |
+| :-------- | :-------------------------------- |
 | `nibbles` | [`Nibbles`](../README.md#nibbles) |
-| `value` | `Uint8Array` |
+| `value`   | `Uint8Array`                      |
 
 #### Overrides
 
@@ -66,7 +66,7 @@ Node.\_nibbles
 
 [packages/trie/src/node/node.ts:9](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/node/node.ts#L9)
 
-___
+---
 
 ### \_terminator
 
@@ -80,7 +80,7 @@ Node.\_terminator
 
 [packages/trie/src/node/node.ts:11](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/node/node.ts#L11)
 
-___
+---
 
 ### \_value
 
@@ -112,7 +112,7 @@ Node.encodedKey
 
 [packages/trie/src/node/node.ts:43](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/node/node.ts#L43)
 
-___
+---
 
 ### key
 
@@ -120,8 +120,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name | Type                              |
+| :--- | :-------------------------------- |
 | `k?` | [`Nibbles`](../README.md#nibbles) |
 
 #### Returns
@@ -136,7 +136,7 @@ Node.key
 
 [packages/trie/src/node/node.ts:23](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/node/node.ts#L23)
 
-___
+---
 
 ### keyLength
 
@@ -154,7 +154,7 @@ Node.keyLength
 
 [packages/trie/src/node/node.ts:31](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/node/node.ts#L31)
 
-___
+---
 
 ### raw
 
@@ -172,7 +172,7 @@ Node.raw
 
 [packages/trie/src/node/node.ts:47](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/node/node.ts#L47)
 
-___
+---
 
 ### serialize
 
@@ -190,7 +190,7 @@ Node.serialize
 
 [packages/trie/src/node/node.ts:51](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/node/node.ts#L51)
 
-___
+---
 
 ### value
 
@@ -198,8 +198,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name | Type         |
+| :--- | :----------- |
 | `v?` | `Uint8Array` |
 
 #### Returns
@@ -214,7 +214,7 @@ Node.value
 
 [packages/trie/src/node/node.ts:35](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/node/node.ts#L35)
 
-___
+---
 
 ### decodeKey
 
@@ -222,8 +222,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name  | Type                              |
+| :---- | :-------------------------------- |
 | `key` | [`Nibbles`](../README.md#nibbles) |
 
 #### Returns
@@ -238,7 +238,7 @@ Node.decodeKey
 
 [packages/trie/src/node/node.ts:19](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/node/node.ts#L19)
 
-___
+---
 
 ### encodeKey
 
@@ -246,8 +246,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name  | Type                              |
+| :---- | :-------------------------------- |
 | `key` | [`Nibbles`](../README.md#nibbles) |
 
 #### Returns

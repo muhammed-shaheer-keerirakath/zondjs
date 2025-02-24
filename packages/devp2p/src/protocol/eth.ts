@@ -1,4 +1,4 @@
-import { RLP } from "@ethereumjs/rlp";
+import { RLP } from "@theqrl/zondjs-rlp";
 import {
   BIGINT_0,
   bigIntToBytes,
@@ -19,7 +19,7 @@ import { Protocol } from "./protocol.js";
 
 import type { Peer } from "../rlpx/peer.js";
 import type { SendMethod } from "../types.js";
-import type { Input } from "@ethereumjs/rlp";
+import type { Input } from "@theqrl/zondjs-rlp";
 
 export class ETH extends Protocol {
   protected _status: ETH.StatusMsg | null = null;

@@ -1,6 +1,6 @@
-import { createBlock } from "@ethereumjs/block";
-import { Common, Hardfork, Mainnet } from "@ethereumjs/common";
-import { createLegacyTx } from "@ethereumjs/tx";
+import { createBlock } from "@theqrl/zondjs-block";
+import { Common, Hardfork, Mainnet } from "@theqrl/zondjs-common";
+import { createLegacyTx } from "@theqrl/zondjs-tx";
 import {
   Account,
   bigIntToBytes,
@@ -18,7 +18,7 @@ import { CLRequestType } from "../../../../util/src/request.js";
 import { runBlock } from "../../../src/index.js";
 import { setupVM } from "../utils.js";
 
-import type { Block } from "@ethereumjs/block";
+import type { Block } from "@theqrl/zondjs-block";
 
 const pkey = hexToBytes(`0x${"20".repeat(32)}`);
 const addr = createAddressFromPrivateKey(pkey);

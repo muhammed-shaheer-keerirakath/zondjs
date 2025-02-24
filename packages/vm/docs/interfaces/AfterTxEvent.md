@@ -1,4 +1,4 @@
-[@ethereumjs/vm](../README.md) / AfterTxEvent
+[@theqrl/zondjs-vm](../README.md) / AfterTxEvent
 
 # Interface: AfterTxEvent
 

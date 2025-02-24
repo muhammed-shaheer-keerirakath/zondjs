@@ -1,6 +1,6 @@
-import { createBlock } from "@ethereumjs/block";
-import { createBlockchain } from "@ethereumjs/blockchain";
-import { Common, Hardfork, Mainnet } from "@ethereumjs/common";
+import { createBlock } from "@theqrl/zondjs-block";
+import { createBlockchain } from "@theqrl/zondjs-blockchain";
+import { Common, Hardfork, Mainnet } from "@theqrl/zondjs-common";
 import { bytesToHex } from "@theqrl/zondjs-util";
 
 const main = async () => {
@@ -33,7 +33,7 @@ const main = async () => {
     },
     { common, setHardfork: true },
   );
-  // See @ethereumjs/block for more details on how to create a block
+  // See @theqrl/zondjs-block for more details on how to create a block
   await blockchain.putBlock(block);
   await blockchain.putBlock(block2);
 

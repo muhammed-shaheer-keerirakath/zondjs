@@ -1,4 +1,4 @@
-[@ethereumjs/common](../README.md) / BootstrapNodeConfig
+[@theqrl/zondjs-common](../README.md) / BootstrapNodeConfig
 
 # Interface: BootstrapNodeConfig
 

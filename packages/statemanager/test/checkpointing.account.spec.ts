@@ -3,7 +3,7 @@ import { assert, describe, it } from "vitest";
 
 import { MerkleStateManager, SimpleStateManager } from "../src/index.js";
 
-import type { StateManagerInterface } from "@ethereumjs/common";
+import type { StateManagerInterface } from "@theqrl/zondjs-common";
 import type { Account } from "@theqrl/zondjs-util";
 
 /**

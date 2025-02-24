@@ -39,11 +39,11 @@ At their most basic, Merkle Patricia Trees allow us to store and retrieve key-va
 Let's begin right away with a simple example. Don't worry if things aren't too clear for now, they will become clearer as we go. In this example, we'll create an empty trie:
 
 ```jsx
-const { MerklePatriciaTrie } = require('@ethereumjs/trie') // We import the library required to create a basic Merkle Patricia Tree
-const { bytesToHex, bytesToUtf8, utf8ToBytes } = require('@ethereumjs/util')
+const { MerklePatriciaTrie } = require("@theqrl/zondjs-trie"); // We import the library required to create a basic Merkle Patricia Tree
+const { bytesToHex, bytesToUtf8, utf8ToBytes } = require("@theqrl/zondjs-util");
 
-const trie = new MerklePatriciaTrie() // We create an empty Merkle Patricia Tree
-console.log('Empty trie root (Bytes): ', bytesToHex(trie.root())) // The trie root (32 bytes)
+const trie = new MerklePatriciaTrie(); // We create an empty Merkle Patricia Tree
+console.log("Empty trie root (Bytes): ", bytesToHex(trie.root())); // The trie root (32 bytes)
 ```
 
 and then store and retrieve a single key-value pair within it. Note that we needed to convert the strings (`testKey` and `testValue`) to bytes, as that is what the Trie methods expect:
@@ -205,14 +205,14 @@ Creating a branch node is a bit more complicated. For a branch to exist, we need
 First, notice how similar the following keys are (specifically, look at the bytes):
 
 ```jsx
-console.log(bytesToHex(utf8ToBytes('testKey')))
-console.log(bytesToHex(utf8ToBytes('testKey0')))
-console.log(bytesToHex(utf8ToBytes('testKeyA')))
+console.log(bytesToHex(utf8ToBytes("testKey")));
+console.log(bytesToHex(utf8ToBytes("testKey0")));
+console.log(bytesToHex(utf8ToBytes("testKeyA")));
 
 // RESULT (BYTES)
-0x746573744b6579
-0x746573744b657930
-0x746573744b657941
+0x746573744b6579;
+0x746573744b657930;
+0x746573744b657941;
 ```
 
 We can see that the bytes representations of our keys branch off at byte `79`. This makes sense: `79` stands for the letter `y`. Let's now add those keys to our trie.
@@ -309,8 +309,8 @@ Node 1 branches:  [
 
 ```jsx
 // <---- same----> <-> (different)
-0x7465737456616c756530 // "testKey0", "0" = 30 in bytes
-0x7465737456616c756541 // "testKeyA", "A" = 41 in bytes
+0x7465737456616c756530; // "testKey0", "0" = 30 in bytes
+0x7465737456616c756541; // "testKeyA", "A" = 41 in bytes
 ```
 
 Going back to the branches above, we see that our two branches (at index `3` and `4`) are (converted to hex again for better readability):
@@ -407,14 +407,14 @@ Indeed! A leaf node with value "testValue0". The "nibble" indicates the last hex
 To create an extension node, we need to slightly change our keys. We'll keep our branch node at path "testKey", but we'll change the two other keys so that they lead down a lengthy common path.
 
 ```jsx
-console.log(bytesToHex(utf8ToBytes('testKey')))
-console.log(bytesToHex(utf8ToBytes('testKey0001')))
-console.log(bytesToHex(utf8ToBytes('testKey000A')))
+console.log(bytesToHex(utf8ToBytes("testKey")));
+console.log(bytesToHex(utf8ToBytes("testKey0001")));
+console.log(bytesToHex(utf8ToBytes("testKey000A")));
 
 // RESULT
-0x746573744b6579
-0x746573744b657930303031
-0x746573744b657930303041
+0x746573744b6579;
+0x746573744b657930303031;
+0x746573744b657930303041;
 ```
 
 As you can see, the bytes `303030` (standing for `000` are common to both keys. We therefore should assume an extension that begins at index `3` of the branch node at "testKey". Let's see:
@@ -486,12 +486,12 @@ You might have noticed that this child node is a "hash", while in the previous e
 Similarly to leaf nodes, extension nodes are two-item arrays: `[ encodedPath, hash ]` . The encodedPath (denoted above as "\_nibbles") stands for the "remaining path". In the case of extension nodes this is the path that we "shortcut". Recall our two keys:
 
 ```jsx
-console.log(bytesToHex(utf8ToBytes('testKey0001')))
-console.log(bytesToHex(utf8ToBytes('testKey000A')))
+console.log(bytesToHex(utf8ToBytes("testKey0001")));
+console.log(bytesToHex(utf8ToBytes("testKey000A")));
 
 // RESULT
-0x746573744b657930303031
-0x746573744b657930303041
+0x746573744b657930303031;
+0x746573744b657930303041;
 ```
 
 The first part of the path ("testKey" = `0x746573744b6579`) led us to the branch node. Next, taking the branch at index `3` (for hex value `3`) led us to our extension node, which automatically leads us down the path `03030`. Using only two nodes (branch + extension), we are therefore able to "shortcut" the whole `303030` part of the path! With a standard trie, this would have required 6 successive branch nodes!
@@ -572,10 +572,10 @@ Extension node: ExtensionNode {
 As we learned, we should first use the [Recursive Length Prefix encoding function](https://ethereum.org/en/developers/docs/data-structures-and-encoding/rlp) on the node to serialize the values of the extension node. RLP-encoding the "raw" version (as an array of bytes) of our node gives us:
 
 ```jsx
-console.log(bytesToHex(rlp.encode(node2.raw())))
+console.log(bytesToHex(rlp.encode(node2.raw())));
 
 // RESULT
-0xe583103030a070b3d020ad858fd60028a423e98f1d99c537cdb91f27491640066feac79c2f72
+0xe583103030a070b3d020ad858fd60028a423e98f1d99c537cdb91f27491640066feac79c2f72;
 ```
 
 A neatly serialized sequence of bytes! Our last step is simply to take the hash of this RLP output (and convert it to bytes):
@@ -725,7 +725,7 @@ If you want to follow along with these examples, you will need to create a free 
 The purpose of the transactions tree is to record transaction requests. It can answer questions like: "What is the value of this transaction?" or "Who sent this transaction?". In the Ethereum blockchain, each block has its own transactions tree. Just like in our previous examples, we need a path to "navigate" the tree and access a particular transaction. In the transactions tree, this path is given by the Recursive Layer Protocol encoding of the transaction's index in the block. So, for example, if a transaction's index is 127:
 
 ```jsx
-const rlp = require('@ethereumjs/rlp')
+const rlp = require('@theqrl/zondjs-rlp')
 console.log('RLP encoding of 127: ', bytesToHex(rlp.encode('127')))
 
 // RESULT

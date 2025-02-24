@@ -1,4 +1,4 @@
-import type { ParamsDict } from '@ethereumjs/common'
+import type { ParamsDict } from '@theqrl/zondjs-common'
 
 export const paramsTest: ParamsDict = {
   /**

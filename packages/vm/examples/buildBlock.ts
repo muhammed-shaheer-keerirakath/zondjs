@@ -1,13 +1,13 @@
-import { createBlock } from "@ethereumjs/block";
-import { Common, Mainnet } from "@ethereumjs/common";
-import { createLegacyTx } from "@ethereumjs/tx";
+import { createBlock } from "@theqrl/zondjs-block";
+import { Common, Mainnet } from "@theqrl/zondjs-common";
+import { createLegacyTx } from "@theqrl/zondjs-tx";
 import {
   Account,
   bytesToHex,
   createAddressFromPrivateKey,
   hexToBytes,
 } from "@theqrl/zondjs-util";
-import { buildBlock, createVM } from "@ethereumjs/vm";
+import { buildBlock, createVM } from "@theqrl/zondjs-vm";
 
 const main = async () => {
   const common = new Common({ chain: Mainnet });
@@ -21,7 +21,7 @@ const main = async () => {
     number: 2n,
   };
   const blockBuilder = await buildBlock(vm, {
-    parentBlock, // the parent @ethereumjs/block Block
+    parentBlock, // the parent @theqrl/zondjs-block Block
     headerData, // header values for the new block
     blockOpts: {
       calcDifficultyFromHeader: parentBlock.header,

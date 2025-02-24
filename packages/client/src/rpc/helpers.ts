@@ -9,8 +9,8 @@ import { INTERNAL_ERROR, INVALID_BLOCK, INVALID_PARAMS } from "./error-code.js";
 
 import type { Chain } from "../blockchain/index.js";
 import type { RPCMethod } from "./types.js";
-import type { Block } from "@ethereumjs/block";
-import type { JSONRPCTx, TypedTransaction } from "@ethereumjs/tx";
+import type { Block } from "@theqrl/zondjs-block";
+import type { JSONRPCTx, TypedTransaction } from "@theqrl/zondjs-tx";
 
 type RPCError = {
   code: number;

@@ -1,4 +1,4 @@
-[@ethereumjs/evm](../README.md) / PrecompileInput
+[@theqrl/zondjs-evm](../README.md) / PrecompileInput
 
 # Interface: PrecompileInput
 

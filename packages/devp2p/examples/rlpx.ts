@@ -1,5 +1,5 @@
-import { Common, Mainnet } from "@ethereumjs/common";
-import { ETH, RLPx } from "@ethereumjs/devp2p";
+import { Common, Mainnet } from "@theqrl/zondjs-common";
+import { ETH, RLPx } from "@theqrl/zondjs-devp2p";
 import { hexToBytes } from "@theqrl/zondjs-util";
 
 const main = async () => {

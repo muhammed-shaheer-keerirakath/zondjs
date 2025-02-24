@@ -1,5 +1,5 @@
 {
-  "name": "@ethereumjs/evm",
+  "name": "@theqrl/zondjs-evm",
   "version": "4.0.0-alpha.1",
   "description": "JavaScript Ethereum Virtual Machine (EVM) implementation",
   "keywords": [
@@ -56,10 +56,10 @@
     "visualize:bundle": "npx vite build --config=./vite.config.bundler.ts --emptyOutDir=false --outDir ."
   },
   "dependencies": {
-    "@ethereumjs/common": "^5.0.0-alpha.1",
-    "@ethereumjs/statemanager": "^3.0.0-alpha.1",
+    "@theqrl/zondjs-common": "^5.0.0-alpha.1",
+    "@theqrl/zondjs-statemanager": "^3.0.0-alpha.1",
     "@theqrl/zondjs-util": "^10.0.0-alpha.1",
-    "@ethereumjs/verkle": "^0.2.0-alpha.1",
+    "@theqrl/zondjs-verkle": "^0.2.0-alpha.1",
     "@noble/curves": "^1.8.1",
     "@types/debug": "^4.1.9",
     "debug": "^4.3.3",

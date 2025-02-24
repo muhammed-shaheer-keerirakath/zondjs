@@ -1,4 +1,4 @@
-import { createBlock } from "@ethereumjs/block";
+import { createBlock } from "@theqrl/zondjs-block";
 import { BIGINT_0, bytesToHex, equalsBytes } from "@theqrl/zondjs-util";
 import debugDefault from "debug";
 
@@ -12,8 +12,8 @@ import {
 } from "./index.js";
 
 import type { BlockchainOptions, DBOp } from "./index.js";
-import type { BlockData } from "@ethereumjs/block";
-import type { Chain } from "@ethereumjs/common";
+import type { BlockData } from "@theqrl/zondjs-block";
+import type { Chain } from "@theqrl/zondjs-common";
 
 const DEBUG =
   typeof window === "undefined"

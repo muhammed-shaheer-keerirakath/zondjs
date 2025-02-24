@@ -1,78 +1,78 @@
-import type { ChainConfig } from '@ethereumjs/common'
+import type { ChainConfig } from "@theqrl/zondjs-common";
 
 export const mergeTestnetData: ChainConfig = {
-  name: 'testnet',
+  name: "testnet",
   chainId: 12345,
-  defaultHardfork: 'byzantium',
+  defaultHardfork: "byzantium",
   consensus: {
-    type: 'pow',
-    algorithm: 'ethash',
+    type: "pow",
+    algorithm: "ethash",
   },
-  comment: 'Private test network',
-  url: '[TESTNET_URL]',
+  comment: "Private test network",
+  url: "[TESTNET_URL]",
   genesis: {
     gasLimit: 1000000,
     difficulty: 1,
-    nonce: '0xbb00000000000000',
+    nonce: "0xbb00000000000000",
     extraData:
-      '0xcc000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+      "0xcc000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
   },
   hardforks: [
     {
-      name: 'chainstart',
+      name: "chainstart",
       block: 0,
     },
     {
-      name: 'homestead',
+      name: "homestead",
       block: 0,
     },
     {
-      name: 'tangerineWhistle',
+      name: "tangerineWhistle",
       block: 0,
     },
     {
-      name: 'spuriousDragon',
+      name: "spuriousDragon",
       block: 0,
     },
     {
-      name: 'byzantium',
+      name: "byzantium",
       block: 0,
     },
     {
-      name: 'constantinople',
+      name: "constantinople",
       block: 0,
     },
     {
-      name: 'berlin',
+      name: "berlin",
       block: 0,
     },
     {
-      name: 'london',
+      name: "london",
       block: 0,
     },
     {
-      name: 'paris',
+      name: "paris",
       block: 3,
     },
     {
-      name: 'mergeNetsplitBlock',
+      name: "mergeNetsplitBlock",
       block: 3,
     },
   ],
   bootstrapNodes: [
     {
-      ip: '10.0.0.1',
+      ip: "10.0.0.1",
       port: 30303,
-      id: '11000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
-      location: '',
-      comment: '',
+      id: "11000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      location: "",
+      comment: "",
     },
     {
-      ip: '10.0.0.2',
+      ip: "10.0.0.2",
       port: 30303,
-      id: '22000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
-      location: '',
-      comment: '',
+      id: "22000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      location: "",
+      comment: "",
     },
   ],
-}
+};

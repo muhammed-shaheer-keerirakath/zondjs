@@ -33,7 +33,7 @@ import type {
   TransactionInterface,
   TxOptions,
 } from "../types.js";
-import type { Common } from "@ethereumjs/common";
+import type { Common } from "@theqrl/zondjs-common";
 import type { Address } from "@theqrl/zondjs-util";
 
 export type TxData = AllTypesTxData[TransactionType.FeeMarketEIP1559];

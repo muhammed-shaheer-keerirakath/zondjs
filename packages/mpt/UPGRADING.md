@@ -28,10 +28,10 @@ Updating is a straightforward process:
 
 ```ts
 // Old
-const trie = new SecureTrie()
+const trie = new SecureTrie();
 
 // New
-const trie = new MerklePatriciaTrie({ useKeyHashing: true })
+const trie = new MerklePatriciaTrie({ useKeyHashing: true });
 ```
 
 ### Removed Getter and Setter Functions
@@ -46,24 +46,24 @@ For this reason, a single `root(hash?: Buffer): Buffer` function serves as a rep
 
 ```tsx
 // Old
-const trie = new MerklePatriciaTrie()
-trie.root
+const trie = new MerklePatriciaTrie();
+trie.root;
 
 // New
-const trie = new MerklePatriciaTrie()
-trie.root()
+const trie = new MerklePatriciaTrie();
+trie.root();
 ```
 
 ##### Setter Example
 
 ```tsx
 // Old
-const trie = new MerklePatriciaTrie()
-trie.root = Buffer.alloc(32)
+const trie = new MerklePatriciaTrie();
+trie.root = Buffer.alloc(32);
 
 // New
-const trie = new MerklePatriciaTrie()
-trie.root(Buffer.alloc(32))
+const trie = new MerklePatriciaTrie();
+trie.root(Buffer.alloc(32));
 ```
 
 #### Trie `isCheckpoint` Getter
@@ -72,12 +72,12 @@ The `isCheckpoint` getter function has been removed. The `hasCheckpoints()` func
 
 ```tsx
 // Old
-const trie = new MerklePatriciaTrie()
-trie.isCheckpoint
+const trie = new MerklePatriciaTrie();
+trie.isCheckpoint;
 
 // New
-const trie = new MerklePatriciaTrie()
-trie.hasCheckpoints()
+const trie = new MerklePatriciaTrie();
+trie.hasCheckpoints();
 ```
 
 ### Root Persistence
@@ -85,13 +85,13 @@ trie.hasCheckpoints()
 In previous iterations, you would need to persist and restore the root of your trie and determine how to achieve this of your own accord. This behaviour is now available out of the box. You can enable persistence by setting the `useRootPersistence` option to `true` when constructing a trie by using the `Trie.create` function. As such, this value is preserved when creating copies of the trie. Moreover, upon instantiating a trie, you will not have the ability to modify said value.
 
 ```ts
-import { Trie, LevelDB } from '@ethereumjs/trie'
-import { Level } from 'level'
+import { Trie, LevelDB } from "@theqrl/zondjs-trie";
+import { Level } from "level";
 
 const trie = await Trie.create({
-  db: new LevelDB(new Level('MY_TRIE_DB_LOCATION')),
+  db: new LevelDB(new Level("MY_TRIE_DB_LOCATION")),
   useRootPersistence: true,
-})
+});
 ```
 
 The `Trie.create` function is asynchronous and will read the root from your database before returning the trie instance. If you do not require automatic restoration of the root, you can simply use the `new Trie` constructor with the same options and achieve persistence without automatic restoration.
@@ -113,7 +113,7 @@ Prior to v5, this package shipped with a LevelDB integration out of the box. Wit
 Before proceeding with the implementation of `LevelDB`, you will need to install several important dependencies.
 
 ```shell
-npm i @ethereumjs/trie @ethereumjs/util abstract-level level memory-level --save-exact
+npm i @theqrl/zondjs-trie @theqrl/zondjs-util abstract-level level memory-level --save-exact
 ```
 
 Note that the `--save-exact` flag will pin these dependencies to exact versions prior to installing them. We recommend carrying out this action in order to safeguard yourself against the aforementioned risk of supply chain attacks.
@@ -123,51 +123,59 @@ Note that the `--save-exact` flag will pin these dependencies to exact versions 
 Fortunately the implementation does not require any input from you other than copying and pasting the below code into a file of your choosing in any given location. You will then import this to any area in which you need to instantiate a trie.
 
 ```ts
-import { MemoryLevel } from 'memory-level'
+import { MemoryLevel } from "memory-level";
 
-import type { BatchDBOp, DB } from '@ethereumjs/trie'
-import type { AbstractLevel } from 'abstract-level'
+import type { BatchDBOp, DB } from "@theqrl/zondjs-trie";
+import type { AbstractLevel } from "abstract-level";
 
-const ENCODING_OPTS = { keyEncoding: 'buffer', valueEncoding: 'buffer' }
+const ENCODING_OPTS = { keyEncoding: "buffer", valueEncoding: "buffer" };
 
 export class LevelDB implements DB {
-  readonly _leveldb: AbstractLevel<string | Buffer | Uint8Array, string | Buffer, string | Buffer>
+  readonly _leveldb: AbstractLevel<
+    string | Buffer | Uint8Array,
+    string | Buffer,
+    string | Buffer
+  >;
 
   constructor(
-    leveldb?: AbstractLevel<string | Buffer | Uint8Array, string | Buffer, string | Buffer> | null,
+    leveldb?: AbstractLevel<
+      string | Buffer | Uint8Array,
+      string | Buffer,
+      string | Buffer
+    > | null,
   ) {
-    this._leveldb = leveldb ?? new MemoryLevel(ENCODING_OPTS)
+    this._leveldb = leveldb ?? new MemoryLevel(ENCODING_OPTS);
   }
 
   async get(key: Buffer): Promise<Buffer | null> {
-    let value = null
+    let value = null;
     try {
-      value = await this._leveldb.get(key, ENCODING_OPTS)
+      value = await this._leveldb.get(key, ENCODING_OPTS);
     } catch (error: any) {
       // https://github.com/Level/abstract-level/blob/915ad1317694d0ce8c580b5ab85d81e1e78a3137/abstract-level.js#L309
       // This should be `true` if the error came from LevelDB
       // so we can check for `NOT true` to identify any non-404 errors
       if (error.notFound !== true) {
-        throw error
+        throw error;
       }
     }
-    return value as Buffer
+    return value as Buffer;
   }
 
   async put(key: Buffer, val: Buffer): Promise<void> {
-    await this._leveldb.put(key, val, ENCODING_OPTS)
+    await this._leveldb.put(key, val, ENCODING_OPTS);
   }
 
   async del(key: Buffer): Promise<void> {
-    await this._leveldb.del(key, ENCODING_OPTS)
+    await this._leveldb.del(key, ENCODING_OPTS);
   }
 
   async batch(opStack: BatchDBOp[]): Promise<void> {
-    await this._leveldb.batch(opStack, ENCODING_OPTS)
+    await this._leveldb.batch(opStack, ENCODING_OPTS);
   }
 
   shallowCopy(): DB {
-    return new LevelDB(this._leveldb)
+    return new LevelDB(this._leveldb);
   }
 }
 ```
@@ -175,12 +183,14 @@ export class LevelDB implements DB {
 Now we can create an instance of the `Trie` class such as the following:
 
 ```ts
-import { Trie } from '@ethereumjs/trie'
-import { Level } from 'level'
+import { Trie } from "@theqrl/zondjs-trie";
+import { Level } from "level";
 
-import { LevelDB } from './your-level-implementation'
+import { LevelDB } from "./your-level-implementation";
 
-const trie = new MerklePatriciaTrie({ db: new LevelDB(new Level('MY_TRIE_DB_LOCATION')) })
+const trie = new MerklePatriciaTrie({
+  db: new LevelDB(new Level("MY_TRIE_DB_LOCATION")),
+});
 ```
 
 ##### Alternatives

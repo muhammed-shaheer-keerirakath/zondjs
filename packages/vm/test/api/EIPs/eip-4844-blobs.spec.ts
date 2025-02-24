@@ -1,7 +1,7 @@
-import { createBlock } from "@ethereumjs/block";
-import { createBlockchain } from "@ethereumjs/blockchain";
-import { Hardfork, createCommonFromGethGenesis } from "@ethereumjs/common";
-import { createBlob4844Tx } from "@ethereumjs/tx";
+import { createBlock } from "@theqrl/zondjs-block";
+import { createBlockchain } from "@theqrl/zondjs-blockchain";
+import { Hardfork, createCommonFromGethGenesis } from "@theqrl/zondjs-common";
+import { createBlob4844Tx } from "@theqrl/zondjs-tx";
 import {
   Units,
   blobsToCommitments,

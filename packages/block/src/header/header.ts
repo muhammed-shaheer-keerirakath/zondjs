@@ -4,8 +4,8 @@ import {
   ConsensusType,
   Hardfork,
   Mainnet,
-} from "@ethereumjs/common";
-import { RLP } from "@ethereumjs/rlp";
+} from "@theqrl/zondjs-common";
+import { RLP } from "@theqrl/zondjs-rlp";
 import {
   Address,
   BIGINT_0,

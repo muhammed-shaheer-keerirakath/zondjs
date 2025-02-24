@@ -1,11 +1,11 @@
-import { Block, BlockHeader, createBlock } from "@ethereumjs/block";
+import { Block, BlockHeader, createBlock } from "@theqrl/zondjs-block";
 import {
   Common,
   ConsensusAlgorithm,
   ConsensusType,
   Hardfork,
   Mainnet,
-} from "@ethereumjs/common";
+} from "@theqrl/zondjs-common";
 import {
   BIGINT_0,
   BIGINT_1,
@@ -42,8 +42,8 @@ import type {
   ConsensusDict,
   OnBlock,
 } from "./types.js";
-import type { HeaderData } from "@ethereumjs/block";
-import type { CliqueConfig } from "@ethereumjs/common";
+import type { HeaderData } from "@theqrl/zondjs-block";
+import type { CliqueConfig } from "@theqrl/zondjs-common";
 import type {
   BigIntLike,
   DB,

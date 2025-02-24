@@ -1,4 +1,4 @@
-import { RLP } from "@ethereumjs/rlp";
+import { RLP } from "@theqrl/zondjs-rlp";
 import { bytesToHex, equalsBytes } from "@theqrl/zondjs-util";
 
 import { BranchMPTNode } from "../node/branch.js";

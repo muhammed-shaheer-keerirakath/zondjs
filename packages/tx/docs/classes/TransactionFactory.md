@@ -1,4 +1,4 @@
-[@ethereumjs/tx](../README.md) / TransactionFactory
+[@theqrl/zondjs-tx](../README.md) / TransactionFactory
 
 # Class: TransactionFactory
 
@@ -25,10 +25,10 @@ This method returns the right transaction.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `data` | `Uint8Array` \| `Uint8Array`[] | A Uint8Array or Uint8Array[] |
-| `txOptions` | [`TxOptions`](../interfaces/TxOptions.md) | The transaction options |
+| Name        | Type                                      | Description                  |
+| :---------- | :---------------------------------------- | :--------------------------- |
+| `data`      | `Uint8Array` \| `Uint8Array`[]            | A Uint8Array or Uint8Array[] |
+| `txOptions` | [`TxOptions`](../interfaces/TxOptions.md) | The transaction options      |
 
 #### Returns
 
@@ -38,7 +38,7 @@ This method returns the right transaction.
 
 [tx/src/transactionFactory.ts:87](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/transactionFactory.ts#L87)
 
-___
+---
 
 ### fromJsonRpcProvider
 
@@ -48,11 +48,11 @@ Method to retrieve a transaction from the provider
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `provider` | `string` \| `EthersProvider` | a url string for a JSON-RPC provider or an Ethers JsonRPCProvider object |
-| `txHash` | `string` | Transaction hash |
-| `txOptions?` | [`TxOptions`](../interfaces/TxOptions.md) | The transaction options |
+| Name         | Type                                      | Description                                                              |
+| :----------- | :---------------------------------------- | :----------------------------------------------------------------------- |
+| `provider`   | `string` \| `EthersProvider`              | a url string for a JSON-RPC provider or an Ethers JsonRPCProvider object |
+| `txHash`     | `string`                                  | Transaction hash                                                         |
+| `txOptions?` | [`TxOptions`](../interfaces/TxOptions.md) | The transaction options                                                  |
 
 #### Returns
 
@@ -64,7 +64,7 @@ the transaction specified by `txHash`
 
 [tx/src/transactionFactory.ts:105](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/transactionFactory.ts#L105)
 
-___
+---
 
 ### fromRPC
 
@@ -75,15 +75,15 @@ Note that this normalizes some of the parameters
 
 #### Type parameters
 
-| Name | Type |
-| :------ | :------ |
-| `T` | extends [`TransactionType`](../enums/TransactionType.md) |
+| Name | Type                                                     |
+| :--- | :------------------------------------------------------- |
+| `T`  | extends [`TransactionType`](../enums/TransactionType.md) |
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `txData` | [`TxData`](../interfaces/TxData.md)[`T`] | The RPC-encoded data |
+| Name        | Type                                      | Description             |
+| :---------- | :---------------------------------------- | :---------------------- |
+| `txData`    | [`TxData`](../interfaces/TxData.md)[`T`]  | The RPC-encoded data    |
 | `txOptions` | [`TxOptions`](../interfaces/TxOptions.md) | The transaction options |
 
 #### Returns
@@ -94,7 +94,7 @@ Note that this normalizes some of the parameters
 
 [tx/src/transactionFactory.ts:128](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/transactionFactory.ts#L128)
 
-___
+---
 
 ### fromSerializedData
 
@@ -104,15 +104,15 @@ This method tries to decode serialized data.
 
 #### Type parameters
 
-| Name | Type |
-| :------ | :------ |
-| `T` | extends [`TransactionType`](../enums/TransactionType.md) |
+| Name | Type                                                     |
+| :--- | :------------------------------------------------------- |
+| `T`  | extends [`TransactionType`](../enums/TransactionType.md) |
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `data` | `Uint8Array` | The data Uint8Array |
+| Name        | Type                                      | Description             |
+| :---------- | :---------------------------------------- | :---------------------- |
+| `data`      | `Uint8Array`                              | The data Uint8Array     |
 | `txOptions` | [`TxOptions`](../interfaces/TxOptions.md) | The transaction options |
 
 #### Returns
@@ -123,7 +123,7 @@ This method tries to decode serialized data.
 
 [tx/src/transactionFactory.ts:57](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/transactionFactory.ts#L57)
 
-___
+---
 
 ### fromTxData
 
@@ -133,16 +133,16 @@ Create a transaction from a `txData` object
 
 #### Type parameters
 
-| Name | Type |
-| :------ | :------ |
-| `T` | extends [`TransactionType`](../enums/TransactionType.md) |
+| Name | Type                                                     |
+| :--- | :------------------------------------------------------- |
+| `T`  | extends [`TransactionType`](../enums/TransactionType.md) |
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `txData` | [`TypedTxData`](../README.md#typedtxdata) | The transaction data. The `type` field will determine which transaction type is returned (if undefined, creates a legacy transaction) |
-| `txOptions` | [`TxOptions`](../interfaces/TxOptions.md) | Options to pass on to the constructor of the transaction |
+| Name        | Type                                      | Description                                                                                                                           |
+| :---------- | :---------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------ |
+| `txData`    | [`TypedTxData`](../README.md#typedtxdata) | The transaction data. The `type` field will determine which transaction type is returned (if undefined, creates a legacy transaction) |
+| `txOptions` | [`TxOptions`](../interfaces/TxOptions.md) | Options to pass on to the constructor of the transaction                                                                              |
 
 #### Returns
 

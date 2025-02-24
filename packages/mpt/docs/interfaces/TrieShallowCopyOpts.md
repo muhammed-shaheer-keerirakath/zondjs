@@ -1,4 +1,4 @@
-[@ethereumjs/trie](../README.md) / TrieShallowCopyOpts
+[@theqrl/zondjs-trie](../README.md) / TrieShallowCopyOpts
 
 # Interface: TrieShallowCopyOpts
 
@@ -19,7 +19,7 @@
 
 [packages/trie/src/types.ts:115](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/types.ts#L115)
 
-___
+---
 
 ### keyPrefix
 

@@ -1,4 +1,4 @@
-[@ethereumjs/verkle](../README.md) / CheckpointDBOpts
+[@theqrl/zondjs-verkle](../README.md) / CheckpointDBOpts
 
 # Interface: CheckpointDBOpts
 

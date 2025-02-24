@@ -3,9 +3,9 @@ import {
   Hardfork,
   Mainnet,
   createCustomCommon,
-} from "@ethereumjs/common";
-import { RLP } from "@ethereumjs/rlp";
-import { createLegacyTx } from "@ethereumjs/tx";
+} from "@theqrl/zondjs-common";
+import { RLP } from "@theqrl/zondjs-rlp";
+import { createLegacyTx } from "@theqrl/zondjs-tx";
 import {
   KECCAK256_RLP_ARRAY,
   bytesToHex,

@@ -1,5 +1,5 @@
-import { createBlockFromRLP } from "@ethereumjs/block";
-import { Ethash } from "@ethereumjs/ethash";
+import { createBlockFromRLP } from "@theqrl/zondjs-block";
+import { Ethash } from "@theqrl/zondjs-ethash";
 import { MapDB, hexToBytes } from "@theqrl/zondjs-util";
 
 import type { DBObject } from "@theqrl/zondjs-util";

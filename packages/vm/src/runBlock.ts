@@ -1,17 +1,17 @@
-import { createBlock, genRequestsRoot } from "@ethereumjs/block";
-import { ConsensusType, Hardfork } from "@ethereumjs/common";
+import { createBlock, genRequestsRoot } from "@theqrl/zondjs-block";
+import { ConsensusType, Hardfork } from "@theqrl/zondjs-common";
 import {
   type EVM,
   type EVMInterface,
   VerkleAccessWitness,
-} from "@ethereumjs/evm";
-import { MerklePatriciaTrie } from "@ethereumjs/mpt";
-import { RLP } from "@ethereumjs/rlp";
+} from "@theqrl/zondjs-evm";
+import { MerklePatriciaTrie } from "@theqrl/zondjs-mpt";
+import { RLP } from "@theqrl/zondjs-rlp";
 import {
   StatelessVerkleStateManager,
   verifyVerkleStateProof,
-} from "@ethereumjs/statemanager";
-import { TransactionType } from "@ethereumjs/tx";
+} from "@theqrl/zondjs-statemanager";
+import { TransactionType } from "@theqrl/zondjs-tx";
 import {
   Account,
   Address,
@@ -52,8 +52,8 @@ import type {
   TxReceipt,
 } from "./types.js";
 import type { VM } from "./vm.js";
-import type { Block } from "@ethereumjs/block";
-import type { Common } from "@ethereumjs/common";
+import type { Block } from "@theqrl/zondjs-block";
+import type { Common } from "@theqrl/zondjs-common";
 import type {
   CLRequest,
   CLRequestType,

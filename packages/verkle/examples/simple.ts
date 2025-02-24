@@ -4,7 +4,7 @@ import {
   getVerkleStem,
   utf8ToBytes,
 } from "@theqrl/zondjs-util";
-import { createVerkleTree } from "@ethereumjs/verkle";
+import { createVerkleTree } from "@theqrl/zondjs-verkle";
 
 async function test() {
   const addrHex = "0x781f1e4238f9de8b4d0ede9932f5a4d08f15dae7";

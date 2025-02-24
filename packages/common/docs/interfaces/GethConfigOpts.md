@@ -1,4 +1,4 @@
-[@ethereumjs/common](../README.md) / GethConfigOpts
+[@theqrl/zondjs-common](../README.md) / GethConfigOpts
 
 # Interface: GethConfigOpts
 

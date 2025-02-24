@@ -28,7 +28,7 @@ See: PR [#3530](https://github.com/ethereumjs/ethereumjs-monorepo/pull/3530)
 
 #### Own VM Parameter Set
 
-HF-sensitive parameters like `historyStorageAddress` were previously by design all provided by the `@ethereumjs/common` library. This meant that all parameter sets were shared among the libraries and libraries carried around a lot of unnecessary parameters.
+HF-sensitive parameters like `historyStorageAddress` were previously by design all provided by the `@theqrl/zondjs-common` library. This meant that all parameter sets were shared among the libraries and libraries carried around a lot of unnecessary parameters.
 
 With the `Common` refactoring from PR [#3537](https://github.com/ethereumjs/ethereumjs-monorepo/pull/3537) parameters now moved over to a dedicated `params.ts` file (exposed as e.g. `paramsVM`) within the parameter-using library and the library sets its own parameter set by internally calling a new `Common` method `updateParams()`. For shared `Common` instances parameter sets then accumulate as needed.
 
@@ -40,11 +40,11 @@ There is a new Common API for simplification and better tree shaking, see PR [#3
 
 ```ts
 // old
-import { Chain, Common } from '@ethereumjs/common'
+import { Chain, Common } from '@theqrl/zondjs-common'
 const common = new Common({ chain: Chain.Mainnet })
 
 // new
-import { Common, Mainnet } from '@ethereumjs/common'
+import { Common, Mainnet } from '@theqrl/zondjs-common'
 const common = new Common({ chain: Mainnet })
 ```
 
@@ -67,9 +67,9 @@ The VM now experimentally supports running [EIP-7702](https://eips.ethereum.org/
 The following is an example on how to create an EIP-7702 tx (note that you need to replace the `authorizationList` parameters with real-world tx and signature values):
 
 ```ts
-import { Common, Hardfork, Mainnet } from '@ethereumjs/common'
-import { createEOACode7702Tx } from '@ethereumjs/tx'
-import { type PrefixedHexString, createAddressFromPrivateKey, randomBytes } from '@ethereumjs/util'
+import { Common, Hardfork, Mainnet } from '@theqrl/zondjs-common'
+import { createEOACode7702Tx } from '@theqrl/zondjs-tx'
+import { type PrefixedHexString, createAddressFromPrivateKey, randomBytes } from '@theqrl/zondjs-util'
 
 const ones32 = `0x${'01'.repeat(32)}` as PrefixedHexString
 
@@ -122,7 +122,7 @@ For this library this means:
 
 This library now supports `EIP-6110` deposit requests, see PR [#3390](https://github.com/ethereumjs/ethereumjs-monorepo/pull/3390), `EIP-7002` withdrawal requests, see PR [#3385](https://github.com/ethereumjs/ethereumjs-monorepo/pull/3385) and `EIP-7251` consolidation requests, see PR [#3477](https://github.com/ethereumjs/ethereumjs-monorepo/pull/3477) as well as the underlying generic execution layer request logic introduced with `EIP-7685` (PR [#3372](https://github.com/ethereumjs/ethereumjs-monorepo/pull/3372)).
 
-These new request types will be activated with the `Prague` hardfork, see [@ethereumjs/block](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/block) README for detailed documentation.
+These new request types will be activated with the `Prague` hardfork, see [@theqrl/zondjs-block](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/block) README for detailed documentation.
 
 ### EIP-2935 Serve Historical Block Hashes from State (Prague)
 
@@ -132,7 +132,7 @@ This EIP will be activated along the Prague hardfork. Note that this EIP has no 
 
 ### Verkle Dependency Decoupling
 
-We have relatively light-heartedly added a new `@ethereumjs/verkle` main dependency to the VM/EVM stack in the `v7.2.1` release, which added an additional burden to the bundle size by several hundred KB and additionally draws in unnecessary WASM code. Coupling with Verkle has been refactored in PR [#3462](https://github.com/ethereumjs/ethereumjs-monorepo/pull/3462) and the direct dependency has been removed again.
+We have relatively light-heartedly added a new `@theqrl/zondjs-verkle` main dependency to the VM/EVM stack in the `v7.2.1` release, which added an additional burden to the bundle size by several hundred KB and additionally draws in unnecessary WASM code. Coupling with Verkle has been refactored in PR [#3462](https://github.com/ethereumjs/ethereumjs-monorepo/pull/3462) and the direct dependency has been removed again.
 
 An update to this release is therefore strongly recommended even if other fixes or features are not that relevant for you right now.
 
@@ -174,8 +174,8 @@ The `EVM` direct constructor initialization with `new EVM()` now has been deprec
 An EVM is now initialized like the following:
 
 ```ts
-import { hexToBytes } from '@ethereumjs/util'
-import { EVM } from '@ethereumjs/evm'
+import { hexToBytes } from '@theqrl/zondjs-util'
+import { EVM } from '@theqrl/zondjs-evm'
 
 const evm = await EVM.create()
 const res = await evm.runCode({ code: hexToBytes('0x6001') })
@@ -199,7 +199,7 @@ Note that `kzg-wasm` needs to be added manually to your own dependencies and the
 
 ```typescript
 import { loadKZG } from 'kzg-wasm'
-import { Chain, Common, Hardfork } from '@ethereumjs/common'
+import { Chain, Common, Hardfork } from '@theqrl/zondjs-common'
 
 const kzg = await loadKZG()
 
@@ -217,7 +217,7 @@ Note that passing in the KZG setup file is not necessary anymore, since this is 
 
 #### Trie Node.js Import Bug
 
-Since this fits well also to be placed here relatively prominently for awareness: we had a relatively nasty bug in the `@ethereumjs/trie` library with a `Node.js` web stream import also affecting browser compatibility, see PR [#3280](https://github.com/ethereumjs/ethereumjs-monorepo/pull/3280). This bug has been fixed along with these releases and this library now references the updated trie library version.
+Since this fits well also to be placed here relatively prominently for awareness: we had a relatively nasty bug in the `@theqrl/zondjs-trie` library with a `Node.js` web stream import also affecting browser compatibility, see PR [#3280](https://github.com/ethereumjs/ethereumjs-monorepo/pull/3280). This bug has been fixed along with these releases and this library now references the updated trie library version.
 
 ### Other Changes
 
@@ -226,7 +226,7 @@ Since this fits well also to be placed here relatively prominently for awareness
 
 ## 7.2.1 - 2024-02-08
 
-- Hotfix release moving the `@ethereumjs/verkle` dependency for `@ethereumjs/statemanager` from a peer dependency to the main dependencies (note that this decision might be temporary)
+- Hotfix release moving the `@theqrl/zondjs-verkle` dependency for `@theqrl/zondjs-statemanager` from a peer dependency to the main dependencies (note that this decision might be temporary)
 
 ## 7.2.0 - 2023-02-01
 
@@ -238,8 +238,8 @@ Dencun hardfork on the execution side is called [Cancun](https://github.com/ethe
 
 ```typescript
 import * as kzg from 'c-kzg'
-import { Common, Chain, Hardfork } from '@ethereumjs/common'
-import { initKZG } from '@ethereumjs/util'
+import { Common, Chain, Hardfork } from '@theqrl/zondjs-common'
+import { initKZG } from '@theqrl/zondjs-util'
 
 initKZG(kzg, __dirname + '/../../client/src/trustedSetups/official.txt')
 const common = new Common({
@@ -256,18 +256,18 @@ At the moment using the Node.js bindings for the `c-kzg` library is the only opt
 
 While `EIP-4844` - activating shard blob transactions - is for sure the most prominent EIP from this hardfork, enabling better scaling for the Ethereum ecosystem by providing cheaper block space for L2s, there are in total 6 EIPs contained in the Dencun hardfork. The following is an overview of which EthereumJS libraries mainly implement the various EIPs:
 
-- EIP-1153: Transient storage opcodes (`@ethereumjs/evm`)
-- EIP-4788: Beacon block root in the EVM (`@ethereumjs/block`, `@ethereumjs/evm`, `@ethereumjs/vm`)
-- EIP-4844: Shard Blob Transactions (`@ethereumjs/tx`, `@ethereumjs/block`, `@ethereumjs/evm`)
-- EIP-5656: MCOPY - Memory copying instruction (`@ethereumjs/evm`)
-- EIP-6780: SELFDESTRUCT only in same transaction (`@ethereumjs/vm`)
-- EIP-7516: BLOBBASEFEE opcode (`@ethereumjs/block`, `@ethereumjs/evm`)
+- EIP-1153: Transient storage opcodes (`@theqrl/zondjs-evm`)
+- EIP-4788: Beacon block root in the EVM (`@theqrl/zondjs-block`, `@theqrl/zondjs-evm`, `@theqrl/zondjs-vm`)
+- EIP-4844: Shard Blob Transactions (`@theqrl/zondjs-tx`, `@theqrl/zondjs-block`, `@theqrl/zondjs-evm`)
+- EIP-5656: MCOPY - Memory copying instruction (`@theqrl/zondjs-evm`)
+- EIP-6780: SELFDESTRUCT only in same transaction (`@theqrl/zondjs-vm`)
+- EIP-7516: BLOBBASEFEE opcode (`@theqrl/zondjs-block`, `@theqrl/zondjs-evm`)
 
 ### WASM Crypto Support
 
 With this release round there is a new way to replace the native JS crypto primitives used within the EthereumJS ecosystem by custom/other implementations in a controlled fashion, see PR [#3192](https://github.com/ethereumjs/ethereumjs-monorepo/pull/3192).
 
-This can e.g. be used to replace time-consuming primitives like the commonly used `keccak256` hash function with a more performant WASM based implementation, see `@ethereumjs/common` [README](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/common) for some detailed guidance on how to use.
+This can e.g. be used to replace time-consuming primitives like the commonly used `keccak256` hash function with a more performant WASM based implementation, see `@theqrl/zondjs-common` [README](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/common) for some detailed guidance on how to use.
 
 ### Self-Contained (and Working 🙂) README Examples
 
@@ -349,19 +349,19 @@ The EthereumJS Team
 
 ### Default Shanghai HF / Merge -> Paris Renaming / Full Cancun Hardfork Support
 
-The Shanghai hardfork is now the default HF in `@ethereumjs/common` and therefore for all libraries who use a Common-based HF setting internally (e.g. Tx, Block or EVM), see PR [#2655](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2655).
+The Shanghai hardfork is now the default HF in `@theqrl/zondjs-common` and therefore for all libraries who use a Common-based HF setting internally (e.g. Tx, Block or EVM), see PR [#2655](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2655).
 
 Also the Merge HF has been renamed to Paris (`Hardfork.Paris`) which is the correct HF name on the execution side, see [#2652](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2652). To set the HF to Paris in Common you can do:
 
 ```ts
-import { Chain, Common, Hardfork } from '@ethereumjs/common'
+import { Chain, Common, Hardfork } from '@theqrl/zondjs-common'
 const common = new Common({ chain: Chain.Mainnet, hardfork: Hardfork.Paris })
 ```
 
 And third on hardforks 🙂: the upcoming Cancun hardfork is now fully supported and all EIPs are included (see PRs [#2659](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2659) and [#2892](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2892)). The Cancun HF can be activated with:
 
 ```ts
-import { Chain, Common, Hardfork } from '@ethereumjs/common'
+import { Chain, Common, Hardfork } from '@theqrl/zondjs-common'
 const common = new Common({ chain: Chain.Mainnet, hardfork: Hardfork.Cancun })
 ```
 
@@ -373,15 +373,15 @@ During the last round of breaking releases we separated the `EVM` and `VM` packa
 
 While this was a large step in the "right direction" [TM] we realized over the last months that the structure we introduced with a separate `EEI` as an additional abstraction layer for talking to the EVM with the "outside world" (another [TM]) for e.g. retrieving block hashes or the like still unnecessarily tied the VM/EVM structures together and didn't fully allow for a truly separate EVM initialization.
 
-We have now further refactored this - see PR [#2649](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2649/) and PR [#2702](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2702) - and simplified the interface and completely removed the `EEI` package, with most of the EEI related logic now either handled internally or more generic functionality being taken over by the `@ethereumjs/statemanager` package.
+We have now further refactored this - see PR [#2649](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2649/) and PR [#2702](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2702) - and simplified the interface and completely removed the `EEI` package, with most of the EEI related logic now either handled internally or more generic functionality being taken over by the `@theqrl/zondjs-statemanager` package.
 
-So the optional `eei` option in the VM constructor now has been removed, a passed in `stateManager` now needs to adhere to a slightly expanded [EVMStateManagerInterface](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/common/src/interfaces.ts), which can be found in `@ethereumjs/common` (since used across the libraries).
+So the optional `eei` option in the VM constructor now has been removed, a passed in `stateManager` now needs to adhere to a slightly expanded [EVMStateManagerInterface](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/common/src/interfaces.ts), which can be found in `@theqrl/zondjs-common` (since used across the libraries).
 
 ### New API to set Hardforks
 
 Our APIs to (re-)set a a hardfork within a library had grown old over all changes on how this is done over the years. 😂
 
-We therefore removed the outdated `getHardforkByBlockNumber()` and `setHardforkByBlockNumber()` methods in `@ethereumjs/common` (artificially expanded with the option to also pass a `TD` or `timestamp`) with a more adequate `hardforkBy()` method flexibly taking in the adequate value type for a HF change, see PR [#2798](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2798):
+We therefore removed the outdated `getHardforkByBlockNumber()` and `setHardforkByBlockNumber()` methods in `@theqrl/zondjs-common` (artificially expanded with the option to also pass a `TD` or `timestamp`) with a more adequate `hardforkBy()` method flexibly taking in the adequate value type for a HF change, see PR [#2798](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2798):
 
 ```ts
 common.setHardforkBy({ blockNumber: 5000000n }) // Setting a mainnet common to a Block from `Byzantium` (and so: to `Byzantium` HF)
@@ -400,8 +400,8 @@ This release adds support in the underlying EVM for [EIP-5656](https://eips.ethe
 You can initialize an EIP-5656 activated EVM with:
 
 ```ts
-import { Chain, Common, Hardfork } from '@ethereumjs/common'
-import { VM } from '@ethereumjs/vm'
+import { Chain, Common, Hardfork } from '@theqrl/zondjs-common'
+import { VM } from '@theqrl/zondjs-vm'
 
 const common = new Common({ chain: Chain.Mainnet, hardfork: Hardfork.Cancun })
 const vm = await VM.create({ common })
@@ -418,8 +418,8 @@ Support for [EIP-6780](https://eips.ethereum.org/EIPS/eip-6780) "SELFDESTRUCT on
 You can initialize an EIP-6780 activated EVM with:
 
 ```ts
-import { Chain, Common, Hardfork } from '@ethereumjs/common'
-import { VM } from '@ethereumjs/vm'
+import { Chain, Common, Hardfork } from '@theqrl/zondjs-common'
+import { VM } from '@theqrl/zondjs-vm'
 
 const common = new Common({ chain: Chain.Mainnet, hardfork: Hardfork.Cancun })
 const vm = await VM.create({ common })
@@ -439,7 +439,7 @@ The `0x44` (old `DIFFICULTY`) opcode - is now named `PREVRANDAO` - starting with
 
 Genesis state was huge and had previously been bundled with the `Blockchain` package with the burden going over to the VM, since `Blockchain` is a dependency.
 
-With this release genesis state has been removed from `blockchain` and moved into its own auxiliary package [@ethereumjs/genesis](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/genesis), from which it can be included if needed (for most - especially VM - use cases it is not necessary), see PR [#2844](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2844).
+With this release genesis state has been removed from `blockchain` and moved into its own auxiliary package [@theqrl/zondjs-genesis](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/genesis), from which it can be included if needed (for most - especially VM - use cases it is not necessary), see PR [#2844](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2844).
 
 This goes along with some changes in Blockchain and VM API:
 
@@ -453,22 +453,22 @@ While there might be last-round final tweaks, [EIP-4844](https://eips.ethereum.o
 
 This release supports EIP-4844 along this snapshot [b9a5a11](https://github.com/ethereum/EIPs/commit/b9a5a117ab7e1dc18f937841d00598b527c306e7)from the EIP repository with the EIP being in `Review` status and features/changes included which made it into [4844-devnet-7](https://github.com/ethpandaops/4844-testnet).
 
-#### KZG Initialization -> @ethereumjs/util
+#### KZG Initialization -> @theqrl/zondjs-util
 
-The global initialization method for the KZG setup has been moved to a dedicated [kzg.ts](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/kzg.ts) module in `@ethereumjs/util` for easy reuse across the libraries, see PR [#2567](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2567).
+The global initialization method for the KZG setup has been moved to a dedicated [kzg.ts](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/kzg.ts) module in `@theqrl/zondjs-util` for easy reuse across the libraries, see PR [#2567](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2567).
 
 The `initKZG()` method can be used as follows:
 
 ```ts
 // Make the kzg library available globally
 import * as kzg from 'c-kzg'
-import { initKZG } from '@ethereumjs/util'
+import { initKZG } from '@theqrl/zondjs-util'
 
 // Initialize the trusted setup
 initKZG(kzg, 'path/to/my/trusted_setup.txt')
 ```
 
-For further information on this see the respective section in `@ethereumjs-util` [README](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/util).
+For further information on this see the respective section in `@theqrl/zondjs-util` [README](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/util).
 
 #### Library Changes
 
@@ -491,14 +491,14 @@ Both builds have respective separate entrypoints in the distributed `package.jso
 A CommonJS import of our libraries can then be done like this:
 
 ```ts
-const { Chain, Common } = require('@ethereumjs/common')
+const { Chain, Common } = require('@theqrl/zondjs-common')
 const common = new Common({ chain: Chain.Mainnet })
 ```
 
 And this is how an ESM import looks like:
 
 ```ts
-import { Chain, Common } from '@ethereumjs/common'
+import { Chain, Common } from '@theqrl/zondjs-common'
 const common = new Common({ chain: Chain.Mainnet })
 ```
 
@@ -525,7 +525,7 @@ VM.runTx(this: VM, opts: RunTxOpts): Promise<RunTxResult>
 VM.buildBlock()
 ```
 
-We have converted existing Buffer conversion methods to Uint8Array conversion methods in the [@ethereumjs/util](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/util) `bytes` module, see the respective README section for guidance.
+We have converted existing Buffer conversion methods to Uint8Array conversion methods in the [@theqrl/zondjs-util](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/util) `bytes` module, see the respective README section for guidance.
 
 #### Prefixed Hex Strings as Default
 
@@ -560,11 +560,11 @@ Please therefore check you code base on updating and ensure that values you are 
 ### Maintenance
 
 - Update ethereum-cryptography from 1.2 to 2.0 (switch from noble-secp256k1 to noble-curves), PR [#2641](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2641)
-- Bump `@ethereumjs/util` `@chainsafe/ssz` dependency to 0.11.1 (no WASM, native SHA-256 implementation, ES2019 compatible, explicit imports), PRs [#2622](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2622), [#2564](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2564) and [#2656](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2656)
+- Bump `@theqrl/zondjs-util` `@chainsafe/ssz` dependency to 0.11.1 (no WASM, native SHA-256 implementation, ES2019 compatible, explicit imports), PRs [#2622](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2622), [#2564](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2564) and [#2656](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2656)
 
 ## 6.4.1 - 2023-02-27
 
-- Pinned `@ethereumjs/util` `@chainsafe/ssz` dependency to `v0.9.4` due to ES2021 features used in `v0.10.+` causing compatibility issues, PR [#2555](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2555)
+- Pinned `@theqrl/zondjs-util` `@chainsafe/ssz` dependency to `v0.9.4` due to ES2021 features used in `v0.10.+` causing compatibility issues, PR [#2555](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2555)
 - Fixed `kzg` imports, PR [#2552](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2552)
 
 ## 6.4.0 - 2023-01-16
@@ -578,12 +578,12 @@ This release fully supports all EIPs included in the [Shanghai](https://github.c
 You can instantiate a Shanghai-enabled Common instance for your transactions with:
 
 ```ts
-import { Common, Chain, Hardfork } from '@ethereumjs/common'
+import { Common, Chain, Hardfork } from '@theqrl/zondjs-common'
 
 const common = new Common({ chain: Chain.Mainnet, hardfork: Hardfork.Shanghai })
 ```
 
-Note: that this is only a finalizing release by e.g. integrating an updated `@ethereumjs/common` library with an updated Shanghai HF setting and all Shanghai related EIP functionality has been already released in former releases. Do a fulltext search on the EIP numbers in the EVM/VM CHANGELOG files for additional information and usage instructions.
+Note: that this is only a finalizing release by e.g. integrating an updated `@theqrl/zondjs-common` library with an updated Shanghai HF setting and all Shanghai related EIP functionality has been already released in former releases. Do a fulltext search on the EIP numbers in the EVM/VM CHANGELOG files for additional information and usage instructions.
 
 ### Experimental EIP-4844 Shard Blob Transactions Support
 
@@ -591,15 +591,15 @@ This release supports an experimental version of the blob transaction type intro
 
 #### Initialization
 
-To run VM/EVM related EIP-4844 functionality you have to active the EIP in the associated `@ethereumjs/common` library:
+To run VM/EVM related EIP-4844 functionality you have to active the EIP in the associated `@theqrl/zondjs-common` library:
 
 ```ts
-import { Common, Chain, Hardfork } from '@ethereumjs/common'
+import { Common, Chain, Hardfork } from '@theqrl/zondjs-common'
 
 const common = new Common({ chain: Chain.Mainnet, hardfork: Hardfork.Shanghai, eips: [4844] })
 ```
 
-EIP-4844 comes with a new opcode `DATAHASH` and adds a new point evaluation precompile at address `0x14` in the underlying `@ethereumjs/evm` package.
+EIP-4844 comes with a new opcode `DATAHASH` and adds a new point evaluation precompile at address `0x14` in the underlying `@theqrl/zondjs-evm` package.
 
 **Note:** Usage of the point evaluation precompile needs a manual KZG library installation and global initialization, see [KZG Setup](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/tx/README.md#kzg-setup) for instructions.
 
@@ -622,12 +622,12 @@ The Block Builder API (see [README](https://github.com/ethereumjs/ethereumjs-mon
 
 ### Experimental EIP-4895 Beacon Chain Withdrawals Support
 
-This release comes with experimental [EIP-4895](https://eips.ethereum.org/EIPS/eip-4895) beacon chain withdrawals support, see PR [#2353](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2353) for the plain implementation and PR [#2401](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2401) for updated calls for the CL/EL engine API. Also note that there is a new helper module in [@ethereumjs/util](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/util) with a new dedicated `Withdrawal` class together with additional TypeScript types to ease withdrawal handling.
+This release comes with experimental [EIP-4895](https://eips.ethereum.org/EIPS/eip-4895) beacon chain withdrawals support, see PR [#2353](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2353) for the plain implementation and PR [#2401](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2401) for updated calls for the CL/EL engine API. Also note that there is a new helper module in [@theqrl/zondjs-util](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/util) with a new dedicated `Withdrawal` class together with additional TypeScript types to ease withdrawal handling.
 
-Withdrawals support can be activated by initializing a respective `Common` object, see [@ethereumjs/block](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/block) library README for an example on how to instantiate a withdrawals block:
+Withdrawals support can be activated by initializing a respective `Common` object, see [@theqrl/zondjs-block](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/block) library README for an example on how to instantiate a withdrawals block:
 
 ```ts
-import { Common, Chain } from '@ethereumjs/common'
+import { Common, Chain } from '@theqrl/zondjs-common'
 const common = new Common({ chain: Chain.Mainnet, eips: [4895] })
 ```
 
@@ -635,19 +635,19 @@ In the VM withdrawals blocks can now both be executed with `VM.runBlock()` and b
 
 ### Hardfork-By-Time Support
 
-The VM library is now ready to work with hardforks triggered by timestamp, which will first be applied along the `Shanghai` HF, see PR [#2437](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2437). This is achieved by integrating a new timestamp supporting `@ethereumjs/common` library version.
+The VM library is now ready to work with hardforks triggered by timestamp, which will first be applied along the `Shanghai` HF, see PR [#2437](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2437). This is achieved by integrating a new timestamp supporting `@theqrl/zondjs-common` library version.
 
 ### Bug Fixes and Other Changes
 
 - More correctly timed `nonce` updates in `VM.runTx()` to avoid certain consensus-critical `nonce`/`account` update constellations. PR [#2404](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2404)
 
-A reminder: This package does not contain the core EVM code any more. For EVM related bugfixes see the associated [@ethereumjs/evm](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/evm) `v1.2.3` release.
+A reminder: This package does not contain the core EVM code any more. For EVM related bugfixes see the associated [@theqrl/zondjs-evm](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/evm) `v1.2.3` release.
 
 ## 6.2.0 - 2022-10-21
 
 This release replaces the `v6.1.0` release from a couple of days ago which now becomes deprecated. The async event emitter library switch from the `async-eventemitter` package to the `eventemitter2` package turned out to be breaking along parts of the functionality.
 
-This release therefore switches back to a modernized version of the `async-eventemitter` package - now also solving previous import problems - which has been internalized and integrated into the `@ethereumjs/util` package, see PR [#2376](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2376).
+This release therefore switches back to a modernized version of the `async-eventemitter` package - now also solving previous import problems - which has been internalized and integrated into the `@theqrl/zondjs-util` package, see PR [#2376](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2376).
 
 ## 6.1.0 - 2022-10-18
 
@@ -660,11 +660,11 @@ For lots of custom chains (for e.g. devnets and testnets), you might come across
 `Common` now has a new constructor `Common.fromGethGenesis()` - see PRs [#2300](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2300) and [#2319](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2319) - which can be used in following manner to instantiate for example a VM run or a tx with a `genesis.json` based Common:
 
 ```ts
-import { Common } from '@ethereumjs/common'
+import { Common } from '@theqrl/zondjs-common'
 // Load geth genesis json file into lets say `genesisJson` and optional `chain` and `genesisHash`
 const common = Common.fromGethGenesis(genesisJson, { chain: 'customChain', genesisHash })
 // If you don't have `genesisHash` while initiating common, you can later configure common (for e.g.
-// calculating it afterwards by using the `@ethereumjs/blockchain` package)
+// calculating it afterwards by using the `@theqrl/zondjs-blockchain` package)
 common.setForkHashes(genesisHash)
 ```
 
@@ -694,7 +694,7 @@ Release candidate 1 for the upcoming breaking release round on the [EthereumJS m
 
 ### Fixed Mainnet Merge HF Default
 
-Since this bug was so severe it gets its own section: `mainnet` in the underlying `@ethereumjs/common` library (`Chain.Mainnet`) was accidentally not updated yet to default to the `merge` HF (`Hardfork.Merge`) by an undiscovered overwrite back to `london`.
+Since this bug was so severe it gets its own section: `mainnet` in the underlying `@theqrl/zondjs-common` library (`Chain.Mainnet`) was accidentally not updated yet to default to the `merge` HF (`Hardfork.Merge`) by an undiscovered overwrite back to `london`.
 
 This has been fixed in PR [#2206](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2206) and `mainnet` now default to the `merge` as well.
 
@@ -745,14 +745,14 @@ Beta 3 release for the upcoming breaking release round on the [EthereumJS monore
 
 ### Merge Hardfork Default
 
-Since the Merge HF is getting close we have decided to directly jump on the `Merge` HF (before: `Istanbul`) as default in the underlying `@ethereumjs/common` library and skip the `London` default HF as we initially intended to set (see Beta 1 CHANGELOG), see PR [#2087](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2087).
+Since the Merge HF is getting close we have decided to directly jump on the `Merge` HF (before: `Istanbul`) as default in the underlying `@theqrl/zondjs-common` library and skip the `London` default HF as we initially intended to set (see Beta 1 CHANGELOG), see PR [#2087](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2087).
 
 This means that if this library is instantiated without providing an explicit `Common`, the `Merge` HF will be set as the default hardfork and the behavior of the library changes according to up-to-`Merge` HF rules.
 
 If you want to prevent these kind of implicit HF switches in the future it is likely a good practice to just always do your upper-level library instantiations with a `Common` instance setting an explicit HF, e.g.:
 
 ```ts
-import { Common, Chain, Hardfork } from '@ethereumjs/common'
+import { Common, Chain, Hardfork } from '@theqrl/zondjs-common'
 
 const common = new Common({ chain: Chain.Mainnet, hardfork: Hardfork.London })
 ```
@@ -783,12 +783,12 @@ Now every import is a named import and we think the long term benefits will very
 
 #### Common Library Import Updates
 
-Since our [@ethereumjs/common](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/common) library is used all across our libraries for chain and HF instantiation this will likely be the one being the most prevalent regarding the need for some import updates.
+Since our [@theqrl/zondjs-common](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/common) library is used all across our libraries for chain and HF instantiation this will likely be the one being the most prevalent regarding the need for some import updates.
 
 So Common import and usage is changing from:
 
 ```ts
-import Common, { Chain, Hardfork } from '@ethereumjs/common'
+import Common, { Chain, Hardfork } from '@theqrl/zondjs-common'
 
 const common = new Common({ chain: Chain.Mainnet, hardfork: Hardfork.Merge })
 ```
@@ -796,7 +796,7 @@ const common = new Common({ chain: Chain.Mainnet, hardfork: Hardfork.Merge })
 to:
 
 ```ts
-import { Common, Chain, Hardfork } from '@ethereumjs/common'
+import { Common, Chain, Hardfork } from '@theqrl/zondjs-common'
 
 const common = new Common({ chain: Chain.Mainnet, hardfork: Hardfork.Merge })
 ```
@@ -806,13 +806,13 @@ const common = new Common({ chain: Chain.Mainnet, hardfork: Hardfork.Merge })
 The main `VM` class import has been updated, so import changes from:
 
 ```ts
-import VM from '@ethereumjs/vm'
+import VM from '@theqrl/zondjs-vm'
 ```
 
 to:
 
 ```ts
-import { VM } from '@ethereumjs/vm'
+import { VM } from '@theqrl/zondjs-vm'
 ```
 
 ## Other Changes
@@ -823,7 +823,7 @@ import { VM } from '@ethereumjs/vm'
 
 This release is part of a larger breaking release round where all [EthereumJS monorepo](https://github.com/ethereumjs/ethereumjs-monorepo) libraries (VM, Tx, Trie, other) get major version upgrades. This round of releases has been prepared for a long time and we are really pleased with and proud of the result, thanks to all team members and contributors who worked so hard and made this possible! 🙂 ❤️
 
-We have gotten rid of a lot of technical debt and inconsistencies and removed unused functionality, renamed methods, improved on the API and on TypeScript typing, to name a few of the more local type of refactoring changes. There are also broader structural changes like a full transition to native JavaScript `BigInt` values as well as various somewhat deep-reaching refactorings, both within a single package as well as some reaching beyond the scope of a single package. Also two completely new packages - `@ethereumjs/evm` (in addition to the existing `@ethereumjs/vm` package) and `@ethereumjs/statemanager` - have been created, leading to a more modular Ethereum JavaScript VM.
+We have gotten rid of a lot of technical debt and inconsistencies and removed unused functionality, renamed methods, improved on the API and on TypeScript typing, to name a few of the more local type of refactoring changes. There are also broader structural changes like a full transition to native JavaScript `BigInt` values as well as various somewhat deep-reaching refactorings, both within a single package as well as some reaching beyond the scope of a single package. Also two completely new packages - `@theqrl/zondjs-evm` (in addition to the existing `@theqrl/zondjs-vm` package) and `@theqrl/zondjs-statemanager` - have been created, leading to a more modular Ethereum JavaScript VM.
 
 We are very much confident that users of the libraries will greatly benefit from the changes being introduced. However - along the upgrade process - these releases require some extra attention and care since the changeset is both so big and deep reaching. We highly recommend to closely read the release notes, we have done our best to create a full picture on the changes with some special emphasis on delicate code and API parts and give some explicit guidance on how to upgrade and where problems might arise!
 
@@ -833,7 +833,7 @@ The EthereumJS Team
 
 ### EVM and StateManager Extraction
 
-This breaking release round comes with some broader changes to the VM package. The code base has been substantially modularized and two new packages, `@ethereumjs/evm` and `@ethereumjs/statemanager` have been created, also see the CHANGELOGs from both new packages for additional guidance.
+This breaking release round comes with some broader changes to the VM package. The code base has been substantially modularized and two new packages, `@theqrl/zondjs-evm` and `@theqrl/zondjs-statemanager` have been created, also see the CHANGELOGs from both new packages for additional guidance.
 
 The EVM package extracts the inner core, the Ethereum Virtual Machine (EVM) respectively the bytecode engine, see PRs [#1892](https://github.com/ethereumjs/ethereumjs-monorepo/pull/1892), [#1955](https://github.com/ethereumjs/ethereumjs-monorepo/pull/1955) and [#1977](https://github.com/ethereumjs/ethereumjs-monorepo/pull/1977) for the main implementation work and PR [#1974](https://github.com/ethereumjs/ethereumjs-monorepo/pull/1974) for the package extraction work.
 
@@ -854,14 +854,14 @@ The VM provides an implementation for the `EEI` interface from the `EVM` package
 
 ### London Hardfork Default
 
-In this release the underlying `@ethereumjs/common` version is updated to `v3` which sets the default HF to `London` (before: `Istanbul`).
+In this release the underlying `@theqrl/zondjs-common` version is updated to `v3` which sets the default HF to `London` (before: `Istanbul`).
 
 This means that a Block object instantiated without providing an explicit `Common` is using `London` as the default hardfork as well and behavior of the library changes according to up-to-`London` HF rules.
 
 If you want to prevent these kind of implicit HF switches in the future it is likely a good practice to just always do your upper-level library instantiations with a `Common` instance setting an explicit HF, e.g.:
 
 ```ts
-import Common, { Chain, Hardfork } from '@ethereumjs/common'
+import Common, { Chain, Hardfork } from '@theqrl/zondjs-common'
 
 const common = new Common({ chain: Chain.Mainnet, hardfork: Hardfork.Merge })
 ```
@@ -983,13 +983,13 @@ const vm = await VM.create({
 
 ### Merge Kiln v2 Testnet Support
 
-This release fully supports the Merge [Kiln](https://kiln.themerge.dev/) testnet `v2` complying with the latest Merge [specs](https://hackmd.io/@n0ble/kiln-spec). The release is part of an [@ethereumjs/client](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/client) `v0.4` release which can be used to sync with the testnet, combining with a suited consensus client (e.g. the Lodestar client). See [Kiln](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/client/kiln) instructions to get things going! 🚀
+This release fully supports the Merge [Kiln](https://kiln.themerge.dev/) testnet `v2` complying with the latest Merge [specs](https://hackmd.io/@n0ble/kiln-spec). The release is part of an [@theqrl/zondjs-client](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/client) `v0.4` release which can be used to sync with the testnet, combining with a suited consensus client (e.g. the Lodestar client). See [Kiln](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/client/kiln) instructions to get things going! 🚀
 
 In the VM the `merge` HF is now activated as being supported and an (experimental) Merge-ready VM can be instantiated with:
 
 ```ts
-import VM from '@ethereumjs/vm'
-import Common, { Chain, Hardfork } from '@ethereumjs/common'
+import VM from '@theqrl/zondjs-vm'
+import Common, { Chain, Hardfork } from '@theqrl/zondjs-common'
 
 const common = new Common({ chain: Chain.Mainnet, hardfork: Hardfork.Merge })
 const vm = new VM({ common })
@@ -1073,7 +1073,7 @@ The VM `StateManager` has been substantially refactored in PR [#1548](https://gi
 - New `ProofStateManager` to get an [EIP-1186](https://eips.ethereum.org/EIPS/eip-1186)-compatible (respectively `eth_getProof rPC endpoint-compatible) proof for a specific address and associated storage slots, PR [#1590](https://github.com/ethereumjs/ethereumjs-monorepo/pull/1590) and PR [#1660](https://github.com/ethereumjs/ethereumjs-monorepo/pull/1660)
 - VM JumpDest analysis refactor for better performance, PR [#1629](https://github.com/ethereumjs/ethereumjs-monorepo/pull/1629)
 - [EIP-3607](https://eips.ethereum.org/EIPS/eip-3607): Reject transactions from senders with deployed code, PR [#1568](https://github.com/ethereumjs/ethereumjs-monorepo/pull/1568)
-- Support for new [Sepolia](https://sepolia.ethdevops.io/) PoW test network (use `Chain.Sepolia` for `@ethereumjs/common` instance passed in), PR [#1581](https://github.com/ethereumjs/ethereumjs-monorepo/pull/1581)
+- Support for new [Sepolia](https://sepolia.ethdevops.io/) PoW test network (use `Chain.Sepolia` for `@theqrl/zondjs-common` instance passed in), PR [#1581](https://github.com/ethereumjs/ethereumjs-monorepo/pull/1581)
 - [EIP-2681](https://eips.ethereum.org/EIPS/eip-2681): Limit account nonce to 2^64-1, PR [#1608](https://github.com/ethereumjs/ethereumjs-monorepo/pull/1608)
 - [EIP-3855](https://eips.ethereum.org/EIPS/eip-3855): Push0 opcode, PR [#1616](https://github.com/ethereumjs/ethereumjs-monorepo/pull/1616)
 
@@ -1093,8 +1093,8 @@ Please note that for backwards-compatibility reasons the associated Common is st
 An ArrowGlacier VM can be instantiated with:
 
 ```ts
-import VM from '@ethereumjs/vm'
-import Common, { Chain, Hardfork } from '@ethereumjs/common'
+import VM from '@theqrl/zondjs-vm'
+import Common, { Chain, Hardfork } from '@theqrl/zondjs-common'
 
 const common = new Common({ chain: Chain.Mainnet, hardfork: Hardfork.ArrowGlacier })
 const vm = new VM({ common })
@@ -1200,8 +1200,8 @@ This release comes with some additional `EIP-1559` checks and functionality:
 This `VM` release comes with full functional support for the `london` hardfork (all EIPs are finalized and integrated and `london` HF can be activated, there are no final block numbers for the HF integrated though yet). Please note that the default HF is still set to `istanbul`. You therefore need to explicitly set the `hardfork` parameter for instantiating a `VM` with the `london` HF activated:
 
 ```ts
-import VM from '@ethereumjs/vm'
-import Common from '@ethereumjs/common'
+import VM from '@theqrl/zondjs-vm'
+import Common from '@theqrl/zondjs-common'
 const common = new Common({ chain: 'mainnet', hardfork: 'london' })
 const vm = new VM({ common })
 ```
@@ -1221,7 +1221,7 @@ const common = new Common({ chain: 'mainnet', hardfork: 'berlin', eips: [3529] }
 
 #### EIP-1559: Gas Fee Market
 
-The VM can now run `EIP-1559` compatible blocks (introduced with the `@ethereumjs/block` `v3.3.0` release) with `VM.runBlock()` as well as `EIP-1559` txs with type `2` (introduced along the `@ethereumjs/tx` `v3.2.0` release), which can now be passed to `VM.runTx()` as the tx to be executed. Block and tx validation is happening accordingly and the gas calculation takes the new gas fee market parameters from the block (`baseFeePerGas`) and the tx(s) (`maxFeePerGas` and `maxPriorityFeePerGas` instead of a `gasPrice`) into account.
+The VM can now run `EIP-1559` compatible blocks (introduced with the `@theqrl/zondjs-block` `v3.3.0` release) with `VM.runBlock()` as well as `EIP-1559` txs with type `2` (introduced along the `@theqrl/zondjs-tx` `v3.2.0` release), which can now be passed to `VM.runTx()` as the tx to be executed. Block and tx validation is happening accordingly and the gas calculation takes the new gas fee market parameters from the block (`baseFeePerGas`) and the tx(s) (`maxFeePerGas` and `maxPriorityFeePerGas` instead of a `gasPrice`) into account.
 
 #### EIP-3198: BASEFEE Opcode
 
@@ -1282,7 +1282,7 @@ See PR [#1198](https://github.com/ethereumjs/ethereumjs-monorepo/pull/1198).
 
 ### EIP-2930 Tx Access List Generation
 
-This release adds the ability to generate access lists from tx runs with `VM.runTx()`, see PR [#1170](https://github.com/ethereumjs/ethereumjs-monorepo/pull/1170). There is a new option `reportAccessList` which can be used on all tx types to generate an access list as defined by [EIP-2930](https://eips.ethereum.org/EIPS/eip-2930) which is then returned along the `VM.runTx()` result adhering to the `@ethereumjs/tx` `AccessList` TypeScript type definition.
+This release adds the ability to generate access lists from tx runs with `VM.runTx()`, see PR [#1170](https://github.com/ethereumjs/ethereumjs-monorepo/pull/1170). There is a new option `reportAccessList` which can be used on all tx types to generate an access list as defined by [EIP-2930](https://eips.ethereum.org/EIPS/eip-2930) which is then returned along the `VM.runTx()` result adhering to the `@theqrl/zondjs-tx` `AccessList` TypeScript type definition.
 
 Note that this functionality needs the new `StateManager.generateAccessList()` function which is not yet part of the `StateManager` interface for compatibility reasons. If you implement an own `StateManager` make sure that this function is present (e.g. by inheriting your `StateManager` from the `DefaultStateManager` implementation).
 
@@ -1323,8 +1323,8 @@ This release is the first VM release with official `berlin` HF support. All `Eth
 Please note that the default HF is still set to `istanbul`. You therefore need to explicitly set the `hardfork` parameter for instantiating a `VM` instance with a `berlin` HF activated:
 
 ```ts
-import VM from '@ethereumjs/vm'
-import Common from '@ethereumjs/common'
+import VM from '@theqrl/zondjs-vm'
+import Common from '@theqrl/zondjs-common'
 const common = new Common({ chain: 'mainnet', hardfork: 'berlin' })
 const vm = new VM({ common })
 ```
@@ -1333,7 +1333,7 @@ There is a relatively broad set of changes since the last VM version `v5.1.0` in
 
 #### Added Typed Transaction Support (EIP-2718 / EIP-2930)
 
-The VM is now prepared to work with Typed Transactions ([EIP2718](https://eips.ethereum.org/EIPS/eip-2718)) which have been introduced along the `@ethereumjs/tx` `v3.1.0` release. It now therefore gets possible to pass typed txs to `VM.runTx()` respectively a block containing typed txs to `VM.runBlock()`, see PR [#1048](https://github.com/ethereumjs/ethereumjs-monorepo/pull/1048) and PR [#1138](https://github.com/ethereumjs/ethereumjs-monorepo/pull/1138).
+The VM is now prepared to work with Typed Transactions ([EIP2718](https://eips.ethereum.org/EIPS/eip-2718)) which have been introduced along the `@theqrl/zondjs-tx` `v3.1.0` release. It now therefore gets possible to pass typed txs to `VM.runTx()` respectively a block containing typed txs to `VM.runBlock()`, see PR [#1048](https://github.com/ethereumjs/ethereumjs-monorepo/pull/1048) and PR [#1138](https://github.com/ethereumjs/ethereumjs-monorepo/pull/1138).
 
 There is a first concrete tx type 1 including optional access lists added along the `berlin` HF ([EIP2930](https://eips.ethereum.org/EIPS/eip-2930)). Access lists are now properly detected by the VM and gas costs calculated accordingly.
 
@@ -1363,11 +1363,11 @@ The `StateManager` base interface and the inherited `EIP2929StateManager` interf
 
 If you are using this library in conjunction with other EthereumJS libraries make sure to minimally have the following library versions installed for typed transaction support:
 
-- `@ethereumjs/common` `v2.2.0`
-- `@ethereumjs/tx` `v3.1.0`
-- `@ethereumjs/block` `v3.2.0`
-- `@ethereumjs/blockchain` `v5.2.0`
-- `@ethereumjs/vm` `v5.2.0`
+- `@theqrl/zondjs-common` `v2.2.0`
+- `@theqrl/zondjs-tx` `v3.1.0`
+- `@theqrl/zondjs-block` `v3.2.0`
+- `@theqrl/zondjs-blockchain` `v5.2.0`
+- `@theqrl/zondjs-vm` `v5.2.0`
 
 ### Other Features
 
@@ -1392,8 +1392,8 @@ This release introduces Clique/PoA support, see the main PR [#1032](https://gith
 Here is a simple example:
 
 ```ts
-import VM from '@ethereumjs/vm'
-import Common from '@ethereumjs/common'
+import VM from '@theqrl/zondjs-vm'
+import Common from '@theqrl/zondjs-common'
 
 const common = new Common({ chain: 'goerli' })
 const hardforkByBlockNumber = true
@@ -1406,9 +1406,9 @@ const result = await vm.runBlock(block)
 
 All the corresponding internal dependencies have been updated to Clique/PoA supporting versions, namely:
 
-- @ethereumjs/block -> `v3.1.0`
-- @ethereumjs/blockchain -> `v5.1.0`
-- @ethereumjs/common" -> `v2.1.0`
+- @theqrl/zondjs-block -> `v3.1.0`
+- @theqrl/zondjs-blockchain -> `v5.1.0`
+- @theqrl/zondjs-common" -> `v2.1.0`
 
 Note that you need to also use library versions equal or higher than the ones mentioned above when you pass in an instance from one of the libraries to an API call (e.g. `VM.runBlock()`, see example above) to ensure everything is working properly in a Clique/PoA context.
 
@@ -1469,12 +1469,12 @@ For an overview on the different loggers available see the respective [README se
 
 **Attention!** This new version is part of a series of EthereumJS releases all moving to a new scoped package name format. In this case the library is renamed as follows:
 
-- `ethereumjs-vm` -> `@ethereumjs/vm`
+- `ethereumjs-vm` -> `@theqrl/zondjs-vm`
 
 Please update your library references accordingly or install with:
 
 ```shell
-npm i @ethereumjs/vm
+npm i @theqrl/zondjs-vm
 ```
 
 ### Support for all current Hardforks / HF API Changes
@@ -1492,8 +1492,8 @@ The following HFs have been added:
 A VM with the specific HF rules (on the chain provided) can be instantiated by passing in a `Common` instance:
 
 ```ts
-import VM from '@ethereumjs/vm'
-import Common from '@ethereumjs/common'
+import VM from '@theqrl/zondjs-vm'
+import Common from '@theqrl/zondjs-common'
 
 const common = new Common({ chain: 'mainnet', hardfork: 'spuriousDragon' })
 const vm = new VM({ common })
@@ -1518,8 +1518,8 @@ These integrations come along with an API addition to the VM to support the acti
 This API can be used as follows:
 
 ```ts
-import Common from '@ethereumjs/common'
-import VM from '@ethereumjs/vm'
+import Common from '@theqrl/zondjs-common'
+import VM from '@theqrl/zondjs-vm'
 
 const common = new Common({ chain: 'mainnet', eips: [2537] })
 const vm = new VM({ common })
@@ -1530,8 +1530,8 @@ const vm = new VM({ common })
 The following `EthereumJS` libraries which are used within the VM internally and can be passed in on instantiation have been updated to new major versions.
 
 - `merkle-patricia-tree` `v3` (VM option `state`) -> `merkle-patricia-tree` `v4`, PR [#787](https://github.com/ethereumjs/ethereumjs-monorepo/pull/787)
-- `ethereumjs-blockchain` `v4`-> `@ethereumjs/blockchain` `v5`, PR [#833](https://github.com/ethereumjs/ethereumjs-monorepo/pull/833)
-- `ethereumjs-common` `v1` -> `@ethereumjs/common` `v2`
+- `ethereumjs-blockchain` `v4`-> `@theqrl/zondjs-blockchain` `v5`, PR [#833](https://github.com/ethereumjs/ethereumjs-monorepo/pull/833)
+- `ethereumjs-common` `v1` -> `@theqrl/zondjs-common` `v2`
 
 **Breaking**: If you pass in instances of these libraries to the VM please make sure to update these library versions as stated. Please also take a note on the package name changes!
 
@@ -1614,12 +1614,12 @@ This is the second beta release towards a final library release, see [beta.1 rel
 
 **Attention!** This new version is part of a series of EthereumJS releases all moving to a new scoped package name format. In this case the library is renamed as follows:
 
-- `ethereumjs-monorepo` -> `@ethereumjs/vm`
+- `ethereumjs-monorepo` -> `@theqrl/zondjs-vm`
 
 Please update your library references accordingly or install with:
 
 ```shell
-npm i @ethereumjs/vm
+npm i @theqrl/zondjs-vm
 ```
 
 ### Support for all current Hardforks / HF API Changes
@@ -1645,8 +1645,8 @@ A VM with the specific HF rules (on the chain provided) can be instantiated
 by passing in a `Common` instance:
 
 ```ts
-import VM from '@ethereumjs/vm'
-import Common from '@ethereumjs/common'
+import VM from '@theqrl/zondjs-vm'
+import Common from '@theqrl/zondjs-common'
 
 const common = new Common({ chain: 'mainnet', hardfork: 'spuriousDragon' })
 const vm = new VM({ common })
@@ -1688,8 +1688,8 @@ PR [#872](https://github.com/ethereumjs/ethereumjs-monorepo/pull/872).
 This API can be used as follows:
 
 ```ts
-import Common from '@ethereumjs/common'
-import VM from '@ethereumjs/vm'
+import Common from '@theqrl/zondjs-common'
+import VM from '@theqrl/zondjs-vm'
 
 const common = new Common({ chain: 'mainnet', eips: [2537] })
 const vm = new VM({ common })
@@ -1702,9 +1702,9 @@ and can be passed in on instantiation have been updated to new major versions.
 
 - `merkle-patricia-tree` `v3` (VM option `state`) -> `merkle-patricia-tree` `v4`,
   PR [#787](https://github.com/ethereumjs/ethereumjs-monorepo/pull/787)
-- `ethereumjs-blockchain` `v4`-> `@ethereumjs/blockchain` `v5`,
+- `ethereumjs-blockchain` `v4`-> `@theqrl/zondjs-blockchain` `v5`,
   PR [#833](https://github.com/ethereumjs/ethereumjs-monorepo/pull/833)
-- `ethereumjs-common` `v1` -> `@ethereumjs/common` `v2`
+- `ethereumjs-common` `v1` -> `@theqrl/zondjs-common` `v2`
 
 **Breaking**: If you pass in instances of these libraries to the VM please make sure to
 update these library versions as stated. Please also take a note on the

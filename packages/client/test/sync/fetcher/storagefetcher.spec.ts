@@ -1,5 +1,5 @@
-import { createMPTFromProof } from "@ethereumjs/mpt";
-import { RLP } from "@ethereumjs/rlp";
+import { createMPTFromProof } from "@theqrl/zondjs-mpt";
+import { RLP } from "@theqrl/zondjs-rlp";
 import { hexToBytes, utf8ToBytes } from "@theqrl/zondjs-util";
 import { assert, describe, it, vi } from "vitest";
 

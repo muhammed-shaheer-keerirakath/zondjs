@@ -1,17 +1,17 @@
-import { createBlockFromExecutionPayload } from "@ethereumjs/block";
+import { createBlockFromExecutionPayload } from "@theqrl/zondjs-block";
 import {
   createBlockchain,
   createBlockchainFromBlocksData,
-} from "@ethereumjs/blockchain";
+} from "@theqrl/zondjs-blockchain";
 import {
   Common,
   Hardfork,
   Mainnet,
   createCommonFromGethGenesis,
   createCustomCommon,
-} from "@ethereumjs/common";
+} from "@theqrl/zondjs-common";
 import { bytesToHex, parseGethGenesisState } from "@theqrl/zondjs-util";
-import { createVM } from "@ethereumjs/vm";
+import { createVM } from "@theqrl/zondjs-vm";
 import { assert, describe, it } from "vitest";
 
 import { Chain } from "../../src/blockchain/index.js";
@@ -24,8 +24,8 @@ import { testnetData } from "../testdata/common/testnet.js";
 import { goerliGenesis } from "../testdata/geth-genesis/goerliGenesis.js";
 import { withdrawalsData } from "../testdata/geth-genesis/withdrawals.js";
 
-import type { ExecutionPayload } from "@ethereumjs/block";
-import type { Blockchain } from "@ethereumjs/blockchain";
+import type { ExecutionPayload } from "@theqrl/zondjs-block";
+import type { Blockchain } from "@theqrl/zondjs-blockchain";
 
 const shanghaiPayload: ExecutionPayload = {
   blockNumber: "0x1",

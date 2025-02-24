@@ -1,4 +1,4 @@
-[@ethereumjs/blockchain](../README.md) / EthashConsensus
+[@theqrl/zondjs-blockchain](../README.md) / EthashConsensus
 
 # Class: EthashConsensus
 

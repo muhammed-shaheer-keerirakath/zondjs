@@ -1,6 +1,6 @@
-import { createBlock } from "@ethereumjs/block";
-import { createCommonFromGethGenesis } from "@ethereumjs/common";
-import { createTxFromRLP } from "@ethereumjs/tx";
+import { createBlock } from "@theqrl/zondjs-block";
+import { createCommonFromGethGenesis } from "@theqrl/zondjs-common";
+import { createTxFromRLP } from "@theqrl/zondjs-tx";
 import {
   Address,
   VerkleLeafType,

@@ -1,4 +1,4 @@
-[@ethereumjs/devp2p](../README.md) / ProtocolType
+[@theqrl/zondjs-devp2p](../README.md) / ProtocolType
 
 # Enumeration: ProtocolType
 

@@ -1,4 +1,4 @@
-import { createLegacyTx } from "@ethereumjs/tx";
+import { createLegacyTx } from "@theqrl/zondjs-tx";
 import {
   bytesToHex,
   createContractAddress,

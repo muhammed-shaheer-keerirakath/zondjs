@@ -1,4 +1,4 @@
-[@ethereumjs/common](../README.md) / CommonOpts
+[@theqrl/zondjs-common](../README.md) / CommonOpts
 
 # Interface: CommonOpts
 

@@ -3,8 +3,8 @@ import {
   createMerkleProof,
   updateMPTFromMerkleProof,
   verifyMerkleProof,
-} from "@ethereumjs/mpt";
-import { RLP } from "@ethereumjs/rlp";
+} from "@theqrl/zondjs-mpt";
+import { RLP } from "@theqrl/zondjs-rlp";
 import {
   KECCAK256_NULL,
   KECCAK256_NULL_S,
@@ -23,7 +23,7 @@ import {
 import { MerkleStateManager } from "../merkleStateManager.js";
 
 import type { MerkleStateManagerOpts } from "../index.js";
-import type { Proof, StorageProof } from "@ethereumjs/common";
+import type { Proof, StorageProof } from "@theqrl/zondjs-common";
 import type { Address, PrefixedHexString } from "@theqrl/zondjs-util";
 
 /**

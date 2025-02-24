@@ -1,4 +1,4 @@
-[@ethereumjs/verkle](../README.md) / WalkController
+[@theqrl/zondjs-verkle](../README.md) / WalkController
 
 # Class: WalkController
 

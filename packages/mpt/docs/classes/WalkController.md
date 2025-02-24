@@ -1,4 +1,4 @@
-[@ethereumjs/trie](../README.md) / WalkController
+[@theqrl/zondjs-trie](../README.md) / WalkController
 
 # Class: WalkController
 
@@ -29,7 +29,7 @@ WalkController is an interface to control how the trie is being traversed.
 
 [packages/trie/src/util/walkController.ts:12](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/util/walkController.ts#L12)
 
-___
+---
 
 ### taskExecutor
 
@@ -39,7 +39,7 @@ ___
 
 [packages/trie/src/util/walkController.ts:13](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/util/walkController.ts#L13)
 
-___
+---
 
 ### trie
 
@@ -59,10 +59,10 @@ Run all children of a node. Priority of these nodes are the key length of the ch
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `node` | [`TrieNode`](../README.md#trienode) | `undefined` | Node to get all children of and call onNode on. |
-| `key` | [`Nibbles`](../README.md#nibbles) | `[]` | The current `key` which would yield the `node` when trying to get this node with a `get` operation. |
+| Name   | Type                                | Default value | Description                                                                                         |
+| :----- | :---------------------------------- | :------------ | :-------------------------------------------------------------------------------------------------- |
+| `node` | [`TrieNode`](../README.md#trienode) | `undefined`   | Node to get all children of and call onNode on.                                                     |
+| `key`  | [`Nibbles`](../README.md#nibbles)   | `[]`          | The current `key` which would yield the `node` when trying to get this node with a `get` operation. |
 
 #### Returns
 
@@ -72,7 +72,7 @@ Run all children of a node. Priority of these nodes are the key length of the ch
 
 [packages/trie/src/util/walkController.ts:69](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/util/walkController.ts#L69)
 
-___
+---
 
 ### onlyBranchIndex
 
@@ -82,12 +82,12 @@ Push a branch of a certain BranchNode to the event queue.
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `node` | [`BranchNode`](BranchNode.md) | `undefined` | The node to select a branch on. Should be a BranchNode. |
-| `key` | [`Nibbles`](../README.md#nibbles) | `[]` | The current key which leads to the corresponding node. |
-| `childIndex` | `number` | `undefined` | The child index to add to the event queue. |
-| `priority?` | `number` | `undefined` | Optional priority of the event, defaults to the total key length. |
+| Name         | Type                              | Default value | Description                                                       |
+| :----------- | :-------------------------------- | :------------ | :---------------------------------------------------------------- |
+| `node`       | [`BranchNode`](BranchNode.md)     | `undefined`   | The node to select a branch on. Should be a BranchNode.           |
+| `key`        | [`Nibbles`](../README.md#nibbles) | `[]`          | The current key which leads to the corresponding node.            |
+| `childIndex` | `number`                          | `undefined`   | The child index to add to the event queue.                        |
+| `priority?`  | `number`                          | `undefined`   | Optional priority of the event, defaults to the total key length. |
 
 #### Returns
 
@@ -97,7 +97,7 @@ Push a branch of a certain BranchNode to the event queue.
 
 [packages/trie/src/util/walkController.ts:120](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/util/walkController.ts#L120)
 
-___
+---
 
 ### pushNodeToQueue
 
@@ -107,11 +107,11 @@ Push a node to the queue. If the queue has places left for tasks, the node is ex
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `nodeRef` | `Uint8Array` | `undefined` | Push a node reference to the event queue. This reference is a 32-byte keccak hash of the value corresponding to the `key`. |
-| `key` | [`Nibbles`](../README.md#nibbles) | `[]` | The current key. |
-| `priority?` | `number` | `undefined` | Optional priority, defaults to key length |
+| Name        | Type                              | Default value | Description                                                                                                                |
+| :---------- | :-------------------------------- | :------------ | :------------------------------------------------------------------------------------------------------------------------- |
+| `nodeRef`   | `Uint8Array`                      | `undefined`   | Push a node reference to the event queue. This reference is a 32-byte keccak hash of the value corresponding to the `key`. |
+| `key`       | [`Nibbles`](../README.md#nibbles) | `[]`          | The current key.                                                                                                           |
+| `priority?` | `number`                          | `undefined`   | Optional priority, defaults to key length                                                                                  |
 
 #### Returns
 
@@ -121,7 +121,7 @@ Push a node to the queue. If the queue has places left for tasks, the node is ex
 
 [packages/trie/src/util/walkController.ts:97](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/trie/src/util/walkController.ts#L97)
 
-___
+---
 
 ### newWalk
 
@@ -131,12 +131,12 @@ Async function to create and start a new walk over a trie.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `onNode` | [`FoundNodeFunction`](../README.md#foundnodefunction) | The `FoundNodeFunction to call if a node is found. |
-| `trie` | [`Trie`](Trie.md) | The trie to walk on. |
-| `root` | `Uint8Array` | The root key to walk on. |
-| `poolSize?` | `number` | Task execution pool size to prevent OOM errors. Defaults to 500. |
+| Name        | Type                                                  | Description                                                      |
+| :---------- | :---------------------------------------------------- | :--------------------------------------------------------------- |
+| `onNode`    | [`FoundNodeFunction`](../README.md#foundnodefunction) | The `FoundNodeFunction to call if a node is found.               |
+| `trie`      | [`Trie`](Trie.md)                                     | The trie to walk on.                                             |
+| `root`      | `Uint8Array`                                          | The root key to walk on.                                         |
+| `poolSize?` | `number`                                              | Task execution pool size to prevent OOM errors. Defaults to 500. |
 
 #### Returns
 

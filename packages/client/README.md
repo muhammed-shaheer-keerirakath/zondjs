@@ -1,4 +1,4 @@
-# @ethereumjs/client
+# @theqrl/zondjs-client
 
 [![NPM Package][client-npm-badge]][client-npm-link]
 [![GitHub Issues][client-issues-badge]][client-issues-link]
@@ -47,12 +47,12 @@ We currently recommend to run the client with a recent Node.js version `18` inst
 
 ### NPM Installation
 
-Client releases are done on a regular basis on [npm](https://www.npmjs.com/package/@ethereumjs/client).
+Client releases are done on a regular basis on [npm](https://www.npmjs.com/package/@theqrl/zondjs-client).
 
 You can install the latest version with:
 
 ```shell
-npm install -g @ethereumjs/client
+npm install -g @theqrl/zondjs-client
 ```
 
 ### Source Installation
@@ -222,11 +222,11 @@ The EthereumJS client supports ongoing protocol development efforts, allowing de
 
 ### Verkle testnet
 
-We currently support the Kaustinen7 testnet, both with stateless and stateful execution. We will be proactively supporting upcoming testnets as they launch. 
+We currently support the Kaustinen7 testnet, both with stateless and stateful execution. We will be proactively supporting upcoming testnets as they launch.
 
-Step 1 - Running the EthereumJS client (from the cloned @ethereumjs/client package)
+Step 1 - Running the EthereumJS client (from the cloned @theqrl/zondjs-client package)
 
-For stateless execution: 
+For stateless execution:
 
 `npm run client:start:ts -- --rpc --gethGenesis=./devnets/kaustinen7/genesis.json --dataDir=datadir/kaust7 --rpcEngine --rpcEngineAuth=false --statelessVerkle=true`
 
@@ -521,16 +521,18 @@ In order to pass parameters to the client while using the repl, you can append i
 `npm run repl -- --gethGenesis /data/genesis.json`
 
 The repl allows access to the JSON-RPC and ENGINE API's from the terminal. For help and a list of supported functions, type `.help` upon repl startup:
+
 ```
-[01-17|09:05:57] INFO Started JSON RPC Server address=http://localhost:8545 namespaces=eth,web3,net,admin,txpool,debug 
-[01-17|09:05:57] INFO Started JSON RPC server address=http://localhost:8551 namespaces=eth,engine rpcEngineAuth=false 
+[01-17|09:05:57] INFO Started JSON RPC Server address=http://localhost:8545 namespaces=eth,web3,net,admin,txpool,debug
+[01-17|09:05:57] INFO Started JSON RPC server address=http://localhost:8551 namespaces=eth,engine rpcEngineAuth=false
 EthJS > .help
 ```
 
 Example usage of repl commands:
+
 ```
-[01-17|09:10:54] INFO Started JSON RPC Server address=http://localhost:8545 namespaces=eth,web3,net,admin,txpool,debug 
-[01-17|09:10:54] INFO Started JSON RPC server address=http://localhost:8551 namespaces=eth,engine rpcEngineAuth=false 
+[01-17|09:10:54] INFO Started JSON RPC Server address=http://localhost:8545 namespaces=eth,web3,net,admin,txpool,debug
+[01-17|09:10:54] INFO Started JSON RPC server address=http://localhost:8551 namespaces=eth,engine rpcEngineAuth=false
 EthJS > .eth_getBlockByNumber ["latest", true]
 EthJS > {
   number: '0x0',
@@ -551,8 +553,8 @@ See our organizational [documentation](https://ethereumjs.readthedocs.io) for an
 
 If you want to join for work or do improvements on the libraries have a look at our [contribution guidelines](https://ethereumjs.readthedocs.io/en/latest/contributing.html).
 
-[client-npm-badge]: https://img.shields.io/npm/v/@ethereumjs/client.svg
-[client-npm-link]: https://www.npmjs.com/package/@ethereumjs/client
+[client-npm-badge]: https://img.shields.io/npm/v/@theqrl/zondjs-client.svg
+[client-npm-link]: https://www.npmjs.com/package/@theqrl/zondjs-client
 [client-issues-badge]: https://img.shields.io/github/issues/ethereumjs/ethereumjs-monorepo/package:%20client?label=issues
 [client-issues-link]: https://github.com/ethereumjs/ethereumjs-monorepo/issues?q=is%3Aopen+is%3Aissue+label%3A"package%3A+client"
 [client-actions-badge]: https://github.com/ethereumjs/ethereumjs-monorepo/workflows/Client/badge.svg

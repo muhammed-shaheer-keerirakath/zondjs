@@ -6,15 +6,15 @@
 // 4. Puts the blocks from ../utils/blockchain-mock-data "blocks" attribute into the Blockchain
 // 5. Runs the Blockchain on the VM.
 
-import { createBlock, createBlockFromRLP } from "@ethereumjs/block";
-import { EthashConsensus, createBlockchain } from "@ethereumjs/blockchain";
+import { createBlock, createBlockFromRLP } from "@theqrl/zondjs-block";
+import { EthashConsensus, createBlockchain } from "@theqrl/zondjs-blockchain";
 import {
   Common,
   ConsensusAlgorithm,
   ConsensusType,
   Mainnet,
-} from "@ethereumjs/common";
-import { Ethash } from "@ethereumjs/ethash";
+} from "@theqrl/zondjs-common";
+import { Ethash } from "@theqrl/zondjs-ethash";
 import {
   Address,
   bytesToHex,
@@ -23,13 +23,13 @@ import {
   setLengthLeft,
   toBytes,
 } from "@theqrl/zondjs-util";
-import { createVM, runBlock } from "@ethereumjs/vm";
+import { createVM, runBlock } from "@theqrl/zondjs-vm";
 
 import testData from "./helpers/blockchain-mock-data.json";
 
-import type { Block } from "@ethereumjs/block";
-import type { Blockchain, ConsensusDict } from "@ethereumjs/blockchain";
-import type { VM } from "@ethereumjs/vm";
+import type { Block } from "@theqrl/zondjs-block";
+import type { Blockchain, ConsensusDict } from "@theqrl/zondjs-blockchain";
+import type { VM } from "@theqrl/zondjs-vm";
 
 async function setupPreConditions(vm: VM, data: any) {
   await vm.stateManager.checkpoint();

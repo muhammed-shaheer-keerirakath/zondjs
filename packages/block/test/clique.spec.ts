@@ -1,4 +1,4 @@
-import { Common, Hardfork } from "@ethereumjs/common";
+import { Common, Hardfork } from "@theqrl/zondjs-common";
 import { Address, createZeroAddress, hexToBytes } from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 

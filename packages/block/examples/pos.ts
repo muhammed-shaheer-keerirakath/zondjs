@@ -1,5 +1,5 @@
-import { createBlock } from '@ethereumjs/block'
-import { Common, Mainnet } from '@ethereumjs/common'
+import { createBlock } from '@theqrl/zondjs-block'
+import { Common, Mainnet } from '@theqrl/zondjs-common'
 
 const common = new Common({ chain: Mainnet })
 

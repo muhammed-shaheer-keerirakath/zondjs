@@ -1,5 +1,5 @@
 import { randomBytes } from "@theqrl/zondjs-util";
-import { Common, Sepolia } from "@ethereumjs/common";
+import { Common, Sepolia } from "@theqrl/zondjs-common";
 import * as devp2p from "../dist/cjs/index.js";
 
 const PEER_ADDRESS = "[ADD_REMOTE_PEER_IP]";

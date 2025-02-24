@@ -1,5 +1,5 @@
-import { createBlock } from "@ethereumjs/block";
-import { Common, Hardfork } from "@ethereumjs/common";
+import { createBlock } from "@theqrl/zondjs-block";
+import { Common, Hardfork } from "@theqrl/zondjs-common";
 import { bytesToHex } from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
@@ -8,7 +8,7 @@ import { createBlockchain } from "../src/index.js";
 import { testnetData } from "./testdata/testnet.js";
 
 import type { Consensus, ConsensusDict } from "../src/index.js";
-import type { Block, BlockHeader } from "@ethereumjs/block";
+import type { Block, BlockHeader } from "@theqrl/zondjs-block";
 
 class fibonacciConsensus implements Consensus {
   algorithm: string;

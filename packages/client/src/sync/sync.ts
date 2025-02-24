@@ -1,4 +1,4 @@
-import { Hardfork } from "@ethereumjs/common";
+import { Hardfork } from "@theqrl/zondjs-common";
 import { BIGINT_0 } from "@theqrl/zondjs-util";
 
 import { Event } from "../types.js";

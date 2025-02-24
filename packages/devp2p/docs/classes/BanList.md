@@ -1,4 +1,4 @@
-[@ethereumjs/devp2p](../README.md) / BanList
+[@theqrl/zondjs-devp2p](../README.md) / BanList
 
 # Class: BanList
 

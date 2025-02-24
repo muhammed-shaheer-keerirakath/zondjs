@@ -9,7 +9,7 @@ import {
   generateConsecutiveBlock,
 } from "./util.js";
 
-import type { Block } from "@ethereumjs/block";
+import type { Block } from "@theqrl/zondjs-block";
 
 describe("blockchain test", () => {
   it("should iterate through 24 blocks without reorg", async () => {

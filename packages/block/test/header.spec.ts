@@ -1,5 +1,5 @@
-import { Common, Hardfork, Mainnet } from "@ethereumjs/common";
-import { RLP } from "@ethereumjs/rlp";
+import { Common, Hardfork, Mainnet } from "@theqrl/zondjs-common";
+import { RLP } from "@theqrl/zondjs-rlp";
 import {
   KECCAK256_RLP,
   KECCAK256_RLP_ARRAY,
@@ -26,7 +26,7 @@ import { blocksMainnetData } from "./testdata/blocks_mainnet.js";
 import { Goerli } from "./testdata/goerliCommon.js";
 
 import type { BlockHeader } from "../src/index.js";
-import type { CliqueConfig } from "@ethereumjs/common";
+import type { CliqueConfig } from "@theqrl/zondjs-common";
 import type { PrefixedHexString } from "@theqrl/zondjs-util";
 
 describe("[Block]: Header functions", () => {

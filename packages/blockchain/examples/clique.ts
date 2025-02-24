@@ -1,9 +1,9 @@
-import { CliqueConsensus, createBlockchain } from '@ethereumjs/blockchain'
-import { Common, ConsensusAlgorithm, Hardfork } from '@ethereumjs/common'
+import { CliqueConsensus, createBlockchain } from '@theqrl/zondjs-blockchain'
+import { Common, ConsensusAlgorithm, Hardfork } from '@theqrl/zondjs-common'
 
 import { Goerli } from '../test/testdata/goerliCommon.js'
 
-import type { ConsensusDict } from '@ethereumjs/blockchain'
+import type { ConsensusDict } from '@theqrl/zondjs-blockchain'
 
 const common = new Common({ chain: Goerli, hardfork: Hardfork.London })
 

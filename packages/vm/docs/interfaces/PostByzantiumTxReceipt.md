@@ -1,4 +1,4 @@
-[@ethereumjs/vm](../README.md) / PostByzantiumTxReceipt
+[@theqrl/zondjs-vm](../README.md) / PostByzantiumTxReceipt
 
 # Interface: PostByzantiumTxReceipt
 

@@ -1,4 +1,4 @@
-[@ethereumjs/devp2p](../README.md) / Contact
+[@theqrl/zondjs-devp2p](../README.md) / Contact
 
 # Interface: Contact
 

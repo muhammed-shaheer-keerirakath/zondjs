@@ -4,8 +4,8 @@ import {
   Mainnet,
   Sepolia,
   createCustomCommon,
-} from "@ethereumjs/common";
-import { RLP } from "@ethereumjs/rlp";
+} from "@theqrl/zondjs-common";
+import { RLP } from "@theqrl/zondjs-rlp";
 import {
   bytesToBigInt,
   bytesToHex,

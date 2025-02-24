@@ -1,4 +1,4 @@
-# @ethereumjs/rlp
+# @theqrl/zondjs-rlp
 
 [![NPM Package][rlp-npm-badge]][rlp-npm-link]
 [![GitHub Issues][rlp-issues-badge]][rlp-issues-link]
@@ -14,7 +14,7 @@
 To obtain the latest version, simply require the project using `npm`:
 
 ```shell
-npm install @ethereumjs/rlp
+npm install @theqrl/zondjs-rlp
 ```
 
 Install with `-g` if you want to use the CLI.
@@ -24,7 +24,7 @@ Install with `-g` if you want to use the CLI.
 ```ts
 // ./examples/simple.ts
 
-import { RLP } from '@ethereumjs/rlp'
+import { RLP } from '@theqrl/zondjs-rlp'
 import assert from 'assert'
 
 const nestedList = [[], [[]], [[], [[]]]]
@@ -50,7 +50,7 @@ It is now easily possible to run a browser build of one of the EthereumJS librar
 
 With the breaking releases from Summer 2023 we have removed all Node.js specific `Buffer` usages from our libraries and replace these with [Uint8Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array) representations, which are available both in Node.js and the browser (`Buffer` is a subclass of `Uint8Array`).
 
-We have converted existing Buffer conversion methods to Uint8Array conversion methods in the [@ethereumjs/util](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/util) `bytes` module, see the respective README section for guidance.
+We have converted existing Buffer conversion methods to Uint8Array conversion methods in the [@theqrl/zondjs-util](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/util) `bytes` module, see the respective README section for guidance.
 
 ### BigInt Support
 
@@ -80,8 +80,8 @@ See our organizational [documentation](https://ethereumjs.readthedocs.io) for an
 
 [discord-badge]: https://img.shields.io/static/v1?logo=discord&label=discord&message=Join&color=blue
 [discord-link]: https://discord.gg/TNwARpR
-[rlp-npm-badge]: https://img.shields.io/npm/v/@ethereumjs/rlp.svg
-[rlp-npm-link]: https://www.npmjs.com/package/@ethereumjs/rlp
+[rlp-npm-badge]: https://img.shields.io/npm/v/@theqrl/zondjs-rlp.svg
+[rlp-npm-link]: https://www.npmjs.com/package/@theqrl/zondjs-rlp
 [rlp-issues-badge]: https://img.shields.io/github/issues/ethereumjs/ethereumjs-monorepo/package:%20rlp?label=issues
 [rlp-issues-link]: https://github.com/ethereumjs/ethereumjs-monorepo/issues?q=is%3Aopen+is%3Aissue+label%3A"package%3A+rlp"
 [rlp-actions-badge]: https://github.com/ethereumjs/ethereumjs-monorepo/workflows/rlp/badge.svg

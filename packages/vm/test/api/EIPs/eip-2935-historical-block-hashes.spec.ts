@@ -1,7 +1,7 @@
-import { createBlock } from "@ethereumjs/block";
-import { createBlockchain } from "@ethereumjs/blockchain";
-import { Hardfork, Mainnet, createCustomCommon } from "@ethereumjs/common";
-import { createLegacyTx } from "@ethereumjs/tx";
+import { createBlock } from "@theqrl/zondjs-block";
+import { createBlockchain } from "@theqrl/zondjs-blockchain";
+import { Hardfork, Mainnet, createCustomCommon } from "@theqrl/zondjs-common";
+import { createLegacyTx } from "@theqrl/zondjs-tx";
 import {
   Account,
   Address,
@@ -31,8 +31,8 @@ import {
 } from "../../../src/index.js";
 
 import type { VM } from "../../../src/index.js";
-import type { Block } from "@ethereumjs/block";
-import type { LegacyTxData } from "@ethereumjs/tx";
+import type { Block } from "@theqrl/zondjs-block";
+import type { LegacyTxData } from "@theqrl/zondjs-tx";
 import type { PrefixedHexString } from "@theqrl/zondjs-util";
 
 function eip2935ActiveAtCommon(timestamp: number, address: bigint) {

@@ -1,12 +1,12 @@
-import { createBlock, createBlockHeader } from "@ethereumjs/block";
+import { createBlock, createBlockHeader } from "@theqrl/zondjs-block";
 import {
   Common,
   ConsensusAlgorithm,
   Hardfork,
   Mainnet,
-} from "@ethereumjs/common";
-import { Ethash } from "@ethereumjs/ethash";
-import { RLP } from "@ethereumjs/rlp";
+} from "@theqrl/zondjs-common";
+import { Ethash } from "@theqrl/zondjs-ethash";
+import { RLP } from "@theqrl/zondjs-rlp";
 import { bytesToHex } from "@theqrl/zondjs-util";
 import { keccak256 } from "ethereum-cryptography/keccak.js";
 import { assert, describe, it } from "vitest";

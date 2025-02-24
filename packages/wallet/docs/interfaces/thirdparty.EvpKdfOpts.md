@@ -1,4 +1,4 @@
-[@ethereumjs/wallet](../README.md) / [thirdparty](../modules/thirdparty.md) / EvpKdfOpts
+[@theqrl/zondjs-wallet](../README.md) / [thirdparty](../modules/thirdparty.md) / EvpKdfOpts
 
 # Interface: EvpKdfOpts
 

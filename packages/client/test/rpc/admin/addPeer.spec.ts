@@ -1,4 +1,4 @@
-import { DPT } from "@ethereumjs/devp2p";
+import { DPT } from "@theqrl/zondjs-devp2p";
 import { hexToBytes } from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 

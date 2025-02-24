@@ -3,7 +3,7 @@ import {
   Hardfork,
   Mainnet,
   createCustomCommon,
-} from "@ethereumjs/common";
+} from "@theqrl/zondjs-common";
 import { bytesToHex, randomBytes } from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 

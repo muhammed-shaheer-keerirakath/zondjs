@@ -1,4 +1,4 @@
-[@ethereumjs/common](../README.md) / Common
+[@theqrl/zondjs-common](../README.md) / Common
 
 # Class: Common
 
@@ -948,7 +948,7 @@ Common.custom(CustomChains.MaticMumbai)
 
 Note that these supported custom chains only provide some base parameters (usually the chain and
 network ID and a name) and can only be used for selected use cases (e.g. sending a tx with
-the `@ethereumjs/tx` library to a Layer-2 chain).
+the `@theqrl/zondjs-tx` library to a Layer-2 chain).
 
 #### Parameters
 

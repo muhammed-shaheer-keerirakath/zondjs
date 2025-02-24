@@ -1,4 +1,4 @@
-import { RLP, utils } from "@ethereumjs/rlp";
+import { RLP, utils } from "@theqrl/zondjs-rlp";
 import { bytesToHex } from "@theqrl/zondjs-util";
 import * as snappy from "snappyjs";
 

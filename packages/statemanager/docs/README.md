@@ -1,6 +1,6 @@
-@ethereumjs/statemanager
+@theqrl/zondjs-statemanager
 
-# @ethereumjs/statemanager
+# @theqrl/zondjs-statemanager
 
 ## Table of contents
 
@@ -38,16 +38,16 @@
 
 ### Variables
 
-- [BALANCE\_LEAF\_KEY](README.md#balance_leaf_key)
-- [CODEHASH\_PREFIX](README.md#codehash_prefix)
-- [CODE\_KECCAK\_LEAF\_KEY](README.md#CODE_HASH_leaf_key)
-- [CODE\_OFFSET](README.md#code_offset)
-- [CODE\_SIZE\_LEAF\_KEY](README.md#code_size_leaf_key)
-- [HEADER\_STORAGE\_OFFSET](README.md#header_storage_offset)
-- [MAIN\_STORAGE\_OFFSET](README.md#main_storage_offset)
-- [NONCE\_LEAF\_KEY](README.md#nonce_leaf_key)
-- [VERKLE\_NODE\_WIDTH](README.md#verkle_node_width)
-- [VERSION\_LEAF\_KEY](README.md#version_leaf_key)
+- [BALANCE_LEAF_KEY](README.md#balance_leaf_key)
+- [CODEHASH_PREFIX](README.md#codehash_prefix)
+- [CODE_KECCAK_LEAF_KEY](README.md#CODE_HASH_leaf_key)
+- [CODE_OFFSET](README.md#code_offset)
+- [CODE_SIZE_LEAF_KEY](README.md#code_size_leaf_key)
+- [HEADER_STORAGE_OFFSET](README.md#header_storage_offset)
+- [MAIN_STORAGE_OFFSET](README.md#main_storage_offset)
+- [NONCE_LEAF_KEY](README.md#nonce_leaf_key)
+- [VERKLE_NODE_WIDTH](README.md#verkle_node_width)
+- [VERSION_LEAF_KEY](README.md#version_leaf_key)
 
 ### Functions
 
@@ -60,13 +60,13 @@
 
 ### AccessedStateWithAddress
 
-Ƭ **AccessedStateWithAddress**: `AccessedState` & { `address`: `Address` ; `chunkKey`: `PrefixedHexString`  }
+Ƭ **AccessedStateWithAddress**: `AccessedState` & { `address`: `Address` ; `chunkKey`: `PrefixedHexString` }
 
 #### Defined in
 
 [accessWitness.ts:69](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/accessWitness.ts#L69)
 
-___
+---
 
 ### Proof
 
@@ -74,21 +74,21 @@ ___
 
 #### Type declaration
 
-| Name | Type |
-| :------ | :------ |
-| `accountProof` | `PrefixedHexString`[] |
-| `address` | `PrefixedHexString` |
-| `balance` | `PrefixedHexString` |
-| `codeHash` | `PrefixedHexString` |
-| `nonce` | `PrefixedHexString` |
-| `storageHash` | `PrefixedHexString` |
+| Name           | Type                                       |
+| :------------- | :----------------------------------------- |
+| `accountProof` | `PrefixedHexString`[]                      |
+| `address`      | `PrefixedHexString`                        |
+| `balance`      | `PrefixedHexString`                        |
+| `codeHash`     | `PrefixedHexString`                        |
+| `nonce`        | `PrefixedHexString`                        |
+| `storageHash`  | `PrefixedHexString`                        |
 | `storageProof` | [`StorageProof`](README.md#storageproof)[] |
 
 #### Defined in
 
 [stateManager.ts:43](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/stateManager.ts#L43)
 
-___
+---
 
 ### StorageProof
 
@@ -96,11 +96,11 @@ ___
 
 #### Type declaration
 
-| Name | Type |
-| :------ | :------ |
-| `key` | `PrefixedHexString` |
+| Name    | Type                  |
+| :------ | :-------------------- |
+| `key`   | `PrefixedHexString`   |
 | `proof` | `PrefixedHexString`[] |
-| `value` | `PrefixedHexString` |
+| `value` | `PrefixedHexString`   |
 
 #### Defined in
 
@@ -108,19 +108,19 @@ ___
 
 ## Variables
 
-### BALANCE\_LEAF\_KEY
+### BALANCE_LEAF_KEY
 
-• `Const` **BALANCE\_LEAF\_KEY**: `Uint8Array`
+• `Const` **BALANCE_LEAF_KEY**: `Uint8Array`
 
 #### Defined in
 
 [accessWitness.ts:14](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/accessWitness.ts#L14)
 
-___
+---
 
-### CODEHASH\_PREFIX
+### CODEHASH_PREFIX
 
-• `Const` **CODEHASH\_PREFIX**: `Uint8Array`
+• `Const` **CODEHASH_PREFIX**: `Uint8Array`
 
 Prefix to distinguish between a contract deployed with code `0x80`
 and `RLP([])` (also having the value `0x80`).
@@ -133,81 +133,81 @@ misbehaviour in the underlying trie library.
 
 [stateManager.ts:104](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/stateManager.ts#L104)
 
-___
+---
 
-### CODE\_KECCAK\_LEAF\_KEY
+### CODE_KECCAK_LEAF_KEY
 
-• `Const` **CODE\_KECCAK\_LEAF\_KEY**: `Uint8Array`
+• `Const` **CODE_KECCAK_LEAF_KEY**: `Uint8Array`
 
 #### Defined in
 
 [accessWitness.ts:16](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/accessWitness.ts#L16)
 
-___
+---
 
-### CODE\_OFFSET
+### CODE_OFFSET
 
-• `Const` **CODE\_OFFSET**: ``128``
+• `Const` **CODE_OFFSET**: `128`
 
 #### Defined in
 
 [accessWitness.ts:20](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/accessWitness.ts#L20)
 
-___
+---
 
-### CODE\_SIZE\_LEAF\_KEY
+### CODE_SIZE_LEAF_KEY
 
-• `Const` **CODE\_SIZE\_LEAF\_KEY**: `Uint8Array`
+• `Const` **CODE_SIZE_LEAF_KEY**: `Uint8Array`
 
 #### Defined in
 
 [accessWitness.ts:17](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/accessWitness.ts#L17)
 
-___
+---
 
-### HEADER\_STORAGE\_OFFSET
+### HEADER_STORAGE_OFFSET
 
-• `Const` **HEADER\_STORAGE\_OFFSET**: ``64``
+• `Const` **HEADER_STORAGE_OFFSET**: `64`
 
 #### Defined in
 
 [accessWitness.ts:19](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/accessWitness.ts#L19)
 
-___
+---
 
-### MAIN\_STORAGE\_OFFSET
+### MAIN_STORAGE_OFFSET
 
-• `Const` **MAIN\_STORAGE\_OFFSET**: `bigint`
+• `Const` **MAIN_STORAGE_OFFSET**: `bigint`
 
 #### Defined in
 
 [accessWitness.ts:24](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/accessWitness.ts#L24)
 
-___
+---
 
-### NONCE\_LEAF\_KEY
+### NONCE_LEAF_KEY
 
-• `Const` **NONCE\_LEAF\_KEY**: `Uint8Array`
+• `Const` **NONCE_LEAF_KEY**: `Uint8Array`
 
 #### Defined in
 
 [accessWitness.ts:15](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/accessWitness.ts#L15)
 
-___
+---
 
-### VERKLE\_NODE\_WIDTH
+### VERKLE_NODE_WIDTH
 
-• `Const` **VERKLE\_NODE\_WIDTH**: ``256``
+• `Const` **VERKLE_NODE_WIDTH**: `256`
 
 #### Defined in
 
 [accessWitness.ts:21](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/accessWitness.ts#L21)
 
-___
+---
 
-### VERSION\_LEAF\_KEY
+### VERSION_LEAF_KEY
 
-• `Const` **VERSION\_LEAF\_KEY**: `Uint8Array`
+• `Const` **VERSION_LEAF_KEY**: `Uint8Array`
 
 Tree key constants.
 
@@ -223,10 +223,10 @@ Tree key constants.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `treeIndex` | `number` \| `bigint` |
-| `chunkIndex` | `number` |
+| Name         | Type                 |
+| :----------- | :------------------- |
+| `treeIndex`  | `number` \| `bigint` |
+| `chunkIndex` | `number`             |
 
 #### Returns
 
@@ -236,7 +236,7 @@ Tree key constants.
 
 [accessWitness.ts:378](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/accessWitness.ts#L378)
 
-___
+---
 
 ### decodeValue
 
@@ -244,10 +244,10 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `type` | [`VerkleAccessedStateType`](enums/VerkleAccessedStateType.md) |
-| `value` | ``null`` \| `string` |
+| Name    | Type                                                          |
+| :------ | :------------------------------------------------------------ |
+| `type`  | [`VerkleAccessedStateType`](enums/VerkleAccessedStateType.md) |
+| `value` | `null` \| `string`                                            |
 
 #### Returns
 
@@ -257,7 +257,7 @@ ___
 
 [accessWitness.ts:413](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/accessWitness.ts#L413)
 
-___
+---
 
 ### getTreeIndexesForStorageSlot
 
@@ -265,24 +265,24 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name         | Type     |
+| :----------- | :------- |
 | `storageKey` | `bigint` |
 
 #### Returns
 
 `Object`
 
-| Name | Type |
-| :------ | :------ |
-| `subIndex` | `number` |
+| Name        | Type     |
+| :---------- | :------- |
+| `subIndex`  | `number` |
 | `treeIndex` | `bigint` |
 
 #### Defined in
 
 [accessWitness.ts:355](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/accessWitness.ts#L355)
 
-___
+---
 
 ### getTreeIndicesForCodeChunk
 
@@ -290,17 +290,17 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name      | Type     |
+| :-------- | :------- |
 | `chunkId` | `number` |
 
 #### Returns
 
 `Object`
 
-| Name | Type |
-| :------ | :------ |
-| `subIndex` | `number` |
+| Name        | Type     |
+| :---------- | :------- |
+| `subIndex`  | `number` |
 | `treeIndex` | `number` |
 
 #### Defined in

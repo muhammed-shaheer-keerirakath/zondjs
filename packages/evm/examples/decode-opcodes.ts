@@ -2,8 +2,8 @@
 //
 // 1. Takes binary EVM code and decodes it into opcodes
 
-import { Common, Hardfork, Mainnet } from "@ethereumjs/common";
-import { getOpcodesForHF, paramsEVM } from "@ethereumjs/evm";
+import { Common, Hardfork, Mainnet } from "@theqrl/zondjs-common";
+import { getOpcodesForHF, paramsEVM } from "@theqrl/zondjs-evm";
 import { bytesToHex, hexToBytes } from "@theqrl/zondjs-util";
 
 const common = new Common({

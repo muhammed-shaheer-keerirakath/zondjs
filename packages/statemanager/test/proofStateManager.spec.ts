@@ -1,4 +1,4 @@
-import { MerklePatriciaTrie, createMPT } from "@ethereumjs/mpt";
+import { MerklePatriciaTrie, createMPT } from "@theqrl/zondjs-mpt";
 import {
   Account,
   Address,

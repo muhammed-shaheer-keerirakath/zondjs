@@ -1,7 +1,7 @@
 // Some more secure presets when using e.g. JS `call`
 "use strict";
 
-import { RLP } from "@ethereumjs/rlp";
+import { RLP } from "@theqrl/zondjs-rlp";
 import {
   BIGINT_0,
   KeyEncoding,
@@ -53,7 +53,7 @@ import type { BatchDBOp, DB } from "@theqrl/zondjs-util";
 import type { Debugger } from "debug";
 
 /**
- * The basic trie interface, use with `import { MerklePatriciaTrie } from '@ethereumjs/mpt'`.
+ * The basic trie interface, use with `import { MerklePatriciaTrie } from '@theqrl/zondjs-mpt'`.
  */
 export class MerklePatriciaTrie {
   protected readonly _opts: MPTOptsWithDefaults = {

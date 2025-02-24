@@ -1,6 +1,6 @@
 import { keccak256 } from 'ethereum-cryptography/keccak.js'
 
-import type { Common } from '@ethereumjs/common'
+import type { Common } from '@theqrl/zondjs-common'
 
 const BYTE_SIZE = 256
 

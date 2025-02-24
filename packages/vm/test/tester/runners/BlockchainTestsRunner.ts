@@ -1,15 +1,15 @@
-import { createBlock, createBlockFromRLP } from "@ethereumjs/block";
-import { EthashConsensus, createBlockchain } from "@ethereumjs/blockchain";
-import { ConsensusAlgorithm } from "@ethereumjs/common";
-import { Ethash } from "@ethereumjs/ethash";
-import { MerklePatriciaTrie } from "@ethereumjs/mpt";
-import { RLP } from "@ethereumjs/rlp";
+import { createBlock, createBlockFromRLP } from "@theqrl/zondjs-block";
+import { EthashConsensus, createBlockchain } from "@theqrl/zondjs-blockchain";
+import { ConsensusAlgorithm } from "@theqrl/zondjs-common";
+import { Ethash } from "@theqrl/zondjs-ethash";
+import { MerklePatriciaTrie } from "@theqrl/zondjs-mpt";
+import { RLP } from "@theqrl/zondjs-rlp";
 import {
   Caches,
   MerkleStateManager,
   StatefulVerkleStateManager,
-} from "@ethereumjs/statemanager";
-import { createTxFromRLP } from "@ethereumjs/tx";
+} from "@theqrl/zondjs-statemanager";
+import { createTxFromRLP } from "@theqrl/zondjs-tx";
 import {
   MapDB,
   bytesToBigInt,
@@ -19,16 +19,16 @@ import {
   stripHexPrefix,
   toBytes,
 } from "@theqrl/zondjs-util";
-import { createVerkleTree } from "@ethereumjs/verkle";
+import { createVerkleTree } from "@theqrl/zondjs-verkle";
 
 import { buildBlock, createVM, runBlock } from "../../../src/index.js";
 import { setupPreConditions, verifyPostConditions } from "../../util.js";
 
-import type { Block } from "@ethereumjs/block";
-import type { Blockchain, ConsensusDict } from "@ethereumjs/blockchain";
-import type { Common, StateManagerInterface } from "@ethereumjs/common";
+import type { Block } from "@theqrl/zondjs-block";
+import type { Blockchain, ConsensusDict } from "@theqrl/zondjs-blockchain";
+import type { Common, StateManagerInterface } from "@theqrl/zondjs-common";
 import type { PrefixedHexString } from "@theqrl/zondjs-util";
-import type { VerkleTree } from "@ethereumjs/verkle";
+import type { VerkleTree } from "@theqrl/zondjs-verkle";
 import type * as tape from "tape";
 
 function formatBlockHeader(data: any) {

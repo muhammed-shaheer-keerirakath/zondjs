@@ -1,4 +1,4 @@
-import { Common, Hardfork, Mainnet } from "@ethereumjs/common";
+import { Common, Hardfork, Mainnet } from "@theqrl/zondjs-common";
 import { bytesToHex, hexToBigInt, hexToBytes } from "@theqrl/zondjs-util";
 import * as fs from "fs";
 import path from "path";

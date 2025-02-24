@@ -2,14 +2,14 @@ import {
   cliqueEpochTransitionSigners,
   createBlock,
   createSealedCliqueBlock,
-} from "@ethereumjs/block";
+} from "@theqrl/zondjs-block";
 import {
   Common,
   ConsensusAlgorithm,
   ConsensusType,
   Hardfork,
   createCustomCommon,
-} from "@ethereumjs/common";
+} from "@theqrl/zondjs-common";
 import {
   Address,
   concatBytes,
@@ -29,8 +29,8 @@ import { createBlockchain } from "../src/index.js";
 import { Goerli } from "./testdata/goerliCommon.js";
 
 import type { Blockchain, ConsensusDict } from "../src/index.js";
-import type { Block } from "@ethereumjs/block";
-import type { CliqueConfig } from "@ethereumjs/common";
+import type { Block } from "@theqrl/zondjs-block";
+import type { CliqueConfig } from "@theqrl/zondjs-common";
 
 const COMMON = new Common({ chain: Goerli, hardfork: Hardfork.Chainstart });
 const EXTRA_DATA = new Uint8Array(97);

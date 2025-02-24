@@ -1,4 +1,4 @@
-[@ethereumjs/evm](../README.md) / EVMRunCallOpts
+[@theqrl/zondjs-evm](../README.md) / EVMRunCallOpts
 
 # Interface: EVMRunCallOpts
 

@@ -1,4 +1,4 @@
-[@ethereumjs/evm](../README.md) / EVMOpts
+[@theqrl/zondjs-evm](../README.md) / EVMOpts
 
 # Interface: EVMOpts
 

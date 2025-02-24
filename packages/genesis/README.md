@@ -1,4 +1,4 @@
-# @ethereumjs/genesis
+# @theqrl/zondjs-genesis
 
 [![NPM Package][genesis-npm-badge]][genesis-npm-link]
 [![GitHub Issues][genesis-issues-badge]][genesis-issues-link]
@@ -19,7 +19,7 @@ This module provides access to Ethereum genesis state for the following networks
 The package can be install with:
 
 ```shell
-npm i @ethereumjs/genesis
+npm i @theqrl/zondjs-genesis
 ```
 
 ## Usage
@@ -27,8 +27,8 @@ npm i @ethereumjs/genesis
 ```ts
 // ./examples/simple.ts
 
-import { Chain } from '@ethereumjs/common' // or directly use chain ID
-import { getGenesis } from '@ethereumjs/genesis'
+import { Chain } from '@theqrl/zondjs-common' // or directly use chain ID
+import { getGenesis } from '@theqrl/zondjs-genesis'
 
 const mainnetGenesis = getGenesis(Chain.Mainnet)
 console.log(
@@ -48,8 +48,8 @@ See our organizational [documentation](https://ethereumjs.readthedocs.io) for an
 
 [discord-badge]: https://img.shields.io/static/v1?logo=discord&label=discord&message=Join&color=blue
 [discord-link]: https://discord.gg/TNwARpR
-[genesis-npm-badge]: https://img.shields.io/npm/v/@ethereumjs/genesis.svg
-[genesis-npm-link]: https://www.npmjs.com/package/@ethereumjs/genesis
+[genesis-npm-badge]: https://img.shields.io/npm/v/@theqrl/zondjs-genesis.svg
+[genesis-npm-link]: https://www.npmjs.com/package/@theqrl/zondjs-genesis
 [genesis-issues-badge]: https://img.shields.io/github/issues/ethereumjs/ethereumjs-monorepo/package:%20genesis?label=issues
 [genesis-issues-link]: https://github.com/ethereumjs/ethereumjs-monorepo/issues?q=is%3Aopen+is%3Aissue+label%3A"package%3A+genesis"
 [genesis-actions-badge]: https://github.com/ethereumjs/ethereumjs-monorepo/workflows/Genesis/badge.svg

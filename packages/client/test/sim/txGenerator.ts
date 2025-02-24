@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 // Adapted from - https://github.com/Inphi/eip4844-interop/blob/master/blob_tx_generator/blob.js
-import { createBlob4844Tx } from "@ethereumjs/tx";
+import { createBlob4844Tx } from "@theqrl/zondjs-tx";
 import {
   Units,
   blobsToCommitments,
@@ -14,7 +14,7 @@ import { trustedSetup } from "@paulmillr/trusted-setups/fast.js";
 import { Client } from "jayson/promise";
 import { KZG as microEthKZG } from "micro-eth-signer/kzg";
 
-import type { TransactionType, TxData } from "@ethereumjs/tx";
+import type { TransactionType, TxData } from "@theqrl/zondjs-tx";
 
 const clientPort = process.argv[2];
 const input = process.argv[3];

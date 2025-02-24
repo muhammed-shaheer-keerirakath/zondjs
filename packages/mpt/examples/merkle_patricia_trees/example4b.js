@@ -1,6 +1,6 @@
 // Example 4b - Generating a Transaction Hash from Transaction Data
 
-const rlp = require("@ethereumjs/rlp");
+const rlp = require("@theqrl/zondjs-rlp");
 const { bytesToHex } = require("@theqrl/zondjs-util");
 const { keccak256 } = require("ethereum-cryptography/keccak");
 const https = require("https");

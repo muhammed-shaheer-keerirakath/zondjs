@@ -32,7 +32,7 @@ interface Path {
 }
 
 /**
- * The basic binary tree interface, use with `import { BinaryTree } from '@ethereumjs/binarytree'`.
+ * The basic binary tree interface, use with `import { BinaryTree } from '@theqrl/zondjs-binarytree'`.
  */
 export class BinaryTree {
   /** The options for instantiating the binary tree */

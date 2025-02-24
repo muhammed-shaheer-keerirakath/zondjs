@@ -1,4 +1,4 @@
-# @ethereumjs/devp2p
+# @theqrl/zondjs-devp2p
 
 [![NPM Status][devp2p-npm-badge]][devp2p-npm-link]
 [![GitHub Issues][devp2p-issues-badge]][devp2p-issues-link]
@@ -62,8 +62,8 @@ Create your peer table:
 ```ts
 // examples/dpt.ts
 
-import { DPT } from '@ethereumjs/devp2p'
-import { bytesToHex, hexToBytes } from '@ethereumjs/util'
+import { DPT } from '@theqrl/zondjs-devp2p'
+import { bytesToHex, hexToBytes } from '@theqrl/zondjs-util'
 
 const PRIVATE_KEY = hexToBytes('0xed6df2d4b7e82d105538e4a1279925a16a84e772243e80a561e1b201f2e78220')
 const main = async () => {
@@ -158,15 +158,15 @@ Connect to a peer, organize the communication, see [./src/rlpx/](./src/rlpx/)
 
 ### Usage
 
-Instantiate an [@ethereumjs/common](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/common)
+Instantiate an [@theqrl/zondjs-common](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/common)
 instance with the network you want to connect to and then create an `RLPx` object:
 
 ```ts
 // ./examples/rlpx.ts
 
-import { Common, Mainnet } from '@ethereumjs/common'
-import { ETH, RLPx } from '@ethereumjs/devp2p'
-import { hexToBytes } from '@ethereumjs/util'
+import { Common, Mainnet } from '@theqrl/zondjs-common'
+import { ETH, RLPx } from '@theqrl/zondjs-devp2p'
+import { hexToBytes } from '@theqrl/zondjs-util'
 
 const main = async () => {
   const common = new Common({ chain: Mainnet })
@@ -203,7 +203,7 @@ Creates new RLPx object
 - `options.capabilities` - Upper layer protocol capabilities, e.g. `[devp2p.ETH.eth63, devp2p.ETH.eth62]`.
 - `options.listenPort` - The listening port for the server or `null` for default.
 - `options.dpt` - `DPT` object for the peers to connect to (default: `null`, no `DPT` peer management).
-- `options.common` - An instance of [`@ethereumjs/common`](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/common).
+- `options.common` - An instance of [`@theqrl/zondjs-common`](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/common).
 
 #### `rlpx.connect(peer)` (`async`)
 
@@ -317,13 +317,13 @@ With the breaking releases from Summer 2023 we have started to ship our librarie
 If you use an ES6-style `import` in your code files from the ESM build will be used:
 
 ```ts
-import { EthereumJSClass } from '@ethereumjs/[PACKAGE_NAME]'
+import { EthereumJSClass } from '@theqrl/zondjs-[PACKAGE_NAME]'
 ```
 
 If you use Node.js specific `require`, the CJS build will be used:
 
 ```ts
-const { EthereumJSClass } = require('@ethereumjs/[PACKAGE_NAME]')
+const { EthereumJSClass } = require('@theqrl/zondjs-[PACKAGE_NAME]')
 ```
 
 Using ESM will give you additional advantages over CJS beyond browser usage like static code analysis / Tree Shaking which CJS can not provide.
@@ -332,7 +332,7 @@ Using ESM will give you additional advantages over CJS beyond browser usage like
 
 With the breaking releases from Summer 2023 we have removed all Node.js specific `Buffer` usages from our libraries and replace these with [Uint8Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array) representations, which are available both in Node.js and the browser (`Buffer` is a subclass of `Uint8Array`).
 
-We have converted existing Buffer conversion methods to Uint8Array conversion methods in the [@ethereumjs/util](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/util) `bytes` module, see the respective README section for guidance.
+We have converted existing Buffer conversion methods to Uint8Array conversion methods in the [@theqrl/zondjs-util](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/util) `bytes` module, see the respective README section for guidance.
 
 ### BigInt Support
 

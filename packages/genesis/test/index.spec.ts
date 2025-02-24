@@ -1,4 +1,4 @@
-import { Chain, ChainGenesis } from '@ethereumjs/common'
+import { Chain, ChainGenesis } from '@theqrl/zondjs-common'
 import { assert, describe, it } from 'vitest'
 
 import { getGenesis } from '../src/index.js'

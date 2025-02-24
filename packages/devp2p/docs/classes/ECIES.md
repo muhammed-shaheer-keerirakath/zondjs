@@ -1,4 +1,4 @@
-[@ethereumjs/devp2p](../README.md) / ECIES
+[@theqrl/zondjs-devp2p](../README.md) / ECIES
 
 # Class: ECIES
 

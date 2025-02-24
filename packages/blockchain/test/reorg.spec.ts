@@ -1,10 +1,10 @@
-import { cliqueSigner, createBlock } from "@ethereumjs/block";
+import { cliqueSigner, createBlock } from "@theqrl/zondjs-block";
 import {
   Common,
   ConsensusAlgorithm,
   Hardfork,
   Mainnet,
-} from "@ethereumjs/common";
+} from "@theqrl/zondjs-common";
 import { Address, equalsBytes, hexToBytes } from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
@@ -15,7 +15,7 @@ import { Goerli } from "./testdata/goerliCommon.js";
 import { generateConsecutiveBlock } from "./util.js";
 
 import type { ConsensusDict } from "../src/index.js";
-import type { Block } from "@ethereumjs/block";
+import type { Block } from "@theqrl/zondjs-block";
 
 describe("reorg tests", () => {
   it("should correctly reorg the chain if the total difficulty is higher on a lower block number than the current head block", async () => {

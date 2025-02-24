@@ -1,5 +1,5 @@
-import { createBlockFromRLP } from "@ethereumjs/block";
-import { RLP } from "@ethereumjs/rlp";
+import { createBlockFromRLP } from "@theqrl/zondjs-block";
+import { RLP } from "@theqrl/zondjs-rlp";
 import {
   BIGINT_0,
   BIGINT_1,
@@ -21,8 +21,8 @@ import { DBKey, MetaDBManager } from "../util/metaDBManager.js";
 
 import type { SnapFetcherDoneFlags } from "../sync/fetcher/types.js";
 import type { MetaDBManagerOptions } from "../util/metaDBManager.js";
-import type { Block, BlockHeader } from "@ethereumjs/block";
-import type { Hardfork } from "@ethereumjs/common";
+import type { Block, BlockHeader } from "@theqrl/zondjs-block";
+import type { Hardfork } from "@theqrl/zondjs-common";
 
 const INVALID_PARAMS = -32602;
 

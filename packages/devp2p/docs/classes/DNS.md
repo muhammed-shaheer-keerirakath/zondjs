@@ -1,4 +1,4 @@
-[@ethereumjs/devp2p](../README.md) / DNS
+[@theqrl/zondjs-devp2p](../README.md) / DNS
 
 # Class: DNS
 

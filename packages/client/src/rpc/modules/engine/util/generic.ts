@@ -1,4 +1,4 @@
-import { Block } from "@ethereumjs/block";
+import { Block } from "@theqrl/zondjs-block";
 import {
   bytesToHex,
   bytesToUnprefixedHex,
@@ -9,7 +9,7 @@ import { UNSUPPORTED_FORK } from "../../../error-code.js";
 import { type ChainCache } from "../types.js";
 
 import type { Chain } from "../../../../blockchain/index.js";
-import type { Common, Hardfork } from "@ethereumjs/common";
+import type { Common, Hardfork } from "@theqrl/zondjs-common";
 import type { PrefixedHexString } from "@theqrl/zondjs-util";
 
 /**

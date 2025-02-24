@@ -1,10 +1,10 @@
-import { Common, Hardfork, Mainnet } from "@ethereumjs/common";
+import { Common, Hardfork, Mainnet } from "@theqrl/zondjs-common";
 import { Account, Address, hexToBytes, toBytes } from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
 import { createVM } from "../../../src/index.js";
 
-import type { MerkleStateManager } from "@ethereumjs/statemanager";
+import type { MerkleStateManager } from "@theqrl/zondjs-statemanager";
 
 describe("correctly apply new account gas fee on pre-Spurious Dragon hardforks", () => {
   it("should work", async () => {

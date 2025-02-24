@@ -1,4 +1,4 @@
-[@ethereumjs/devp2p](../README.md) / [LES](../modules/LES.md) / MESSAGE\_CODES
+[@theqrl/zondjs-devp2p](../README.md) / [LES](../modules/LES.md) / MESSAGE\_CODES
 
 # Enumeration: MESSAGE\_CODES
 

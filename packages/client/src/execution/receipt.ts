@@ -1,4 +1,4 @@
-import { RLP } from "@ethereumjs/rlp";
+import { RLP } from "@theqrl/zondjs-rlp";
 import {
   BIGINT_0,
   bigIntToBytes,
@@ -8,18 +8,18 @@ import {
   intToBytes,
   utf8ToBytes,
 } from "@theqrl/zondjs-util";
-import { Bloom } from "@ethereumjs/vm";
+import { Bloom } from "@theqrl/zondjs-vm";
 
 import { DBKey, MetaDBManager } from "../util/metaDBManager.js";
 
-import type { Block } from "@ethereumjs/block";
-import type { Log } from "@ethereumjs/evm";
-import type { TransactionType, TypedTransaction } from "@ethereumjs/tx";
+import type { Block } from "@theqrl/zondjs-block";
+import type { Log } from "@theqrl/zondjs-evm";
+import type { TransactionType, TypedTransaction } from "@theqrl/zondjs-tx";
 import type {
   PostByzantiumTxReceipt,
   PreByzantiumTxReceipt,
   TxReceipt,
-} from "@ethereumjs/vm";
+} from "@theqrl/zondjs-vm";
 
 /**
  * TxReceiptWithType extends TxReceipt to provide:

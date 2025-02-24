@@ -1,12 +1,12 @@
-import { createBlock } from "@ethereumjs/block";
-import { Common, Hardfork, Mainnet } from "@ethereumjs/common";
-import { createLegacyTx } from "@ethereumjs/tx";
+import { createBlock } from "@theqrl/zondjs-block";
+import { Common, Hardfork, Mainnet } from "@theqrl/zondjs-common";
+import { createLegacyTx } from "@theqrl/zondjs-tx";
 import {
   bytesToHex,
   createAddressFromPrivateKey,
   hexToBytes,
 } from "@theqrl/zondjs-util";
-import { createVM, runTx } from "@ethereumjs/vm";
+import { createVM, runTx } from "@theqrl/zondjs-vm";
 import { AbiCoder, Interface } from "ethers";
 import { readFileSync } from "fs";
 import path from "path";
@@ -21,7 +21,7 @@ import {
 } from "./helpers/tx-builder.js";
 
 import type { Address } from "@theqrl/zondjs-util";
-import type { VM } from "@ethereumjs/vm";
+import type { VM } from "@theqrl/zondjs-vm";
 
 const INITIAL_GREETING = "Hello, World!";
 const SECOND_GREETING = "Hola, Mundo!"; // cspell:disable-line

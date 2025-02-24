@@ -1,4 +1,4 @@
-[@ethereumjs/common](../README.md) / EVMStateManagerInterface
+[@theqrl/zondjs-common](../README.md) / EVMStateManagerInterface
 
 # Interface: EVMStateManagerInterface
 

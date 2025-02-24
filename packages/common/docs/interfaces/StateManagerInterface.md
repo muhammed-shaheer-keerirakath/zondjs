@@ -1,4 +1,4 @@
-[@ethereumjs/common](../README.md) / StateManagerInterface
+[@theqrl/zondjs-common](../README.md) / StateManagerInterface
 
 # Interface: StateManagerInterface
 

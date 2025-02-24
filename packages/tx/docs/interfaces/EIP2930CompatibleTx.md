@@ -1,12 +1,12 @@
-[@ethereumjs/tx](../README.md) / EIP2930CompatibleTx
+[@theqrl/zondjs-tx](../README.md) / EIP2930CompatibleTx
 
 # Interface: EIP2930CompatibleTx<T\>
 
 ## Type parameters
 
-| Name | Type |
-| :------ | :------ |
-| `T` | extends [`TransactionType`](../enums/TransactionType.md) = [`TransactionType`](../enums/TransactionType.md) |
+| Name | Type                                                                                                        |
+| :--- | :---------------------------------------------------------------------------------------------------------- |
+| `T`  | extends [`TransactionType`](../enums/TransactionType.md) = [`TransactionType`](../enums/TransactionType.md) |
 
 ## Hierarchy
 
@@ -68,7 +68,7 @@
 
 [tx/src/types.ts:186](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L186)
 
-___
+---
 
 ### accessList
 
@@ -78,7 +78,7 @@ ___
 
 [tx/src/types.ts:185](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L185)
 
-___
+---
 
 ### cache
 
@@ -92,7 +92,7 @@ ___
 
 [tx/src/types.ts:150](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L150)
 
-___
+---
 
 ### chainId
 
@@ -106,7 +106,7 @@ ___
 
 [tx/src/types.ts:179](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L179)
 
-___
+---
 
 ### common
 
@@ -120,7 +120,7 @@ ___
 
 [tx/src/types.ts:141](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L141)
 
-___
+---
 
 ### data
 
@@ -134,7 +134,7 @@ ___
 
 [tx/src/types.ts:146](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L146)
 
-___
+---
 
 ### gasLimit
 
@@ -148,7 +148,7 @@ ___
 
 [tx/src/types.ts:143](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L143)
 
-___
+---
 
 ### nonce
 
@@ -162,7 +162,7 @@ ___
 
 [tx/src/types.ts:142](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L142)
 
-___
+---
 
 ### r
 
@@ -176,7 +176,7 @@ ___
 
 [tx/src/types.ts:148](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L148)
 
-___
+---
 
 ### s
 
@@ -190,7 +190,7 @@ ___
 
 [tx/src/types.ts:149](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L149)
 
-___
+---
 
 ### to
 
@@ -204,7 +204,7 @@ ___
 
 [tx/src/types.ts:144](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L144)
 
-___
+---
 
 ### type
 
@@ -218,7 +218,7 @@ ___
 
 [tx/src/types.ts:152](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L152)
 
-___
+---
 
 ### v
 
@@ -232,7 +232,7 @@ ___
 
 [tx/src/types.ts:147](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L147)
 
-___
+---
 
 ### value
 
@@ -264,7 +264,7 @@ ___
 
 [tx/src/types.ts:171](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L171)
 
-___
+---
 
 ### getBaseFee
 
@@ -282,7 +282,7 @@ ___
 
 [tx/src/types.ts:153](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L153)
 
-___
+---
 
 ### getDataFee
 
@@ -300,7 +300,7 @@ ___
 
 [tx/src/types.ts:154](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L154)
 
-___
+---
 
 ### getHashedMessageToSign
 
@@ -318,7 +318,7 @@ ___
 
 [tx/src/types.ts:160](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L160)
 
-___
+---
 
 ### getMessageToSign
 
@@ -336,7 +336,7 @@ ___
 
 [tx/src/types.ts:180](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L180)
 
-___
+---
 
 ### getMessageToVerifySignature
 
@@ -354,7 +354,7 @@ ___
 
 [tx/src/types.ts:162](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L162)
 
-___
+---
 
 ### getSenderAddress
 
@@ -372,7 +372,7 @@ ___
 
 [tx/src/types.ts:167](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L167)
 
-___
+---
 
 ### getSenderPublicKey
 
@@ -390,7 +390,7 @@ ___
 
 [tx/src/types.ts:168](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L168)
 
-___
+---
 
 ### getUpfrontCost
 
@@ -408,7 +408,7 @@ ___
 
 [tx/src/types.ts:155](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L155)
 
-___
+---
 
 ### getValidationErrors
 
@@ -426,7 +426,7 @@ ___
 
 [tx/src/types.ts:163](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L163)
 
-___
+---
 
 ### hash
 
@@ -444,7 +444,7 @@ ___
 
 [tx/src/types.ts:161](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L161)
 
-___
+---
 
 ### isSigned
 
@@ -462,7 +462,7 @@ ___
 
 [tx/src/types.ts:164](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L164)
 
-___
+---
 
 ### isValid
 
@@ -480,7 +480,7 @@ ___
 
 [tx/src/types.ts:165](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L165)
 
-___
+---
 
 ### raw
 
@@ -498,7 +498,7 @@ ___
 
 [tx/src/types.ts:157](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L157)
 
-___
+---
 
 ### serialize
 
@@ -516,7 +516,7 @@ ___
 
 [tx/src/types.ts:158](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L158)
 
-___
+---
 
 ### sign
 
@@ -524,8 +524,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name         | Type         |
+| :----------- | :----------- |
 | `privateKey` | `Uint8Array` |
 
 #### Returns
@@ -540,7 +540,7 @@ ___
 
 [tx/src/types.ts:169](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L169)
 
-___
+---
 
 ### supports
 
@@ -548,8 +548,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name         | Type                                   |
+| :----------- | :------------------------------------- |
 | `capability` | [`Capability`](../enums/Capability.md) |
 
 #### Returns
@@ -564,7 +564,7 @@ ___
 
 [tx/src/types.ts:151](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L151)
 
-___
+---
 
 ### toCreationAddress
 
@@ -582,7 +582,7 @@ ___
 
 [tx/src/types.ts:156](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L156)
 
-___
+---
 
 ### toJSON
 
@@ -600,7 +600,7 @@ ___
 
 [tx/src/types.ts:170](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L170)
 
-___
+---
 
 ### verifySignature
 

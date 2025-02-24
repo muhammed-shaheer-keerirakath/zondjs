@@ -1,11 +1,11 @@
-import { createBlock, createBlockHeader } from "@ethereumjs/block";
-import { Blockchain, createBlockchain } from "@ethereumjs/blockchain";
+import { createBlock, createBlockHeader } from "@theqrl/zondjs-block";
+import { Blockchain, createBlockchain } from "@theqrl/zondjs-blockchain";
 import {
   Common,
   Hardfork,
   Mainnet,
   createCommonFromGethGenesis,
-} from "@ethereumjs/common";
+} from "@theqrl/zondjs-common";
 import {
   Blob4844Tx,
   EOACode7702Tx,
@@ -14,7 +14,7 @@ import {
   createFeeMarket1559Tx,
   createLegacyTx,
   createTx,
-} from "@ethereumjs/tx";
+} from "@theqrl/zondjs-tx";
 import {
   Account,
   Address,
@@ -46,7 +46,7 @@ import type {
   FeeMarketEIP1559TxData,
   LegacyTx,
   TypedTxData,
-} from "@ethereumjs/tx";
+} from "@theqrl/zondjs-tx";
 
 const TRANSACTION_TYPES = [
   {

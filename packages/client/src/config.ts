@@ -1,5 +1,5 @@
-import { Common, Hardfork, Mainnet } from "@ethereumjs/common";
-import { genPrivateKey } from "@ethereumjs/devp2p";
+import { Common, Hardfork, Mainnet } from "@theqrl/zondjs-common";
+import { genPrivateKey } from "@theqrl/zondjs-devp2p";
 import {
   type Address,
   BIGINT_0,
@@ -17,8 +17,8 @@ import { isBrowser, short } from "./util/index.js";
 
 import type { Logger } from "./logging.js";
 import type { EventParams, MultiaddrLike, PrometheusMetrics } from "./types.js";
-import type { BlockHeader } from "@ethereumjs/block";
-import type { VM, VMProfilerOpts } from "@ethereumjs/vm";
+import type { BlockHeader } from "@theqrl/zondjs-block";
+import type { VM, VMProfilerOpts } from "@theqrl/zondjs-vm";
 import type { Multiaddr } from "@multiformats/multiaddr";
 
 export enum DataDirectory {

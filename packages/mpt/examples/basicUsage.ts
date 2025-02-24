@@ -1,4 +1,4 @@
-import { createMPT } from "@ethereumjs/mpt";
+import { createMPT } from "@theqrl/zondjs-mpt";
 import { MapDB, bytesToUtf8, utf8ToBytes } from "@theqrl/zondjs-util";
 
 async function test() {

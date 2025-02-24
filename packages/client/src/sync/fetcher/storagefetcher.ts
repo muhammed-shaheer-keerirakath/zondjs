@@ -1,5 +1,5 @@
-import { verifyMerkleRangeProof } from "@ethereumjs/mpt";
-import { MerkleStateManager } from "@ethereumjs/statemanager";
+import { verifyMerkleRangeProof } from "@theqrl/zondjs-mpt";
+import { MerkleStateManager } from "@theqrl/zondjs-statemanager";
 import {
   BIGINT_0,
   BIGINT_1,

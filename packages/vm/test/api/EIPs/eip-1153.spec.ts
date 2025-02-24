@@ -1,5 +1,5 @@
-import { Common, Hardfork, Mainnet } from "@ethereumjs/common";
-import { createLegacyTx } from "@ethereumjs/tx";
+import { Common, Hardfork, Mainnet } from "@theqrl/zondjs-common";
+import { createLegacyTx } from "@theqrl/zondjs-tx";
 import {
   Account,
   Address,
@@ -11,7 +11,7 @@ import { assert, describe, it } from "vitest";
 
 import { createVM, runTx } from "../../../src/index.js";
 
-import type { TypedTransaction } from "@ethereumjs/tx";
+import type { TypedTransaction } from "@theqrl/zondjs-tx";
 import type { PrefixedHexString } from "@theqrl/zondjs-util";
 
 interface Test {

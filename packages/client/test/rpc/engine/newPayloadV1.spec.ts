@@ -1,4 +1,4 @@
-import { createFeeMarket1559Tx } from "@ethereumjs/tx";
+import { createFeeMarket1559Tx } from "@theqrl/zondjs-tx";
 import {
   bytesToHex,
   createAddressFromPrivateKey,

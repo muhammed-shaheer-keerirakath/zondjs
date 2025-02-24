@@ -36,7 +36,7 @@ import type {
   TransactionInterface,
   TxOptions,
 } from "../types.js";
-import type { Common } from "@ethereumjs/common";
+import type { Common } from "@theqrl/zondjs-common";
 import type { Address, PrefixedHexString } from "@theqrl/zondjs-util";
 
 export type TxData = AllTypesTxData[TransactionType.BlobEIP4844];

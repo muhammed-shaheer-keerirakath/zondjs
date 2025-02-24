@@ -1,4 +1,4 @@
-[@ethereumjs/statemanager](../README.md) / RPCBlockChain
+[@theqrl/zondjs-statemanager](../README.md) / RPCBlockChain
 
 # Class: RPCBlockChain
 
@@ -25,8 +25,8 @@
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name       | Type     |
+| :--------- | :------- |
 | `provider` | `string` |
 
 #### Defined in
@@ -47,23 +47,23 @@
 
 ### getBlock
 
-▸ **getBlock**(`blockId`): `Promise`<{ `hash`: () => `Uint8Array`  }\>
+▸ **getBlock**(`blockId`): `Promise`<{ `hash`: () => `Uint8Array` }\>
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name      | Type     |
+| :-------- | :------- |
 | `blockId` | `number` |
 
 #### Returns
 
-`Promise`<{ `hash`: () => `Uint8Array`  }\>
+`Promise`<{ `hash`: () => `Uint8Array` }\>
 
 #### Defined in
 
 [rpcStateManager.ts:449](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/rpcStateManager.ts#L449)
 
-___
+---
 
 ### shallowCopy
 

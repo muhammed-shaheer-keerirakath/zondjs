@@ -1,4 +1,4 @@
-[@ethereumjs/common](../README.md) / Hardfork
+[@theqrl/zondjs-common](../README.md) / Hardfork
 
 # Enumeration: Hardfork
 

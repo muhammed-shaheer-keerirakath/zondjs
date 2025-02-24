@@ -1,6 +1,6 @@
-@ethereumjs/block
+@theqrl/zondjs-block
 
-# @ethereumjs/block
+# @theqrl/zondjs-block
 
 ## Table of contents
 

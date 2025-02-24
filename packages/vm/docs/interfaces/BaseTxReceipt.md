@@ -1,4 +1,4 @@
-[@ethereumjs/vm](../README.md) / BaseTxReceipt
+[@theqrl/zondjs-vm](../README.md) / BaseTxReceipt
 
 # Interface: BaseTxReceipt
 

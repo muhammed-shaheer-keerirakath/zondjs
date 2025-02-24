@@ -1,7 +1,7 @@
-import { createBlock } from "@ethereumjs/block";
-import { EVMMockBlockchain, NobleBLS } from "@ethereumjs/evm";
-import { RLP } from "@ethereumjs/rlp";
-import { createTx } from "@ethereumjs/tx";
+import { createBlock } from "@theqrl/zondjs-block";
+import { EVMMockBlockchain, NobleBLS } from "@theqrl/zondjs-evm";
+import { RLP } from "@theqrl/zondjs-rlp";
+import { createTx } from "@theqrl/zondjs-tx";
 import {
   bigIntToHex,
   bytesToHex,
@@ -37,10 +37,10 @@ import type {
   T8NReceipt,
   T8NRejectedTx,
 } from "./types.js";
-import type { Block } from "@ethereumjs/block";
-import type { Common } from "@ethereumjs/common";
-import type { Log } from "@ethereumjs/evm";
-import type { TypedTxData } from "@ethereumjs/tx";
+import type { Block } from "@theqrl/zondjs-block";
+import type { Common } from "@theqrl/zondjs-common";
+import type { Log } from "@theqrl/zondjs-evm";
+import type { TypedTxData } from "@theqrl/zondjs-tx";
 import type {
   CLRequest,
   CLRequestType,

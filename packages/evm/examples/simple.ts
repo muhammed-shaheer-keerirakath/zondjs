@@ -1,4 +1,4 @@
-import { createEVM } from "@ethereumjs/evm";
+import { createEVM } from "@theqrl/zondjs-evm";
 import { hexToBytes } from "@theqrl/zondjs-util";
 
 const main = async () => {

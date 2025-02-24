@@ -1,4 +1,4 @@
-# @ethereumjs/blockchain
+# @theqrl/zondjs-blockchain
 
 [![NPM Package][blockchain-npm-badge]][blockchain-npm-link]
 [![GitHub Issues][blockchain-issues-badge]][blockchain-issues-link]
@@ -16,7 +16,7 @@ Note: this `README` reflects the state of the library from `v5.0.0` onwards. See
 To obtain the latest version, simply require the project using `npm`:
 
 ```shell
-npm install @ethereumjs/blockchain
+npm install @theqrl/zondjs-blockchain
 ```
 
 **Note:** If you want to work with `EIP-4844` related functionality, you will have additional manual installation steps for the **KZG setup**, see related section below.
@@ -25,7 +25,7 @@ npm install @ethereumjs/blockchain
 
 ### Introduction
 
-The `Blockchain` package represents an Ethereum-compatible blockchain storing a sequential chain of [@ethereumjs/block](../block) blocks and holding information about the current canonical head block as well as the context the chain is operating in (e.g. the hardfork rules the current head block adheres to).
+The `Blockchain` package represents an Ethereum-compatible blockchain storing a sequential chain of [@theqrl/zondjs-block](../block) blocks and holding information about the current canonical head block as well as the context the chain is operating in (e.g. the hardfork rules the current head block adheres to).
 
 New blocks can be added to the blockchain. Validation ensures that the block format adheres to the given chain rules (with the `Blockchain.validateBlock()` function) and consensus rules (`Blockchain.consensus.validateConsensus()`).
 
@@ -38,10 +38,10 @@ The following is an example to instantiate a simple Blockchain object, put block
 ```ts
 // ./examples/simple.ts
 
-import { createBlock } from '@ethereumjs/block'
-import { createBlockchain } from '@ethereumjs/blockchain'
-import { Common, Hardfork, Mainnet } from '@ethereumjs/common'
-import { bytesToHex } from '@ethereumjs/util'
+import { createBlock } from '@theqrl/zondjs-block'
+import { createBlockchain } from '@theqrl/zondjs-blockchain'
+import { Common, Hardfork, Mainnet } from '@theqrl/zondjs-common'
+import { bytesToHex } from '@theqrl/zondjs-util'
 
 const main = async () => {
   const common = new Common({ chain: Mainnet, hardfork: Hardfork.London })
@@ -73,7 +73,7 @@ const main = async () => {
     },
     { common, setHardfork: true },
   )
-  // See @ethereumjs/block for more details on how to create a block
+  // See @theqrl/zondjs-block for more details on how to create a block
   await blockchain.putBlock(block)
   await blockchain.putBlock(block2)
 
@@ -92,9 +92,9 @@ void main()
 
 ### Database Abstraction / Removed LevelDB Dependency
 
-With the v7 release the Blockchain library database has gotten an additional abstraction layer which allows to switch the backend to whatever is fitting the best for a use case, see PR [#2669](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2669) and PR [#2673](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2673). The database just needs to conform to the new [DB](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/db.ts) interface provided in the `@ethereumjs/util` package (since this is used in other places as well).
+With the v7 release the Blockchain library database has gotten an additional abstraction layer which allows to switch the backend to whatever is fitting the best for a use case, see PR [#2669](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2669) and PR [#2673](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2673). The database just needs to conform to the new [DB](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/db.ts) interface provided in the `@theqrl/zondjs-util` package (since this is used in other places as well).
 
-By default the blockchain package now uses a [MapDB](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/mapDB.ts) non-persistent data storage which is also generically provided in the `@ethereumjs/util` package.
+By default the blockchain package now uses a [MapDB](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/mapDB.ts) non-persistent data storage which is also generically provided in the `@theqrl/zondjs-util` package.
 
 If you need a persistent data store for your use case you can consider using the wrapper we have written within our [client](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/client/src/execution/level.ts) library.
 
@@ -120,7 +120,7 @@ Note, if you construct a blockchain with a custom consensus implementation, tran
 
 Genesis state was huge and had previously been bundled with the `Blockchain` package with the burden going over to the VM, since `Blockchain` is a dependency.
 
-Starting with the v7 release genesis state has been removed from `blockchain` and moved into its own auxiliary package [@ethereumjs/genesis](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/genesis), from which it can be included if needed (for most - especially VM - use cases it is not necessary), see PR [#2844](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2844).
+Starting with the v7 release genesis state has been removed from `blockchain` and moved into its own auxiliary package [@theqrl/zondjs-genesis](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/genesis), from which it can be included if needed (for most - especially VM - use cases it is not necessary), see PR [#2844](https://github.com/ethereumjs/ethereumjs-monorepo/pull/2844).
 
 This goes along with some changes in Blockchain and VM API:
 
@@ -132,7 +132,7 @@ This goes along with some changes in Blockchain and VM API:
 
 For the v6 release responsibility for setting up a custom genesis state moved from the [Common](../common/) library to the `Blockchain` package, see PR [#1924](https://github.com/ethereumjs/ethereumjs-monorepo/pull/1924) for some work context.
 
-A genesis state can be set along `Blockchain` creation by passing in a custom `genesisBlock` and `genesisState`. For `mainnet` and the official test networks like `sepolia` or `goerli` genesis is already provided with the block data coming from `@ethereumjs/common`. The genesis state is being integrated in the `Blockchain` library (see `genesisStates` folder).
+A genesis state can be set along `Blockchain` creation by passing in a custom `genesisBlock` and `genesisState`. For `mainnet` and the official test networks like `sepolia` or `goerli` genesis is already provided with the block data coming from `@theqrl/zondjs-common`. The genesis state is being integrated in the `Blockchain` library (see `genesisStates` folder).
 
 ### Custom genesis from a Geth genesis config
 
@@ -141,9 +141,9 @@ For many custom chains we might come across a genesis configuration, which can b
 ```ts
 // ./examples/gethGenesis.ts
 
-import { createBlockchain } from '@ethereumjs/blockchain'
-import { createCommonFromGethGenesis } from '@ethereumjs/common'
-import { bytesToHex, parseGethGenesisState } from '@ethereumjs/util'
+import { createBlockchain } from '@theqrl/zondjs-blockchain'
+import { createCommonFromGethGenesis } from '@theqrl/zondjs-common'
+import { bytesToHex, parseGethGenesisState } from '@theqrl/zondjs-util'
 
 import gethGenesisJSON from './genesisData/post-merge.json'
 
@@ -165,7 +165,7 @@ const main = async () => {
 void main()
 ```
 
-The genesis block from the initialized `Blockchain` can be retrieved via the `Blockchain.genesisBlock` getter. For creating a genesis block from the params in `@ethereumjs/common`, the `createGenesisBlock(stateRoot: Buffer): Block` method can be used.
+The genesis block from the initialized `Blockchain` can be retrieved via the `Blockchain.genesisBlock` getter. For creating a genesis block from the params in `@theqrl/zondjs-common`, the `createGenesisBlock(stateRoot: Buffer): Block` method can be used.
 
 ## Supported Blocks and Tx Types
 
@@ -208,13 +208,13 @@ With the breaking releases from Summer 2023 we have started to ship our librarie
 If you use an ES6-style `import` in your code files from the ESM build will be used:
 
 ```ts
-import { EthereumJSClass } from '@ethereumjs/[PACKAGE_NAME]'
+import { EthereumJSClass } from '@theqrl/zondjs-[PACKAGE_NAME]'
 ```
 
 If you use Node.js specific `require`, the CJS build will be used:
 
 ```ts
-const { EthereumJSClass } = require('@ethereumjs/[PACKAGE_NAME]')
+const { EthereumJSClass } = require('@theqrl/zondjs-[PACKAGE_NAME]')
 ```
 
 Using ESM will give you additional advantages over CJS beyond browser usage like static code analysis / Tree Shaking which CJS can not provide.
@@ -223,7 +223,7 @@ Using ESM will give you additional advantages over CJS beyond browser usage like
 
 With the breaking releases from Summer 2023 we have removed all Node.js specific `Buffer` usages from our libraries and replace these with [Uint8Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array) representations, which are available both in Node.js and the browser (`Buffer` is a subclass of `Uint8Array`).
 
-We have converted existing Buffer conversion methods to Uint8Array conversion methods in the [@ethereumjs/util](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/util) `bytes` module, see the respective README section for guidance.
+We have converted existing Buffer conversion methods to Uint8Array conversion methods in the [@theqrl/zondjs-util](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/util) `bytes` module, see the respective README section for guidance.
 
 ### BigInt Support
 
@@ -274,8 +274,8 @@ See our organizational [documentation](https://ethereumjs.readthedocs.io) for an
 
 [discord-badge]: https://img.shields.io/static/v1?logo=discord&label=discord&message=Join&color=blue
 [discord-link]: https://discord.gg/TNwARpR
-[blockchain-npm-badge]: https://img.shields.io/npm/v/@ethereumjs/blockchain.svg
-[blockchain-npm-link]: https://www.npmjs.com/package/@ethereumjs/blockchain
+[blockchain-npm-badge]: https://img.shields.io/npm/v/@theqrl/zondjs-blockchain.svg
+[blockchain-npm-link]: https://www.npmjs.com/package/@theqrl/zondjs-blockchain
 [blockchain-issues-badge]: https://img.shields.io/github/issues/ethereumjs/ethereumjs-monorepo/package:%20blockchain?label=issues
 [blockchain-issues-link]: https://github.com/ethereumjs/ethereumjs-monorepo/issues?q=is%3Aopen+is%3Aissue+label%3A"package%3A+blockchain"
 [blockchain-actions-badge]: https://github.com/ethereumjs/ethereumjs-monorepo/workflows/Blockchain/badge.svg

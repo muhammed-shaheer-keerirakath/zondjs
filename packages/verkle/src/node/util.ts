@@ -1,4 +1,4 @@
-import { RLP } from "@ethereumjs/rlp";
+import { RLP } from "@theqrl/zondjs-rlp";
 import { setLengthRight } from "@theqrl/zondjs-util";
 
 import { InternalVerkleNode } from "./internalNode.js";

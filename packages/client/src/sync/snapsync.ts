@@ -12,7 +12,7 @@ import type { Peer } from "../net/peer/peer.js";
 import type { Skeleton } from "../service/skeleton.js";
 import type { SnapFetcherDoneFlags } from "./fetcher/types.js";
 import type { SynchronizerOptions } from "./sync.js";
-import type { MerkleStateManager } from "@ethereumjs/statemanager";
+import type { MerkleStateManager } from "@theqrl/zondjs-statemanager";
 
 interface SnapSynchronizerOptions extends SynchronizerOptions {
   /** Skeleton chain */

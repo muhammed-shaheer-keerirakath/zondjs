@@ -1,4 +1,4 @@
-[@ethereumjs/vm](../README.md) / RunTxResult
+[@theqrl/zondjs-vm](../README.md) / RunTxResult
 
 # Interface: RunTxResult
 

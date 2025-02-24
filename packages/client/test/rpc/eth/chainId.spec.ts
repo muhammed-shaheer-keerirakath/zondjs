@@ -1,35 +1,44 @@
-import { Common } from '@ethereumjs/common'
-import { assert, describe, it } from 'vitest'
+import { Common } from "@theqrl/zondjs-common";
+import { assert, describe, it } from "vitest";
 
-import { Goerli } from '../../testdata/common/goerliCommon.js'
-import { baseSetup, createClient, createManager, getRPCClient, startRPC } from '../helpers.js'
+import { Goerli } from "../../testdata/common/goerliCommon.js";
+import {
+  baseSetup,
+  createClient,
+  createManager,
+  getRPCClient,
+  startRPC,
+} from "../helpers.js";
 
-const method = 'eth_chainId'
+const method = "eth_chainId";
 
 describe(method, () => {
-  it('calls', async () => {
-    const { rpc } = await baseSetup()
+  it("calls", async () => {
+    const { rpc } = await baseSetup();
 
-    const res = await rpc.request(method, [])
-    assert.equal(typeof res.result, 'string', 'chainId should be a string')
-  })
+    const res = await rpc.request(method, []);
+    assert.equal(typeof res.result, "string", "chainId should be a string");
+  });
 
-  it('returns 1 for Mainnet', async () => {
-    const { rpc } = await baseSetup()
+  it("returns 1 for Mainnet", async () => {
+    const { rpc } = await baseSetup();
 
-    const res = await rpc.request(method, [])
+    const res = await rpc.request(method, []);
 
-    assert.equal(res.result, '0x1', 'should return chainId 1')
-  })
+    assert.equal(res.result, "0x1", "should return chainId 1");
+  });
 
-  it('returns 5 for Goerli', async () => {
+  it("returns 5 for Goerli", async () => {
     const manager = createManager(
-      await createClient({ opened: true, commonChain: new Common({ chain: Goerli }) }),
-    )
-    const rpc = getRPCClient(startRPC(manager.getMethods()))
+      await createClient({
+        opened: true,
+        commonChain: new Common({ chain: Goerli }),
+      }),
+    );
+    const rpc = getRPCClient(startRPC(manager.getMethods()));
 
-    const res = await rpc.request(method, [])
+    const res = await rpc.request(method, []);
 
-    assert.equal(res.result, '0x5', 'should return chainId 5')
-  })
-})
+    assert.equal(res.result, "0x5", "should return chainId 5");
+  });
+});

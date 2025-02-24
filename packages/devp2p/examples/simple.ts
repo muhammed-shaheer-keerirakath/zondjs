@@ -1,5 +1,5 @@
-import { Common, Mainnet } from "@ethereumjs/common";
-import { DPT } from "@ethereumjs/devp2p";
+import { Common, Mainnet } from "@theqrl/zondjs-common";
+import { DPT } from "@theqrl/zondjs-devp2p";
 import { bytesToHex, hexToBytes } from "@theqrl/zondjs-util";
 import chalk from "chalk";
 

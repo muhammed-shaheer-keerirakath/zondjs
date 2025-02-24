@@ -1,4 +1,4 @@
-[@ethereumjs/common](../README.md) / StorageRange
+[@theqrl/zondjs-common](../README.md) / StorageRange
 
 # Interface: StorageRange
 

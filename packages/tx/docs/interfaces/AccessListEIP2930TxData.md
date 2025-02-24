@@ -1,4 +1,4 @@
-[@ethereumjs/tx](../README.md) / AccessListEIP2930TxData
+[@theqrl/zondjs-tx](../README.md) / AccessListEIP2930TxData
 
 # Interface: AccessListEIP2930TxData
 
@@ -33,7 +33,7 @@
 
 ### accessList
 
-• `Optional` **accessList**: ``null`` \| [`AccessListBytes`](../README.md#accesslistbytes) \| [`AccessList`](../README.md#accesslist)
+• `Optional` **accessList**: `null` \| [`AccessListBytes`](../README.md#accesslistbytes) \| [`AccessList`](../README.md#accesslist)
 
 The access list which contains the addresses/storage slots which the transaction wishes to access
 
@@ -41,7 +41,7 @@ The access list which contains the addresses/storage slots which the transaction
 
 [tx/src/types.ts:303](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L303)
 
-___
+---
 
 ### chainId
 
@@ -53,7 +53,7 @@ The transaction's chain ID
 
 [tx/src/types.ts:298](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L298)
 
-___
+---
 
 ### data
 
@@ -69,7 +69,7 @@ LegacyTxData.data
 
 [tx/src/types.ts:267](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L267)
 
-___
+---
 
 ### gasLimit
 
@@ -85,11 +85,11 @@ LegacyTxData.gasLimit
 
 [tx/src/types.ts:252](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L252)
 
-___
+---
 
 ### gasPrice
 
-• `Optional` **gasPrice**: ``null`` \| `BigIntLike`
+• `Optional` **gasPrice**: `null` \| `BigIntLike`
 
 The transaction's gas price.
 
@@ -101,7 +101,7 @@ LegacyTxData.gasPrice
 
 [tx/src/types.ts:247](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L247)
 
-___
+---
 
 ### nonce
 
@@ -117,7 +117,7 @@ LegacyTxData.nonce
 
 [tx/src/types.ts:242](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L242)
 
-___
+---
 
 ### r
 
@@ -133,7 +133,7 @@ LegacyTxData.r
 
 [tx/src/types.ts:277](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L277)
 
-___
+---
 
 ### s
 
@@ -149,7 +149,7 @@ LegacyTxData.s
 
 [tx/src/types.ts:282](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L282)
 
-___
+---
 
 ### to
 
@@ -165,7 +165,7 @@ LegacyTxData.to
 
 [tx/src/types.ts:257](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L257)
 
-___
+---
 
 ### type
 
@@ -181,7 +181,7 @@ LegacyTxData.type
 
 [tx/src/types.ts:288](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L288)
 
-___
+---
 
 ### v
 
@@ -197,7 +197,7 @@ LegacyTxData.v
 
 [tx/src/types.ts:272](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/tx/src/types.ts#L272)
 
-___
+---
 
 ### value
 

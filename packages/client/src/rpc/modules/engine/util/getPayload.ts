@@ -2,7 +2,7 @@ import { bigIntToHex, bytesToHex } from "@theqrl/zondjs-util";
 
 import type { BlobsBundle } from "../../../../miner/index.js";
 import type { BlobsBundleV1 } from "../types.js";
-import type { Block, ExecutionPayload } from "@ethereumjs/block";
+import type { Block, ExecutionPayload } from "@theqrl/zondjs-block";
 import type { CLRequest, CLRequestType } from "@theqrl/zondjs-util";
 
 /**

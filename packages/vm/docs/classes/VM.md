@@ -1,4 +1,4 @@
-[@ethereumjs/vm](../README.md) / VM
+[@theqrl/zondjs-vm](../README.md) / VM
 
 # Class: VM
 

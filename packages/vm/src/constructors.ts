@@ -1,10 +1,10 @@
-import { Common, Mainnet } from "@ethereumjs/common";
+import { Common, Mainnet } from "@theqrl/zondjs-common";
 import {
   EVMMockBlockchain,
   createEVM,
   getActivePrecompiles,
-} from "@ethereumjs/evm";
-import { MerkleStateManager } from "@ethereumjs/statemanager";
+} from "@theqrl/zondjs-evm";
+import { MerkleStateManager } from "@theqrl/zondjs-statemanager";
 import {
   Account,
   Address,

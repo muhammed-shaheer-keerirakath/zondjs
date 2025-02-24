@@ -4,7 +4,7 @@ import * as dns from 'dns'
 import { ENR } from './enr.js'
 
 import type { DNSOptions, PeerInfo } from '../types.js'
-import type { Common } from '@ethereumjs/common'
+import type { Common } from '@theqrl/zondjs-common'
 
 const debug = debugDefault('devp2p:dns:dns')
 

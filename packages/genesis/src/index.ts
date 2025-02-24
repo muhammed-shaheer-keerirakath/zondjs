@@ -1,4 +1,4 @@
-import { Chain } from "@ethereumjs/common";
+import { Chain } from "@theqrl/zondjs-common";
 
 import { holeskyGenesis } from "./genesisStates/holesky.js";
 import { mainnetGenesis } from "./genesisStates/mainnet.js";

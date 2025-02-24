@@ -28,17 +28,17 @@ Verdaccio is an npm registry and proxy that can be of great help to test package
 
 `npm unpublish PACKAGE_NAME --registry http://localhost:4873 --force --workspace=PACKAGE_NAME`
 
-### Setup @ethereumjs scope to local Verdaccio server
+### Setup @theqrl/zondjs scope to local Verdaccio server
 
-`npm config set @ethereumjs:registry http://localhost:4873`
+`npm config set @theqrl/zondjs:registry http://localhost:4873`
 
-### Teardown @ethereumjs scope to local Verdaccio server
+### Teardown @theqrl/zondjs scope to local Verdaccio server
 
-`npm config delete @ethereumjs:registry`
+`npm config delete @theqrl/zondjs:registry`
 
 ## E2E testing in CI
 
-Verdaccio is also set up in the [`e2e-tests`](https://github.com/ethereumjs/ethereumjs-monorepo/pull/1134/files) CI workflow and provides a way to install @ethereumjs
+Verdaccio is also set up in the [`e2e-tests`](https://github.com/ethereumjs/ethereumjs-monorepo/pull/1134/files) CI workflow and provides a way to install @theqrl/zondjs
 packages at an arbitrary commit in an external real-world project and run their unit
 tests with it. This testing strategy is borrowed from ethereum/solidity which checks latest Solidity
 against OpenZeppelin and others to keep abreast of how local changes might affect critical projects
@@ -46,18 +46,18 @@ downstream from them.
 
 Tests like this are:
 
-- a pre-publication sanity check that discovers how @ethereumjs performs in the wild
+- a pre-publication sanity check that discovers how @theqrl/zondjs performs in the wild
 - useful for catching problems which are difficult to anticipate
-- exposed to failure for reasons outside of @ethereumjs's control, ex: when fixes here surface bugs
+- exposed to failure for reasons outside of @theqrl/zondjs's control, ex: when fixes here surface bugs
   in the target.
 
 E2E tests are constructed by cloning a real world target and using npm or yarn to replace its
-existing @ethereumjs dependencies with the versions published to CI's ephemeral private npm registry.
+existing @theqrl/zondjs dependencies with the versions published to CI's ephemeral private npm registry.
 
-In practice, complex projects might have several versions of @ethereumjs packages nested in
+In practice, complex projects might have several versions of @theqrl/zondjs packages nested in
 their dependency tree. It's important to coerce all of them to the virtually published versions
 for the test to be valid. This can be done using Yarn's selective dependency resolutions feature.
-The verdaccio publication step writes a json map of @ethereumjs package names and their
+The verdaccio publication step writes a json map of @theqrl/zondjs package names and their
 virtually published versions to `resolutions.json` in the root directory. This object can be
 injected into the E2E target's package.json under the `resolutions` key and Yarn will install
 new versions everywhere as expected.

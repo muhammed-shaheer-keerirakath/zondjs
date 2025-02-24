@@ -1,5 +1,5 @@
 {
-  "name": "@ethereumjs/wallet",
+  "name": "@theqrl/zondjs-wallet",
   "version": "3.0.0-alpha.1",
   "description": "Utilities for handling Ethereum keys",
   "keywords": [

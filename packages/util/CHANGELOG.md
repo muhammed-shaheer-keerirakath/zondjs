@@ -77,13 +77,15 @@ See PR [#3589](https://github.com/ethereumjs/ethereumjs-monorepo/pull/3589)
 For Verkle or other contexts it can be useful to create partial accounts not containing all the account parameters. This is now supported starting with this release, see PR [#3269](https://github.com/ethereumjs/ethereumjs-monorepo/pull/3269):
 
 ```ts
-import { Account } from '@ethereumjs/util'
+import { Account } from "@theqrl/zondjs-util";
 
 const account = Account.fromPartialAccountData({
-  nonce: '0x02',
-  balance: '0x0384',
-})
-console.log(`Partial account with nonce=${account.nonce} and balance=${account.balance} created`)
+  nonce: "0x02",
+  balance: "0x0384",
+});
+console.log(
+  `Partial account with nonce=${account.nonce} and balance=${account.balance} created`,
+);
 ```
 
 ### New `requests` Module
@@ -94,7 +96,7 @@ This release introduces a new `requests` module (see PRs [#3372](https://github.
 - [EIP-7002](https://eips.ethereum.org/EIPS/eip-7002): `WithdrawalRequest` (Prague Hardfork)
 - [EIP-7251](https://eips.ethereum.org/EIPS/eip-7251): `ConsolidationRequest` (Prague Hardfork)
 
-These request types are mainly used within the [@ethereumjs/block](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/block) library where applied usage instructions are provided in the README.
+These request types are mainly used within the [@theqrl/zondjs-block](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/block) library where applied usage instructions are provided in the README.
 
 ### Verkle Updates
 
@@ -190,15 +192,15 @@ Both builds have respective separate entrypoints in the distributed `package.jso
 A CommonJS import of our libraries can then be done like this:
 
 ```ts
-const { Chain, Common } = require('@ethereumjs/common')
-const common = new Common({ chain: Chain.Mainnet })
+const { Chain, Common } = require("@theqrl/zondjs-common");
+const common = new Common({ chain: Chain.Mainnet });
 ```
 
 And this is how an ESM import looks like:
 
 ```ts
-import { Chain, Common } from '@ethereumjs/common'
-const common = new Common({ chain: Chain.Mainnet })
+import { Chain, Common } from "@theqrl/zondjs-common";
+const common = new Common({ chain: Chain.Mainnet });
 ```
 
 Using ESM will give you additional advantages over CJS beyond browser usage like static code analysis / Tree Shaking which CJS can not provide.
@@ -262,7 +264,7 @@ Withdrawal.raw()
 Withdrawal.toValue()
 ```
 
-We have converted existing Buffer conversion methods to Uint8Array conversion methods in the [@ethereumjs/util](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/util) `bytes` module (so: within this library), see the respective README section for guidance.
+We have converted existing Buffer conversion methods to Uint8Array conversion methods in the [@theqrl/zondjs-util](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/util) `bytes` module (so: within this library), see the respective README section for guidance.
 
 ### Other Changes
 
@@ -353,7 +355,7 @@ The Util library itself has no import changes along this update.
 
 This release is part of a larger breaking release round where all [EthereumJS monorepo](https://github.com/ethereumjs/ethereumjs-monorepo) libraries (VM, Tx, Trie, other) get major version upgrades. This round of releases has been prepared for a long time and we are really pleased with and proud of the result, thanks to all team members and contributors who worked so hard and made this possible! 🙂 ❤️
 
-We have gotten rid of a lot of technical debt and inconsistencies and removed unused functionality, renamed methods, improved on the API and on TypeScript typing, to name a few of the more local type of refactoring changes. There are also broader structural changes like a full transition to native JavaScript `BigInt` values as well as various somewhat deep-reaching refactorings, both within a single package as well as some reaching beyond the scope of a single package. Also two completely new packages - `@ethereumjs/evm` (in addition to the existing `@ethereumjs/vm` package) and `@ethereumjs/statemanager` - have been created, leading to a more modular Ethereum JavaScript VM.
+We have gotten rid of a lot of technical debt and inconsistencies and removed unused functionality, renamed methods, improved on the API and on TypeScript typing, to name a few of the more local type of refactoring changes. There are also broader structural changes like a full transition to native JavaScript `BigInt` values as well as various somewhat deep-reaching refactorings, both within a single package as well as some reaching beyond the scope of a single package. Also two completely new packages - `@theqrl/zondjs-evm` (in addition to the existing `@theqrl/zondjs-vm` package) and `@theqrl/zondjs-statemanager` - have been created, leading to a more modular Ethereum JavaScript VM.
 
 We are very much confident that users of the libraries will greatly benefit from the changes being introduced. However - along the upgrade process - these releases require some extra attention and care since the changeset is both so big and deep reaching. We highly recommend to closely read the release notes, we have done our best to create a full picture on the changes with some special emphasis on delicate code and API parts and give some explicit guidance on how to upgrade and where problems might arise!
 
@@ -365,12 +367,12 @@ The EthereumJS Team
 
 **Attention!** This library release aligns (and therefore: changes!) the library name with the other EthereumJS libraries and switches to the new scoped package name format, see PR [#1952](https://github.com/ethereumjs/ethereumjs-monorepo/pull/1952). In this case the library is renamed as follows:
 
-- `ethereumjs-util` -> `@ethereumjs/util`
+- `ethereumjs-util` -> `@theqrl/zondjs-util`
 
 Please update your library references accordingly and install with:
 
 ```shell
-npm i @ethereumjs/util
+npm i @theqrl/zondjs-util
 ```
 
 ### BigInt Introduction / ES2020 Build Target
@@ -580,14 +582,14 @@ The static factory methods assist in creating an `Account` object from varying d
 Example usage:
 
 ```ts
-import { Account, BN } from 'ethereumjs-util'
+import { Account, BN } from "ethereumjs-util";
 
 const account = new Account(
   new BN(0), // nonce, default: 0
   new BN(10).pow(new BN(18)), // balance, default: 0
   undefined, // stateRoot, default: KECCAK256_RLP (hash of RLP of null)
   undefined, // codeHash, default: KECCAK256_NULL (hash of null)
-)
+);
 ```
 
 For more info see the documentation, examples of usage in `test/account.spec.ts` or
@@ -620,13 +622,13 @@ with a new `Address` class and type which can be used for creating and represent
 Example usage:
 
 ```ts
-import { Address } from 'ethereumjs-util'
+import { Address } from "ethereumjs-util";
 
 const pubKey = Buffer.from(
-  '3a443d8381a6798a70c6ff9304bdc8cb0163c23211d11628fae52ef9e0dca11a001cf066d56a8156fc201cd5df8a36ef694eecd258903fca7086c1fae7441e1d',
-  'hex',
-)
-const address = Address.fromPublicKey(pubKey)
+  "3a443d8381a6798a70c6ff9304bdc8cb0163c23211d11628fae52ef9e0dca11a001cf066d56a8156fc201cd5df8a36ef694eecd258903fca7086c1fae7441e1d",
+  "hex",
+);
+const address = Address.fromPublicKey(pubKey);
 ```
 
 In `TypeScript` the associated `Address` type can be used to more strictly enforce type checks

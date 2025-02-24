@@ -2,7 +2,10 @@
 // You can run them with tsx, as this project is developed in TypeScript.
 // Install the dependencies and run `npx tsx examples/transactions.ts`
 
-import { createLegacyTx, createLegacyTxFromBytesArray } from "@ethereumjs/tx";
+import {
+  createLegacyTx,
+  createLegacyTxFromBytesArray,
+} from "@theqrl/zondjs-tx";
 import { bytesToHex, hexToBytes, toBytes } from "@theqrl/zondjs-util";
 
 // We create an unsigned transaction.

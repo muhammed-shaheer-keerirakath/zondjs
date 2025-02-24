@@ -1,4 +1,4 @@
-[@ethereumjs/statemanager](../README.md) / RPCStateManagerOpts
+[@theqrl/zondjs-statemanager](../README.md) / RPCStateManagerOpts
 
 # Interface: RPCStateManagerOpts
 
@@ -14,13 +14,13 @@
 
 ### blockTag
 
-• **blockTag**: `bigint` \| ``"earliest"``
+• **blockTag**: `bigint` \| `"earliest"`
 
 #### Defined in
 
 [rpcStateManager.ts:30](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/rpcStateManager.ts#L30)
 
-___
+---
 
 ### common
 
@@ -32,7 +32,7 @@ The common to use
 
 [rpcStateManager.ts:35](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/statemanager/src/rpcStateManager.ts#L35)
 
-___
+---
 
 ### provider
 

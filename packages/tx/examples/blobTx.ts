@@ -1,5 +1,5 @@
-import { Common, Hardfork, Mainnet } from "@ethereumjs/common";
-import { createBlob4844Tx } from "@ethereumjs/tx";
+import { Common, Hardfork, Mainnet } from "@theqrl/zondjs-common";
+import { createBlob4844Tx } from "@theqrl/zondjs-tx";
 import { bytesToHex } from "@theqrl/zondjs-util";
 import { trustedSetup } from "@paulmillr/trusted-setups/fast.js";
 import { KZG as microEthKZG } from "micro-eth-signer/kzg";

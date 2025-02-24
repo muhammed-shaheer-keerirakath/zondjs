@@ -1,4 +1,4 @@
-[@ethereumjs/devp2p](../README.md) / ENR
+[@theqrl/zondjs-devp2p](../README.md) / ENR
 
 # Class: ENR
 

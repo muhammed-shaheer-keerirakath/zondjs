@@ -1,13 +1,13 @@
-import { createBlock } from "@ethereumjs/block";
-import { createBlockchain } from "@ethereumjs/blockchain";
-import { Common, Hardfork, Mainnet } from "@ethereumjs/common";
-import { getGenesis } from "@ethereumjs/genesis";
-import { createLegacyTx } from "@ethereumjs/tx";
+import { createBlock } from "@theqrl/zondjs-block";
+import { createBlockchain } from "@theqrl/zondjs-blockchain";
+import { Common, Hardfork, Mainnet } from "@theqrl/zondjs-common";
+import { getGenesis } from "@theqrl/zondjs-genesis";
+import { createLegacyTx } from "@theqrl/zondjs-tx";
 import {
   createAddressFromString,
   createContractAddress,
 } from "@theqrl/zondjs-util";
-import { runBlock } from "@ethereumjs/vm";
+import { runBlock } from "@theqrl/zondjs-vm";
 import { assert, describe, it } from "vitest";
 
 import { INVALID_PARAMS } from "../../../src/rpc/error-code.js";
@@ -18,7 +18,7 @@ import {
   startRPC,
 } from "../helpers.js";
 
-import type { Block } from "@ethereumjs/block";
+import type { Block } from "@theqrl/zondjs-block";
 
 const method = "eth_getCode";
 

@@ -1,4 +1,4 @@
-[@ethereumjs/blockchain](../README.md) / GenesisOptions
+[@theqrl/zondjs-blockchain](../README.md) / GenesisOptions
 
 # Interface: GenesisOptions
 

@@ -3,7 +3,7 @@ import {
   Hardfork,
   Mainnet,
   createCustomCommon,
-} from "@ethereumjs/common";
+} from "@theqrl/zondjs-common";
 import {
   Address,
   MAX_INTEGER,

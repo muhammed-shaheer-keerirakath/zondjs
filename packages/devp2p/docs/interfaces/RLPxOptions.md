@@ -1,4 +1,4 @@
-[@ethereumjs/devp2p](../README.md) / RLPxOptions
+[@theqrl/zondjs-devp2p](../README.md) / RLPxOptions
 
 # Interface: RLPxOptions
 

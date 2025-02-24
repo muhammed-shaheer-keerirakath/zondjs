@@ -1,4 +1,4 @@
-[@ethereumjs/block](../README.md) / VerkleExecutionWitness
+[@theqrl/zondjs-block](../README.md) / VerkleExecutionWitness
 
 # Interface: VerkleExecutionWitness
 

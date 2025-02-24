@@ -1,4 +1,4 @@
-import { RLP } from "@ethereumjs/rlp";
+import { RLP } from "@theqrl/zondjs-rlp";
 import {
   bytesToInt,
   concatBytes,
@@ -28,7 +28,7 @@ import {
 
 import { MAC } from "./mac.js";
 
-import type { Common } from "@ethereumjs/common";
+import type { Common } from "@theqrl/zondjs-common";
 type Decipher = crypto.Decipher;
 
 const debug = debugDefault("devp2p:rlpx:peer");

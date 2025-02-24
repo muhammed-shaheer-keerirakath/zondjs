@@ -1,12 +1,12 @@
-import { DBOp } from "@ethereumjs/blockchain";
-import { RLP } from "@ethereumjs/rlp";
+import { DBOp } from "@theqrl/zondjs-blockchain";
+import { RLP } from "@theqrl/zondjs-rlp";
 import { bytesToBigInt, concatBytes, intToBytes } from "@theqrl/zondjs-util";
 import { existsSync, mkdirSync, writeFileSync } from "fs";
 import { Level } from "level";
 
 import { formatEra1 } from "./era1.js";
 
-import type { BlockBodyBytes } from "@ethereumjs/block";
+import type { BlockBodyBytes } from "@theqrl/zondjs-block";
 
 type DatabaseKey = {
   blockNumber?: bigint;

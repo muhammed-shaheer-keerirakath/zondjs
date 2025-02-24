@@ -1,4 +1,4 @@
-# @ethereumjs/mpt
+# @theqrl/zondjs-mpt
 
 [![NPM Package][mpt-npm-badge]][mpt-npm-link]
 [![GitHub Issues][mpt-issues-badge]][mpt-issues-link]
@@ -16,7 +16,7 @@
 To obtain the latest version, simply require the project using `npm`:
 
 ```shell
-npm install @ethereumjs/mpt
+npm install @theqrl/zondjs-mpt
 ```
 
 ## Usage
@@ -32,22 +32,22 @@ It is best to select the variant that is most appropriate for your unique use ca
 ```ts
 // ./examples/basicUsage.ts
 
-import { createMPT } from '@ethereumjs/mpt'
-import { MapDB, bytesToUtf8, utf8ToBytes } from '@ethereumjs/util'
+import { createMPT } from "@theqrl/zondjs-mpt";
+import { MapDB, bytesToUtf8, utf8ToBytes } from "@theqrl/zondjs-util";
 
 async function test() {
-  const trie = await createMPT({ db: new MapDB() })
-  await trie.put(utf8ToBytes('test'), utf8ToBytes('one'))
-  const value = await trie.get(utf8ToBytes('test'))
-  console.log(value ? bytesToUtf8(value) : 'not found') // 'one'
+  const trie = await createMPT({ db: new MapDB() });
+  await trie.put(utf8ToBytes("test"), utf8ToBytes("one"));
+  const value = await trie.get(utf8ToBytes("test"));
+  console.log(value ? bytesToUtf8(value) : "not found"); // 'one'
 }
 
-void test()
+void test();
 ```
 
 ### WASM Crypto Support
 
-This library by default uses JavaScript implementations for the basic standard crypto primitives like hashing for keys. See `@ethereumjs/common` [README](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/common) for instructions on how to replace with e.g. a more performant WASM implementation by using a shared `common` instance.
+This library by default uses JavaScript implementations for the basic standard crypto primitives like hashing for keys. See `@theqrl/zondjs-common` [README](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/common) for instructions on how to replace with e.g. a more performant WASM implementation by using a shared `common` instance.
 
 ### Use with Standalone Constructors
 
@@ -56,8 +56,8 @@ Tries can be instantiated using standalone constructor functions:
 ```ts
 // ./examples/basicUsage.ts#L5-L6
 
-const trie = await createMPT({ db: new MapDB() })
-await trie.put(utf8ToBytes('test'), utf8ToBytes('one'))
+const trie = await createMPT({ db: new MapDB() });
+await trie.put(utf8ToBytes("test"), utf8ToBytes("one"));
 ```
 
 Tries can also be instantiated from a merkle proof:
@@ -65,9 +65,9 @@ Tries can also be instantiated from a merkle proof:
 ```ts
 // ./examples/createFromProof.ts#L17-L19
 
-const proof = await createMerkleProof(someOtherTrie, k1)
-const trie = await createMPTFromProof(proof, { useKeyHashing: true })
-const otherProof = await createMerkleProof(someOtherTrie, k2)
+const proof = await createMerkleProof(someOtherTrie, k1);
+const trie = await createMPTFromProof(proof, { useKeyHashing: true });
+const otherProof = await createMerkleProof(someOtherTrie, k2);
 ```
 
 #### Create new Trie
@@ -75,17 +75,17 @@ const otherProof = await createMerkleProof(someOtherTrie, k2)
 ```ts
 // ./examples/basicUsage.ts
 
-import { createMPT } from '@ethereumjs/mpt'
-import { MapDB, bytesToUtf8, utf8ToBytes } from '@ethereumjs/util'
+import { createMPT } from "@theqrl/zondjs-mpt";
+import { MapDB, bytesToUtf8, utf8ToBytes } from "@theqrl/zondjs-util";
 
 async function test() {
-  const trie = await createMPT({ db: new MapDB() })
-  await trie.put(utf8ToBytes('test'), utf8ToBytes('one'))
-  const value = await trie.get(utf8ToBytes('test'))
-  console.log(value ? bytesToUtf8(value) : 'not found') // 'one'
+  const trie = await createMPT({ db: new MapDB() });
+  await trie.put(utf8ToBytes("test"), utf8ToBytes("one"));
+  const value = await trie.get(utf8ToBytes("test"));
+  console.log(value ? bytesToUtf8(value) : "not found"); // 'one'
 }
 
-void test()
+void test();
 ```
 
 When the `createMPT` constructor is used without any options, the `MerklePatriciaTrie` object is instantiated with defaults configured to match the Ethereum production spec (i.e. keys are hashed using SHA256). It also persists the state root of the tree on each write operation, ensuring that your Merkle Patricia Trie remains in the state you left it when you start your application the next time.
@@ -104,31 +104,31 @@ import {
   createMPTFromProof,
   createMerkleProof,
   updateMPTFromMerkleProof,
-} from '@ethereumjs/mpt'
-import { bytesToUtf8, utf8ToBytes } from '@ethereumjs/util'
+} from "@theqrl/zondjs-mpt";
+import { bytesToUtf8, utf8ToBytes } from "@theqrl/zondjs-util";
 
 async function main() {
-  const k1 = utf8ToBytes('keyOne')
-  const k2 = utf8ToBytes('keyTwo')
+  const k1 = utf8ToBytes("keyOne");
+  const k2 = utf8ToBytes("keyTwo");
 
-  const someOtherTrie = new MerklePatriciaTrie({ useKeyHashing: true })
-  await someOtherTrie.put(k1, utf8ToBytes('valueOne'))
-  await someOtherTrie.put(k2, utf8ToBytes('valueTwo'))
+  const someOtherTrie = new MerklePatriciaTrie({ useKeyHashing: true });
+  await someOtherTrie.put(k1, utf8ToBytes("valueOne"));
+  await someOtherTrie.put(k2, utf8ToBytes("valueTwo"));
 
-  const proof = await createMerkleProof(someOtherTrie, k1)
-  const trie = await createMPTFromProof(proof, { useKeyHashing: true })
-  const otherProof = await createMerkleProof(someOtherTrie, k2)
+  const proof = await createMerkleProof(someOtherTrie, k1);
+  const trie = await createMPTFromProof(proof, { useKeyHashing: true });
+  const otherProof = await createMerkleProof(someOtherTrie, k2);
 
   // To add more proofs to the trie, use `updateMPTFromMerkleProof`
-  await updateMPTFromMerkleProof(trie, otherProof)
+  await updateMPTFromMerkleProof(trie, otherProof);
 
-  const value = await trie.get(k1)
-  console.log(bytesToUtf8(value!)) // valueOne
-  const otherValue = await trie.get(k2)
-  console.log(bytesToUtf8(otherValue!)) // valueTwo
+  const value = await trie.get(k1);
+  console.log(bytesToUtf8(value!)); // valueOne
+  const otherValue = await trie.get(k2);
+  console.log(bytesToUtf8(otherValue!)); // valueTwo
 }
 
-void main()
+void main();
 ```
 
 For further proof usage documentation see additional documentation section below.
@@ -142,20 +142,20 @@ The new walk functionality can be used like the following:
 ```ts
 // ./examples/trieWalking.ts
 
-import { createMPT } from '@ethereumjs/mpt'
-import { utf8ToBytes } from '@ethereumjs/util'
+import { createMPT } from "@theqrl/zondjs-mpt";
+import { utf8ToBytes } from "@theqrl/zondjs-util";
 
 async function main() {
-  const trie = await createMPT()
-  await trie.put(utf8ToBytes('key'), utf8ToBytes('val'))
-  const walk = trie.walkTrieIterable(trie.root())
+  const trie = await createMPT();
+  await trie.put(utf8ToBytes("key"), utf8ToBytes("val"));
+  const walk = trie.walkTrieIterable(trie.root());
 
   for await (const { node, currentKey } of walk) {
     // ... do something
-    console.log({ node, currentKey })
+    console.log({ node, currentKey });
   }
 }
-void main()
+void main();
 ```
 
 ### `MerklePatriciaTrie` Configuration Options
@@ -164,9 +164,9 @@ void main()
 
 The `DB` opt in the `MPTOpts` allows you to use any database that conforms to the `DB` interface to store the trie data in. We provide several [examples](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/trie/examples) for database implementations. The [level.js](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/trie/examples/level.js) example is used in the `ethereumjs client` while [lmdb.js](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/trie/examples/lmdb.js) is an alternative implementation that uses the popular [LMDB](https://en.wikipedia.org/wiki/Lightning_Memory-Mapped_Database) as its underlying database.
 
-If no `db` option is provided, an in-memory database powered by [a Javascript Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) will fulfill this role (imported from `@ethereumjs/util`, see [mapDB](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/mapDB.ts) module).
+If no `db` option is provided, an in-memory database powered by [a Javascript Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) will fulfill this role (imported from `@theqrl/zondjs-util`, see [mapDB](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/mapDB.ts) module).
 
-If you want to use an alternative database, you can integrate your own by writing a DB wrapper that conforms to the [`DB` interface](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/db.ts) (in `@ethereumjs/util`). The `DB` interface defines the methods `get`, `put`, `del`, `batch` and `copy` that a concrete implementation of the `DB` interface will need to implement.
+If you want to use an alternative database, you can integrate your own by writing a DB wrapper that conforms to the [`DB` interface](https://github.com/ethereumjs/ethereumjs-monorepo/blob/master/packages/util/src/db.ts) (in `@theqrl/zondjs-util`). The `DB` interface defines the methods `get`, `put`, `del`, `batch` and `copy` that a concrete implementation of the `DB` interface will need to implement.
 
 ##### LevelDB
 
@@ -193,18 +193,18 @@ You can enable persistence by setting the `useRootPersistence` option to `true` 
 ```ts
 // ./examples/rootPersistence.ts
 
-import { createMPT } from '@ethereumjs/mpt'
-import { bytesToHex } from '@ethereumjs/util'
+import { createMPT } from "@theqrl/zondjs-mpt";
+import { bytesToHex } from "@theqrl/zondjs-util";
 
 async function main() {
   const trie = await createMPT({
     useRootPersistence: true,
-  })
+  });
 
   // this logs the empty root value that has been persisted to the trie db
-  console.log(bytesToHex(trie.root())) // 0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421
+  console.log(bytesToHex(trie.root())); // 0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421
 }
-void main()
+void main();
 ```
 
 ## Proofs
@@ -221,10 +221,10 @@ The following code demonstrates how to construct and subsequently verify a proof
 // ./examples/proofs.ts#L12-L16
 
 // proof-of-inclusion
-await trie.put(k1, v1)
-let proof = await createMerkleProof(trie, k1)
-let value = await verifyMPTWithMerkleProof(trie, trie.root(), k1, proof)
-console.log(value ? bytesToUtf8(value) : 'not found') // 'one'
+await trie.put(k1, v1);
+let proof = await createMerkleProof(trie, k1);
+let value = await verifyMPTWithMerkleProof(trie, trie.root(), k1, proof);
+console.log(value ? bytesToUtf8(value) : "not found"); // 'one'
 ```
 
 #### Proof-of-Exclusion
@@ -235,11 +235,16 @@ The following code demonstrates how to construct and subsequently verify a proof
 // ./examples/proofs.ts#L18-L23
 
 // proof-of-exclusion
-await trie.put(k1, v1)
-await trie.put(k2, v2)
-proof = await createMerkleProof(trie, utf8ToBytes('key3'))
-value = await verifyMPTWithMerkleProof(trie, trie.root(), utf8ToBytes('key3'), proof)
-console.log(value ? bytesToUtf8(value) : 'null') // null
+await trie.put(k1, v1);
+await trie.put(k2, v2);
+proof = await createMerkleProof(trie, utf8ToBytes("key3"));
+value = await verifyMPTWithMerkleProof(
+  trie,
+  trie.root(),
+  utf8ToBytes("key3"),
+  proof,
+);
+console.log(value ? bytesToUtf8(value) : "null"); // null
 ```
 
 #### Invalid Proofs
@@ -250,14 +255,14 @@ If `verifyProof` detects an invalid proof, it will throw an error. While contriv
 // ./examples/proofs.ts#L25-L34
 
 // invalid proof
-await trie.put(k1, v1)
-await trie.put(k2, v2)
-proof = await createMerkleProof(trie, k2)
-proof[0].reverse()
+await trie.put(k1, v1);
+await trie.put(k2, v2);
+proof = await createMerkleProof(trie, k2);
+proof[0].reverse();
 try {
-  const _value = await verifyMPTWithMerkleProof(trie, trie.root(), k2, proof) // results in error
+  const _value = await verifyMPTWithMerkleProof(trie, trie.root(), k2, proof); // results in error
 } catch (err) {
-  console.log(err)
+  console.log(err);
 }
 ```
 
@@ -288,13 +293,13 @@ With the breaking releases from Summer 2023 we have started to ship our librarie
 If you use an ES6-style `import` in your code files from the ESM build will be used:
 
 ```ts
-import { EthereumJSClass } from '@ethereumjs/[PACKAGE_NAME]'
+import { EthereumJSClass } from "@theqrl/zondjs-[PACKAGE_NAME]";
 ```
 
 If you use Node.js specific `require`, the CJS build will be used:
 
 ```ts
-const { EthereumJSClass } = require('@ethereumjs/[PACKAGE_NAME]')
+const { EthereumJSClass } = require("@theqrl/zondjs-[PACKAGE_NAME]");
 ```
 
 Using ESM will give you additional advantages over CJS beyond browser usage like static code analysis / Tree Shaking which CJS can not provide.
@@ -303,7 +308,7 @@ Using ESM will give you additional advantages over CJS beyond browser usage like
 
 With the breaking releases from Summer 2023 we have removed all Node.js specific `Buffer` usages from our libraries and replace these with [Uint8Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array) representations, which are available both in Node.js and the browser (`Buffer` is a subclass of `Uint8Array`).
 
-We have converted existing Buffer conversion methods to Uint8Array conversion methods in the [@ethereumjs/util](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/util) `bytes` module, see the respective README section for guidance.
+We have converted existing Buffer conversion methods to Uint8Array conversion methods in the [@theqrl/zondjs-util](https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/util) `bytes` module, see the respective README section for guidance.
 
 ### BigInt Support
 
@@ -427,8 +432,8 @@ See our organizational [documentation](https://ethereumjs.readthedocs.io) for an
 
 [discord-badge]: https://img.shields.io/static/v1?logo=discord&label=discord&message=Join&color=blue
 [discord-link]: https://discord.gg/TNwARpR
-[mpt-npm-badge]: https://img.shields.io/npm/v/@ethereumjs/mpt.svg
-[mpt-npm-link]: https://www.npmjs.com/package/@ethereumjs/mpt
+[mpt-npm-badge]: https://img.shields.io/npm/v/@theqrl/zondjs-mpt.svg
+[mpt-npm-link]: https://www.npmjs.com/package/@theqrl/zondjs-mpt
 [mpt-issues-badge]: https://img.shields.io/github/issues/ethereumjs/ethereumjs-monorepo/package:%20mpt?label=issues
 [mpt-issues-link]: https://github.com/ethereumjs/ethereumjs-monorepo/issues?q=is%3Aopen+is%3Aissue+label%3A"package%3A+mpt"
 [mpt-actions-badge]: https://github.com/ethereumjs/ethereumjs-monorepo/workflows/Trie/badge.svg

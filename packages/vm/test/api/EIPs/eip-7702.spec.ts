@@ -1,6 +1,6 @@
-import { Common, Hardfork, Mainnet } from "@ethereumjs/common";
-import { RLP } from "@ethereumjs/rlp";
-import { createEOACode7702Tx } from "@ethereumjs/tx";
+import { Common, Hardfork, Mainnet } from "@theqrl/zondjs-common";
+import { RLP } from "@theqrl/zondjs-rlp";
+import { createEOACode7702Tx } from "@theqrl/zondjs-tx";
 import {
   Account,
   Address,
@@ -22,7 +22,7 @@ import { assert, describe, it } from "vitest";
 import { createVM, runTx } from "../../../src/index.js";
 
 import type { VM } from "../../../src/index.js";
-import type { AuthorizationListBytesItem } from "@ethereumjs/tx";
+import type { AuthorizationListBytesItem } from "@theqrl/zondjs-tx";
 import type { PrefixedHexString } from "@theqrl/zondjs-util";
 
 // EIP-7702 code designator. If code starts with these bytes, it is a 7702-delegated address

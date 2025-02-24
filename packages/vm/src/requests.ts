@@ -1,4 +1,4 @@
-import { Mainnet } from "@ethereumjs/common";
+import { Mainnet } from "@theqrl/zondjs-common";
 import {
   CLRequest,
   CLRequestType,

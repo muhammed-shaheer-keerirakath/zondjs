@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { createCommonFromGethGenesis } from "@ethereumjs/common";
+import { createCommonFromGethGenesis } from "@theqrl/zondjs-common";
 import {
   bytesToHex,
   hexToBytes,

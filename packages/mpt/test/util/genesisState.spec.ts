@@ -1,4 +1,4 @@
-import { getGenesis } from "@ethereumjs/genesis";
+import { getGenesis } from "@theqrl/zondjs-genesis";
 import { bytesToHex, parseGethGenesisState } from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 

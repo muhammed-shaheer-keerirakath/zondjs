@@ -1,12 +1,12 @@
-import { cliqueSigner, createBlockHeader } from "@ethereumjs/block";
-import { ConsensusType, Hardfork } from "@ethereumjs/common";
-import { type EVM, VerkleAccessWitness } from "@ethereumjs/evm";
-import { RLP } from "@ethereumjs/rlp";
+import { cliqueSigner, createBlockHeader } from "@theqrl/zondjs-block";
+import { ConsensusType, Hardfork } from "@theqrl/zondjs-common";
+import { type EVM, VerkleAccessWitness } from "@theqrl/zondjs-evm";
+import { RLP } from "@theqrl/zondjs-rlp";
 import {
   StatefulVerkleStateManager,
   StatelessVerkleStateManager,
-} from "@ethereumjs/statemanager";
-import { Capability, isBlob4844Tx } from "@ethereumjs/tx";
+} from "@theqrl/zondjs-statemanager";
+import { Capability, isBlob4844Tx } from "@theqrl/zondjs-tx";
 import {
   Account,
   Address,
@@ -43,8 +43,8 @@ import type {
   TxReceipt,
 } from "./types.js";
 import type { VM } from "./vm.js";
-import type { Block } from "@ethereumjs/block";
-import type { Common, VerkleAccessWitnessInterface } from "@ethereumjs/common";
+import type { Block } from "@theqrl/zondjs-block";
+import type { Common, VerkleAccessWitnessInterface } from "@theqrl/zondjs-common";
 import type {
   AccessList,
   AccessList2930Tx,
@@ -53,7 +53,7 @@ import type {
   FeeMarket1559Tx,
   LegacyTx,
   TypedTransaction,
-} from "@ethereumjs/tx";
+} from "@theqrl/zondjs-tx";
 
 const debug = debugDefault("vm:tx");
 const debugGas = debugDefault("vm:tx:gas");

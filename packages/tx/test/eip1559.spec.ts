@@ -1,5 +1,5 @@
-import { Hardfork, Mainnet, createCustomCommon } from "@ethereumjs/common";
-import { RLP } from "@ethereumjs/rlp";
+import { Hardfork, Mainnet, createCustomCommon } from "@theqrl/zondjs-common";
+import { RLP } from "@theqrl/zondjs-rlp";
 import {
   TWO_POW256,
   bytesToHex,

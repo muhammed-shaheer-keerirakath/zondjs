@@ -1,6 +1,6 @@
-import { createBlock, genRequestsRoot } from "@ethereumjs/block";
-import { createBlockchain } from "@ethereumjs/blockchain";
-import { Common, Hardfork, Mainnet } from "@ethereumjs/common";
+import { createBlock, genRequestsRoot } from "@theqrl/zondjs-block";
+import { createBlockchain } from "@theqrl/zondjs-blockchain";
+import { Common, Hardfork, Mainnet } from "@theqrl/zondjs-common";
 import { createCLRequest, equalsBytes, hexToBytes } from "@theqrl/zondjs-util";
 import { sha256 } from "ethereum-cryptography/sha256";
 import { assert, describe, expect, it } from "vitest";

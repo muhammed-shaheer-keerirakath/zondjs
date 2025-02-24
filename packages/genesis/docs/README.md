@@ -1,6 +1,6 @@
-@ethereumjs/genesis
+@theqrl/zondjs-genesis
 
-# @ethereumjs/genesis
+# @theqrl/zondjs-genesis
 
 ## Table of contents
 
