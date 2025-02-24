@@ -1,4 +1,4 @@
-import { type VerkleCrypto } from "@zondjs/util";
+import { type VerkleCrypto } from "@theqrl/zondjs-util";
 
 import { BaseVerkleNode } from "./baseVerkleNode.js";
 import { NODE_WIDTH, VerkleNodeType } from "./types.js";

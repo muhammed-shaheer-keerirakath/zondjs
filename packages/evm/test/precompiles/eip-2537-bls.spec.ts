@@ -4,14 +4,14 @@ import {
   bytesToHex,
   createZeroAddress,
   hexToBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { readFileSync, readdirSync } from "fs";
 import * as mcl from "mcl-wasm";
 import { assert, describe, it } from "vitest";
 
 import { MCLBLS, createEVM, getActivePrecompiles } from "../../src/index.js";
 
-import type { PrefixedHexString } from "@zondjs/util";
+import type { PrefixedHexString } from "@theqrl/zondjs-util";
 
 // BLS tests, run this from `./packages/evm` using `npx vitest run ./test/precompiles/eip-2537-bls.spec.ts`
 

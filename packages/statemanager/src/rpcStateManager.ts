@@ -11,7 +11,7 @@ import {
   hexToBytes,
   intToHex,
   toBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import debugDefault from "debug";
 import { keccak256 } from "ethereum-cryptography/keccak.js";
 
@@ -24,7 +24,7 @@ import type {
   StateManagerInterface,
   StorageDump,
 } from "@ethereumjs/common";
-import type { Address } from "@zondjs/util";
+import type { Address } from "@theqrl/zondjs-util";
 import type { Debugger } from "debug";
 
 const KECCAK256_RLP_EMPTY_ACCOUNT = RLP.encode(new Account().serialize()).slice(

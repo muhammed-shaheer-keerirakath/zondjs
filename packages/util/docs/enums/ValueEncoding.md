@@ -1,4 +1,4 @@
-[@zondjs/util](../README.md) / ValueEncoding
+[@theqrl/zondjs-util](../README.md) / ValueEncoding
 
 # Enumeration: ValueEncoding
 

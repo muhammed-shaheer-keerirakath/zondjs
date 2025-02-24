@@ -2,7 +2,12 @@ import { createBlock } from "@ethereumjs/block";
 import { EVMMockBlockchain, NobleBLS } from "@ethereumjs/evm";
 import { RLP } from "@ethereumjs/rlp";
 import { createTx } from "@ethereumjs/tx";
-import { bigIntToHex, bytesToHex, hexToBytes, toBytes } from "@zondjs/util";
+import {
+  bigIntToHex,
+  bytesToHex,
+  hexToBytes,
+  toBytes,
+} from "@theqrl/zondjs-util";
 import { trustedSetup } from "@paulmillr/trusted-setups/fast.js";
 import { keccak256 } from "ethereum-cryptography/keccak";
 import { readFileSync, writeFileSync } from "fs";
@@ -36,7 +41,11 @@ import type { Block } from "@ethereumjs/block";
 import type { Common } from "@ethereumjs/common";
 import type { Log } from "@ethereumjs/evm";
 import type { TypedTxData } from "@ethereumjs/tx";
-import type { CLRequest, CLRequestType, PrefixedHexString } from "@zondjs/util";
+import type {
+  CLRequest,
+  CLRequestType,
+  PrefixedHexString,
+} from "@theqrl/zondjs-util";
 const kzg = new microEthKZG(trustedSetup);
 
 // Helper methods

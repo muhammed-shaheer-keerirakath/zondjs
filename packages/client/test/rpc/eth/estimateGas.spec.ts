@@ -3,7 +3,11 @@ import { createBlockchain } from "@ethereumjs/blockchain";
 import { createCommonFromGethGenesis } from "@ethereumjs/common";
 import { getGenesis } from "@ethereumjs/genesis";
 import { createLegacyTx } from "@ethereumjs/tx";
-import { Units, bigIntToHex, createAddressFromString } from "@zondjs/util";
+import {
+  Units,
+  bigIntToHex,
+  createAddressFromString,
+} from "@theqrl/zondjs-util";
 import { runBlock, runTx } from "@ethereumjs/vm";
 import { assert, describe, it } from "vitest";
 
@@ -16,7 +20,7 @@ import {
 } from "../helpers.js";
 
 import type { Block } from "@ethereumjs/block";
-import type { PrefixedHexString } from "@zondjs/util";
+import type { PrefixedHexString } from "@theqrl/zondjs-util";
 
 const method = "eth_estimateGas";
 

@@ -1,5 +1,5 @@
 import { RLP } from "@ethereumjs/rlp";
-import { bytesToHex, equalsBytes } from "@zondjs/util";
+import { bytesToHex, equalsBytes } from "@theqrl/zondjs-util";
 
 import { BranchMPTNode } from "../node/branch.js";
 import { ExtensionMPTNode } from "../node/extension.js";

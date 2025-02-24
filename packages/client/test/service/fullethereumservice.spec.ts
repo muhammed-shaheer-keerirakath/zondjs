@@ -5,7 +5,7 @@ import {
   createCommonFromGethGenesis,
 } from "@ethereumjs/common";
 import { TransactionType, createTx } from "@ethereumjs/tx";
-import { equalsBytes, hexToBytes, randomBytes } from "@zondjs/util";
+import { equalsBytes, hexToBytes, randomBytes } from "@theqrl/zondjs-util";
 import { assert, describe, expect, it, vi } from "vitest";
 
 import { Chain } from "../../src/blockchain/index.js";

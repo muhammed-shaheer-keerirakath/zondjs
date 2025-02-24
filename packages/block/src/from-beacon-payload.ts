@@ -1,11 +1,11 @@
-import { bigIntToHex } from "@zondjs/util";
+import { bigIntToHex } from "@theqrl/zondjs-util";
 
 import type { ExecutionPayload } from "./types.js";
 import type {
   NumericString,
   PrefixedHexString,
   VerkleExecutionWitness,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 
 type BeaconWithdrawal = {
   index: PrefixedHexString;

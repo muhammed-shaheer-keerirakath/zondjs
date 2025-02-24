@@ -1,6 +1,6 @@
 import { createBlock } from "@ethereumjs/block";
 import { createLegacyTx } from "@ethereumjs/tx";
-import { equalsBytes, toBytes } from "@zondjs/util";
+import { equalsBytes, toBytes } from "@theqrl/zondjs-util";
 
 import { dummy } from "./helpers.js";
 

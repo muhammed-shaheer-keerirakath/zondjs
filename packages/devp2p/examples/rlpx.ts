@@ -1,6 +1,6 @@
 import { Common, Mainnet } from "@ethereumjs/common";
 import { ETH, RLPx } from "@ethereumjs/devp2p";
-import { hexToBytes } from "@zondjs/util";
+import { hexToBytes } from "@theqrl/zondjs-util";
 
 const main = async () => {
   const common = new Common({ chain: Mainnet });

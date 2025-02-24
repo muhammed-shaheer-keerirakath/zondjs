@@ -1,4 +1,4 @@
-import { randomBytes } from "@zondjs/util";
+import { randomBytes } from "@theqrl/zondjs-util";
 import { Client } from "jayson/promise";
 import { assert, describe, it } from "vitest";
 

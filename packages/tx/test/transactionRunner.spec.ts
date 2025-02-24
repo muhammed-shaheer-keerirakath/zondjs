@@ -1,5 +1,5 @@
 import { Common, Mainnet } from "@ethereumjs/common";
-import { bytesToHex, hexToBytes } from "@zondjs/util";
+import { bytesToHex, hexToBytes } from "@theqrl/zondjs-util";
 import minimist from "minimist";
 import { assert, describe, it } from "vitest";
 
@@ -12,7 +12,7 @@ import type {
   ForkNamesMap,
   OfficialTransactionTestData,
 } from "./types.js";
-import type { PrefixedHexString } from "@zondjs/util";
+import type { PrefixedHexString } from "@theqrl/zondjs-util";
 
 const argv = minimist(process.argv.slice(2));
 const file: string | undefined = argv.file;

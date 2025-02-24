@@ -1,4 +1,4 @@
-[@zondjs/util](../README.md) / DelBatch
+[@theqrl/zondjs-util](../README.md) / DelBatch
 
 # Interface: DelBatch<TKey\>
 

@@ -12,7 +12,7 @@ import {
   equalsBytes,
   hexToBytes,
   toBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
 import { genTransactionsTrieRoot } from "../src/helpers.js";
@@ -34,7 +34,7 @@ import { testdataPreLondon2Data } from "./testdata/testdata_pre-london-2.js";
 import { testdataPreLondonData } from "./testdata/testdata_pre-london.js";
 import { testnetMergeData } from "./testdata/testnetMerge.js";
 
-import type { NestedUint8Array, PrefixedHexString } from "@zondjs/util";
+import type { NestedUint8Array, PrefixedHexString } from "@theqrl/zondjs-util";
 
 describe("[Block]: block functions", () => {
   it("should test block initialization", () => {

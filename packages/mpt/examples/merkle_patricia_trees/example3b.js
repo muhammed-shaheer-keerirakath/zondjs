@@ -1,6 +1,6 @@
 // Example 3b - Verification using a hash
 
-const { bytesToHex, utf8ToBytes } = require("@zondjs/util");
+const { bytesToHex, utf8ToBytes } = require("@theqrl/zondjs-util");
 
 const { MerklePatriciaTrie } = require("../../dist/cjs/index.js");
 

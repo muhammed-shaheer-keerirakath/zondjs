@@ -1,4 +1,4 @@
-import { equalsBytes } from "@zondjs/util";
+import { equalsBytes } from "@theqrl/zondjs-util";
 
 import { createMPTFromProof } from "../index.js";
 import { MerklePatriciaTrie } from "../mpt.js";

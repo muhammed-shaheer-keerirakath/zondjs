@@ -1,4 +1,4 @@
-[@zondjs/util](../README.md) / ECDSASignature
+[@theqrl/zondjs-util](../README.md) / ECDSASignature
 
 # Interface: ECDSASignature
 

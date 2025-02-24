@@ -1,4 +1,4 @@
-[@zondjs/util](../README.md) / Account
+[@theqrl/zondjs-util](../README.md) / Account
 
 # Class: Account
 

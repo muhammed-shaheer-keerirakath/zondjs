@@ -1,4 +1,4 @@
-import { bytesToBigInt } from "@zondjs/util";
+import { bytesToBigInt } from "@theqrl/zondjs-util";
 
 const bytesValue = new Uint8Array([97]);
 const bigIntValue = bytesToBigInt(bytesValue);

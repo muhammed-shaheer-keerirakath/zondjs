@@ -10,7 +10,7 @@ import {
   KECCAK256_RLP,
   createAddressFromString,
   hexToBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
 import { type VMOpts, createVM, paramsVM } from "../../src/index.js";

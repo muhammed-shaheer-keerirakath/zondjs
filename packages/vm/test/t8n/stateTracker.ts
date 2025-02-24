@@ -5,11 +5,11 @@ import {
   hexToBytes,
   setLengthLeft,
   unpadBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 
 import type { VM } from "../../src/vm.js";
 import type { T8NAlloc } from "./types.js";
-import type { Account, Address, PrefixedHexString } from "@zondjs/util";
+import type { Account, Address, PrefixedHexString } from "@theqrl/zondjs-util";
 
 export class StateTracker {
   private allocTracker: {

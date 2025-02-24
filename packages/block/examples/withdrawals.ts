@@ -1,8 +1,8 @@
 import { createBlock } from "@ethereumjs/block";
 import { Common, Mainnet } from "@ethereumjs/common";
-import { Address, hexToBytes } from "@zondjs/util";
+import { Address, hexToBytes } from "@theqrl/zondjs-util";
 
-import type { WithdrawalData } from "@zondjs/util";
+import type { WithdrawalData } from "@theqrl/zondjs-util";
 
 const common = new Common({ chain: Mainnet });
 

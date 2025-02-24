@@ -15,7 +15,7 @@ import {
   unpadBytes,
   unprefixedHexToBytes,
   utf8ToBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import debugDefault from "debug";
 import { keccak256 } from "ethereum-cryptography/keccak.js";
 
@@ -31,7 +31,7 @@ import type {
   StorageDump,
   StorageRange,
 } from "@ethereumjs/common";
-import type { Address, DB } from "@zondjs/util";
+import type { Address, DB } from "@theqrl/zondjs-util";
 import type { Debugger } from "debug";
 
 /**

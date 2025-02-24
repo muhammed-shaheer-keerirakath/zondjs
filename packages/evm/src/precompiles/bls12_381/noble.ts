@@ -5,7 +5,7 @@ import {
   concatBytes,
   equalsBytes,
   setLengthLeft,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { bls12_381 } from "@noble/curves/bls12-381";
 
 import { ERROR, EvmError } from "../../exceptions.js";

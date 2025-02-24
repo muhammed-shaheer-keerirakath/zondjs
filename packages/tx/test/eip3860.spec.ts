@@ -1,5 +1,5 @@
 import { Common, Hardfork, Mainnet } from "@ethereumjs/common";
-import { createZeroAddress } from "@zondjs/util";
+import { createZeroAddress } from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
 import { TransactionType, createTx, paramsTx } from "../src/index.js";

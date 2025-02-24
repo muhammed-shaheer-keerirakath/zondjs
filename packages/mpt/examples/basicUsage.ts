@@ -1,5 +1,5 @@
 import { createMPT } from "@ethereumjs/mpt";
-import { MapDB, bytesToUtf8, utf8ToBytes } from "@zondjs/util";
+import { MapDB, bytesToUtf8, utf8ToBytes } from "@theqrl/zondjs-util";
 
 async function test() {
   const trie = await createMPT({ db: new MapDB() });

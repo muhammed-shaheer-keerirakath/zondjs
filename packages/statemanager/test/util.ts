@@ -1,4 +1,4 @@
-import { Account } from "@zondjs/util";
+import { Account } from "@theqrl/zondjs-util";
 
 export function createAccountWithDefaults(
   nonce = BigInt(0),

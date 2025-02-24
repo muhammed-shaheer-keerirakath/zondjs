@@ -1,7 +1,12 @@
 import { createBlock } from "@ethereumjs/block";
 import { Common, Hardfork, Mainnet } from "@ethereumjs/common";
 import { FeeMarket1559Tx } from "@ethereumjs/tx";
-import { Address, Units, hexToBytes, privateToAddress } from "@zondjs/util";
+import {
+  Address,
+  Units,
+  hexToBytes,
+  privateToAddress,
+} from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
 import { createVM, runTx } from "../../../src/index.js";

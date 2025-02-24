@@ -11,7 +11,7 @@ import {
   getBlobs,
   hexToBytes,
   randomBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { trustedSetup } from "@paulmillr/trusted-setups/fast.js";
 import { KZG as microEthKZG } from "micro-eth-signer/kzg";
 import { assert, describe, it } from "vitest";
@@ -30,7 +30,7 @@ import {
 import { serialized4844TxData } from "./testData/serialized4844tx.js";
 
 import type { BlobEIP4844TxData } from "../src/index.js";
-import type { PrefixedHexString } from "@zondjs/util";
+import type { PrefixedHexString } from "@theqrl/zondjs-util";
 
 const pk = randomBytes(32);
 const kzg = new microEthKZG(trustedSetup);

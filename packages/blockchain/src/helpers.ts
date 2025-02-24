@@ -1,6 +1,6 @@
 import { ChainGenesis } from "@ethereumjs/common";
 import { genesisMPTStateRoot } from "@ethereumjs/mpt";
-import { type GenesisState } from "@zondjs/util";
+import { type GenesisState } from "@theqrl/zondjs-util";
 
 import type { Chain, Common } from "@ethereumjs/common";
 

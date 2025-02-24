@@ -15,7 +15,7 @@ import {
   bytesToUnprefixedHex,
   equalsBytes,
   hexToBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 
 import { Heap } from "../ext/qheap.js";
 
@@ -30,7 +30,7 @@ import type {
   LegacyTx,
   TypedTransaction,
 } from "@ethereumjs/tx";
-import type { PrefixedHexString } from "@zondjs/util";
+import type { PrefixedHexString } from "@theqrl/zondjs-util";
 import type { VM } from "@ethereumjs/vm";
 
 // Configuration constants

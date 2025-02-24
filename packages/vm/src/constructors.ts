@@ -10,7 +10,7 @@ import {
   Address,
   createAccount,
   unprefixedHexToBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 
 import { VM } from "./vm.js";
 

@@ -1,4 +1,4 @@
-[@zondjs/util](../README.md) / JsonRpcWithdrawal
+[@theqrl/zondjs-util](../README.md) / JsonRpcWithdrawal
 
 # Interface: JsonRpcWithdrawal
 

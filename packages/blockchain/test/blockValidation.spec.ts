@@ -7,7 +7,7 @@ import {
 } from "@ethereumjs/common";
 import { Ethash } from "@ethereumjs/ethash";
 import { RLP } from "@ethereumjs/rlp";
-import { bytesToHex } from "@zondjs/util";
+import { bytesToHex } from "@theqrl/zondjs-util";
 import { keccak256 } from "ethereum-cryptography/keccak.js";
 import { assert, describe, it } from "vitest";
 

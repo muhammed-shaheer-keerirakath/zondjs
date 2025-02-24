@@ -1,6 +1,6 @@
 // Example 2b - Creating and looking up a branch node
 
-const { bytesToHex, bytesToUtf8, utf8ToBytes } = require("@zondjs/util");
+const { bytesToHex, bytesToUtf8, utf8ToBytes } = require("@theqrl/zondjs-util");
 
 const { MerklePatriciaTrie } = require("../../dist/cjs/index.js");
 

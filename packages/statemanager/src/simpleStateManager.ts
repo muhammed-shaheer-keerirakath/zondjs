@@ -1,4 +1,4 @@
-import { Account, bytesToHex } from "@zondjs/util";
+import { Account, bytesToHex } from "@theqrl/zondjs-util";
 import { keccak256 } from "ethereum-cryptography/keccak.js";
 
 import { OriginalStorageCache } from "./cache/originalStorageCache.js";
@@ -10,7 +10,7 @@ import type {
   Common,
   StateManagerInterface,
 } from "@ethereumjs/common";
-import type { Address, PrefixedHexString } from "@zondjs/util";
+import type { Address, PrefixedHexString } from "@theqrl/zondjs-util";
 
 /**
  * Simple and dependency-free state manager for basic state access use cases

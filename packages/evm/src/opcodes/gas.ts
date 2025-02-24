@@ -9,7 +9,7 @@ import {
   bigIntToBytes,
   equalsBytes,
   setLengthLeft,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 
 import { EOFError } from "../eof/errors.js";
 import { ERROR } from "../exceptions.js";
@@ -30,7 +30,7 @@ import {
 
 import type { RunState } from "../interpreter.js";
 import type { Common } from "@ethereumjs/common";
-import type { Address } from "@zondjs/util";
+import type { Address } from "@theqrl/zondjs-util";
 
 const EXTCALL_TARGET_MAX = BigInt(2) ** BigInt(8 * 20) - BigInt(1);
 

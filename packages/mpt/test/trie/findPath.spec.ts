@@ -1,4 +1,4 @@
-import { randomBytes } from "@zondjs/util";
+import { randomBytes } from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
 import { MerklePatriciaTrie } from "../../src/index.js";

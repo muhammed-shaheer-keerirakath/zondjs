@@ -3,7 +3,7 @@ import {
   createAddressFromString,
   getVerkleStem,
   utf8ToBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { createVerkleTree } from "@ethereumjs/verkle";
 
 async function test() {

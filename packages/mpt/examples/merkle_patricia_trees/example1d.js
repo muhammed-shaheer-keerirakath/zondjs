@@ -1,6 +1,6 @@
 /* Example 1d - Deleting a Key-Value Pair from a Trie*/
 
-const { bytesToHex, bytesToUtf8, utf8ToBytes } = require("@zondjs/util");
+const { bytesToHex, bytesToUtf8, utf8ToBytes } = require("@theqrl/zondjs-util");
 
 const { MerklePatriciaTrie } = require("../../dist/cjs/index.js");
 

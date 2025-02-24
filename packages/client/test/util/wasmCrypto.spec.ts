@@ -10,7 +10,7 @@ import {
   randomBytes,
   setLengthLeft,
   utf8ToBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import {
   keccak256,
   secp256k1Expand,

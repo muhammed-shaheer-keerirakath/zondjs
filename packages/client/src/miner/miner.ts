@@ -10,7 +10,7 @@ import {
   BIGINT_2,
   bytesToHex,
   equalsBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { type TxReceipt, buildBlock } from "@ethereumjs/vm";
 import { MemoryLevel } from "memory-level";
 

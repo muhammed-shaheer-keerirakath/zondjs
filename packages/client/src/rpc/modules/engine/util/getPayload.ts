@@ -1,9 +1,9 @@
-import { bigIntToHex, bytesToHex } from "@zondjs/util";
+import { bigIntToHex, bytesToHex } from "@theqrl/zondjs-util";
 
 import type { BlobsBundle } from "../../../../miner/index.js";
 import type { BlobsBundleV1 } from "../types.js";
 import type { Block, ExecutionPayload } from "@ethereumjs/block";
-import type { CLRequest, CLRequestType } from "@zondjs/util";
+import type { CLRequest, CLRequestType } from "@theqrl/zondjs-util";
 
 /**
  * Formats a block to {@link ExecutionPayloadV1}.

@@ -1,6 +1,6 @@
-import { utf8ToBytes } from "@zondjs/util";
+import { utf8ToBytes } from "@theqrl/zondjs-util";
 
-import type { DB, ValueEncoding } from "@zondjs/util";
+import type { DB, ValueEncoding } from "@theqrl/zondjs-util";
 
 export interface BinaryTreeOpts {
   /**

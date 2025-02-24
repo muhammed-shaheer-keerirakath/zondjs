@@ -7,7 +7,7 @@ import {
   hexToBytes,
   isHexString,
   toBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { Common } from "@ethereumjs/common";
 import { Block } from "@ethereumjs/block";
 import { MerkleStateManager } from "@ethereumjs/statemanager";

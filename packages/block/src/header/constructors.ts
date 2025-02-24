@@ -1,5 +1,5 @@
 import { RLP } from "@ethereumjs/rlp";
-import { bigIntToBytes, equalsBytes } from "@zondjs/util";
+import { bigIntToBytes, equalsBytes } from "@theqrl/zondjs-util";
 
 import { generateCliqueBlockExtraData } from "../consensus/clique.js";
 import { numberToHex, valuesArrayToHeaderData } from "../helpers.js";

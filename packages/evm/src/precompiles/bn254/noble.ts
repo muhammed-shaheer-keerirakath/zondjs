@@ -6,7 +6,7 @@ import {
   equalsBytes,
   hexToBytes,
   setLengthLeft,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { bn254 } from "@noble/curves/bn254";
 
 import { ERROR, EvmError } from "../../exceptions.js";

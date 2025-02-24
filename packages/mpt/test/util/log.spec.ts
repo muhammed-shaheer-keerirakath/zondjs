@@ -1,4 +1,4 @@
-import { utf8ToBytes } from "@zondjs/util";
+import { utf8ToBytes } from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
 import {

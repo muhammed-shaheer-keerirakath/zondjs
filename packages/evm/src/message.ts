@@ -1,9 +1,9 @@
-import { BIGINT_0, createZeroAddress } from "@zondjs/util";
+import { BIGINT_0, createZeroAddress } from "@theqrl/zondjs-util";
 
 import type { PrecompileFunc } from "./precompiles/index.js";
 import type { EOFEnv } from "./types.js";
 import type { VerkleAccessWitnessInterface } from "@ethereumjs/common";
-import type { Address, PrefixedHexString } from "@zondjs/util";
+import type { Address, PrefixedHexString } from "@theqrl/zondjs-util";
 
 const defaults = {
   value: BIGINT_0,

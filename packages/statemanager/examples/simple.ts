@@ -2,7 +2,7 @@ import {
   Account,
   createAddressFromPrivateKey,
   randomBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 
 import { SimpleStateManager } from "../src/index.js";
 

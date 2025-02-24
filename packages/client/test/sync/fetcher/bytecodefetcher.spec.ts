@@ -1,5 +1,5 @@
 import { RLP } from "@ethereumjs/rlp";
-import { hexToBytes, utf8ToBytes } from "@zondjs/util";
+import { hexToBytes, utf8ToBytes } from "@theqrl/zondjs-util";
 import { assert, describe, it, vi } from "vitest";
 
 import { Chain } from "../../../src/blockchain/index.js";

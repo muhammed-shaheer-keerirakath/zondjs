@@ -15,7 +15,7 @@ import {
   intToBytes,
   setLengthLeft,
   utf8ToBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
 import { CacheType, Caches, MerkleStateManager } from "../src/index.js";
@@ -25,7 +25,7 @@ import {
   getMerkleStateProof,
 } from "../src/proofs/index.js";
 
-import type { PrefixedHexString } from "@zondjs/util";
+import type { PrefixedHexString } from "@theqrl/zondjs-util";
 
 export const isBrowser = new Function(
   "try {return this===window;}catch(e){ return false;}",

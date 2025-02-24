@@ -10,7 +10,7 @@ import {
   concatBytes,
   hexToBytes,
   privateToAddress,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import * as http from "http";
 import * as promClient from "prom-client";
 import * as url from "url";

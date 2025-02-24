@@ -1,4 +1,4 @@
-import { bytesToHex, hexToBytes } from "@zondjs/util";
+import { bytesToHex, hexToBytes } from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
 import { MAC } from "../src/rlpx/mac.js";

@@ -1,6 +1,6 @@
 import { createBlock } from "@ethereumjs/block";
 import { createLegacyTx } from "@ethereumjs/tx";
-import { createAddressFromString } from "@zondjs/util";
+import { createAddressFromString } from "@theqrl/zondjs-util";
 import { runBlock } from "@ethereumjs/vm";
 import { assert, describe, it } from "vitest";
 

@@ -5,7 +5,7 @@ import {
 } from "@ethereumjs/block";
 import { Common, Hardfork, Mainnet } from "@ethereumjs/common";
 import { RLP } from "@ethereumjs/rlp";
-import { MapDB, hexToBytes } from "@zondjs/util";
+import { MapDB, hexToBytes } from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
 import { Ethash } from "../src/index.js";
@@ -14,7 +14,7 @@ import { blockTestsData } from "./block_tests_data.js";
 import { invalidBlockRLP, validBlockRLP } from "./ethash_block_rlp_tests.js";
 
 import type { BlockBytes } from "@ethereumjs/block";
-import type { PrefixedHexString } from "@zondjs/util";
+import type { PrefixedHexString } from "@theqrl/zondjs-util";
 
 const cacheDB = new MapDB();
 

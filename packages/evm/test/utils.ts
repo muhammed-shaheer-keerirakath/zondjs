@@ -1,4 +1,4 @@
-import { Account } from "@zondjs/util";
+import { Account } from "@theqrl/zondjs-util";
 import path from "path";
 
 export function createAccount(nonce = BigInt(0), balance = BigInt(0xfff384)) {

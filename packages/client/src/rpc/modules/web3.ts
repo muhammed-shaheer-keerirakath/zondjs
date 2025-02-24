@@ -1,4 +1,4 @@
-import { bytesToHex, hexToBytes, toBytes } from "@zondjs/util";
+import { bytesToHex, hexToBytes, toBytes } from "@theqrl/zondjs-util";
 import { keccak256 } from "ethereum-cryptography/keccak";
 
 import { getClientVersion } from "../../util/index.js";
@@ -8,7 +8,7 @@ import { middleware, validators } from "../validation.js";
 import type { Chain } from "../../blockchain/index.js";
 import type { EthereumClient } from "../../index.js";
 import type { FullEthereumService } from "../../service/index.js";
-import type { PrefixedHexString } from "@zondjs/util";
+import type { PrefixedHexString } from "@theqrl/zondjs-util";
 
 /**
  * web3_* RPC module

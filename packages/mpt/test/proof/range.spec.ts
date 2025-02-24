@@ -6,7 +6,7 @@ import {
   randomBytes,
   setLengthLeft,
   toBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
 import {
@@ -15,7 +15,7 @@ import {
   verifyMerkleRangeProof,
 } from "../../src/index.js";
 
-import type { DB } from "@zondjs/util";
+import type { DB } from "@theqrl/zondjs-util";
 
 // reference: https://github.com/ethereum/go-ethereum/blob/20356e57b119b4e70ce47665a71964434e15200d/trie/proof_test.go
 

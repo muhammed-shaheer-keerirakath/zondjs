@@ -1,4 +1,4 @@
-[@zondjs/util](../README.md) / Address
+[@theqrl/zondjs-util](../README.md) / Address
 
 # Class: Address
 

@@ -12,7 +12,7 @@ import {
   createAddressFromPrivateKey,
   getBlobs,
   randomBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { trustedSetup } from "@paulmillr/trusted-setups/fast.js";
 import * as fs from "fs/promises";
 import { KZG as microEthKZG } from "micro-eth-signer/kzg";
@@ -25,7 +25,7 @@ import { Event } from "../../src/types.js";
 
 import type { EthereumClient } from "../../src/client.js";
 import type { TransactionType, TxData, TxOptions } from "@ethereumjs/tx";
-import type { PrefixedHexString } from "@zondjs/util";
+import type { PrefixedHexString } from "@theqrl/zondjs-util";
 import type { ChildProcessWithoutNullStreams } from "child_process";
 import type { Client } from "jayson/promise";
 const kzg = new microEthKZG(trustedSetup);

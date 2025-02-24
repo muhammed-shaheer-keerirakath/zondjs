@@ -4,7 +4,7 @@ import {
   hexToBytes,
   isHexString,
   utf8ToBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
 import {
@@ -18,7 +18,7 @@ import { _walkTrie } from "../../src/util/asyncWalk.js";
 import { bytesToNibbles } from "../../src/util/nibbles.js";
 import { trieTestData } from "../fixtures/trieTest.js";
 
-import type { PrefixedHexString } from "@zondjs/util";
+import type { PrefixedHexString } from "@theqrl/zondjs-util";
 
 describe("walk the tries from official tests", async () => {
   const testNames = Object.keys(

@@ -9,7 +9,7 @@ import {
   createAddressFromString,
   hexToBytes,
   randomBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { runBlock } from "@ethereumjs/vm";
 import { assert, describe, it } from "vitest";
 

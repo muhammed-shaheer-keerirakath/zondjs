@@ -4,7 +4,7 @@ import {
   createMerkleProof,
   updateMPTFromMerkleProof,
 } from "@ethereumjs/mpt";
-import { bytesToUtf8, utf8ToBytes } from "@zondjs/util";
+import { bytesToUtf8, utf8ToBytes } from "@theqrl/zondjs-util";
 
 async function main() {
   const k1 = utf8ToBytes("keyOne");

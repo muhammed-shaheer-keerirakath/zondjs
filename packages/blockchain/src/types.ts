@@ -1,7 +1,7 @@
 import type { Blockchain } from "./index.js";
 import type { Block, BlockHeader } from "@ethereumjs/block";
 import type { Common, ConsensusAlgorithm } from "@ethereumjs/common";
-import type { DB, DBObject, GenesisState } from "@zondjs/util";
+import type { DB, DBObject, GenesisState } from "@theqrl/zondjs-util";
 import type { EventEmitter } from "eventemitter3";
 
 export type OnBlock = (block: Block, reorg: boolean) => Promise<void> | void;

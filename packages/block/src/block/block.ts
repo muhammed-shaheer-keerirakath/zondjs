@@ -8,7 +8,7 @@ import {
   KECCAK256_RLP_ARRAY,
   bytesToHex,
   equalsBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { keccak256 } from "ethereum-cryptography/keccak.js";
 import { sha256 } from "ethereum-cryptography/sha256";
 
@@ -43,7 +43,7 @@ import type {
   LegacyTx,
   TypedTransaction,
 } from "@ethereumjs/tx";
-import type { VerkleExecutionWitness, Withdrawal } from "@zondjs/util";
+import type { VerkleExecutionWitness, Withdrawal } from "@theqrl/zondjs-util";
 
 /**
  * Class representing a block in the Ethereum network. The {@link BlockHeader} has its own

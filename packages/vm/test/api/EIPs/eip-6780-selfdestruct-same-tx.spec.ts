@@ -6,7 +6,7 @@ import {
   createAddressFromString,
   equalsBytes,
   hexToBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
 import { createVM, runTx } from "../../../src/index.js";

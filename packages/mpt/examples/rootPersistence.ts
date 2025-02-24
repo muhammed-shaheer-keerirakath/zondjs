@@ -1,5 +1,5 @@
 import { createMPT } from "@ethereumjs/mpt";
-import { bytesToHex } from "@zondjs/util";
+import { bytesToHex } from "@theqrl/zondjs-util";
 
 async function main() {
   const trie = await createMPT({

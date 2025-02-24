@@ -1,5 +1,5 @@
 import { createBlockHeader } from "@ethereumjs/block";
-import { bytesToHex } from "@zondjs/util";
+import { bytesToHex } from "@theqrl/zondjs-util";
 
 import type { HeaderData } from "@ethereumjs/block";
 

@@ -1,5 +1,5 @@
 import type { FeeMarketEIP1559TxData } from "../../src/index.js";
-import type { PrefixedHexString } from "@zondjs/util";
+import type { PrefixedHexString } from "@theqrl/zondjs-util";
 
 export const eip1559Data: Array<
   FeeMarketEIP1559TxData & {

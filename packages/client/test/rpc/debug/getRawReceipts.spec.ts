@@ -12,7 +12,7 @@ import {
   getBlobs,
   hexToBytes,
   randomBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { encodeReceipt } from "@ethereumjs/vm";
 import { trustedSetup } from "@paulmillr/trusted-setups/fast.js";
 import { KZG as microEthKZG } from "micro-eth-signer/kzg";
@@ -27,7 +27,7 @@ import {
   setupChain,
 } from "../helpers.js";
 
-import type { PrefixedHexString } from "@zondjs/util";
+import type { PrefixedHexString } from "@theqrl/zondjs-util";
 import type { TxReceipt } from "@ethereumjs/vm";
 const kzg = new microEthKZG(trustedSetup);
 

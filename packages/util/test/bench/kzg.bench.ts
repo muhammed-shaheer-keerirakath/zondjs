@@ -1,4 +1,4 @@
-import { getBlobs } from "@zondjs/util";
+import { getBlobs } from "@theqrl/zondjs-util";
 import { loadKZG } from "kzg-wasm";
 import { bench, describe } from "vitest";
 

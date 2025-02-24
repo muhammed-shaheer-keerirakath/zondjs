@@ -14,7 +14,7 @@ import {
   toChecksumAddress,
   unprefixedHexToBytes,
   utf8ToBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { base58check } from "@scure/base";
 import * as aes from "ethereum-cryptography/aes.js";
 import { keccak256 } from "ethereum-cryptography/keccak.js";
@@ -23,7 +23,7 @@ import { scrypt } from "ethereum-cryptography/scrypt.js";
 import { sha256 } from "ethereum-cryptography/sha256.js";
 import { v4 as uuidv4 } from "uuid";
 
-import type { PrefixedHexString } from "@zondjs/util";
+import type { PrefixedHexString } from "@theqrl/zondjs-util";
 
 const bs58check = base58check(sha256);
 

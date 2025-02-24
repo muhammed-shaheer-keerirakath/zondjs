@@ -1,6 +1,6 @@
-import { bytesToUnprefixedHex } from "@zondjs/util";
+import { bytesToUnprefixedHex } from "@theqrl/zondjs-util";
 
-import type { Address } from "@zondjs/util";
+import type { Address } from "@theqrl/zondjs-util";
 
 type getStorage = (address: Address, key: Uint8Array) => Promise<Uint8Array>;
 

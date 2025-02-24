@@ -6,7 +6,7 @@ import {
   intToBytes,
   randomBytes,
   setLengthLeft,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
 import { createEVM, getActivePrecompiles } from "../src/index.js";

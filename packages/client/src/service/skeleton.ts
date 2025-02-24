@@ -13,7 +13,7 @@ import {
   formatBigDecimal,
   intToBytes,
   utf8ToBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 
 import { INVALID_FORKCHOICE_STATE } from "../rpc/error-code.js";
 import { short, timeDuration } from "../util/index.js";

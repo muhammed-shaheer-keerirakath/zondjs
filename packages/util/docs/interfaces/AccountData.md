@@ -1,4 +1,4 @@
-[@zondjs/util](../README.md) / AccountData
+[@theqrl/zondjs-util](../README.md) / AccountData
 
 # Interface: AccountData
 

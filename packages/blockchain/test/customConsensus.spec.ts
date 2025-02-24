@@ -1,6 +1,6 @@
 import { createBlock } from "@ethereumjs/block";
 import { Common, Hardfork } from "@ethereumjs/common";
-import { bytesToHex } from "@zondjs/util";
+import { bytesToHex } from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
 import { createBlockchain } from "../src/index.js";

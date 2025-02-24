@@ -1,4 +1,4 @@
-import type { GenesisState } from "@zondjs/util";
+import type { GenesisState } from "@theqrl/zondjs-util";
 
 export const goerliGenesis: GenesisState = {
   "0x0000000000000000000000000000000000000000": "0x1",

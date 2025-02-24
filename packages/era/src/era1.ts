@@ -3,7 +3,7 @@ import {
   bytesToBigInt64,
   concatBytes,
   equalsBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import * as ssz from "micro-eth-signer/ssz";
 
 import {

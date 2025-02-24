@@ -1,5 +1,5 @@
 import { RPCStateManager } from "@ethereumjs/statemanager";
-import { createAddressFromString } from "@zondjs/util";
+import { createAddressFromString } from "@theqrl/zondjs-util";
 
 const main = async () => {
   try {

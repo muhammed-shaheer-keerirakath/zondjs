@@ -1,4 +1,4 @@
-import { bytesToHex, ecrecover, hexToBytes } from "@zondjs/util";
+import { bytesToHex, ecrecover, hexToBytes } from "@theqrl/zondjs-util";
 
 const chainId = BigInt(3); // Ropsten
 

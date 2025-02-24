@@ -1,4 +1,8 @@
-import { bytesToUnprefixedHex, hexToBytes, randomBytes } from "@zondjs/util";
+import {
+  bytesToUnprefixedHex,
+  hexToBytes,
+  randomBytes,
+} from "@theqrl/zondjs-util";
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "fs";
 
 import { RPCManager, saveReceiptsMethods } from "../src/rpc/index.js";

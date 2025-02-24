@@ -6,13 +6,13 @@ import {
   bytesToInt,
   hexToBytes,
   privateToAddress,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
 import { createVM, runTx } from "../../../src/index.js";
 
 import type { TypedTransaction } from "@ethereumjs/tx";
-import type { PrefixedHexString } from "@zondjs/util";
+import type { PrefixedHexString } from "@theqrl/zondjs-util";
 
 interface Test {
   steps: {

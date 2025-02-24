@@ -1,4 +1,4 @@
-import { PrioritizedTaskExecutor } from "@zondjs/util";
+import { PrioritizedTaskExecutor } from "@theqrl/zondjs-util";
 
 import { BranchMPTNode, ExtensionMPTNode, LeafMPTNode } from "../node/index.js";
 

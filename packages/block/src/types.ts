@@ -16,7 +16,7 @@ import type {
   VerkleExecutionWitness,
   WithdrawalBytes,
   WithdrawalData,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 
 /**
  * An object to set to which blockchain the blocks and their headers belong. This could be specified

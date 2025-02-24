@@ -1,4 +1,4 @@
-import { Lock } from "@zondjs/util";
+import { Lock } from "@theqrl/zondjs-util";
 
 import { Event } from "../../types.js";
 

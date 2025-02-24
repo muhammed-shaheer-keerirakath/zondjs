@@ -4,7 +4,7 @@ import {
   bytesToHex,
   concatBytes,
   equalsBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { uint256 } from "micro-eth-signer/ssz";
 
 import { compressData, decompressData } from "./snappy.js";

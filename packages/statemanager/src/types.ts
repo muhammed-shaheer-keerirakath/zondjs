@@ -1,4 +1,4 @@
-import { type PrefixedHexString } from "@zondjs/util";
+import { type PrefixedHexString } from "@theqrl/zondjs-util";
 
 import type { Caches } from "./index.js";
 import type { Common } from "@ethereumjs/common";

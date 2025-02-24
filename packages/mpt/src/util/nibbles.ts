@@ -1,4 +1,4 @@
-import { toBytes } from "@zondjs/util";
+import { toBytes } from "@theqrl/zondjs-util";
 
 import type { Nibbles } from "../types.js";
 

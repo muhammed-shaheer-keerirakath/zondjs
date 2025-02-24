@@ -1,4 +1,4 @@
-import { BIGINT_0, short } from "@zondjs/util";
+import { BIGINT_0, short } from "@theqrl/zondjs-util";
 import { EventEmitter } from "eventemitter3";
 
 import { BoundEthProtocol, BoundSnapProtocol } from "../protocol/index.js";

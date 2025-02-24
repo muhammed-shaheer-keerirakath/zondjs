@@ -15,7 +15,7 @@ import {
   generateAddress,
   generateAddress2,
   short,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import debugDefault from "debug";
 import { EventEmitter } from "eventemitter3";
 

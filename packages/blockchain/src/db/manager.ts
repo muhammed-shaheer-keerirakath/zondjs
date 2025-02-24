@@ -10,7 +10,7 @@ import {
   bytesToHex,
   equalsBytes,
   unprefixedHexToBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 
 import { Cache } from "./cache.js";
 import { DBOp, DBTarget } from "./operation.js";
@@ -23,7 +23,13 @@ import type {
   BlockOptions,
 } from "@ethereumjs/block";
 import type { Common } from "@ethereumjs/common";
-import type { BatchDBOp, DB, DBObject, DelBatch, PutBatch } from "@zondjs/util";
+import type {
+  BatchDBOp,
+  DB,
+  DBObject,
+  DelBatch,
+  PutBatch,
+} from "@theqrl/zondjs-util";
 
 /**
  * @hidden

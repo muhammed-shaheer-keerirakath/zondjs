@@ -5,7 +5,7 @@ import {
   hexToBytes,
   PrefixedHexString,
   utf8ToBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 
 import { BranchMPTNode, ExtensionMPTNode, LeafMPTNode } from "../node/index.js";
 import { MerklePatriciaTrie } from "../trie.js";

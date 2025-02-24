@@ -7,7 +7,7 @@ import {
   publicToAddress,
   setLengthLeft,
   setLengthRight,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 
 import { OOGResult } from "../evm.js";
 

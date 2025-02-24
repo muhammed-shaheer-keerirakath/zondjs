@@ -1,4 +1,4 @@
-import type { GenesisState } from "@zondjs/util";
+import type { GenesisState } from "@theqrl/zondjs-util";
 
 export const mainnetGenesis: GenesisState = {
   "0x000d836201318ec6899a67540690382780743280": "0xad78ebc5ac6200000",

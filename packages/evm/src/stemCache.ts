@@ -1,5 +1,5 @@
 import type { StemAccessEvent, StemMeta } from "./verkleAccessWitness.js";
-import type { PrefixedHexString } from "@zondjs/util";
+import type { PrefixedHexString } from "@theqrl/zondjs-util";
 export class StemCache {
   cache: Map<PrefixedHexString, StemAccessEvent & StemMeta>;
 

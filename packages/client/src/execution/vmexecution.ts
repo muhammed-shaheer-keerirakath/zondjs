@@ -23,7 +23,7 @@ import {
   bytesToHex,
   equalsBytes,
   hexToBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { createVM, runBlock, runTx } from "@ethereumjs/vm";
 import { writeFileSync } from "fs";
 import * as mcl from "mcl-wasm";
@@ -40,7 +40,7 @@ import { ReceiptsManager } from "./receipt.js";
 
 import type { ExecutionOptions } from "./execution.js";
 import type { Block } from "@ethereumjs/block";
-import type { PrefixedHexString } from "@zondjs/util";
+import type { PrefixedHexString } from "@theqrl/zondjs-util";
 import type { RunBlockOpts, TxReceipt, VM } from "@ethereumjs/vm";
 
 export enum ExecStatus {

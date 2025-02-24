@@ -1,4 +1,4 @@
-import { bytesToHex } from "@zondjs/util";
+import { bytesToHex } from "@theqrl/zondjs-util";
 import * as dir from "node-dir";
 import * as path from "path";
 

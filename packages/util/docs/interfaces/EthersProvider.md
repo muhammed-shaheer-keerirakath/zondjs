@@ -1,4 +1,4 @@
-[@zondjs/util](../README.md) / EthersProvider
+[@theqrl/zondjs-util](../README.md) / EthersProvider
 
 # Interface: EthersProvider
 

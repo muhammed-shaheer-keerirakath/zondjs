@@ -1,7 +1,12 @@
 import { createBlock } from "@ethereumjs/block";
 import { Common, Hardfork, Mainnet } from "@ethereumjs/common";
 import { createLegacyTx } from "@ethereumjs/tx";
-import { Account, Address, hexToBytes, privateToAddress } from "@zondjs/util";
+import {
+  Account,
+  Address,
+  hexToBytes,
+  privateToAddress,
+} from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
 import { createVM, runTx } from "../../../src/index.js";

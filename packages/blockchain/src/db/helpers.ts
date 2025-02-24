@@ -1,6 +1,6 @@
 import { Block } from "@ethereumjs/block";
 import { RLP } from "@ethereumjs/rlp";
-import { BIGINT_0 } from "@zondjs/util";
+import { BIGINT_0 } from "@theqrl/zondjs-util";
 
 import { bytesBE8 } from "./constants.js";
 import { DBOp, DBTarget } from "./operation.js";

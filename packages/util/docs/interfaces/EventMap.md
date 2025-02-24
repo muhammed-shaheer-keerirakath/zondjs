@@ -1,4 +1,4 @@
-[@zondjs/util](../README.md) / EventMap
+[@theqrl/zondjs-util](../README.md) / EventMap
 
 # Interface: EventMap
 

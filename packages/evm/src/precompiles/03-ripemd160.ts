@@ -1,4 +1,4 @@
-import { bytesToHex, setLengthLeft } from "@zondjs/util";
+import { bytesToHex, setLengthLeft } from "@theqrl/zondjs-util";
 import { ripemd160 } from "ethereum-cryptography/ripemd160.js";
 
 import { OOGResult } from "../evm.js";

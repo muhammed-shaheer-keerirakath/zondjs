@@ -1,5 +1,5 @@
 import { createCommonFromGethGenesis } from "@ethereumjs/common";
-import { hexToBytes } from "@zondjs/util";
+import { hexToBytes } from "@theqrl/zondjs-util";
 
 import genesisJSON from "./genesisData/post-merge.json";
 

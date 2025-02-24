@@ -1,4 +1,4 @@
-import { concatBytes, intToBytes } from "@zondjs/util";
+import { concatBytes, intToBytes } from "@theqrl/zondjs-util";
 
 import type { Chain } from "../blockchain/index.js";
 import type { Config } from "../config.js";

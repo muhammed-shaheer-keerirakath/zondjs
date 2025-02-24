@@ -1,4 +1,4 @@
-import { bytesToHex, equalsBytes } from "@zondjs/util";
+import { bytesToHex, equalsBytes } from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
 import { createBlockchain } from "../src/index.js";

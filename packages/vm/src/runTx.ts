@@ -25,7 +25,7 @@ import {
   hexToBytes,
   publicToAddress,
   short,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import debugDefault from "debug";
 import { keccak256 } from "ethereum-cryptography/keccak.js";
 

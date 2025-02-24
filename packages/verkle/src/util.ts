@@ -1,4 +1,4 @@
-import { bytesToHex, concatBytes, equalsBytes } from "@zondjs/util";
+import { bytesToHex, concatBytes, equalsBytes } from "@theqrl/zondjs-util";
 
 import {
   InternalVerkleNode,
@@ -9,7 +9,7 @@ import {
 
 import type { ChildNode } from "./node/index.js";
 import type { VerkleTree } from "./verkleTree.js";
-import type { PrefixedHexString } from "@zondjs/util";
+import type { PrefixedHexString } from "@theqrl/zondjs-util";
 
 /**
  * Recursively walks down the tree from a given starting node and returns all the leaf values

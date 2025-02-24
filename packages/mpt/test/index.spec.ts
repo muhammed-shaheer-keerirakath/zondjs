@@ -7,7 +7,7 @@ import {
   concatBytes,
   hexToBytes,
   utf8ToBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { blake2b } from "ethereum-cryptography/blake2b.js";
 import { keccak256 } from "ethereum-cryptography/keccak.js";
 import { assert, describe, it } from "vitest";

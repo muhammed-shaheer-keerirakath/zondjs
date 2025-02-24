@@ -13,7 +13,7 @@ import {
   hexToBytes,
   intToBytes,
   randomBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import chalk from "chalk";
 import { LRUCache } from "lru-cache";
 import ms from "ms";

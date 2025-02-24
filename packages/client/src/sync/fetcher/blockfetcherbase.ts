@@ -1,4 +1,4 @@
-import { BIGINT_0, BIGINT_1 } from "@zondjs/util";
+import { BIGINT_0, BIGINT_1 } from "@theqrl/zondjs-util";
 
 import { Fetcher } from "./fetcher.js";
 

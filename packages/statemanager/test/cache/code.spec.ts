@@ -1,4 +1,4 @@
-import { Address, equalsBytes, hexToBytes } from "@zondjs/util";
+import { Address, equalsBytes, hexToBytes } from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
 import { CacheType, CodeCache } from "../../src/cache/index.js";

@@ -4,7 +4,7 @@ import { holeskyGenesis } from "./genesisStates/holesky.js";
 import { mainnetGenesis } from "./genesisStates/mainnet.js";
 import { sepoliaGenesis } from "./genesisStates/sepolia.js";
 
-import type { GenesisState } from "@zondjs/util";
+import type { GenesisState } from "@theqrl/zondjs-util";
 
 /**
  * Utility to get the genesisState of a well known network

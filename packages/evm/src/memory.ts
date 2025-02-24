@@ -1,4 +1,4 @@
-import { concatBytes } from "@zondjs/util";
+import { concatBytes } from "@theqrl/zondjs-util";
 
 const ceil = (value: number, ceiling: number): number => {
   const r = value % ceiling;

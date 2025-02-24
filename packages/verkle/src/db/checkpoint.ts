@@ -4,11 +4,11 @@ import {
   bytesToHex,
   hexToBytes,
   isHexString,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { LRUCache } from "lru-cache";
 
 import type { Checkpoint, CheckpointDBOpts } from "../types.js";
-import type { BatchDBOp, DB, DelBatch, PutBatch } from "@zondjs/util";
+import type { BatchDBOp, DB, DelBatch, PutBatch } from "@theqrl/zondjs-util";
 
 /**
  * DB is a thin wrapper around the underlying levelup db,

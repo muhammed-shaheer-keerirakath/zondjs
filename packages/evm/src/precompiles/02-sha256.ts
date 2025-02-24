@@ -1,4 +1,4 @@
-import { bytesToHex } from "@zondjs/util";
+import { bytesToHex } from "@theqrl/zondjs-util";
 import { sha256 } from "ethereum-cryptography/sha256.js";
 
 import { OOGResult } from "../evm.js";

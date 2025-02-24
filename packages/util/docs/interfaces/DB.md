@@ -1,4 +1,4 @@
-[@zondjs/util](../README.md) / DB
+[@theqrl/zondjs-util](../README.md) / DB
 
 # Interface: DB<TKey, TValue\>
 

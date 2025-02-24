@@ -1,4 +1,4 @@
-import { createPartialAccount } from "@zondjs/util";
+import { createPartialAccount } from "@theqrl/zondjs-util";
 
 const account = createPartialAccount({
   nonce: "0x02",

@@ -9,7 +9,7 @@ import {
   createZeroAddress,
   getBlobs,
   hexToBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { buildBlock } from "@ethereumjs/vm";
 import { trustedSetup } from "@paulmillr/trusted-setups/fast.js";
 import { KZG as microEthKZG } from "micro-eth-signer/kzg";
@@ -20,7 +20,7 @@ import { getRPCClient, setupChain } from "../helpers.js";
 
 import type { Chain } from "../../../src/blockchain/chain.js";
 import type { VMExecution } from "../../../src/execution/vmexecution.js";
-import type { PrefixedHexString } from "@zondjs/util";
+import type { PrefixedHexString } from "@theqrl/zondjs-util";
 
 const method = "eth_blobBaseFee";
 const kzg = new microEthKZG(trustedSetup);

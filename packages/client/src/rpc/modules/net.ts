@@ -1,4 +1,4 @@
-import { addHexPrefix } from "@zondjs/util";
+import { addHexPrefix } from "@theqrl/zondjs-util";
 
 import { callWithStackTrace } from "../helpers.js";
 

@@ -4,7 +4,7 @@ import type { Server } from "./net/server/index.js";
 import type { Block, BlockHeader } from "@ethereumjs/block";
 import type { MerkleStateManager } from "@ethereumjs/statemanager";
 import type { Multiaddr } from "@multiformats/multiaddr";
-import type { Address } from "@zondjs/util";
+import type { Address } from "@theqrl/zondjs-util";
 import type * as promClient from "prom-client";
 
 /**

@@ -7,7 +7,7 @@ import {
 } from "@ethereumjs/common";
 import { MerkleStateManager } from "@ethereumjs/statemanager";
 import { createFeeMarket1559Tx, createLegacyTx } from "@ethereumjs/tx";
-import { Address, equalsBytes, hexToBytes } from "@zondjs/util";
+import { Address, equalsBytes, hexToBytes } from "@theqrl/zondjs-util";
 import { AbstractLevel } from "abstract-level";
 // import { keccak256 } from 'ethereum-cryptography/keccak'
 import { assert, describe, it, vi } from "vitest";

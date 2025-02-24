@@ -1,4 +1,4 @@
-import { bytesToHex } from "@zondjs/util";
+import { bytesToHex } from "@theqrl/zondjs-util";
 
 import { Config } from "../../index.js";
 import { RlpxPeer } from "../../net/peer/rlpxpeer.js";

@@ -24,7 +24,7 @@ import {
   hexToBytes,
   intToHex,
   randomBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { createVM } from "@ethereumjs/vm";
 import { trustedSetup } from "@paulmillr/trusted-setups/fast.js";
 import { KZG as microEthKZG } from "micro-eth-signer/kzg";
@@ -40,7 +40,7 @@ import { Goerli } from "../testdata/common/goerliCommon.js";
 
 import type { Blockchain } from "@ethereumjs/blockchain";
 import type { TypedTransaction } from "@ethereumjs/tx";
-import type { PrefixedHexString } from "@zondjs/util";
+import type { PrefixedHexString } from "@theqrl/zondjs-util";
 import type { VM } from "@ethereumjs/vm";
 
 const kzg = new microEthKZG(trustedSetup);

@@ -1,4 +1,4 @@
-import { randomBytes } from "@zondjs/util";
+import { randomBytes } from "@theqrl/zondjs-util";
 import { Common, Sepolia } from "@ethereumjs/common";
 import * as devp2p from "../dist/cjs/index.js";
 

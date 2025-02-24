@@ -1,4 +1,4 @@
-import { bytesToHex, hexToBytes } from "@zondjs/util";
+import { bytesToHex, hexToBytes } from "@theqrl/zondjs-util";
 
 import { Ethash } from "../dist/cjs/index.js";
 

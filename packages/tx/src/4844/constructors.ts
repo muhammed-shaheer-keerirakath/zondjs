@@ -10,7 +10,7 @@ import {
   equalsBytes,
   getBlobs,
   validateNoLeadingZeroes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 
 import { paramsTx } from "../params.js";
 import { TransactionType } from "../types.js";
@@ -24,7 +24,7 @@ import type {
   TxOptions,
 } from "../types.js";
 import type { TxData, TxValuesArray } from "./tx.js";
-import type { KZG, PrefixedHexString } from "@zondjs/util";
+import type { KZG, PrefixedHexString } from "@theqrl/zondjs-util";
 
 const validateBlobTransactionNetworkWrapper = (
   blobVersionedHashes: PrefixedHexString[],

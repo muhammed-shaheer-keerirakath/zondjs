@@ -1,5 +1,5 @@
 import { Common, Hardfork, Mainnet } from "@ethereumjs/common";
-import { Address, hexToBytes, toBytes } from "@zondjs/util";
+import { Address, hexToBytes, toBytes } from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
 import {
@@ -17,7 +17,7 @@ import type {
   BigIntLike,
   BytesLike,
   PrefixedHexString,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 
 // @returns: Array with subtypes of the AddressLike type for a given address
 function generateAddressLikeValues(address: PrefixedHexString): AddressLike[] {

@@ -1,4 +1,4 @@
-import { bytesToUnprefixedHex } from "@zondjs/util";
+import { bytesToUnprefixedHex } from "@theqrl/zondjs-util";
 import { LRUCache } from "lru-cache";
 
 /**

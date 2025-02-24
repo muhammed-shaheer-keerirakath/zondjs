@@ -1,8 +1,8 @@
 import { createBlockFromRLP } from "@ethereumjs/block";
 import { Ethash } from "@ethereumjs/ethash";
-import { MapDB, hexToBytes } from "@zondjs/util";
+import { MapDB, hexToBytes } from "@theqrl/zondjs-util";
 
-import type { DBObject } from "@zondjs/util";
+import type { DBObject } from "@theqrl/zondjs-util";
 
 const cacheDB = new MapDB<number, DBObject>();
 

@@ -25,7 +25,7 @@ import {
   concatBytes,
   setLengthLeft,
   setLengthRight,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { keccak256 } from "ethereum-cryptography/keccak.js";
 
 import { EOFContainer, EOFContainerMode } from "../eof/container.js";

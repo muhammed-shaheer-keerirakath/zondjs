@@ -1,14 +1,14 @@
 import { createBlock, genRequestsRoot } from "@ethereumjs/block";
 import { createBlockchain } from "@ethereumjs/blockchain";
 import { Common, Hardfork, Mainnet } from "@ethereumjs/common";
-import { createCLRequest, equalsBytes, hexToBytes } from "@zondjs/util";
+import { createCLRequest, equalsBytes, hexToBytes } from "@theqrl/zondjs-util";
 import { sha256 } from "ethereum-cryptography/sha256";
 import { assert, describe, expect, it } from "vitest";
 
 import { buildBlock, createVM, runBlock } from "../../../src/index.js";
 import { setupVM } from "../utils.js";
 
-import type { CLRequest, CLRequestType } from "@zondjs/util";
+import type { CLRequest, CLRequestType } from "@theqrl/zondjs-util";
 
 const invalidRequestsRoot = hexToBytes(
   "0xc98048d6605eb79ecc08d90b8817f44911ec474acd8d11688453d2c6ef743bc5",

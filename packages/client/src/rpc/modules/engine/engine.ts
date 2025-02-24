@@ -6,7 +6,7 @@ import {
   equalsBytes,
   hexToBytes,
   toBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 
 import { ExecStatus } from "../../../execution/index.js";
 import { PendingBlock } from "../../../miner/index.js";
@@ -73,7 +73,7 @@ import type {
   PayloadAttributesV3,
 } from "./types.js";
 import type { Block, ExecutionPayload } from "@ethereumjs/block";
-import type { PrefixedHexString } from "@zondjs/util";
+import type { PrefixedHexString } from "@theqrl/zondjs-util";
 import type { VM } from "@ethereumjs/vm";
 
 const zeroBlockHash = new Uint8Array(32);

@@ -3,11 +3,11 @@ import {
   ValueEncoding,
   bytesToUnprefixedHex,
   unprefixedHexToBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { LRUCache } from "lru-cache";
 
 import type { Checkpoint, CheckpointDBOpts } from "../types.js";
-import type { BatchDBOp, DB, EncodingOpts } from "@zondjs/util";
+import type { BatchDBOp, DB, EncodingOpts } from "@theqrl/zondjs-util";
 
 /**
  * DB is a thin wrapper around the underlying levelup db,

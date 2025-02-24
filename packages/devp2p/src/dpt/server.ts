@@ -1,4 +1,4 @@
-import { bytesToHex, bytesToUnprefixedHex } from "@zondjs/util";
+import { bytesToHex, bytesToUnprefixedHex } from "@theqrl/zondjs-util";
 import debugDefault from "debug";
 import * as dgram from "dgram";
 import { EventEmitter } from "eventemitter3";

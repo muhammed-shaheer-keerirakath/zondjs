@@ -15,7 +15,7 @@ import {
   getVerkleTreeIndicesForStorageSlot,
   hexToBytes,
   intToBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import debugDefault from "debug";
 
 import { ChunkCache } from "./chunkCache.js";
@@ -34,7 +34,7 @@ import type {
   PrefixedHexString,
   VerkleCrypto,
   VerkleExecutionWitness,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import type { VerkleTree } from "@ethereumjs/verkle";
 
 const debug = debugDefault("evm:verkle:aw");

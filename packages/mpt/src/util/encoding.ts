@@ -3,7 +3,7 @@ import {
   hexToBytes,
   toBytes,
   unprefixedHexToBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 
 import { nibblesTypeToPackedBytes } from "./nibbles.js";
 

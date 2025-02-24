@@ -11,7 +11,7 @@ import {
   equalsBytes,
   toBytes,
   toType,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { BuildStatus, buildBlock } from "@ethereumjs/vm";
 import { keccak256 } from "ethereum-cryptography/keccak";
 
@@ -24,7 +24,7 @@ import type {
   CLRequestType,
   PrefixedHexString,
   WithdrawalData,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import type { BlockBuilder, TxReceipt, VM } from "@ethereumjs/vm";
 
 interface PendingBlockOpts {

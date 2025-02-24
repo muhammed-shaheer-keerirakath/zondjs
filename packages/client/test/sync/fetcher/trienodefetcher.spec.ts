@@ -1,6 +1,6 @@
 import { decodeMPTNode } from "@ethereumjs/mpt";
 import { RLP } from "@ethereumjs/rlp";
-import { bytesToHex, hexToBytes } from "@zondjs/util";
+import { bytesToHex, hexToBytes } from "@theqrl/zondjs-util";
 import { OrderedMap } from "@js-sdsl/ordered-map";
 import { assert, describe, it, vi } from "vitest";
 

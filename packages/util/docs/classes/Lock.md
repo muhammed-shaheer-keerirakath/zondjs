@@ -1,4 +1,4 @@
-[@zondjs/util](../README.md) / Lock
+[@theqrl/zondjs-util](../README.md) / Lock
 
 # Class: Lock
 

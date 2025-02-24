@@ -3,7 +3,7 @@ import { Hardfork, Mainnet, createCustomCommon } from "@ethereumjs/common";
 import { createEVM } from "@ethereumjs/evm";
 import { Caches, StatelessVerkleStateManager } from "@ethereumjs/statemanager";
 import { createTxFromRLP } from "@ethereumjs/tx";
-import { hexToBytes } from "@zondjs/util";
+import { hexToBytes } from "@theqrl/zondjs-util";
 import * as verkle from "micro-eth-signer/verkle";
 import { describe, it } from "vitest";
 

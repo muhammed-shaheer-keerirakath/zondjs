@@ -4,7 +4,7 @@ import {
   computeVersionedHash,
   concatBytes,
   setLengthLeft,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 
 import { EvmErrorResult, OOGResult } from "../evm.js";
 import { ERROR, EvmError } from "../exceptions.js";

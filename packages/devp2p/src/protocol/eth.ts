@@ -9,7 +9,7 @@ import {
   hexToBytes,
   intToBytes,
   isHexString,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import * as snappy from "snappyjs";
 
 import { ProtocolType } from "../types.js";

@@ -1,5 +1,5 @@
 import { createBlock } from "@ethereumjs/block";
-import { BIGINT_0, bytesToHex, equalsBytes } from "@zondjs/util";
+import { BIGINT_0, bytesToHex, equalsBytes } from "@theqrl/zondjs-util";
 import debugDefault from "debug";
 
 import {

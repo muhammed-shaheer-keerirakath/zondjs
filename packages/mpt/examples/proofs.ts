@@ -3,7 +3,7 @@ import {
   createMerkleProof,
   verifyMPTWithMerkleProof,
 } from "@ethereumjs/mpt";
-import { bytesToUtf8, utf8ToBytes } from "@zondjs/util";
+import { bytesToUtf8, utf8ToBytes } from "@theqrl/zondjs-util";
 
 const trie = new MerklePatriciaTrie();
 

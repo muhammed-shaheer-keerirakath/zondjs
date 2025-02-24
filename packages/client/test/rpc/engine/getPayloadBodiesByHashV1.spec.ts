@@ -9,7 +9,7 @@ import {
   createAddressFromPrivateKey,
   hexToBytes,
   randomBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
 import { TOO_LARGE_REQUEST } from "../../../src/rpc/error-code.js";

@@ -1,4 +1,4 @@
-import { MapDB, bytesToHex } from "@zondjs/util";
+import { MapDB, bytesToHex } from "@theqrl/zondjs-util";
 import { VerkleTree } from "@ethereumjs/verkle";
 import * as verkle from "micro-eth-signer/verkle";
 

@@ -1,4 +1,4 @@
-import { equalsBytes, randomBytes, setLengthRight } from "@zondjs/util";
+import { equalsBytes, randomBytes, setLengthRight } from "@theqrl/zondjs-util";
 import * as verkle from "micro-eth-signer/verkle";
 import { assert, describe, it } from "vitest";
 

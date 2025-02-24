@@ -1,4 +1,4 @@
-[@zondjs/util](../README.md) / Kzg
+[@theqrl/zondjs-util](../README.md) / Kzg
 
 # Interface: Kzg
 

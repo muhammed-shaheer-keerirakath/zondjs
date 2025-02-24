@@ -1,5 +1,5 @@
 import { MerkleStateManager } from "@ethereumjs/statemanager";
-import { Account, Address, hexToBytes } from "@zondjs/util";
+import { Account, Address, hexToBytes } from "@theqrl/zondjs-util";
 
 const main = async () => {
   const stateManager = new MerkleStateManager();

@@ -1,4 +1,9 @@
-import { BIGINT_0, bigIntToHex, bytesToHex, intToHex } from "@zondjs/util";
+import {
+  BIGINT_0,
+  bigIntToHex,
+  bytesToHex,
+  intToHex,
+} from "@theqrl/zondjs-util";
 
 import { INTERNAL_ERROR, INVALID_BLOCK, INVALID_PARAMS } from "./error-code.js";
 

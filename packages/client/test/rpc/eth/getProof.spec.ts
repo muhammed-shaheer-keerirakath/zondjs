@@ -2,7 +2,7 @@ import { createBlock } from "@ethereumjs/block";
 import { createBlockchain } from "@ethereumjs/blockchain";
 import { Mainnet, createCustomCommon } from "@ethereumjs/common";
 import { createLegacyTx } from "@ethereumjs/tx";
-import { bigIntToHex, createAddressFromString } from "@zondjs/util";
+import { bigIntToHex, createAddressFromString } from "@theqrl/zondjs-util";
 import { runBlock } from "@ethereumjs/vm";
 import { assert, describe, it } from "vitest";
 
@@ -14,7 +14,7 @@ import {
 } from "../helpers.js";
 
 import type { Block } from "@ethereumjs/block";
-import type { PrefixedHexString } from "@zondjs/util";
+import type { PrefixedHexString } from "@theqrl/zondjs-util";
 
 const method = "eth_getProof";
 

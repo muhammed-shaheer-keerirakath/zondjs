@@ -9,7 +9,7 @@ import {
   getVerkleStem,
   hexToBytes,
   setLengthLeft,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { createVerkleTree } from "@ethereumjs/verkle";
 import * as verkle from "micro-eth-signer/verkle";
 import { assert, describe, it } from "vitest";

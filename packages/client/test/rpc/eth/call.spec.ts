@@ -2,7 +2,11 @@ import { createBlock } from "@ethereumjs/block";
 import { createBlockchain } from "@ethereumjs/blockchain";
 import { Common, Hardfork, Mainnet } from "@ethereumjs/common";
 import { createLegacyTx } from "@ethereumjs/tx";
-import { bigIntToHex, bytesToHex, createAddressFromString } from "@zondjs/util";
+import {
+  bigIntToHex,
+  bytesToHex,
+  createAddressFromString,
+} from "@theqrl/zondjs-util";
 import { runBlock, runTx } from "@ethereumjs/vm";
 import { assert, describe, it } from "vitest";
 
@@ -15,7 +19,7 @@ import {
 } from "../helpers.js";
 
 import type { Block } from "@ethereumjs/block";
-import type { PrefixedHexString } from "@zondjs/util";
+import type { PrefixedHexString } from "@theqrl/zondjs-util";
 
 const method = "eth_call";
 

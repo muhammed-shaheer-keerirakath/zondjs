@@ -1,4 +1,4 @@
-import { equalsBytes } from "@zondjs/util";
+import { equalsBytes } from "@theqrl/zondjs-util";
 import { keccak256 } from "ethereum-cryptography/keccak.js";
 
 import { FORMAT, MAGIC } from "./constants.js";

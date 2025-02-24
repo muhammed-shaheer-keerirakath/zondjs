@@ -1,6 +1,6 @@
 import { createCommonFromGethGenesis } from "@ethereumjs/common";
 import { genesisMPTStateRoot } from "@ethereumjs/mpt";
-import { bytesToHex, parseGethGenesisState } from "@zondjs/util";
+import { bytesToHex, parseGethGenesisState } from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
 import { createBlockchain } from "../src/index.js";

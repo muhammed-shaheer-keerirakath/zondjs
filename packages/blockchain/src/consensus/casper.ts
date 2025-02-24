@@ -1,5 +1,5 @@
 import { ConsensusAlgorithm } from "@ethereumjs/common";
-import { BIGINT_0 } from "@zondjs/util";
+import { BIGINT_0 } from "@theqrl/zondjs-util";
 
 import type { Consensus } from "../types.js";
 import type { BlockHeader } from "@ethereumjs/block";

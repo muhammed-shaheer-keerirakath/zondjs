@@ -3,7 +3,7 @@ import { createBlockchain } from "@ethereumjs/blockchain";
 import { Common, Hardfork, Mainnet } from "@ethereumjs/common";
 import { getGenesis } from "@ethereumjs/genesis";
 import { createTx } from "@ethereumjs/tx";
-import { Units, randomBytes } from "@zondjs/util";
+import { Units, randomBytes } from "@theqrl/zondjs-util";
 import { runBlock } from "@ethereumjs/vm";
 import { assert, describe, it } from "vitest";
 

@@ -1,5 +1,5 @@
 import { createEVM } from "@ethereumjs/evm";
-import { createAddressFromString, hexToBytes } from "@zondjs/util";
+import { createAddressFromString, hexToBytes } from "@theqrl/zondjs-util";
 
 const main = async () => {
   const evm = await createEVM();

@@ -1,6 +1,6 @@
 import { createBlock } from "@ethereumjs/block";
 import { createTx } from "@ethereumjs/tx";
-import { bytesToHex } from "@zondjs/util";
+import { bytesToHex } from "@theqrl/zondjs-util";
 import { assert, describe, expect, expectTypeOf, it } from "vitest";
 
 import { toRPCTx } from "../../../src/rpc/types.js";

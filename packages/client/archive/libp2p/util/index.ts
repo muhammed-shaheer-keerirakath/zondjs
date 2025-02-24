@@ -1,7 +1,7 @@
 /**
  * @module util
  */
-import { bytesToHex } from "@zondjs/util";
+import { bytesToHex } from "@theqrl/zondjs-util";
 import { platform } from "os";
 
 import { version as packageVersion } from "../../package.json";

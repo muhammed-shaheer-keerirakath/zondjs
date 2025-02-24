@@ -6,7 +6,7 @@ import {
   BIGINT_1,
   BIGINT_2,
   BIGINT_256,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { EventEmitter } from "eventemitter3";
 import { Level } from "level";
 

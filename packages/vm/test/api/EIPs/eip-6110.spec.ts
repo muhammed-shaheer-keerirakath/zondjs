@@ -14,7 +14,7 @@ import {
   createAddressFromString,
   hexToBytes,
   randomBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { keccak256 } from "ethereum-cryptography/keccak.js";
 import { assert, describe, it } from "vitest";
 
@@ -22,7 +22,7 @@ import { CLRequestType } from "../../../../util/src/request.js";
 import { buildBlock, runBlock } from "../../../src/index.js";
 import { setupVM } from "../utils.js";
 
-import type { PrefixedHexString } from "@zondjs/util";
+import type { PrefixedHexString } from "@theqrl/zondjs-util";
 
 function parseDepositRequest(requestData: Uint8Array) {
   const pubkey = requestData.subarray(0, 48);

@@ -5,7 +5,7 @@
 /**import { Chain, Common, Hardfork } from '@ethereumjs/common'
 import { EVMErrorMessage } from '@ethereumjs/evm'
 import { F, precompile09 } from '@ethereumjs/evm/dist/precompiles/09-blake2f'
-import { bytesToHex, hexToBytes } from '@zondjs/util'
+import { bytesToHex, hexToBytes } from '@theqrl/zondjs-util'
 import { assert, describe, it } from 'vitest'
 
 import { VM, createVM } from '../../../src/index.js'

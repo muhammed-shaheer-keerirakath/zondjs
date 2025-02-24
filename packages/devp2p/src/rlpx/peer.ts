@@ -8,7 +8,7 @@ import {
   hexToBytes,
   intToBytes,
   utf8ToBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import debugDefault from "debug";
 import { EventEmitter } from "eventemitter3";
 import * as snappy from "snappyjs";

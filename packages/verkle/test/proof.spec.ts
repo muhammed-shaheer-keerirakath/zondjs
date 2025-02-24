@@ -4,14 +4,14 @@ import {
   hexToBytes,
   randomBytes,
   setLengthRight,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import * as verkle from "micro-eth-signer/verkle";
 import { assert, describe, it } from "vitest";
 
 import { createVerkleTree } from "../src/constructors.js";
 import { LeafVerkleNode } from "../src/index.js";
 
-import type { PrefixedHexString } from "@zondjs/util";
+import type { PrefixedHexString } from "@theqrl/zondjs-util";
 import type { ProverInput, VerifierInput } from "micro-eth-signer/verkle";
 
 describe("lets make proofs", () => {

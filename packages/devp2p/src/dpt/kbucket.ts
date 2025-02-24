@@ -1,4 +1,4 @@
-import { bytesToUnprefixedHex } from "@zondjs/util";
+import { bytesToUnprefixedHex } from "@theqrl/zondjs-util";
 import { EventEmitter } from "eventemitter3";
 
 import { KBucket as _KBucket } from "../ext/index.js";

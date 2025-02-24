@@ -1,5 +1,5 @@
 import { Common, Hardfork, Mainnet } from "@ethereumjs/common";
-import { hexToBytes } from "@zondjs/util";
+import { hexToBytes } from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
 import {

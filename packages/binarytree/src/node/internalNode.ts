@@ -1,5 +1,5 @@
 import { RLP } from "@ethereumjs/rlp";
-import { bitsToBytes, bytesToBits } from "@zondjs/util";
+import { bitsToBytes, bytesToBits } from "@theqrl/zondjs-util";
 
 import { BinaryNodeType } from "./types.js";
 

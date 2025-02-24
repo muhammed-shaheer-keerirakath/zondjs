@@ -1,5 +1,5 @@
 import { Common, Hardfork, Mainnet, Sepolia } from "@ethereumjs/common";
-import { hexToBytes, intToBytes } from "@zondjs/util";
+import { hexToBytes, intToBytes } from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
 import * as devp2p from "../../src/index.js";

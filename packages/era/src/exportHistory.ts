@@ -1,6 +1,6 @@
 import { DBOp } from "@ethereumjs/blockchain";
 import { RLP } from "@ethereumjs/rlp";
-import { bytesToBigInt, concatBytes, intToBytes } from "@zondjs/util";
+import { bytesToBigInt, concatBytes, intToBytes } from "@theqrl/zondjs-util";
 import { existsSync, mkdirSync, writeFileSync } from "fs";
 import { Level } from "level";
 

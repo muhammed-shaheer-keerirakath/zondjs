@@ -1,4 +1,4 @@
-import { short } from "@zondjs/util";
+import { short } from "@theqrl/zondjs-util";
 
 import { OOGResult } from "../evm.js";
 

@@ -31,7 +31,7 @@ import {
   setLengthLeft,
   short,
   unprefixedHexToBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import debugDefault from "debug";
 import { sha256 } from "ethereum-cryptography/sha256";
 
@@ -54,7 +54,11 @@ import type {
 import type { VM } from "./vm.js";
 import type { Block } from "@ethereumjs/block";
 import type { Common } from "@ethereumjs/common";
-import type { CLRequest, CLRequestType, PrefixedHexString } from "@zondjs/util";
+import type {
+  CLRequest,
+  CLRequestType,
+  PrefixedHexString,
+} from "@theqrl/zondjs-util";
 
 const debug = debugDefault("vm:block");
 

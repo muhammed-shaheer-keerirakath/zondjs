@@ -4,7 +4,7 @@ import {
   bytesToUnprefixedHex,
   hexToBytes,
   utf8ToBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { keccak256 } from "ethereum-cryptography/keccak.js";
 import { assert, describe, it } from "vitest";
 

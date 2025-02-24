@@ -4,7 +4,7 @@ import {
   type PrefixedHexString,
   createAddressFromPrivateKey,
   randomBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 
 const ones32 = `0x${"01".repeat(32)}` as PrefixedHexString;
 

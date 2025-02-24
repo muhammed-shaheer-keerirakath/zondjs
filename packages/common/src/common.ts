@@ -6,7 +6,7 @@ import {
   hexToBytes,
   intToBytes,
   toType,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { EventEmitter } from "eventemitter3";
 
 import { crc32 } from "./crc.js";
@@ -31,7 +31,7 @@ import type {
   ParamsConfig,
   ParamsDict,
 } from "./types.js";
-import type { BigIntLike, PrefixedHexString } from "@zondjs/util";
+import type { BigIntLike, PrefixedHexString } from "@theqrl/zondjs-util";
 
 /**
  * Common class to access chain and hardfork parameters and to provide

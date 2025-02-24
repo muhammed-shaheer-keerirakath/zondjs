@@ -6,7 +6,7 @@ import {
   equalsBytes,
   hexToBytes,
   privateToAddress,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
 import { createEVM } from "../../src/index.js";

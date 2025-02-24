@@ -8,14 +8,14 @@ import {
   createAddressFromPrivateKey,
   createZeroAddress,
   hexToBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
 import { createEOACode7702Tx } from "../src/index.js";
 
 import type { TxData } from "../src/7702/tx.js";
 import type { AuthorizationListItem } from "../src/index.js";
-import type { PrefixedHexString } from "@zondjs/util";
+import type { PrefixedHexString } from "@theqrl/zondjs-util";
 
 const common = new Common({
   chain: Mainnet,

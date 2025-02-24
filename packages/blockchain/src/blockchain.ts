@@ -19,7 +19,7 @@ import {
   bytesToUnprefixedHex,
   concatBytes,
   equalsBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import debugDefault from "debug";
 import { EventEmitter } from "eventemitter3";
 
@@ -50,7 +50,7 @@ import type {
   DBObject,
   GenesisState,
   VerkleExecutionWitness,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import type { Debugger } from "debug";
 
 /**

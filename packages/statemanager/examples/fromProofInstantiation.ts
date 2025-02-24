@@ -4,7 +4,7 @@ import {
   fromMerkleStateProof,
   getMerkleStateProof,
 } from "@ethereumjs/statemanager";
-import { Address, hexToBytes } from "@zondjs/util";
+import { Address, hexToBytes } from "@theqrl/zondjs-util";
 
 const main = async () => {
   // setup `stateManager` with some existing address

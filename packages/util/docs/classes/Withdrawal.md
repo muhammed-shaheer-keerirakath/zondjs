@@ -1,4 +1,4 @@
-[@zondjs/util](../README.md) / Withdrawal
+[@theqrl/zondjs-util](../README.md) / Withdrawal
 
 # Class: Withdrawal
 

@@ -1,6 +1,6 @@
 import level from "level-mem";
 
-import type { BatchDBOp, DB } from "@zondjs/util";
+import type { BatchDBOp, DB } from "@theqrl/zondjs-util";
 import type { LevelUp } from "levelup";
 
 const ENCODING_OPTS = { keyEncoding: "view", valueEncoding: "view" };

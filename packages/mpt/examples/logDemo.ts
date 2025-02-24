@@ -6,7 +6,7 @@ import {
   createMerkleProof,
   verifyMPTWithMerkleProof,
 } from "@ethereumjs/mpt";
-import { utf8ToBytes } from "@zondjs/util";
+import { utf8ToBytes } from "@theqrl/zondjs-util";
 
 const trie_entries: [string, string | null][] = [
   ["do", "verb"],

@@ -1,4 +1,4 @@
-import { createWithdrawal } from "@zondjs/util";
+import { createWithdrawal } from "@theqrl/zondjs-util";
 
 const withdrawal = createWithdrawal({
   index: 0n,

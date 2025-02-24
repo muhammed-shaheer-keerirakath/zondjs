@@ -30,7 +30,7 @@ import {
   setLengthRight,
   short,
   unprefixedHexToBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { LeafVerkleNodeValue, VerkleTree } from "@ethereumjs/verkle";
 import debugDefault from "debug";
 import { keccak256 } from "ethereum-cryptography/keccak.js";
@@ -55,7 +55,7 @@ import type {
   StoragePair,
   VerkleCrypto,
   VerkleExecutionWitness,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import type { Debugger } from "debug";
 
 const ZEROVALUE =

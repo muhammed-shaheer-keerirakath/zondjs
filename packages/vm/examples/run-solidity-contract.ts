@@ -5,7 +5,7 @@ import {
   bytesToHex,
   createAddressFromPrivateKey,
   hexToBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { createVM, runTx } from "@ethereumjs/vm";
 import { AbiCoder, Interface } from "ethers";
 import { readFileSync } from "fs";
@@ -20,7 +20,7 @@ import {
   encodeFunction,
 } from "./helpers/tx-builder.js";
 
-import type { Address } from "@zondjs/util";
+import type { Address } from "@theqrl/zondjs-util";
 import type { VM } from "@ethereumjs/vm";
 
 const INITIAL_GREETING = "Hello, World!";

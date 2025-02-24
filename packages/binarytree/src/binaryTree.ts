@@ -8,7 +8,7 @@ import {
   equalsBytes,
   matchingBitsLength,
   setLengthRight,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import debug from "debug";
 
 import { CheckpointDB } from "./db/index.js";
@@ -22,7 +22,7 @@ import {
 import { type BinaryTreeOpts, ROOT_DB_KEY } from "./types.js";
 
 import type { BinaryNode } from "./node/types.js";
-import type { PutBatch } from "@zondjs/util";
+import type { PutBatch } from "@theqrl/zondjs-util";
 import type { Debugger } from "debug";
 
 interface Path {

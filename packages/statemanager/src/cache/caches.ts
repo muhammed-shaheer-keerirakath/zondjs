@@ -4,7 +4,7 @@ import { StorageCache } from "./storage.js";
 import { CacheType, type CachesStateManagerOpts } from "./types.js";
 
 import type { CacheOpts } from "./types.js";
-import type { Address } from "@zondjs/util";
+import type { Address } from "@theqrl/zondjs-util";
 
 export class Caches {
   account?: AccountCache;

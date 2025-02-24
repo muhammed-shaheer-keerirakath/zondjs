@@ -1,8 +1,8 @@
 import { createBlock } from "@ethereumjs/block";
 import { Ethash } from "@ethereumjs/ethash";
-import { MapDB, bytesToHex } from "@zondjs/util";
+import { MapDB, bytesToHex } from "@theqrl/zondjs-util";
 
-import type { DBObject } from "@zondjs/util";
+import type { DBObject } from "@theqrl/zondjs-util";
 
 const block = createBlock(
   {

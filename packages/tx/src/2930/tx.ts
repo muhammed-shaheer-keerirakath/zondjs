@@ -5,7 +5,7 @@ import {
   bigIntToUnpaddedBytes,
   bytesToBigInt,
   toBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 
 import * as EIP2718 from "../capabilities/eip2718.js";
 import * as EIP2930 from "../capabilities/eip2930.js";
@@ -32,7 +32,7 @@ import type {
   TxOptions,
 } from "../types.js";
 import type { Common } from "@ethereumjs/common";
-import type { Address } from "@zondjs/util";
+import type { Address } from "@theqrl/zondjs-util";
 
 export type TxData = AllTypesTxData[TransactionType.AccessListEIP2930];
 export type TxValuesArray =
@@ -309,7 +309,7 @@ export class AccessList2930Tx
         value: this.value,
         data: this.data,
         accessList: this.accessList,
-        v: convertV ? v - BIGINT_27 : v, // This looks extremely hacky: @zondjs/util actually adds 27 to the value, the recovery bit is either 0 or 1.
+        v: convertV ? v - BIGINT_27 : v, // This looks extremely hacky: @theqrl/zondjs-util actually adds 27 to the value, the recovery bit is either 0 or 1.
         r: bytesToBigInt(r),
         s: bytesToBigInt(s),
       },

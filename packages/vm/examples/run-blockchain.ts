@@ -22,7 +22,7 @@ import {
   hexToBytes,
   setLengthLeft,
   toBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { createVM, runBlock } from "@ethereumjs/vm";
 
 import testData from "./helpers/blockchain-mock-data.json";

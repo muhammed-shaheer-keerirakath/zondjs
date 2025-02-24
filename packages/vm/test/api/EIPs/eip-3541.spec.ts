@@ -1,11 +1,11 @@
 import { Common, Hardfork, Mainnet } from "@ethereumjs/common";
 import { createLegacyTx } from "@ethereumjs/tx";
-import { hexToBytes } from "@zondjs/util";
+import { hexToBytes } from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
 import { createVM, runTx } from "../../../src/index.js";
 
-import type { Address } from "@zondjs/util";
+import type { Address } from "@theqrl/zondjs-util";
 
 const pkey = hexToBytes(`0x${"20".repeat(32)}`);
 

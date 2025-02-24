@@ -12,7 +12,7 @@ import {
   ecrecover,
   ecsign,
   equalsBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 
 import type { BlockHeader } from "../index.js";
 import type { CliqueConfig } from "@ethereumjs/common";

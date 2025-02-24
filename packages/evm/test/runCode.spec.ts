@@ -1,4 +1,8 @@
-import { Account, createAddressFromString, hexToBytes } from "@zondjs/util";
+import {
+  Account,
+  createAddressFromString,
+  hexToBytes,
+} from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
 import { createEVM } from "../src/index.js";

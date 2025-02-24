@@ -8,9 +8,9 @@ import {
   bytesToHex,
   hexToBytes,
   createAddressFromPrivateKey,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 
-import { randomBytes } from "@zondjs/util";
+import { randomBytes } from "@theqrl/zondjs-util";
 import { Client } from "jayson/promise";
 import { trustedSetup } from "@paulmillr/trusted-setups/fast.js";
 import { KZG as microEthKZG } from "micro-eth-signer/kzg";

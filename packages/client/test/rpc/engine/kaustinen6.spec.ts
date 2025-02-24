@@ -4,7 +4,7 @@ import {
   createBlockFromRLP,
   executionPayloadFromBeaconPayload,
 } from "@ethereumjs/block";
-import { hexToBytes } from "@zondjs/util";
+import { hexToBytes } from "@theqrl/zondjs-util";
 import { readFileSync } from "fs";
 import * as verkle from "micro-eth-signer";
 import * as td from "testdouble";
@@ -17,7 +17,7 @@ import { getRPCClient, setupChain } from "../helpers.js";
 import type { Chain } from "../../../src/blockchain/index.js";
 import type { BeaconPayloadJSON } from "@ethereumjs/block";
 import type { Common } from "@ethereumjs/common";
-import type { VerkleExecutionWitness } from "@zondjs/util";
+import type { VerkleExecutionWitness } from "@theqrl/zondjs-util";
 import type { HttpClient } from "jayson/promise";
 const genesisVerkleStateRoot =
   "0x1fbf85345a3cbba9a6d44f991b721e55620a22397c2a93ee8d5011136ac300ee";

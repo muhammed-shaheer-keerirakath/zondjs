@@ -1,6 +1,6 @@
 import { Common, Hardfork, Mainnet } from "@ethereumjs/common";
 import { createFeeMarket1559Tx } from "@ethereumjs/tx";
-import { bytesToHex } from "@zondjs/util";
+import { bytesToHex } from "@theqrl/zondjs-util";
 
 const common = new Common({ chain: Mainnet, hardfork: Hardfork.London });
 

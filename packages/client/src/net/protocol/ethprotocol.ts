@@ -23,7 +23,7 @@ import {
   hexToBytes,
   intToUnpaddedBytes,
   isNestedUint8Array,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { encodeReceipt } from "@ethereumjs/vm";
 
 import { Protocol } from "./protocol.js";
@@ -40,7 +40,7 @@ import type {
 } from "@ethereumjs/block";
 import type { Log } from "@ethereumjs/evm";
 import type { TypedTransaction } from "@ethereumjs/tx";
-import type { PrefixedHexString } from "@zondjs/util";
+import type { PrefixedHexString } from "@theqrl/zondjs-util";
 import type {
   PostByzantiumTxReceipt,
   PreByzantiumTxReceipt,

@@ -7,14 +7,14 @@ import {
   hexToBigInt,
   hexToBytes,
   setLengthLeft,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 
 import type { Common } from "@ethereumjs/common";
 import type {
   GenesisState,
   PrefixedHexString,
   StoragePair,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 
 export async function generateVKTStateRoot(
   genesisState: GenesisState,

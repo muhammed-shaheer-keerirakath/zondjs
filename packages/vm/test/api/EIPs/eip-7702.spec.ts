@@ -15,7 +15,7 @@ import {
   privateToAddress,
   setLengthRight,
   unpadBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { keccak256 } from "ethereum-cryptography/keccak";
 import { assert, describe, it } from "vitest";
 
@@ -23,7 +23,7 @@ import { createVM, runTx } from "../../../src/index.js";
 
 import type { VM } from "../../../src/index.js";
 import type { AuthorizationListBytesItem } from "@ethereumjs/tx";
-import type { PrefixedHexString } from "@zondjs/util";
+import type { PrefixedHexString } from "@theqrl/zondjs-util";
 
 // EIP-7702 code designator. If code starts with these bytes, it is a 7702-delegated address
 const eip7702Designator = hexToBytes("0xef01");

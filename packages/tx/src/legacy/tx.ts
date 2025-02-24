@@ -8,7 +8,7 @@ import {
   bytesToBigInt,
   toBytes,
   unpadBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { keccak256 } from "ethereum-cryptography/keccak.js";
 
 import * as Legacy from "../capabilities/legacy.js";
@@ -31,7 +31,7 @@ import type {
   TxOptions,
 } from "../types.js";
 import type { Common } from "@ethereumjs/common";
-import type { Address } from "@zondjs/util";
+import type { Address } from "@theqrl/zondjs-util";
 
 export type TxData = AllTypesTxData[TransactionType.Legacy];
 export type TxValuesArray = AllTypesTxValuesArray[TransactionType.Legacy];

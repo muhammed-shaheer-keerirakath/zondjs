@@ -6,7 +6,7 @@ import {
   bytesToHex,
   createAddressFromPrivateKey,
   hexToBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { buildBlock, createVM } from "@ethereumjs/vm";
 
 const main = async () => {

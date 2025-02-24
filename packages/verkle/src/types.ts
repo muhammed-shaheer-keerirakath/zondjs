@@ -1,6 +1,6 @@
-import { utf8ToBytes } from "@zondjs/util";
+import { utf8ToBytes } from "@theqrl/zondjs-util";
 
-import type { DB, VerkleCrypto } from "@zondjs/util";
+import type { DB, VerkleCrypto } from "@theqrl/zondjs-util";
 
 // Field representation of a commitment
 export interface Fr {}

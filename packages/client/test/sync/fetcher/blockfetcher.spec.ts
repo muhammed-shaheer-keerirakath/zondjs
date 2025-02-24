@@ -1,6 +1,6 @@
 import { createBlockHeader } from "@ethereumjs/block";
 import { Hardfork } from "@ethereumjs/common";
-import { KECCAK256_RLP } from "@zondjs/util";
+import { KECCAK256_RLP } from "@theqrl/zondjs-util";
 import { assert, describe, it, vi } from "vitest";
 
 import { Chain } from "../../../src/blockchain/chain.js";

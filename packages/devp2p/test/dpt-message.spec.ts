@@ -1,4 +1,4 @@
-import { hexToBytes } from "@zondjs/util";
+import { hexToBytes } from "@theqrl/zondjs-util";
 import { publicKeyCreate } from "ethereum-cryptography/secp256k1-compat.js";
 import { assert, describe, it } from "vitest";
 

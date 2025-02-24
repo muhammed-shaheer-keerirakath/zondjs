@@ -1,5 +1,5 @@
 import { isMultiaddr, multiaddr } from "@multiformats/multiaddr";
-import { hexToBytes } from "@zondjs/util";
+import { hexToBytes } from "@theqrl/zondjs-util";
 import { URL } from "url";
 
 import type { MultiaddrLike } from "../types.js";

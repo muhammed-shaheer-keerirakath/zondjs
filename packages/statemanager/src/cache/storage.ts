@@ -1,4 +1,4 @@
-import { bytesToUnprefixedHex, hexToBytes } from "@zondjs/util";
+import { bytesToUnprefixedHex, hexToBytes } from "@theqrl/zondjs-util";
 import { OrderedMap } from "@js-sdsl/ordered-map";
 import debugDefault from "debug";
 import { LRUCache } from "lru-cache";
@@ -7,7 +7,7 @@ import { Cache } from "./cache.js";
 import { CacheType } from "./types.js";
 
 import type { CacheOpts } from "./types.js";
-import type { Address } from "@zondjs/util";
+import type { Address } from "@theqrl/zondjs-util";
 
 /**
  * key -> storage mapping

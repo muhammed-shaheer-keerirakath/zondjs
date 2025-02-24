@@ -1,4 +1,4 @@
-import { Account, Address, hexToBytes } from "@zondjs/util";
+import { Account, Address, hexToBytes } from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
 import { MerkleStateManager, SimpleStateManager } from "../src/index.js";

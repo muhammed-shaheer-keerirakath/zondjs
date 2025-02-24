@@ -15,7 +15,7 @@ import {
   createAddressFromString,
   hexToBytes,
   parseGethGenesisState,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { buildBlock } from "@ethereumjs/vm";
 import { Client, Server as RPCServer } from "jayson/promise";
 import { MemoryLevel } from "memory-level";
@@ -40,7 +40,7 @@ import { mockBlockchain } from "./mockBlockchain.js";
 import type { EthereumClient } from "../../src/client.js";
 import type { Blockchain } from "@ethereumjs/blockchain";
 import type { TypedTransaction } from "@ethereumjs/tx";
-import type { GenesisState } from "@zondjs/util";
+import type { GenesisState } from "@theqrl/zondjs-util";
 import type { IncomingMessage } from "connect";
 import type { HttpClient, HttpServer } from "jayson/promise";
 import type { AddressInfo } from "node:net";

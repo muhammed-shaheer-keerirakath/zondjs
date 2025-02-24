@@ -5,7 +5,7 @@ import {
   bytesToHex,
   createAddressFromPrivateKey,
   toBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
 import { createVM, runBlock, runTx } from "../../src/index.js";

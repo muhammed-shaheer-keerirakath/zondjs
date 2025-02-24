@@ -4,7 +4,7 @@ import {
   bytesToHex,
   equalsBytes,
   validateNoLeadingZeroes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 
 import { TransactionType } from "../types.js";
 import { txTypeBytes, validateNotArray } from "../util.js";

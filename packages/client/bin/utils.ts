@@ -20,7 +20,7 @@ import {
   parseGethGenesisState,
   randomBytes,
   setLengthLeft,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { trustedSetup } from "@paulmillr/trusted-setups/fast.js";
 import {
   keccak256 as keccak256WASM,
@@ -57,7 +57,11 @@ import { setupMetrics } from "../src/util/metrics.js";
 import type { Logger } from "../src/logging.js";
 import type { ClientOpts } from "../src/types.js";
 import type { CustomCrypto } from "@ethereumjs/common";
-import type { Address, GenesisState, PrefixedHexString } from "@zondjs/util";
+import type {
+  Address,
+  GenesisState,
+  PrefixedHexString,
+} from "@theqrl/zondjs-util";
 
 export type Account = [address: Address, privateKey: Uint8Array];
 

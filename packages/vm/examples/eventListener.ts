@@ -1,6 +1,6 @@
 import { Common, Hardfork, Mainnet } from "@ethereumjs/common";
 import { createLegacyTx } from "@ethereumjs/tx";
-import { bytesToHex, createZeroAddress } from "@zondjs/util";
+import { bytesToHex, createZeroAddress } from "@theqrl/zondjs-util";
 import { createVM, runTx } from "@ethereumjs/vm";
 
 const main = async () => {

@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import { createCommonFromGethGenesis } from "@ethereumjs/common";
 import { createTx } from "@ethereumjs/tx";
-import { bytesToHex, hexToBytes, privateToAddress } from "@zondjs/util";
+import { bytesToHex, hexToBytes, privateToAddress } from "@theqrl/zondjs-util";
 import { Client } from "jayson/promise";
 import { randomBytes } from "node:crypto";
 import { assert, describe, it } from "vitest";
@@ -17,7 +17,7 @@ import {
   waitForELStart,
 } from "./simutils.js";
 
-import type { PrefixedHexString } from "@zondjs/util";
+import type { PrefixedHexString } from "@theqrl/zondjs-util";
 
 const pkey = hexToBytes(
   "0x45a915e4d060149eb4365960e6a7a45f334393093061116b197e3240065ff2d8",

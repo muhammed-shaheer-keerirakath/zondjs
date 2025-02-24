@@ -3,7 +3,7 @@ import {
   RLPx as Devp2pRLPx,
   SNAP as Devp2pSNAP,
 } from "@ethereumjs/devp2p";
-import { randomBytes, unprefixedHexToBytes } from "@zondjs/util";
+import { randomBytes, unprefixedHexToBytes } from "@theqrl/zondjs-util";
 
 import { Event } from "../../types.js";
 import { RlpxSender } from "../protocol/index.js";

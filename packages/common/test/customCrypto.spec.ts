@@ -1,9 +1,9 @@
-import { concatBytes, randomBytes } from "@zondjs/util";
+import { concatBytes, randomBytes } from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
 import { Common, Mainnet, createCustomCommon } from "../src/index.js";
 
-import type { ECDSASignature } from "@zondjs/util";
+import type { ECDSASignature } from "@theqrl/zondjs-util";
 
 describe("[Common]: Custom Crypto", () => {
   const customKeccak256 = (msg: Uint8Array) => {

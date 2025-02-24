@@ -6,7 +6,7 @@ import {
   bytesToHex,
   hexToBytes,
   setLengthLeft,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { buildBlock } from "@ethereumjs/vm";
 import { keccak256 } from "ethereum-cryptography/keccak.js";
 import { assert, beforeEach, describe, it } from "vitest";
@@ -17,7 +17,7 @@ import { dummy, getRPCClient, setupChain } from "../helpers.js";
 
 import type { Block } from "@ethereumjs/block";
 import type { StorageRange } from "@ethereumjs/common";
-import type { Address } from "@zondjs/util";
+import type { Address } from "@theqrl/zondjs-util";
 import type { HttpClient } from "jayson/promise";
 
 const method = "debug_storageRangeAt";

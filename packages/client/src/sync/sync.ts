@@ -1,5 +1,5 @@
 import { Hardfork } from "@ethereumjs/common";
-import { BIGINT_0 } from "@zondjs/util";
+import { BIGINT_0 } from "@theqrl/zondjs-util";
 
 import { Event } from "../types.js";
 import { wait } from "../util/wait.js";

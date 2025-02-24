@@ -5,12 +5,12 @@ import {
   isHexString,
   unpadBytes,
   unprefixedHexToBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { keccak256 } from "ethereum-cryptography/keccak.js";
 
 import { MerklePatriciaTrie } from "../mpt.js";
 
-import type { AccountState, GenesisState } from "@zondjs/util";
+import type { AccountState, GenesisState } from "@theqrl/zondjs-util";
 
 /**
  * Derives the stateRoot of the genesis block based on genesis allocations

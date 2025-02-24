@@ -1,4 +1,4 @@
-[@zondjs/util](../README.md) / PutBatch
+[@theqrl/zondjs-util](../README.md) / PutBatch
 
 # Interface: PutBatch<TKey, TValue\>
 

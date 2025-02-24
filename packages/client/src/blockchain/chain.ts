@@ -4,7 +4,7 @@ import {
 } from "@ethereumjs/block";
 import { CliqueConsensus, createBlockchain } from "@ethereumjs/blockchain";
 import { ConsensusAlgorithm, Hardfork } from "@ethereumjs/common";
-import { BIGINT_0, equalsBytes } from "@zondjs/util";
+import { BIGINT_0, equalsBytes } from "@theqrl/zondjs-util";
 
 import { LevelDB } from "../execution/level.js";
 import { Event } from "../types.js";
@@ -12,7 +12,7 @@ import { Event } from "../types.js";
 import type { Config } from "../config.js";
 import type { Block, BlockHeader } from "@ethereumjs/block";
 import type { Blockchain, ConsensusDict } from "@ethereumjs/blockchain";
-import type { DB, DBObject, GenesisState } from "@zondjs/util";
+import type { DB, DBObject, GenesisState } from "@theqrl/zondjs-util";
 import type { AbstractLevel } from "abstract-level";
 
 /**

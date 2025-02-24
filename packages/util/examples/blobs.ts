@@ -1,4 +1,8 @@
-import { bytesToHex, computeVersionedHash, getBlobs } from "@zondjs/util";
+import {
+  bytesToHex,
+  computeVersionedHash,
+  getBlobs,
+} from "@theqrl/zondjs-util";
 
 const blobs = getBlobs("test input");
 

@@ -1,6 +1,6 @@
 import { Hardfork } from "@ethereumjs/common";
 import { TransactionType } from "@ethereumjs/tx";
-import { concatBytes, hexToBytes } from "@zondjs/util";
+import { concatBytes, hexToBytes } from "@theqrl/zondjs-util";
 import { encodeReceipt } from "@ethereumjs/vm";
 
 import { SyncMode } from "../config.js";

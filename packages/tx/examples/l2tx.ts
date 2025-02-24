@@ -1,6 +1,10 @@
 import { Mainnet, createCustomCommon } from "@ethereumjs/common";
 import { createLegacyTx } from "@ethereumjs/tx";
-import { bytesToHex, createAddressFromString, hexToBytes } from "@zondjs/util";
+import {
+  bytesToHex,
+  createAddressFromString,
+  hexToBytes,
+} from "@theqrl/zondjs-util";
 
 const pk = hexToBytes(
   "0x076247989df60a82f6e86e58104368676096f84e60972282ee00d4673a2bc9b9",

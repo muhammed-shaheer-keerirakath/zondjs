@@ -30,7 +30,7 @@ import {
   toBytes,
   toType,
   unpadBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { keccak256 } from "ethereum-cryptography/keccak";
 
 import type { BlockOptions } from "@ethereumjs/block";

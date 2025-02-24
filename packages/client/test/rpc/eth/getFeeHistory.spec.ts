@@ -12,7 +12,7 @@ import {
   createZeroAddress,
   getBlobs,
   hexToBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { buildBlock } from "@ethereumjs/vm";
 import { trustedSetup } from "@paulmillr/trusted-setups/fast.js";
 import { KZG as microEthKZG } from "micro-eth-signer/kzg";
@@ -28,7 +28,7 @@ import {
 
 import type { Chain } from "../../../src/blockchain/index.js";
 import type { VMExecution } from "../../../src/execution/index.js";
-import type { PrefixedHexString } from "@zondjs/util";
+import type { PrefixedHexString } from "@theqrl/zondjs-util";
 
 const method = "eth_feeHistory";
 

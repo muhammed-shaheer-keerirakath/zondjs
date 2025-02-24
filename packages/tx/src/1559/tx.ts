@@ -6,7 +6,7 @@ import {
   bigIntToUnpaddedBytes,
   bytesToBigInt,
   toBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 
 import * as EIP1559 from "../capabilities/eip1559.js";
 import * as EIP2718 from "../capabilities/eip2718.js";
@@ -34,7 +34,7 @@ import type {
   TxOptions,
 } from "../types.js";
 import type { Common } from "@ethereumjs/common";
-import type { Address } from "@zondjs/util";
+import type { Address } from "@theqrl/zondjs-util";
 
 export type TxData = AllTypesTxData[TransactionType.FeeMarketEIP1559];
 export type TxValuesArray =
@@ -333,7 +333,7 @@ export class FeeMarket1559Tx
         value: this.value,
         data: this.data,
         accessList: this.accessList,
-        v: convertV ? v - BIGINT_27 : v, // This looks extremely hacky: @zondjs/util actually adds 27 to the value, the recovery bit is either 0 or 1.
+        v: convertV ? v - BIGINT_27 : v, // This looks extremely hacky: @theqrl/zondjs-util actually adds 27 to the value, the recovery bit is either 0 or 1.
         r: bytesToBigInt(r),
         s: bytesToBigInt(s),
       },

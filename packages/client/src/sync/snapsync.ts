@@ -1,4 +1,4 @@
-import { BIGINT_0, bytesToHex, equalsBytes } from "@zondjs/util";
+import { BIGINT_0, bytesToHex, equalsBytes } from "@theqrl/zondjs-util";
 
 import { Event } from "../types.js";
 import { short } from "../util/index.js";

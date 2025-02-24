@@ -5,7 +5,7 @@ import {
   createAddressFromString,
   hexToBytes,
   toType,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { type VM, encodeReceipt, runTx } from "@ethereumjs/vm";
 
 import { INTERNAL_ERROR, INVALID_PARAMS } from "../error-code.js";
@@ -17,7 +17,7 @@ import type { EthereumClient } from "../../index.js";
 import type { FullEthereumService } from "../../service/index.js";
 import type { RPCTx } from "../types.js";
 import type { Block } from "@ethereumjs/block";
-import type { PrefixedHexString } from "@zondjs/util";
+import type { PrefixedHexString } from "@theqrl/zondjs-util";
 
 export interface tracerOpts {
   disableStack?: boolean;

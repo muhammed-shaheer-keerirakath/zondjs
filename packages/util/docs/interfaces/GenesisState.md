@@ -1,4 +1,4 @@
-[@zondjs/util](../README.md) / GenesisState
+[@theqrl/zondjs-util](../README.md) / GenesisState
 
 # Interface: GenesisState
 

@@ -5,13 +5,13 @@ import {
   bigIntToUnpaddedBytes,
   bytesToBigInt,
   setLengthLeft,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 
 import { Protocol } from "./protocol.js";
 
 import type { Chain } from "../../blockchain/index.js";
 import type { Message, ProtocolOptions } from "./protocol.js";
-import type { AccountBodyBytes } from "@zondjs/util";
+import type { AccountBodyBytes } from "@theqrl/zondjs-util";
 
 interface SnapProtocolOptions extends ProtocolOptions {
   /* Blockchain */

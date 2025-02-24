@@ -1,7 +1,7 @@
-import { bytesToHex } from "@zondjs/util";
+import { bytesToHex } from "@theqrl/zondjs-util";
 
 import type { TransientStorageInterface } from "./types.js";
-import type { Address } from "@zondjs/util";
+import type { Address } from "@theqrl/zondjs-util";
 
 type TransientStorageCurrent = Map<string, Map<string, Uint8Array>>;
 

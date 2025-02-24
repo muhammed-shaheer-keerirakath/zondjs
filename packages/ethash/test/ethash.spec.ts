@@ -1,6 +1,6 @@
 import { createBlockHeaderFromRLP } from "@ethereumjs/block";
 import { Common, Hardfork, Mainnet } from "@ethereumjs/common";
-import { bytesToHex, hexToBytes } from "@zondjs/util";
+import { bytesToHex, hexToBytes } from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
 import { Ethash } from "../src/index.js";

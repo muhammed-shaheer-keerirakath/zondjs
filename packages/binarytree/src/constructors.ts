@@ -4,7 +4,7 @@ import {
   ValueEncoding,
   bytesToHex,
   unprefixedHexToBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { blake3 } from "@noble/hashes/blake3";
 
 import { BinaryTree } from "./binaryTree.js";

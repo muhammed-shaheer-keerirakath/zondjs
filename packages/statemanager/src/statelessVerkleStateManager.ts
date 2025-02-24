@@ -21,7 +21,7 @@ import {
   setLengthRight,
   short,
   toBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import debugDefault from "debug";
 import { keccak256 } from "ethereum-cryptography/keccak.js";
 
@@ -44,7 +44,7 @@ import type {
   VerkleCrypto,
   VerkleExecutionWitness,
   VerkleProof,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import type { Debugger } from "debug";
 
 const PUSH_OFFSET = 95;

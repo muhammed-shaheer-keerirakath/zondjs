@@ -40,7 +40,7 @@ import {
   toBytes,
   unpadBytes,
   utf8ToBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { keccak256 } from "ethereum-cryptography/keccak";
 import * as verkle from "micro-eth-signer/verkle";
 import { assert, describe, it } from "vitest";
@@ -69,7 +69,7 @@ import type {
   NestedUint8Array,
   PrefixedHexString,
   VerkleExecutionWitness,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 
 const common = new Common({ chain: Mainnet, hardfork: Hardfork.Berlin });
 describe("runBlock() -> successful API parameter usage", async () => {

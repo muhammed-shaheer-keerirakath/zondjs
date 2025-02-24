@@ -1,4 +1,4 @@
-import { bytesToHex } from "@zondjs/util";
+import { bytesToHex } from "@theqrl/zondjs-util";
 import { MemoryLevel } from "memory-level";
 import { assert, describe, it } from "vitest";
 

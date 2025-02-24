@@ -1,5 +1,5 @@
 import { RLP } from "@ethereumjs/rlp";
-import { validateNoLeadingZeroes } from "@zondjs/util";
+import { validateNoLeadingZeroes } from "@theqrl/zondjs-util";
 
 import { LegacyTx } from "./tx.js";
 

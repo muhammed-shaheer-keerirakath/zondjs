@@ -1,4 +1,4 @@
-import { equalsBytes, hexToBytes } from "@zondjs/util";
+import { equalsBytes, hexToBytes } from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
 import { BinaryNodeType, decodeBinaryNode } from "../../src/index.js";

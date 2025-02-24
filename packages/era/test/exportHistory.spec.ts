@@ -1,4 +1,4 @@
-import { bytesToBigInt64, hexToBytes } from "@zondjs/util";
+import { bytesToBigInt64, hexToBytes } from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
 import { compressData, formatEntry } from "../src/index.js";

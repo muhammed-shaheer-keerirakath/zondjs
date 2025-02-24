@@ -5,7 +5,7 @@ import {
   ValueEncoding,
   bytesToHex,
   equalsBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
 import { Chain } from "../../src/blockchain/index.js";

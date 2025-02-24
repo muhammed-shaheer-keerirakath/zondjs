@@ -6,7 +6,7 @@ import {
   computeVersionedHash,
   getBlobs,
   hexToBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { MemoryLevel } from "memory-level";
 
 import { createVM } from "../../src/index.js";
@@ -17,7 +17,7 @@ import type { VMOpts } from "../../src/types.js";
 import type { VM } from "../../src/vm.js";
 import type { Block } from "@ethereumjs/block";
 import type { Common } from "@ethereumjs/common";
-import type { Address, PrefixedHexString } from "@zondjs/util";
+import type { Address, PrefixedHexString } from "@theqrl/zondjs-util";
 
 export function createAccountWithDefaults(
   nonce = BigInt(0),

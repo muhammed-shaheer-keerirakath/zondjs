@@ -5,7 +5,7 @@ import {
   Hardfork,
   Mainnet,
 } from "@ethereumjs/common";
-import { Address, equalsBytes, hexToBytes } from "@zondjs/util";
+import { Address, equalsBytes, hexToBytes } from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
 import { CLIQUE_NONCE_AUTH, CliqueConsensus } from "../src/consensus/clique.js";

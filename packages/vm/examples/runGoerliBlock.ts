@@ -1,6 +1,6 @@
 import { createBlockFromRPC } from "@ethereumjs/block";
 import { Common } from "@ethereumjs/common";
-import { bytesToHex } from "@zondjs/util";
+import { bytesToHex } from "@theqrl/zondjs-util";
 
 import { createVM, runBlock } from "../src/index.js";
 import { Goerli } from "../test/api/testdata/goerliCommon.js";

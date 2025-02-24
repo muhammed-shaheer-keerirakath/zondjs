@@ -1,11 +1,11 @@
-import { intToHex, isHexString, stripHexPrefix } from "@zondjs/util";
+import { intToHex, isHexString, stripHexPrefix } from "@theqrl/zondjs-util";
 
 import { Holesky, Kaustinen6, Mainnet, Sepolia } from "./chains.js";
 import { Hardfork } from "./enums.js";
 import { hardforksDict } from "./hardforks.js";
 
 import type { HardforksDict } from "./types.js";
-import type { PrefixedHexString } from "@zondjs/util";
+import type { PrefixedHexString } from "@theqrl/zondjs-util";
 
 type ConfigHardfork =
   | { name: string; block: null; timestamp: number }

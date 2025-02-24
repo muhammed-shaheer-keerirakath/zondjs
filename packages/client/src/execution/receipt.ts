@@ -7,7 +7,7 @@ import {
   equalsBytes,
   intToBytes,
   utf8ToBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { Bloom } from "@ethereumjs/vm";
 
 import { DBKey, MetaDBManager } from "../util/metaDBManager.js";

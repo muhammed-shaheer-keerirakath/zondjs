@@ -1,4 +1,4 @@
-import { equalsBytes } from "@zondjs/util";
+import { equalsBytes } from "@theqrl/zondjs-util";
 
 import type { RunState } from "../interpreter.js";
 import type { Common } from "@ethereumjs/common";

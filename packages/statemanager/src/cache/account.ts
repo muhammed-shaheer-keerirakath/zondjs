@@ -1,4 +1,4 @@
-import { bytesToUnprefixedHex } from "@zondjs/util";
+import { bytesToUnprefixedHex } from "@theqrl/zondjs-util";
 import { OrderedMap } from "@js-sdsl/ordered-map";
 import debugDefault from "debug";
 import { LRUCache } from "lru-cache";
@@ -7,7 +7,7 @@ import { Cache } from "./cache.js";
 import { CacheType } from "./types.js";
 
 import type { CacheOpts } from "./types.js";
-import type { Account, Address } from "@zondjs/util";
+import type { Account, Address } from "@theqrl/zondjs-util";
 
 /**
  * account: undefined

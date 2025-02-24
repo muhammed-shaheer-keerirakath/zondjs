@@ -6,7 +6,7 @@ import { getPackageJSON } from "./util/index.js";
 import type { Config } from "./config.js";
 import type { MultiaddrLike } from "./types.js";
 import type { Blockchain } from "@ethereumjs/blockchain";
-import type { GenesisState } from "@zondjs/util";
+import type { GenesisState } from "@theqrl/zondjs-util";
 import type { AbstractLevel } from "abstract-level";
 
 export interface EthereumClientOptions {

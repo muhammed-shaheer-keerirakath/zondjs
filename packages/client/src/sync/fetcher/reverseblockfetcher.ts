@@ -1,4 +1,4 @@
-import { BIGINT_0 } from "@zondjs/util";
+import { BIGINT_0 } from "@theqrl/zondjs-util";
 
 import { errSyncMerged } from "../../service/skeleton.js";
 import { Event } from "../../types.js";

@@ -1,4 +1,4 @@
-import { fetchFromProvider, getProvider } from "@zondjs/util";
+import { fetchFromProvider, getProvider } from "@theqrl/zondjs-util";
 
 import {
   createFeeMarket1559Tx,
@@ -32,7 +32,7 @@ import {
 import { normalizeTxParams } from "./util.js";
 
 import type { Transaction, TxData, TxOptions, TypedTxData } from "./types.js";
-import type { EthersProvider } from "@zondjs/util";
+import type { EthersProvider } from "@theqrl/zondjs-util";
 /**
  * Create a transaction from a `txData` object
  *

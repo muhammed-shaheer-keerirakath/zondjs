@@ -1,5 +1,5 @@
 import { Common, Hardfork, Mainnet } from "@ethereumjs/common";
-import { Address, hexToBytes, setLengthLeft } from "@zondjs/util";
+import { Address, hexToBytes, setLengthLeft } from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
 import { createVM } from "../../../src/index.js";

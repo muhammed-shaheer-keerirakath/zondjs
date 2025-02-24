@@ -4,7 +4,7 @@ import {
   bytesToUnprefixedHex,
   concatBytes,
   equalsBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import debug from "debug";
 import { publicKeyConvert } from "ethereum-cryptography/secp256k1-compat.js";
 import { secp256k1 } from "ethereum-cryptography/secp256k1.js";

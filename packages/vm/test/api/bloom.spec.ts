@@ -1,4 +1,4 @@
-import { bytesToHex, hexToBytes, utf8ToBytes } from "@zondjs/util";
+import { bytesToHex, hexToBytes, utf8ToBytes } from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
 import { Bloom } from "../../src/bloom/index.js";

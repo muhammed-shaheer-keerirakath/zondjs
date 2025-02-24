@@ -1,7 +1,7 @@
 import { createBlock } from "@ethereumjs/block";
 import { Common, Hardfork, Mainnet } from "@ethereumjs/common";
 import { createBlob4844Tx } from "@ethereumjs/tx";
-import { createAddressFromPrivateKey } from "@zondjs/util";
+import { createAddressFromPrivateKey } from "@theqrl/zondjs-util";
 import { trustedSetup } from "@paulmillr/trusted-setups/fast.js";
 import { randomBytes } from "crypto";
 import { KZG as microEthKZG } from "micro-eth-signer/kzg";

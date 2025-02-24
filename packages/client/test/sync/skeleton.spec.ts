@@ -5,7 +5,7 @@ import {
   createCommonFromGethGenesis,
   createCustomCommon,
 } from "@ethereumjs/common";
-import { equalsBytes, utf8ToBytes } from "@zondjs/util";
+import { equalsBytes, utf8ToBytes } from "@theqrl/zondjs-util";
 import { MemoryLevel } from "memory-level";
 import { assert, describe, it } from "vitest";
 

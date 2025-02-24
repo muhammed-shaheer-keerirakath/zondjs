@@ -4,7 +4,7 @@ import {
   equalsBytes,
   unprefixedHexToBytes,
   utf8ToBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import debugDefault from "debug";
 import { keccak256 } from "ethereum-cryptography/keccak.js";
 import { secp256k1 } from "ethereum-cryptography/secp256k1.js";

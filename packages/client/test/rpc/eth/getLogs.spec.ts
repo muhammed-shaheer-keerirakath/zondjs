@@ -1,5 +1,9 @@
 import { createLegacyTx } from "@ethereumjs/tx";
-import { bytesToHex, createContractAddress, hexToBytes } from "@zondjs/util";
+import {
+  bytesToHex,
+  createContractAddress,
+  hexToBytes,
+} from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
 import { INVALID_PARAMS } from "../../../src/rpc/error-code.js";

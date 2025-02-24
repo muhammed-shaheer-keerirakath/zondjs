@@ -1,6 +1,9 @@
-import { createAccount, createAddressFromPrivateKey } from "@zondjs/util";
+import {
+  createAccount,
+  createAddressFromPrivateKey,
+} from "@theqrl/zondjs-util";
 
-import type { Address } from "@zondjs/util";
+import type { Address } from "@theqrl/zondjs-util";
 import type { VM } from "@ethereumjs/vm";
 
 export const keyPair = {

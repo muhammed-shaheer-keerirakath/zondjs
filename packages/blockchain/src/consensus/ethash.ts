@@ -1,5 +1,5 @@
 import { ConsensusAlgorithm } from "@ethereumjs/common";
-import { bytesToHex } from "@zondjs/util";
+import { bytesToHex } from "@theqrl/zondjs-util";
 import debugDefault from "debug";
 
 import type { Blockchain } from "../index.js";

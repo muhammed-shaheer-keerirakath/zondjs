@@ -1,12 +1,16 @@
 import { Block } from "@ethereumjs/block";
-import { bytesToHex, bytesToUnprefixedHex, equalsBytes } from "@zondjs/util";
+import {
+  bytesToHex,
+  bytesToUnprefixedHex,
+  equalsBytes,
+} from "@theqrl/zondjs-util";
 
 import { UNSUPPORTED_FORK } from "../../../error-code.js";
 import { type ChainCache } from "../types.js";
 
 import type { Chain } from "../../../../blockchain/index.js";
 import type { Common, Hardfork } from "@ethereumjs/common";
-import type { PrefixedHexString } from "@zondjs/util";
+import type { PrefixedHexString } from "@theqrl/zondjs-util";
 
 /**
  * Recursively finds parent blocks starting from the parentHash.

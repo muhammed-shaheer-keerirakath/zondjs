@@ -1,4 +1,4 @@
-import { bytesToHex } from "@zondjs/util";
+import { bytesToHex } from "@theqrl/zondjs-util";
 
 import type { ExecutionPayloadBodyV1 } from "../types.js";
 import type { Block } from "@ethereumjs/block";

@@ -19,7 +19,7 @@ import type {
   CLRequestType,
   PrefixedHexString,
   WithdrawalData,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 export type TxReceipt =
   | PreByzantiumTxReceipt
   | PostByzantiumTxReceipt

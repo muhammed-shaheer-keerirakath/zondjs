@@ -13,7 +13,7 @@ import {
   intToBytes,
   intToHex,
   setLengthRight,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { keccak256 } from "ethereum-cryptography/keccak.js";
 import * as td from "testdouble";
 import { assert, describe, it } from "vitest";
@@ -24,7 +24,7 @@ import { kaustinen2Data as kaustinen2GethGenesisData } from "../../testdata/geth
 import { getRPCClient, setupChain } from "../helpers.js";
 
 import type { Common } from "@ethereumjs/common";
-import type { PrefixedHexString } from "@zondjs/util";
+import type { PrefixedHexString } from "@theqrl/zondjs-util";
 import type { HttpClient } from "jayson/promise";
 
 const genesisStateRoot =

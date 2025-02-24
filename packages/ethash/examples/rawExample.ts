@@ -1,8 +1,8 @@
-import { MapDB, bytesToHex, hexToBytes } from "@zondjs/util";
+import { MapDB, bytesToHex, hexToBytes } from "@theqrl/zondjs-util";
 
 import { Ethash } from "../dist/cjs/index.js";
 
-import type { DBObject } from "@zondjs/util";
+import type { DBObject } from "@theqrl/zondjs-util";
 
 const ethash = new Ethash(new MapDB<number, DBObject>());
 

@@ -17,7 +17,7 @@ import {
   equalsBytes,
   hexToBytes,
   toType,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import debugDefault from "debug";
 
 import type { Blockchain } from "../index.js";

@@ -9,7 +9,7 @@ import {
   hexToBytes,
   matchingBytesLength,
   setLengthLeft,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { createVerkleTree } from "@ethereumjs/verkle";
 import * as verkle from "micro-eth-signer/verkle";
 import { assert, describe, it } from "vitest";
@@ -17,7 +17,7 @@ import { assert, describe, it } from "vitest";
 import { Caches } from "../src/index.js";
 import { StatefulVerkleStateManager } from "../src/statefulVerkleStateManager.js";
 
-import type { PrefixedHexString } from "@zondjs/util";
+import type { PrefixedHexString } from "@theqrl/zondjs-util";
 
 describe("Verkle Tree API tests", () => {
   it("should put/get/delete an account (with no storage/code from the trie)", async () => {

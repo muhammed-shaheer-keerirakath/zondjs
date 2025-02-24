@@ -1,7 +1,7 @@
-import { bytesToHex, fetchFromProvider } from "@zondjs/util";
+import { bytesToHex, fetchFromProvider } from "@theqrl/zondjs-util";
 
 import type { Proof, RPCStateManager } from "../index.js";
-import type { Address } from "@zondjs/util";
+import type { Address } from "@theqrl/zondjs-util";
 
 /**
  * Get an EIP-1186 proof from the provider

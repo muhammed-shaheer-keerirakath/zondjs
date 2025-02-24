@@ -1,4 +1,4 @@
-import { createAccount } from "@zondjs/util";
+import { createAccount } from "@theqrl/zondjs-util";
 
 const account = createAccount({
   nonce: "0x02",

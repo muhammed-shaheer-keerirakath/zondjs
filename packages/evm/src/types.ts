@@ -15,7 +15,7 @@ import type {
   StateManagerInterface,
   VerkleAccessWitnessInterface,
 } from "@ethereumjs/common";
-import type { Account, Address, PrefixedHexString } from "@zondjs/util";
+import type { Account, Address, PrefixedHexString } from "@theqrl/zondjs-util";
 import type { EventEmitter } from "eventemitter3";
 
 export type DeleteOpcode = {

@@ -1,4 +1,4 @@
-import { bytesToHex, concatBytes, equalsBytes } from "@zondjs/util";
+import { bytesToHex, concatBytes, equalsBytes } from "@theqrl/zondjs-util";
 import { keccak256 } from "ethereum-cryptography/keccak";
 
 import { createMPTFromProof } from "../constructors.js";
@@ -8,7 +8,7 @@ import { bytesToNibbles } from "../util/nibbles.js";
 import { verifyRangeProof } from "./range.js";
 
 import type { MPTOpts, Proof } from "../index.js";
-import type { PutBatch } from "@zondjs/util";
+import type { PutBatch } from "@theqrl/zondjs-util";
 
 /**
  * An (EIP-1186)[https://eips.ethereum.org/EIPS/eip-1186] proof contains the encoded trie nodes

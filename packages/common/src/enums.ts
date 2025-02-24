@@ -1,4 +1,4 @@
-import { BIGINT_0, hexToBytes } from "@zondjs/util";
+import { BIGINT_0, hexToBytes } from "@theqrl/zondjs-util";
 
 export enum Chain {
   Mainnet = 1,

@@ -1,5 +1,5 @@
 import { Common, Hardfork, Mainnet } from "@ethereumjs/common";
-import { bytesToHex, hexToBigInt, hexToBytes } from "@zondjs/util";
+import { bytesToHex, hexToBigInt, hexToBytes } from "@theqrl/zondjs-util";
 import * as fs from "fs";
 import path from "path";
 import { assert, describe, it } from "vitest";
@@ -8,7 +8,7 @@ import { hideBin } from "yargs/helpers";
 
 import { createTxFromRLP } from "../src/transactionFactory.js";
 
-import type { PrefixedHexString } from "@zondjs/util";
+import type { PrefixedHexString } from "@theqrl/zondjs-util";
 
 type T9NArgs = {
   dir: string;

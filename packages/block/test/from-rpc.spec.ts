@@ -1,5 +1,10 @@
 import { Common, Hardfork, Mainnet } from "@ethereumjs/common";
-import { bytesToHex, equalsBytes, hexToBytes, randomBytes } from "@zondjs/util";
+import {
+  bytesToHex,
+  equalsBytes,
+  hexToBytes,
+  randomBytes,
+} from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
 import {

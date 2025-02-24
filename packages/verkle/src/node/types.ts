@@ -1,4 +1,4 @@
-import { type VerkleCrypto } from "@zondjs/util";
+import { type VerkleCrypto } from "@theqrl/zondjs-util";
 
 import type { InternalVerkleNode } from "./internalNode.js";
 import type { LeafVerkleNode } from "./leafNode.js";

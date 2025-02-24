@@ -1,5 +1,5 @@
 import { Common, Hardfork, Mainnet } from "@ethereumjs/common";
-import { KECCAK256_RLP } from "@zondjs/util";
+import { KECCAK256_RLP } from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
 import { createVM } from "../../../src/index.js";

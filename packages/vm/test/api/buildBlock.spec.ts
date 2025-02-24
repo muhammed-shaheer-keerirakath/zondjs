@@ -21,7 +21,7 @@ import {
   createAddressFromPrivateKey,
   createZeroAddress,
   hexToBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
 import { buildBlock, createVM, runBlock } from "../../src/index.js";

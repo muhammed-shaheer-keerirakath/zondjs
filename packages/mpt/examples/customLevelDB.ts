@@ -1,9 +1,14 @@
 import { MerklePatriciaTrie } from "@ethereumjs/mpt";
-import { KeyEncoding, ValueEncoding } from "@zondjs/util";
+import { KeyEncoding, ValueEncoding } from "@theqrl/zondjs-util";
 import { Level } from "level";
 import { MemoryLevel } from "memory-level";
 
-import type { BatchDBOp, DB, DBObject, EncodingOpts } from "@zondjs/util";
+import type {
+  BatchDBOp,
+  DB,
+  DBObject,
+  EncodingOpts,
+} from "@theqrl/zondjs-util";
 import type { AbstractLevel } from "abstract-level";
 
 // Helper to infer the `valueEncoding` option for `putting` a value in a levelDB

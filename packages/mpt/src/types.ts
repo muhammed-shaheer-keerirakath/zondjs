@@ -1,4 +1,4 @@
-import { utf8ToBytes } from "@zondjs/util";
+import { utf8ToBytes } from "@theqrl/zondjs-util";
 
 import type {
   BranchMPTNode,
@@ -6,7 +6,7 @@ import type {
   LeafMPTNode,
 } from "./node/index.js";
 import type { WalkController } from "./util/walkController.js";
-import type { DB, ValueEncoding } from "@zondjs/util";
+import type { DB, ValueEncoding } from "@theqrl/zondjs-util";
 
 export type MPTNode = BranchMPTNode | ExtensionMPTNode | LeafMPTNode;
 

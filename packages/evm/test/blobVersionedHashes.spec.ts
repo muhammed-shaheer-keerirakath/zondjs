@@ -6,13 +6,13 @@ import {
   createAddressFromString,
   hexToBytes,
   unpadBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
 import { createEVM } from "../src/index.js";
 
 import type { EVMRunCallOpts } from "../src/types.js";
-import type { PrefixedHexString } from "@zondjs/util";
+import type { PrefixedHexString } from "@theqrl/zondjs-util";
 
 describe("BLOBHASH / access blobVersionedHashes in calldata", () => {
   it("should work", async () => {

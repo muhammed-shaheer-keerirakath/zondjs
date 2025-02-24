@@ -32,7 +32,7 @@ OTHER DEALINGS IN THE SOFTWARE.
 // (side note: this was once done by tomonari-t dedicatedly for this library // cspell:disable-line
 // (please nevertheless include the original license reference))
 
-import { equalsBytes, randomBytes } from "@zondjs/util";
+import { equalsBytes, randomBytes } from "@theqrl/zondjs-util";
 import { EventEmitter } from "eventemitter3";
 
 import type {

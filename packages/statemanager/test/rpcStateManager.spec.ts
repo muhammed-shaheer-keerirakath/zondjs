@@ -17,7 +17,7 @@ import {
   hexToBytes,
   setLengthLeft,
   utf8ToBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { createVM, runBlock, runTx } from "@ethereumjs/vm";
 import { assert, describe, expect, it, vi } from "vitest";
 
@@ -37,8 +37,8 @@ const provider = process.env.PROVIDER ?? "http://cheese";
 // `PROVIDER=https://mainnet.infura.io/v3/[mySuperS3cretproviderKey] npx vitest run test/rpcStateManager.spec.ts
 
 describe("RPC State Manager initialization tests", async () => {
-  vi.mock("@zondjs/util", async () => {
-    const util = await vi.importActual("@zondjs/util");
+  vi.mock("@theqrl/zondjs-util", async () => {
+    const util = await vi.importActual("@theqrl/zondjs-util");
     return {
       ...util,
       fetchFromProvider: vi
@@ -49,7 +49,7 @@ describe("RPC State Manager initialization tests", async () => {
         }),
     };
   });
-  await import("@zondjs/util");
+  await import("@theqrl/zondjs-util");
 
   it("should work", () => {
     let state = new RPCStateManager({ provider, blockTag: 1n });

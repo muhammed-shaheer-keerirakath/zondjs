@@ -1,12 +1,12 @@
 import { getGenesis } from "@ethereumjs/genesis";
-import { bytesToHex, parseGethGenesisState } from "@zondjs/util";
+import { bytesToHex, parseGethGenesisState } from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
 import { genesisMPTStateRoot } from "../../src/util/genesisState.js";
 // kiln genesis with deposit contract storage set
 import { gethGenesisKilnData } from "../fixtures/gethGenesisKiln.js";
 
-import type { GenesisState } from "@zondjs/util";
+import type { GenesisState } from "@theqrl/zondjs-util";
 
 describe("[Util/genesisStateRoot]", () => {
   it("should properly generate stateRoot from gethGenesis", async () => {

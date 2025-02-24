@@ -1,4 +1,4 @@
-import { BIGINT_2EXP96, KECCAK256_NULL_S } from "@zondjs/util";
+import { BIGINT_2EXP96, KECCAK256_NULL_S } from "@theqrl/zondjs-util";
 
 console.log(`The keccak-256 hash of null: ${KECCAK256_NULL_S}`);
 console.log(

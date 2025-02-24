@@ -18,13 +18,13 @@ import {
   hexToBytes,
   setLengthLeft,
   unpadBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 
 import { MerkleStateManager } from "../merkleStateManager.js";
 
 import type { MerkleStateManagerOpts } from "../index.js";
 import type { Proof, StorageProof } from "@ethereumjs/common";
-import type { Address, PrefixedHexString } from "@zondjs/util";
+import type { Address, PrefixedHexString } from "@theqrl/zondjs-util";
 
 /**
  * Get an EIP-1186 proof

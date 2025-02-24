@@ -7,11 +7,11 @@ import {
   hexToBytes,
   stripHexPrefix,
   unprefixedHexToBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import debugDefault from "debug";
 
 import type { Common, StateManagerInterface } from "@ethereumjs/common";
-import type { Account, PrefixedHexString } from "@zondjs/util";
+import type { Account, PrefixedHexString } from "@theqrl/zondjs-util";
 import type { Debugger } from "debug";
 
 type AddressString = string;

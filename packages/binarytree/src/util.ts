@@ -3,7 +3,7 @@ import {
   bytesToHex,
   concatBytes,
   equalsBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 
 import { InternalBinaryNode } from "./node/internalNode.js";
 import { StemBinaryNode } from "./node/stemNode.js";

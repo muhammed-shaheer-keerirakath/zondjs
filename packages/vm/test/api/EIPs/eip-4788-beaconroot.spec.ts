@@ -19,14 +19,14 @@ import {
   hexToBytes,
   setLengthLeft,
   setLengthRight,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
 import { createVM, runBlock as runBlockVM } from "../../../src/index.js";
 
 import type { VM } from "../../../src/index.js";
 import type { Block } from "@ethereumjs/block";
-import type { BigIntLike, PrefixedHexString } from "@zondjs/util";
+import type { BigIntLike, PrefixedHexString } from "@theqrl/zondjs-util";
 
 const common = new Common({
   chain: Mainnet,

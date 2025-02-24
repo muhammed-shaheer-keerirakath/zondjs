@@ -1,5 +1,5 @@
 import { RLP } from "@ethereumjs/rlp";
-import { setLengthRight } from "@zondjs/util";
+import { setLengthRight } from "@theqrl/zondjs-util";
 
 import { InternalVerkleNode } from "./internalNode.js";
 import { LeafVerkleNode } from "./leafNode.js";
@@ -9,7 +9,7 @@ import {
   VerkleNodeType,
 } from "./types.js";
 
-import type { VerkleCrypto } from "@zondjs/util";
+import type { VerkleCrypto } from "@theqrl/zondjs-util";
 
 export function decodeRawVerkleNode(
   raw: Uint8Array[],

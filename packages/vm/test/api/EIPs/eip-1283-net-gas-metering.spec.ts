@@ -4,13 +4,13 @@ import {
   bigIntToBytes,
   hexToBytes,
   setLengthLeft,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
 import { createVM } from "../../../src/index.js";
 import { createAccountWithDefaults } from "../utils.js";
 
-import type { PrefixedHexString } from "@zondjs/util";
+import type { PrefixedHexString } from "@theqrl/zondjs-util";
 
 /**
  * Tests taken from https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1283.md

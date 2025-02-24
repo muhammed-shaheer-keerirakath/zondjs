@@ -3,7 +3,7 @@
 // Install the dependencies and run `npx tsx examples/transactions.ts`
 
 import { createLegacyTx, createLegacyTxFromBytesArray } from "@ethereumjs/tx";
-import { bytesToHex, hexToBytes, toBytes } from "@zondjs/util";
+import { bytesToHex, hexToBytes, toBytes } from "@theqrl/zondjs-util";
 
 // We create an unsigned transaction.
 // Notice we don't set the `to` field because we are creating a new contract.

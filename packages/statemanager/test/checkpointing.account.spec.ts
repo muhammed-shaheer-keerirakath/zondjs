@@ -1,10 +1,10 @@
-import { Address, createAccount, hexToBytes } from "@zondjs/util";
+import { Address, createAccount, hexToBytes } from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
 import { MerkleStateManager, SimpleStateManager } from "../src/index.js";
 
 import type { StateManagerInterface } from "@ethereumjs/common";
-import type { Account } from "@zondjs/util";
+import type { Account } from "@theqrl/zondjs-util";
 
 /**
  * Compares account read to none or undefined

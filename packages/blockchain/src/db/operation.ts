@@ -1,4 +1,4 @@
-import { KeyEncoding, ValueEncoding } from "@zondjs/util";
+import { KeyEncoding, ValueEncoding } from "@theqrl/zondjs-util";
 
 import {
   HEADS_KEY,

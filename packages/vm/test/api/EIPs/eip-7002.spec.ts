@@ -11,7 +11,7 @@ import {
   equalsBytes,
   hexToBytes,
   setLengthLeft,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
 import { CLRequestType } from "../../../../util/src/request.js";

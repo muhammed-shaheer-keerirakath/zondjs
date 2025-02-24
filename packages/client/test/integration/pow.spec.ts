@@ -3,14 +3,14 @@ import {
   createAddressFromPrivateKey,
   hexToBytes,
   parseGethGenesisState,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { rmSync } from "fs";
 import { assert, describe, it } from "vitest";
 
 import { Config } from "../../src/index.js";
 import { createInlineClient } from "../../src/util/index.js";
 
-import type { Address } from "@zondjs/util";
+import type { Address } from "@theqrl/zondjs-util";
 
 const pk = hexToBytes(
   "0x95a602ff1ae30a2243f400dcf002561b9743b2ae9827b1008e3714a5cc1c0cfe",

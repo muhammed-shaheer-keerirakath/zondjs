@@ -1,7 +1,7 @@
 import { createBlock } from "@ethereumjs/block";
 import { createBlockchain } from "@ethereumjs/blockchain";
 import { Common, Hardfork, Mainnet } from "@ethereumjs/common";
-import { bytesToHex } from "@zondjs/util";
+import { bytesToHex } from "@theqrl/zondjs-util";
 
 const main = async () => {
   const common = new Common({ chain: Mainnet, hardfork: Hardfork.London });

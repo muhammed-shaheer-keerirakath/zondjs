@@ -18,7 +18,7 @@ import {
   isHexString,
   stripHexPrefix,
   toBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { createVerkleTree } from "@ethereumjs/verkle";
 
 import { buildBlock, createVM, runBlock } from "../../../src/index.js";
@@ -27,7 +27,7 @@ import { setupPreConditions, verifyPostConditions } from "../../util.js";
 import type { Block } from "@ethereumjs/block";
 import type { Blockchain, ConsensusDict } from "@ethereumjs/blockchain";
 import type { Common, StateManagerInterface } from "@ethereumjs/common";
-import type { PrefixedHexString } from "@zondjs/util";
+import type { PrefixedHexString } from "@theqrl/zondjs-util";
 import type { VerkleTree } from "@ethereumjs/verkle";
 import type * as tape from "tape";
 

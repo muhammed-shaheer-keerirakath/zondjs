@@ -1,4 +1,4 @@
-import { bytesToHex, hexToBytes } from "@zondjs/util";
+import { bytesToHex, hexToBytes } from "@theqrl/zondjs-util";
 import { encryptKeystoreJsonSync, Wallet as ethersWallet } from "ethers";
 import zip from "lodash.zip";
 import { assert, describe, it } from "vitest";

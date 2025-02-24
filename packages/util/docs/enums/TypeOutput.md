@@ -1,4 +1,4 @@
-[@zondjs/util](../README.md) / TypeOutput
+[@theqrl/zondjs-util](../README.md) / TypeOutput
 
 # Enumeration: TypeOutput
 

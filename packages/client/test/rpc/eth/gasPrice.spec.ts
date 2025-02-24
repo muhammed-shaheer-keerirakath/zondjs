@@ -1,5 +1,5 @@
 import { createFeeMarket1559Tx, createLegacyTx } from "@ethereumjs/tx";
-import { bigIntToHex, intToHex } from "@zondjs/util";
+import { bigIntToHex, intToHex } from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
 import { powData } from "../../testdata/geth-genesis/pow.js";

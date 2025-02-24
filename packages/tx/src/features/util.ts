@@ -7,7 +7,7 @@ import {
   bytesToBigInt,
   bytesToHex,
   toBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 
 import { paramsTx } from "../params.js";
 import { checkMaxInitCodeSize, validateNotArray } from "../util.js";

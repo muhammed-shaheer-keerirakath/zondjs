@@ -4,7 +4,7 @@ import {
   equalsBytes,
   intToHex,
   matchingBytesLength,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import debug from "debug";
 
 import { CheckpointDB } from "./db/checkpoint.js";
@@ -20,7 +20,7 @@ import { type Proof, ROOT_DB_KEY, type VerkleTreeOpts } from "./types.js";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import type { createVerkleTree } from "./constructors.js"; // Imported so intellisense can display docs
-import type { PutBatch, VerkleCrypto } from "@zondjs/util";
+import type { PutBatch, VerkleCrypto } from "@theqrl/zondjs-util";
 import type { Debugger } from "debug";
 interface Path {
   node: VerkleNode | null;

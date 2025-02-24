@@ -4,7 +4,7 @@ import {
   concatBytes,
   unprefixedHexToBytes,
   utf8ToBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { base64 } from "@scure/base";
 import { decrypt } from "ethereum-cryptography/aes.js";
 import { keccak256 } from "ethereum-cryptography/keccak.js";

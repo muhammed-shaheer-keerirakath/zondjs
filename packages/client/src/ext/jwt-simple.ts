@@ -7,7 +7,7 @@
  * module dependencies
  */
 import { base64url, base64urlnopad } from "@scure/base"; // cspell:disable-line
-import { bytesToUtf8, utf8ToBytes } from "@zondjs/util";
+import { bytesToUtf8, utf8ToBytes } from "@theqrl/zondjs-util";
 import crypto from "crypto";
 
 /**

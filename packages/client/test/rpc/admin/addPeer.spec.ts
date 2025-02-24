@@ -1,5 +1,5 @@
 import { DPT } from "@ethereumjs/devp2p";
-import { hexToBytes } from "@zondjs/util";
+import { hexToBytes } from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
 import { Config } from "../../../src/index.js";

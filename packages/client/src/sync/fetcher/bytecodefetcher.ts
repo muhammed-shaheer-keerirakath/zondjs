@@ -5,7 +5,7 @@ import {
   bytesToUnprefixedHex,
   concatBytes,
   equalsBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import debug from "debug";
 import { keccak256 } from "ethereum-cryptography/keccak";
 
@@ -15,7 +15,7 @@ import { getInitFetcherDoneFlags } from "./types.js";
 import type { Peer } from "../../net/peer/index.js";
 import type { FetcherOptions } from "./fetcher.js";
 import type { Job, SnapFetcherDoneFlags } from "./types.js";
-import type { BatchDBOp, DB } from "@zondjs/util";
+import type { BatchDBOp, DB } from "@theqrl/zondjs-util";
 import type { Debugger } from "debug";
 
 type ByteCodeDataResponse = Uint8Array[] & { completed?: boolean };

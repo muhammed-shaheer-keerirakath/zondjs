@@ -16,7 +16,7 @@ import {
   createAddressFromString,
   createZeroAddress,
   hexToBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
 import {

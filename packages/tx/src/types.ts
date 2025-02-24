@@ -1,4 +1,4 @@
-import { bytesToBigInt, toBytes } from "@zondjs/util";
+import { bytesToBigInt, toBytes } from "@theqrl/zondjs-util";
 
 import type { FeeMarket1559Tx } from "./1559/tx.js";
 import type { AccessList2930Tx } from "./2930/tx.js";
@@ -12,7 +12,7 @@ import type {
   BigIntLike,
   BytesLike,
   PrefixedHexString,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 /**
  * Can be used in conjunction with {@link Transaction[TransactionType].supports}
  * to query on tx capabilities

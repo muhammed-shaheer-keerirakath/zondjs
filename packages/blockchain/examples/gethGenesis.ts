@@ -1,6 +1,6 @@
 import { createBlockchain } from "@ethereumjs/blockchain";
 import { createCommonFromGethGenesis } from "@ethereumjs/common";
-import { bytesToHex, parseGethGenesisState } from "@zondjs/util";
+import { bytesToHex, parseGethGenesisState } from "@theqrl/zondjs-util";
 
 import gethGenesisJSON from "./genesisData/post-merge.json";
 

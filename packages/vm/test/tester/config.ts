@@ -8,7 +8,7 @@ import * as verkle from "micro-eth-signer/verkle";
 import * as path from "path";
 
 import type { HardforkTransitionConfig } from "@ethereumjs/common";
-import type { KZG } from "@zondjs/util";
+import type { KZG } from "@theqrl/zondjs-util";
 
 /**
  * Default tests path (git submodule: ethereum-tests)

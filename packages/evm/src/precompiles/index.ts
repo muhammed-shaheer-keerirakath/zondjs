@@ -1,5 +1,5 @@
 import { Hardfork } from "@ethereumjs/common";
-import { type Address, bytesToUnprefixedHex } from "@zondjs/util";
+import { type Address, bytesToUnprefixedHex } from "@theqrl/zondjs-util";
 
 import { precompile01 } from "./01-ecrecover.js";
 import { precompile02 } from "./02-sha256.js";

@@ -1,4 +1,4 @@
-import { bytesToUnprefixedHex, hexToBytes } from "@zondjs/util";
+import { bytesToUnprefixedHex, hexToBytes } from "@theqrl/zondjs-util";
 
 import type { EVMBN254Interface } from "../../types.js";
 

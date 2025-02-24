@@ -8,7 +8,7 @@ import { Config } from "../../src/config.js";
 import { LevelDB } from "../../src/execution/level.js";
 
 import type { ConsensusDict } from "@ethereumjs/blockchain";
-import type { GenesisState } from "@zondjs/util";
+import type { GenesisState } from "@theqrl/zondjs-util";
 
 export async function createInlineClient(
   config: Config,

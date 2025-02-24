@@ -1,7 +1,7 @@
 // Tests written with help from CodiumAI
 
 import { Common, Mainnet } from "@ethereumjs/common";
-import { equalsBytes, randomBytes } from "@zondjs/util";
+import { equalsBytes, randomBytes } from "@theqrl/zondjs-util";
 import assert from "assert";
 import { secp256k1 } from "ethereum-cryptography/secp256k1.js";
 import { EventEmitter } from "eventemitter3";

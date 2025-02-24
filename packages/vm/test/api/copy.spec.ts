@@ -1,4 +1,4 @@
-import { createAccount, createAddressFromString } from "@zondjs/util";
+import { createAccount, createAddressFromString } from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
 import { setupVM } from "./utils.js";

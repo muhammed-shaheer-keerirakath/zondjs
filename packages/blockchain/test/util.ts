@@ -8,13 +8,13 @@ import {
   hexToBytes,
   toBytes,
   utf8ToBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { keccak256 } from "ethereum-cryptography/keccak.js";
 
 import { createBlockchain } from "../src/index.js";
 
 import type { BlockHeader } from "@ethereumjs/block";
-import type { DB } from "@zondjs/util";
+import type { DB } from "@theqrl/zondjs-util";
 
 export const generateBlocks = (
   numberOfBlocks: number,

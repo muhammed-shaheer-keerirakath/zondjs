@@ -1,6 +1,6 @@
 import { createBlock } from "@ethereumjs/block";
 import { createTx } from "@ethereumjs/tx";
-import { bytesToHex } from "@zondjs/util";
+import { bytesToHex } from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
 import { INTERNAL_ERROR, INVALID_PARAMS } from "../../../src/rpc/error-code.js";

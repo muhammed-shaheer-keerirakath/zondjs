@@ -1,4 +1,4 @@
-import { hexToBytes } from "@zondjs/util";
+import { hexToBytes } from "@theqrl/zondjs-util";
 import * as dir from "node-dir";
 import path from "path";
 import { assert, describe, it } from "vitest";

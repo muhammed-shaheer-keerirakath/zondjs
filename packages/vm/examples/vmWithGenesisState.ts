@@ -1,6 +1,6 @@
 import { Chain } from "@ethereumjs/common";
 import { getGenesis } from "@ethereumjs/genesis";
-import { createAddressFromString } from "@zondjs/util";
+import { createAddressFromString } from "@theqrl/zondjs-util";
 import { createVM } from "@ethereumjs/vm";
 
 const main = async () => {

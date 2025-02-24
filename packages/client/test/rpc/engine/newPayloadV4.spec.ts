@@ -1,5 +1,5 @@
 import { createTx } from "@ethereumjs/tx";
-import { Units, bigIntToHex, hexToBytes } from "@zondjs/util";
+import { Units, bigIntToHex, hexToBytes } from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
 import { INVALID_PARAMS } from "../../../src/rpc/error-code.js";

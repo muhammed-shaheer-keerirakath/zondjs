@@ -1,5 +1,5 @@
 import type { ChunkAccessEvent } from "./verkleAccessWitness.js";
-import type { PrefixedHexString } from "@zondjs/util";
+import type { PrefixedHexString } from "@theqrl/zondjs-util";
 export class ChunkCache {
   cache: Map<PrefixedHexString, ChunkAccessEvent>;
 

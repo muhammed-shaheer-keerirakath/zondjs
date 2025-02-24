@@ -1,5 +1,9 @@
 import { createBlockFromBytesArray } from "@ethereumjs/block";
-import { KECCAK256_RLP, KECCAK256_RLP_ARRAY, equalsBytes } from "@zondjs/util";
+import {
+  KECCAK256_RLP,
+  KECCAK256_RLP_ARRAY,
+  equalsBytes,
+} from "@theqrl/zondjs-util";
 
 import { Event } from "../../types.js";
 

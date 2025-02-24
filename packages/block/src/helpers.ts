@@ -8,7 +8,7 @@ import {
   concatBytes,
   isHexString,
   toType,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 
 import type { BlockHeaderBytes, HeaderData } from "./types.js";
 import type { Common } from "@ethereumjs/common";
@@ -18,7 +18,7 @@ import type {
   CLRequestType,
   PrefixedHexString,
   Withdrawal,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 /**
  * Returns a 0x-prefixed hex number string from a hex string or string integer.
  * @param {string} input string to check, convert, and return

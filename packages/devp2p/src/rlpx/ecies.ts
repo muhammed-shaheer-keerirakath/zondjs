@@ -1,5 +1,10 @@
 import { RLP } from "@ethereumjs/rlp";
-import { bytesToInt, concatBytes, hexToBytes, intToBytes } from "@zondjs/util";
+import {
+  bytesToInt,
+  concatBytes,
+  hexToBytes,
+  intToBytes,
+} from "@theqrl/zondjs-util";
 import * as crypto from "crypto";
 import debugDefault from "debug";
 import { keccak256 } from "ethereum-cryptography/keccak.js";

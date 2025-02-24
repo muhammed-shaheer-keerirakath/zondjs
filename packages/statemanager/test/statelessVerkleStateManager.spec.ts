@@ -12,7 +12,7 @@ import {
   getVerkleStem,
   hexToBytes,
   randomBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import * as verkle from "micro-eth-signer/verkle";
 import { assert, describe, it, test } from "vitest";
 

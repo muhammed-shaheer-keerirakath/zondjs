@@ -29,7 +29,7 @@ import {
   isHexString,
   setLengthLeft,
   toType,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import {
   type EIP4844BlobTxReceipt,
   type PostByzantiumTxReceipt,
@@ -67,7 +67,7 @@ import type {
   LegacyTx,
   TypedTransaction,
 } from "@ethereumjs/tx";
-import type { Address, PrefixedHexString } from "@zondjs/util";
+import type { Address, PrefixedHexString } from "@theqrl/zondjs-util";
 
 const EMPTY_SLOT = `0x${"00".repeat(32)}`;
 

@@ -1,4 +1,4 @@
-import { bytesToHex } from "@zondjs/util";
+import { bytesToHex } from "@theqrl/zondjs-util";
 
 import { EvmErrorResult, OOGResult } from "../evm.js";
 import { ERROR, EvmError } from "../exceptions.js";

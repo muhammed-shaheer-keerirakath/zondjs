@@ -1,6 +1,6 @@
 import { Common, Hardfork, Mainnet } from "@ethereumjs/common";
 import { getActivePrecompiles } from "@ethereumjs/evm";
-import { hexToBytes } from "@zondjs/util";
+import { hexToBytes } from "@theqrl/zondjs-util";
 import { assert, beforeAll, describe, it } from "vitest";
 
 import { createVM } from "../../../src/index.js";

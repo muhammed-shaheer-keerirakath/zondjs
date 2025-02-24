@@ -1,5 +1,5 @@
 import { type StateManagerInterface } from "@ethereumjs/common";
-import { Account, Address, hexToBytes } from "@zondjs/util";
+import { Account, Address, hexToBytes } from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
 import {

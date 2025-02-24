@@ -10,7 +10,7 @@ import {
   createCommonFromGethGenesis,
   createCustomCommon,
 } from "@ethereumjs/common";
-import { bytesToHex, parseGethGenesisState } from "@zondjs/util";
+import { bytesToHex, parseGethGenesisState } from "@theqrl/zondjs-util";
 import { createVM } from "@ethereumjs/vm";
 import { assert, describe, it } from "vitest";
 

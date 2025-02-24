@@ -3,7 +3,7 @@ import {
   bytesToUnprefixedHex,
   unprefixedHexToBytes,
   utf8ToBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 
 import { Event } from "../../types.js";
 import { getClientVersion } from "../../util/index.js";

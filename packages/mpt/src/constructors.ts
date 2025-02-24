@@ -4,7 +4,7 @@ import {
   bytesToUnprefixedHex,
   concatBytes,
   unprefixedHexToBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { keccak256 } from "ethereum-cryptography/keccak";
 
 import {

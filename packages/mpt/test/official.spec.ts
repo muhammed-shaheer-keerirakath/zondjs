@@ -1,4 +1,9 @@
-import { bytesToHex, hexToBytes, isHexString, utf8ToBytes } from "@zondjs/util";
+import {
+  bytesToHex,
+  hexToBytes,
+  isHexString,
+  utf8ToBytes,
+} from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
 import { MerklePatriciaTrie } from "../src/index.js";

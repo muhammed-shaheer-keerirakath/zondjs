@@ -1,6 +1,6 @@
 import { Common, Hardfork, Mainnet } from "@ethereumjs/common";
 import { createLegacyTx } from "@ethereumjs/tx";
-import { bytesToHex, hexToBytes } from "@zondjs/util";
+import { bytesToHex, hexToBytes } from "@theqrl/zondjs-util";
 
 const txParams = {
   nonce: "0x0",

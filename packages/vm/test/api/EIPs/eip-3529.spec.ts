@@ -1,11 +1,11 @@
 import { Common, Hardfork, Mainnet } from "@ethereumjs/common";
 import { createLegacyTx } from "@ethereumjs/tx";
-import { Account, Address, bytesToHex, hexToBytes } from "@zondjs/util";
+import { Account, Address, bytesToHex, hexToBytes } from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
 import { createVM, runTx } from "../../../src/index.js";
 
-import type { PrefixedHexString } from "@zondjs/util";
+import type { PrefixedHexString } from "@theqrl/zondjs-util";
 
 const address = new Address(hexToBytes(`0x${"11".repeat(20)}`));
 const pkey = hexToBytes(`0x${"20".repeat(32)}`);

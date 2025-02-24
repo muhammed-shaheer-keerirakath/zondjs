@@ -9,7 +9,7 @@ import {
   concatBytes,
   createAddressFromString,
   setLengthLeft,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 
 import type { RunTxResult } from "./types.js";
 import type { VM } from "./vm.js";

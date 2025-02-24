@@ -7,7 +7,7 @@ import type {
   Address,
   PrefixedHexString,
   VerkleExecutionWitness,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 
 export interface StorageDump {
   [key: string]: string;

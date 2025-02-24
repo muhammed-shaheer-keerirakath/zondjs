@@ -17,7 +17,7 @@ import {
   equalsBytes,
   hexToBytes,
   setLengthLeft,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { keccak256, keccak512 } from "ethereum-cryptography/keccak.js";
 
 import {
@@ -32,7 +32,7 @@ import {
 } from "./util.js";
 
 import type { BlockData, HeaderData } from "@ethereumjs/block";
-import type { DB, DBObject, PrefixedHexString } from "@zondjs/util";
+import type { DB, DBObject, PrefixedHexString } from "@theqrl/zondjs-util";
 
 function xor(a: Uint8Array, b: Uint8Array) {
   const len = Math.max(a.length, b.length);

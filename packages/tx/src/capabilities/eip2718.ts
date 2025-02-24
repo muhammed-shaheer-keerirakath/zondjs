@@ -1,5 +1,5 @@
 import { RLP } from "@ethereumjs/rlp";
-import { BIGINT_0, BIGINT_1, concatBytes } from "@zondjs/util";
+import { BIGINT_0, BIGINT_1, concatBytes } from "@theqrl/zondjs-util";
 import { keccak256 } from "ethereum-cryptography/keccak.js";
 
 import { txTypeBytes } from "../util.js";

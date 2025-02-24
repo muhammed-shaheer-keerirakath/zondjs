@@ -5,7 +5,7 @@ import {
   hexToBytes,
   parseGethGenesisState,
   privateToAddress,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import debug from "debug";
 import { Client } from "jayson/promise";
 import { assert, describe, it } from "vitest";
@@ -26,7 +26,7 @@ import {
 
 import type { EthereumClient } from "../../src/client.js";
 import type { RlpxServer } from "../../src/net/server/index.js";
-import type { PrefixedHexString } from "@zondjs/util";
+import type { PrefixedHexString } from "@theqrl/zondjs-util";
 
 const client = Client.http({ port: 8545 });
 

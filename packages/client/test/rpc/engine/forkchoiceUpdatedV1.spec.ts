@@ -1,6 +1,6 @@
 import { BlockHeader, createBlock } from "@ethereumjs/block";
 import { Common, Hardfork, Mainnet } from "@ethereumjs/common";
-import { bytesToHex, randomBytes } from "@zondjs/util";
+import { bytesToHex, randomBytes } from "@theqrl/zondjs-util";
 import { assert, describe, it, vi } from "vitest";
 
 import {

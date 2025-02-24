@@ -7,7 +7,7 @@ import { BranchMPTNode } from "./branch.js";
 import { ExtensionMPTNode } from "./extension.js";
 import { LeafMPTNode } from "./leaf.js";
 
-import type { NestedUint8Array } from "@zondjs/util";
+import type { NestedUint8Array } from "@theqrl/zondjs-util";
 
 export function decodeRawMPTNode(raw: Uint8Array[]) {
   if (raw.length === 17) {

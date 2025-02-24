@@ -1,4 +1,4 @@
-import { BIGINT_0 } from "@zondjs/util";
+import { BIGINT_0 } from "@theqrl/zondjs-util";
 
 import type { RunState } from "../interpreter.js";
 import type { Common } from "@ethereumjs/common";

@@ -9,7 +9,7 @@ import {
   createLegacyTxFromBytesArray,
   createTxFromSerializedData,
 } from "@ethereumjs/tx";
-import { Account, bytesToHex, unprefixedHexToBytes } from "@zondjs/util";
+import { Account, bytesToHex, unprefixedHexToBytes } from "@theqrl/zondjs-util";
 import { keccak256 } from "ethereum-cryptography/keccak";
 import { readFileSync, writeFileSync } from "fs";
 import { join } from "path";
@@ -20,7 +20,7 @@ import { getCommon } from "../tester/config";
 import { makeBlockFromEnv, setupPreConditions } from "../util";
 
 import type { TypedTransaction } from "@ethereumjs/tx";
-import type { NestedUint8Array } from "@zondjs/util";
+import type { NestedUint8Array } from "@theqrl/zondjs-util";
 import type { PostByzantiumTxReceipt } from "../../dist/cjs";
 
 const yargs = require("yargs/yargs");

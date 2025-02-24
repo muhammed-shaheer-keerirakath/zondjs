@@ -7,7 +7,7 @@ import {
   createAddressFromPrivateKey,
   createAddressFromString,
   hexToBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { Interface } from "ethers";
 import { assert, describe, it } from "vitest";
 
@@ -20,7 +20,7 @@ import type {
   AccountState,
   GenesisState,
   PrefixedHexString,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 
 const storage: Array<[PrefixedHexString, PrefixedHexString]> = [
   [

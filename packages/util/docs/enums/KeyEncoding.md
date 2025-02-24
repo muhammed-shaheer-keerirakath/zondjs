@@ -1,4 +1,4 @@
-[@zondjs/util](../README.md) / KeyEncoding
+[@theqrl/zondjs-util](../README.md) / KeyEncoding
 
 # Enumeration: KeyEncoding
 

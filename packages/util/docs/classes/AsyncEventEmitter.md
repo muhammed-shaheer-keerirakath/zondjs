@@ -1,4 +1,4 @@
-[@zondjs/util](../README.md) / AsyncEventEmitter
+[@theqrl/zondjs-util](../README.md) / AsyncEventEmitter
 
 # Class: AsyncEventEmitter<T\>
 

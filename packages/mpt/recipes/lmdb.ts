@@ -1,6 +1,6 @@
 import { Database, open } from "lmdb";
 
-import type { BatchDBOp, DB } from "@zondjs/util";
+import type { BatchDBOp, DB } from "@theqrl/zondjs-util";
 
 export class LMDB implements DB {
   readonly _path: string;

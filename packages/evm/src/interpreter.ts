@@ -10,7 +10,7 @@ import {
   bytesToHex,
   equalsBytes,
   setLengthRight,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import debugDefault from "debug";
 
 import { FORMAT, MAGIC, VERSION } from "./eof/constants.js";
@@ -44,7 +44,7 @@ import type {
   StateManagerInterface,
   VerkleAccessWitnessInterface,
 } from "@ethereumjs/common";
-import type { Address, PrefixedHexString } from "@zondjs/util";
+import type { Address, PrefixedHexString } from "@theqrl/zondjs-util";
 
 const debugGas = debugDefault("evm:gas");
 

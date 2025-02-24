@@ -1,4 +1,4 @@
-[@zondjs/util](../README.md) / MapDB
+[@theqrl/zondjs-util](../README.md) / MapDB
 
 # Class: MapDB<TKey, TValue\>
 

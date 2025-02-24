@@ -5,12 +5,12 @@ import {
   createAccount,
   createAddressFromPrivateKey,
   hexToBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
 import { createVM, runTx } from "../../../src/index.js";
 
-import type { PrefixedHexString } from "@zondjs/util";
+import type { PrefixedHexString } from "@theqrl/zondjs-util";
 
 // Test cases source: https://gist.github.com/holiman/174548cad102096858583c6fbbb0649a
 describe("EIP 2929: gas cost tests", () => {

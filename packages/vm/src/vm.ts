@@ -7,7 +7,7 @@ import { paramsVM } from "./params.js";
 import type { VMEvent, VMOpts } from "./types.js";
 import type { Common, StateManagerInterface } from "@ethereumjs/common";
 import type { EVMInterface, EVMMockBlockchainInterface } from "@ethereumjs/evm";
-import type { BigIntLike } from "@zondjs/util";
+import type { BigIntLike } from "@theqrl/zondjs-util";
 
 /**
  * Execution engine which can be used to run a blockchain, individual

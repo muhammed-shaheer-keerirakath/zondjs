@@ -1,9 +1,9 @@
-import { MapDB, hexToBytes, utf8ToBytes } from "@zondjs/util";
+import { MapDB, hexToBytes, utf8ToBytes } from "@theqrl/zondjs-util";
 import { assert, beforeEach, describe, it } from "vitest";
 
 import { CheckpointDB } from "../../src/index.js";
 
-import type { BatchDBOp } from "@zondjs/util";
+import type { BatchDBOp } from "@theqrl/zondjs-util";
 
 describe("DB tests", () => {
   let db: CheckpointDB;

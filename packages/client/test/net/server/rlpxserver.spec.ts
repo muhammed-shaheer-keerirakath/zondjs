@@ -1,5 +1,5 @@
 import { multiaddr } from "@multiformats/multiaddr";
-import { equalsBytes, hexToBytes, utf8ToBytes } from "@zondjs/util";
+import { equalsBytes, hexToBytes, utf8ToBytes } from "@theqrl/zondjs-util";
 import { EventEmitter } from "eventemitter3";
 import { assert, describe, expect, it, vi } from "vitest";
 

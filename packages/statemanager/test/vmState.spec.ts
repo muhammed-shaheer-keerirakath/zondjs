@@ -1,6 +1,6 @@
 import { Chain } from "@ethereumjs/common";
 import { getGenesis } from "@ethereumjs/genesis";
-import { Account, Address, hexToBytes, utf8ToBytes } from "@zondjs/util";
+import { Account, Address, hexToBytes, utf8ToBytes } from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
 import { MerkleStateManager } from "../src/index.js";

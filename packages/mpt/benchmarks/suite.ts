@@ -5,7 +5,7 @@ import { run, mark, logMem } from "micro-bmark"; // cspell:disable-line
 import { MerklePatriciaTrie } from "../dist/cjs/index.js";
 import { keys } from "./keys";
 
-import type { DB } from "@zondjs/util";
+import type { DB } from "@theqrl/zondjs-util";
 
 export function createSuite(db: DB<string, string>) {
   const trie = new MerklePatriciaTrie({ db });

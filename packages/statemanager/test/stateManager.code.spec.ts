@@ -4,14 +4,14 @@ import {
   createZeroAddress,
   equalsBytes,
   hexToBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
 import { Caches, MerkleStateManager } from "../src/index.js";
 
 import { createAccountWithDefaults } from "./util.js";
 
-import type { AccountData } from "@zondjs/util";
+import type { AccountData } from "@theqrl/zondjs-util";
 
 describe("StateManager -> Code", () => {
   for (const accountCacheOpts of [{ size: 1000 }, { size: 0 }]) {

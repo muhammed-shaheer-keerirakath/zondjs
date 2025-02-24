@@ -5,7 +5,7 @@ import {
   equalsBytes,
   setLengthLeft,
   unprefixedHexToBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 
 import { ERROR, EvmError } from "../../exceptions.js";
 

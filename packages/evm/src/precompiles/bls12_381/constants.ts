@@ -1,4 +1,4 @@
-import { concatBytes, hexToBytes } from "@zondjs/util";
+import { concatBytes, hexToBytes } from "@theqrl/zondjs-util";
 
 // base field modulus as described in the EIP
 export const BLS_FIELD_MODULUS = BigInt(

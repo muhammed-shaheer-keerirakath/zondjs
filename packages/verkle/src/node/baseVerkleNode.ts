@@ -6,7 +6,7 @@ import {
   type VerkleNodeType,
 } from "./types.js";
 
-import type { VerkleCrypto } from "@zondjs/util";
+import type { VerkleCrypto } from "@theqrl/zondjs-util";
 
 export abstract class BaseVerkleNode<T extends VerkleNodeType>
   implements VerkleNodeInterface

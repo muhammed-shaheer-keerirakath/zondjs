@@ -3,7 +3,7 @@ import {
   createZeroAddress,
   hexToBytes,
   utf8ToBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
 import { type PrecompileInput, createEVM } from "../src/index.js";

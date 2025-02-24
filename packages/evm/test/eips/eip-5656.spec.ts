@@ -1,10 +1,10 @@
 import { Common, Hardfork, Mainnet } from "@ethereumjs/common";
-import { bytesToHex, hexToBytes } from "@zondjs/util";
+import { bytesToHex, hexToBytes } from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
 import { createEVM } from "../../src/index.js";
 
-import type { PrefixedHexString } from "@zondjs/util";
+import type { PrefixedHexString } from "@theqrl/zondjs-util";
 
 type Situation = {
   pre: string;

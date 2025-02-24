@@ -24,7 +24,7 @@ import {
   equalsBytes,
   hexToBytes,
   toType,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { keccak256 } from "ethereum-cryptography/keccak.js";
 
 import {

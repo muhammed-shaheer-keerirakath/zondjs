@@ -1,7 +1,7 @@
 /**
  * @module util
  */
-import { bytesToHex } from "@zondjs/util";
+import { bytesToHex } from "@theqrl/zondjs-util";
 import { existsSync, readFileSync } from "fs";
 import { platform } from "os";
 import { dirname, join as joinPath } from "path";

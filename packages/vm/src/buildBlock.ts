@@ -24,7 +24,7 @@ import {
   createZeroAddress,
   toBytes,
   toType,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { sha256 } from "ethereum-cryptography/sha256";
 
 import { Bloom } from "./bloom/index.js";
@@ -48,7 +48,7 @@ import type {
 import type { VM } from "./vm.js";
 import type { Block, HeaderData } from "@ethereumjs/block";
 import type { TypedTransaction } from "@ethereumjs/tx";
-import type { Withdrawal } from "@zondjs/util";
+import type { Withdrawal } from "@theqrl/zondjs-util";
 
 export enum BuildStatus {
   Reverted = "reverted",

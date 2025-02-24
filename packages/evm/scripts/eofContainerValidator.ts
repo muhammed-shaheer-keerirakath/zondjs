@@ -1,5 +1,5 @@
 import { Common, Hardfork, Mainnet } from "@ethereumjs/common";
-import { unprefixedHexToBytes } from "@zondjs/util";
+import { unprefixedHexToBytes } from "@theqrl/zondjs-util";
 import split from "split";
 
 import { createEVM, validateEOF } from "../src/index.js";

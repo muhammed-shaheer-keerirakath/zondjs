@@ -4,7 +4,7 @@ import { createBlockFromBytesArray } from "@ethereumjs/block";
 import { CliqueConsensus, createBlockchain } from "@ethereumjs/blockchain";
 import { ConsensusAlgorithm, Hardfork } from "@ethereumjs/common";
 import { RLP } from "@ethereumjs/rlp";
-import { bytesToHex, short } from "@zondjs/util";
+import { bytesToHex, short } from "@theqrl/zondjs-util";
 import { mkdirSync, readFileSync } from "fs";
 import { Level } from "level";
 
@@ -23,7 +23,7 @@ import type { ClientOpts } from "../src/types.js";
 import type { RPCArgs } from "./startRPC.js";
 import type { Block, BlockBytes } from "@ethereumjs/block";
 import type { ConsensusDict } from "@ethereumjs/blockchain";
-import type { GenesisState } from "@zondjs/util";
+import type { GenesisState } from "@theqrl/zondjs-util";
 import type { AbstractLevel } from "abstract-level";
 import type * as http from "http";
 import type { Server as RPCServer } from "jayson/promise/index.js";

@@ -1,4 +1,4 @@
-[@zondjs/util](../README.md) / TransformabletoBytes
+[@theqrl/zondjs-util](../README.md) / TransformabletoBytes
 
 # Interface: TransformabletoBytes
 

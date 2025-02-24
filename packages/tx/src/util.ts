@@ -10,7 +10,7 @@ import {
   toBytes,
   toType,
   validateNoLeadingZeroes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 
 import { isAccessList, isAuthorizationList } from "./types.js";
 

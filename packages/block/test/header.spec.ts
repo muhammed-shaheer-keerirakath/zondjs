@@ -8,7 +8,7 @@ import {
   createZeroAddress,
   equalsBytes,
   hexToBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
 import {
@@ -27,7 +27,7 @@ import { Goerli } from "./testdata/goerliCommon.js";
 
 import type { BlockHeader } from "../src/index.js";
 import type { CliqueConfig } from "@ethereumjs/common";
-import type { PrefixedHexString } from "@zondjs/util";
+import type { PrefixedHexString } from "@theqrl/zondjs-util";
 
 describe("[Block]: Header functions", () => {
   it("should create with default constructor", () => {

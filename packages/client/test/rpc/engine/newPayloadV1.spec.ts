@@ -4,7 +4,7 @@ import {
   createAddressFromPrivateKey,
   createAddressFromString,
   hexToBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
 import { INVALID_PARAMS } from "../../../src/rpc/error-code.js";

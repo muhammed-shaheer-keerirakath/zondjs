@@ -5,7 +5,7 @@ import type {
   KZG,
   PrefixedHexString,
   VerkleCrypto,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 
 export interface ChainName {
   [chainId: string]: string;

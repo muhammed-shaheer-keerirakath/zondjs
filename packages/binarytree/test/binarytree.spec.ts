@@ -1,4 +1,4 @@
-import { bytesToHex, equalsBytes, hexToBytes } from "@zondjs/util";
+import { bytesToHex, equalsBytes, hexToBytes } from "@theqrl/zondjs-util";
 import { blake3 } from "@noble/hashes/blake3";
 import { assert, describe, expect, it } from "vitest";
 

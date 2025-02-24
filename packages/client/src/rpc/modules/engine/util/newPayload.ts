@@ -3,7 +3,12 @@ import {
   genRequestsRoot,
 } from "@ethereumjs/block";
 import { Blob4844Tx } from "@ethereumjs/tx";
-import { CLRequest, CLRequestType, bytesToHex, hexToBytes } from "@zondjs/util";
+import {
+  CLRequest,
+  CLRequestType,
+  bytesToHex,
+  hexToBytes,
+} from "@theqrl/zondjs-util";
 import { sha256 } from "ethereum-cryptography/sha256";
 
 import { short } from "../../../../util/index.js";
@@ -15,7 +20,7 @@ import type { Chain } from "../../../../blockchain/index.js";
 import type { ChainCache, PayloadStatusV1 } from "../types.js";
 import type { Block, ExecutionPayload } from "@ethereumjs/block";
 import type { Common } from "@ethereumjs/common";
-import type { PrefixedHexString } from "@zondjs/util";
+import type { PrefixedHexString } from "@theqrl/zondjs-util";
 
 type CLData = {
   parentBeaconBlockRoot?: PrefixedHexString;

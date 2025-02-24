@@ -1,4 +1,4 @@
-import { bigIntToBytes, concatBytes, utf8ToBytes } from "@zondjs/util";
+import { bigIntToBytes, concatBytes, utf8ToBytes } from "@theqrl/zondjs-util";
 
 // Geth compatible DB keys
 

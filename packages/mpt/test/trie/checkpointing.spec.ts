@@ -1,4 +1,4 @@
-import { equalsBytes, hexToBytes } from "@zondjs/util";
+import { equalsBytes, hexToBytes } from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
 import { MerklePatriciaTrie } from "../../src/index.js";

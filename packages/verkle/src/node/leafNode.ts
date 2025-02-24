@@ -1,4 +1,4 @@
-import { equalsBytes, intToBytes, setLengthRight } from "@zondjs/util";
+import { equalsBytes, intToBytes, setLengthRight } from "@theqrl/zondjs-util";
 
 import { BaseVerkleNode } from "./baseVerkleNode.js";
 import { LeafVerkleNodeValue, NODE_WIDTH, VerkleNodeType } from "./types.js";
@@ -9,7 +9,7 @@ import {
 } from "./util.js";
 
 import type { VerkleNodeOptions } from "./types.js";
-import type { VerkleCrypto } from "@zondjs/util";
+import type { VerkleCrypto } from "@theqrl/zondjs-util";
 
 export class LeafVerkleNode extends BaseVerkleNode<VerkleNodeType.Leaf> {
   public stem: Uint8Array;

@@ -4,7 +4,7 @@
 
 import { Common, Hardfork, Mainnet } from "@ethereumjs/common";
 import { getOpcodesForHF, paramsEVM } from "@ethereumjs/evm";
-import { bytesToHex, hexToBytes } from "@zondjs/util";
+import { bytesToHex, hexToBytes } from "@theqrl/zondjs-util";
 
 const common = new Common({
   chain: Mainnet,

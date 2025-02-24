@@ -1,4 +1,4 @@
-import { hexToBytes } from "@zondjs/util";
+import { hexToBytes } from "@theqrl/zondjs-util";
 import { afterEach, assert, describe, expect, it, vi } from "vitest";
 
 import { DPT } from "../src/dpt/index.js";

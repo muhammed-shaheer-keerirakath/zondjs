@@ -18,7 +18,7 @@ import {
   hexToBytes,
   intToHex,
   isHexString,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 
 import { generateCliqueBlockExtraData } from "../consensus/clique.js";
 import { genTransactionsTrieRoot, genWithdrawalsTrieRoot } from "../helpers.js";
@@ -46,7 +46,7 @@ import type {
   EthersProvider,
   PrefixedHexString,
   WithdrawalBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 
 /**
  * Static constructor to create a block from a block data dictionary

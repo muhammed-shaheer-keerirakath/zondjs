@@ -3,7 +3,7 @@ import { createBlockchain } from "@ethereumjs/blockchain";
 import { Hardfork } from "@ethereumjs/common";
 import { MerkleStateManager } from "@ethereumjs/statemanager";
 import { createFeeMarket1559TxFromRLP } from "@ethereumjs/tx";
-import { Account, equalsBytes, hexToBytes, toBytes } from "@zondjs/util";
+import { Account, equalsBytes, hexToBytes, toBytes } from "@theqrl/zondjs-util";
 import * as td from "testdouble";
 import { assert, describe, it } from "vitest";
 

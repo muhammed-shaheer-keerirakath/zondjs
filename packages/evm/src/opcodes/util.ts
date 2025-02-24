@@ -12,7 +12,7 @@ import {
   equalsBytes,
   setLengthLeft,
   setLengthRight,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { keccak256 } from "ethereum-cryptography/keccak.js";
 
 import { EvmError } from "../exceptions.js";
@@ -20,7 +20,7 @@ import { EvmError } from "../exceptions.js";
 import type { ERROR } from "../exceptions.js";
 import type { RunState } from "../interpreter.js";
 import type { Common } from "@ethereumjs/common";
-import type { Address } from "@zondjs/util";
+import type { Address } from "@theqrl/zondjs-util";
 
 const MASK_160 = (BIGINT_1 << BIGINT_160) - BIGINT_1;
 
@@ -74,7 +74,7 @@ export function createAddressFromStackBigInt(value: bigint): Address {
 }
 
 /**
- * Proxy function for @zondjs/util's setLengthLeft, except it returns a zero
+ * Proxy function for @theqrl/zondjs-util's setLengthLeft, except it returns a zero
  * length Uint8Array in case the Uint8Array is full of zeros.
  * @param value Uint8Array which we want to pad
  */

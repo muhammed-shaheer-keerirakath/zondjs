@@ -17,7 +17,7 @@ import {
   equalsBytes,
   hexToBytes,
   utf8ToBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
 import {
@@ -37,7 +37,7 @@ import {
 } from "./util.js";
 
 import type { Block, BlockOptions } from "@ethereumjs/block";
-import type { PrefixedHexString } from "@zondjs/util";
+import type { PrefixedHexString } from "@theqrl/zondjs-util";
 
 describe("blockchain test", () => {
   it("should not crash on getting head of a blockchain without a genesis", async () => {

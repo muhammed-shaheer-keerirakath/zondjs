@@ -1,4 +1,4 @@
-import { bigIntToHex } from "@zondjs/util";
+import { bigIntToHex } from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
 import {

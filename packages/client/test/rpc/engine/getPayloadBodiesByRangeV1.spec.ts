@@ -8,7 +8,7 @@ import {
   bytesToHex,
   createAddressFromPrivateKey,
   hexToBytes,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { assert, describe, it, vi } from "vitest";
 
 import {

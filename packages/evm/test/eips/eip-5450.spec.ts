@@ -1,4 +1,4 @@
-import { hexToBytes } from "@zondjs/util";
+import { hexToBytes } from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
 import { default as testData } from "../../../ethereum-tests/EOFTests/EIP5450/validInvalid.json" assert { type: "json" };

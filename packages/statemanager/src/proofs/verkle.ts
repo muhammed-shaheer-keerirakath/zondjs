@@ -1,8 +1,8 @@
-import { verifyVerkleProof } from "@zondjs/util";
+import { verifyVerkleProof } from "@theqrl/zondjs-util";
 
 import type { Proof } from "../index.js";
 import type { StatelessVerkleStateManager } from "../statelessVerkleStateManager.js";
-import type { Address } from "@zondjs/util";
+import type { Address } from "@theqrl/zondjs-util";
 
 export function getVerkleStateProof(
   sm: StatelessVerkleStateManager,

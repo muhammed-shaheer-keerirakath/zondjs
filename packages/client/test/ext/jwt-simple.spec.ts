@@ -1,5 +1,5 @@
 import { base64url } from "@scure/base";
-import { bytesToUtf8 } from "@zondjs/util";
+import { bytesToUtf8 } from "@theqrl/zondjs-util";
 import fs from "fs";
 import { describe, expect, it } from "vitest";
 

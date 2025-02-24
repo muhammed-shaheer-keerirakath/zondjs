@@ -1,4 +1,4 @@
-import { bytesToHex, setLengthRight } from "@zondjs/util";
+import { bytesToHex, setLengthRight } from "@theqrl/zondjs-util";
 
 import { EvmErrorResult, OOGResult } from "../evm.js";
 

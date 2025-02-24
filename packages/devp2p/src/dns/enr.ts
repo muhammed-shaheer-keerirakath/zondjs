@@ -1,5 +1,5 @@
 import { RLP } from "@ethereumjs/rlp";
-import { bytesToUtf8, utf8ToBytes } from "@zondjs/util";
+import { bytesToUtf8, utf8ToBytes } from "@theqrl/zondjs-util";
 import { base32, base64url } from "@scure/base";
 import { keccak256 } from "ethereum-cryptography/keccak.js";
 import { ecdsaVerify } from "ethereum-cryptography/secp256k1-compat.js";

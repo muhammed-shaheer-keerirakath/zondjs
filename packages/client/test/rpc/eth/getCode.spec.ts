@@ -3,7 +3,10 @@ import { createBlockchain } from "@ethereumjs/blockchain";
 import { Common, Hardfork, Mainnet } from "@ethereumjs/common";
 import { getGenesis } from "@ethereumjs/genesis";
 import { createLegacyTx } from "@ethereumjs/tx";
-import { createAddressFromString, createContractAddress } from "@zondjs/util";
+import {
+  createAddressFromString,
+  createContractAddress,
+} from "@theqrl/zondjs-util";
 import { runBlock } from "@ethereumjs/vm";
 import { assert, describe, it } from "vitest";
 

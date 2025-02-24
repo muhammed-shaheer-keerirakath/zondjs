@@ -1,5 +1,5 @@
 import { Common, Mainnet } from "@ethereumjs/common";
-import { bytesToHex, hexToBytes } from "@zondjs/util";
+import { bytesToHex, hexToBytes } from "@theqrl/zondjs-util";
 import { assert, beforeAll, describe, it } from "vitest";
 
 import { createEVM, getActivePrecompiles } from "../../src/index.js";
@@ -8,7 +8,7 @@ import { testData } from "./modexp-testdata.js";
 
 import type { EVM } from "../../src/index.js";
 import type { PrecompileFunc } from "../../src/precompiles/types.js";
-import type { PrefixedHexString } from "@zondjs/util";
+import type { PrefixedHexString } from "@theqrl/zondjs-util";
 
 const fuzzerTests = testData.data as PrefixedHexString[][];
 describe("Precompiles: MODEXP", () => {

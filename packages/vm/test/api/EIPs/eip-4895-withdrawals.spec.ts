@@ -17,14 +17,14 @@ import {
   createWithdrawalFromBytesArray,
   hexToBytes,
   parseGethGenesisState,
-} from "@zondjs/util";
+} from "@theqrl/zondjs-util";
 import { assert, describe, it } from "vitest";
 
 import { withdrawalsData } from "../../../../client/test/testdata/geth-genesis/withdrawals.js";
 import { buildBlock, createVM, runBlock } from "../../../src/index.js";
 
 import type { Block } from "@ethereumjs/block";
-import type { WithdrawalBytes, WithdrawalData } from "@zondjs/util";
+import type { WithdrawalBytes, WithdrawalData } from "@theqrl/zondjs-util";
 
 const common = new Common({
   chain: Mainnet,
