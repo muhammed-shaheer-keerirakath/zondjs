@@ -72,6 +72,7 @@ dist
 .cache/
 
 # Stores VSCode versions used for testing VSCode extensions
+.vscode
 .vscode-test
 
 # CI script debris

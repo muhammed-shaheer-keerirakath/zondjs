@@ -60,10 +60,10 @@
     "tsc": "../../config/cli/ts-compile.sh"
   },
   "dependencies": {
+    "@scure/base": "^1.1.7",
     "@theqrl/zondjs-common": "^5.0.0-alpha.1",
     "@theqrl/zondjs-rlp": "^6.0.0-alpha.1",
     "@theqrl/zondjs-util": "^10.0.0-alpha.1",
-    "@scure/base": "^1.1.7",
     "debug": "^4.3.3",
     "ethereum-cryptography": "^3.1.0",
     "eventemitter3": "^5.0.1",

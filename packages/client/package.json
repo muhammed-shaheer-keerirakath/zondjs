@@ -57,6 +57,11 @@
     "tsc": "../../config/cli/ts-compile.sh"
   },
   "dependencies": {
+    "@js-sdsl/ordered-map": "^4.4.2",
+    "@multiformats/multiaddr": "^12.2.1",
+    "@paulmillr/trusted-setups": "^0.1.2",
+    "@polkadot/wasm-crypto": "^7.3.2",
+    "@scure/base": "^1.1.7",
     "@theqrl/zondjs-block": "6.0.0-alpha.1",
     "@theqrl/zondjs-blockchain": "8.0.0-alpha.1",
     "@theqrl/zondjs-common": "5.0.0-alpha.1",
@@ -70,11 +75,6 @@
     "@theqrl/zondjs-tx": "6.0.0-alpha.1",
     "@theqrl/zondjs-util": "10.0.0-alpha.1",
     "@theqrl/zondjs-vm": "9.0.0-alpha.1",
-    "@js-sdsl/ordered-map": "^4.4.2",
-    "@multiformats/multiaddr": "^12.2.1",
-    "@paulmillr/trusted-setups": "^0.1.2",
-    "@polkadot/wasm-crypto": "^7.3.2",
-    "@scure/base": "^1.1.7",
     "abstract-level": "^1.0.3",
     "body-parser": "^1.19.2",
     "chalk": "^4.1.2",

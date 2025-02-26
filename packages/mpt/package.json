@@ -58,8 +58,8 @@
     "@theqrl/zondjs-rlp": "^6.0.0-alpha.1",
     "@theqrl/zondjs-util": "^10.0.0-alpha.1",
     "debug": "^4.3.4",
-    "lru-cache": "10.1.0",
-    "ethereum-cryptography": "^3.1.0"
+    "ethereum-cryptography": "^3.1.0",
+    "lru-cache": "10.1.0"
   },
   "devDependencies": {
     "@theqrl/zondjs-genesis": "^0.3.0-alpha.1",
