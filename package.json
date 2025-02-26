@@ -1,9 +1,7 @@
 {
   "name": "root",
   "private": true,
-  "workspaces": [
-    "packages/*"
-  ],
+  "workspaces": ["packages/*"],
   "scripts": {
     "biome": "npx @biomejs/biome check",
     "biome:fix": "npx @biomejs/biome check --write",
@@ -86,6 +84,5 @@
   "engines": {
     "node": ">=18",
     "npm": ">=7"
-  },
-  "packageManager": "yarn@4.6.0"
+  }
 }
