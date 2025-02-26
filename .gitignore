@@ -118,3 +118,19 @@ __snapshots__
 
 # CSpell
 .cspellcache
+
+# Packages
+build/Packages
+
+# Keep the .yarn directory, but ignore unnecessary parts
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+
+# Ignore cache & temporary files
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
