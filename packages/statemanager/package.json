@@ -2,10 +2,7 @@
   "name": "@theqrl/zondjs-statemanager",
   "version": "3.0.0-alpha.1",
   "description": "An Ethereum statemanager implementation",
-  "keywords": [
-    "ethereum",
-    "statemanager"
-  ],
+  "keywords": ["ethereum", "statemanager"],
   "homepage": "https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/statemanager#readme",
   "bugs": {
     "url": "https://github.com/ethereumjs/ethereumjs-monorepo/issues?q=is%3Aissue+label%3A%22package%3A+statemanager%22"
@@ -16,9 +13,7 @@
   },
   "license": "MPL-2.0",
   "author": "EthereumJS Team",
-  "contributors": [
-    "g11tech <gajinder@g11.in>"
-  ],
+  "contributors": ["g11tech <gajinder@g11.in>"],
   "type": "module",
   "sideEffects": false,
   "main": "dist/cjs/index.js",
@@ -29,10 +24,7 @@
       "require": "./dist/cjs/index.js"
     }
   },
-  "files": [
-    "dist",
-    "src"
-  ],
+  "files": ["dist", "src"],
   "scripts": {
     "biome": "npx @biomejs/biome check",
     "biome:fix": "npx @biomejs/biome check --write",
@@ -52,18 +44,18 @@
   },
   "dependencies": {
     "@js-sdsl/ordered-map": "^4.4.2",
-    "@theqrl/zondjs-common": "^5.0.0-alpha.1",
-    "@theqrl/zondjs-mpt": "^7.0.0-alpha.1",
-    "@theqrl/zondjs-rlp": "^6.0.0-alpha.1",
-    "@theqrl/zondjs-util": "^10.0.0-alpha.1",
-    "@theqrl/zondjs-verkle": "^0.2.0-alpha.1",
+    "@theqrl/zondjs-common": "file:../build/theqrl-zondjs-common-5.0.0-alpha.1.tgz",
+    "@theqrl/zondjs-mpt": "file:../build/theqrl-zondjs-mpt-7.0.0-alpha.1.tgz",
+    "@theqrl/zondjs-rlp": "file:../build/theqrl-zondjs-rlp-6.0.0-alpha.1.tgz",
+    "@theqrl/zondjs-util": "file:../build/theqrl-zondjs-util-10.0.0-alpha.1.tgz",
+    "@theqrl/zondjs-verkle": "file:../build/theqrl-zondjs-verkle-0.2.0-alpha.1.tgz",
     "debug": "^4.3.3",
     "ethereum-cryptography": "^3.1.0",
     "lru-cache": "10.1.0"
   },
   "devDependencies": {
-    "@theqrl/zondjs-block": "^6.0.0-alpha.1",
-    "@theqrl/zondjs-genesis": "^0.3.0-alpha.1",
+    "@theqrl/zondjs-block": "file:../build/theqrl-zondjs-block-6.0.0-alpha.1.tgz",
+    "@theqrl/zondjs-genesis": "file:../build/theqrl-zondjs-genesis-0.3.0-alpha.1.tgz",
     "@types/debug": "^4.1.9"
   }
 }

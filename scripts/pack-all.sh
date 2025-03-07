@@ -15,4 +15,17 @@ for workspace in $workspaces; do
     npm pack --pack-destination "$SCRIPT_DIR/$OUTPUT_DIR/"
 done
 
-echo "✅ All packages packed in $OUTPUT_DIR/"
+echo "✅ All packages packed to: $OUTPUT_DIR/"
+
+copy_destinations=(
+  "$HOME/.cache/yarn/v6/.tmp"
+  "$SCRIPT_DIR/../vortex/dist"
+)
+
+for dest in "${copy_destinations[@]}"; do
+    rm -rf "$dest"
+    DEST_BUILD="$dest/build"
+    mkdir -p "$DEST_BUILD"
+    cp -r "$SCRIPT_DIR/$OUTPUT_DIR/"* "$DEST_BUILD"
+    echo "✅ Copied packages to: $DEST_BUILD"
+done

@@ -2,11 +2,7 @@
   "name": "@theqrl/zondjs-util",
   "version": "10.0.0-alpha.1",
   "description": "A collection of utility functions for Ethereum",
-  "keywords": [
-    "ethereum",
-    "utilities",
-    "utils"
-  ],
+  "keywords": ["ethereum", "utilities", "utils"],
   "homepage": "https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/util#readme",
   "bugs": {
     "url": "https://github.com/ethereumjs/ethereumjs-monorepo/issues?q=is%3Aissue+label%3A%22package%3A+util%22"
@@ -71,10 +67,7 @@
       "require": "./dist/cjs/index.js"
     }
   },
-  "files": [
-    "dist",
-    "src"
-  ],
+  "files": ["dist", "src"],
   "scripts": {
     "biome": "npx @biomejs/biome check",
     "biome:fix": "npx @biomejs/biome check --write",
@@ -93,7 +86,7 @@
     "tsc": "../../config/cli/ts-compile.sh"
   },
   "dependencies": {
-    "@theqrl/zondjs-rlp": "^6.0.0-alpha.1",
+    "@theqrl/zondjs-rlp": "file:../build/theqrl-zondjs-rlp-6.0.0-alpha.1.tgz",
     "ethereum-cryptography": "^3.1.0"
   },
   "devDependencies": {

@@ -2,11 +2,7 @@
   "name": "@theqrl/zondjs-wallet",
   "version": "3.0.0-alpha.1",
   "description": "Utilities for handling Ethereum keys",
-  "keywords": [
-    "ethereum",
-    "wallets",
-    "keys"
-  ],
+  "keywords": ["ethereum", "wallets", "keys"],
   "homepage": "https://github.com/ethereumjs/ethereumjs-monorepo/packages/wallet",
   "bugs": {
     "url": "https://github.com/ethereumjs/ethereumjs-monorepo/issues"
@@ -27,10 +23,7 @@
       "require": "./dist/cjs/index.js"
     }
   },
-  "files": [
-    "src",
-    "dist"
-  ],
+  "files": ["src", "dist"],
   "scripts": {
     "build": "../../config/cli/ts-build.sh",
     "clean": "../../config/cli/clean-package.sh",
@@ -48,7 +41,7 @@
   },
   "dependencies": {
     "@scure/base": "^1.1.7",
-    "@theqrl/zondjs-util": "^10.0.0-alpha.1",
+    "@theqrl/zondjs-util": "file:../build/theqrl-zondjs-util-10.0.0-alpha.1.tgz",
     "ethereum-cryptography": "^3.1.0",
     "js-md5": "^0.8.3",
     "uuid": "^9.0.1"

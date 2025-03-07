@@ -2,12 +2,7 @@
   "name": "@theqrl/zondjs-verkle",
   "version": "0.2.0-alpha.1",
   "description": "Implementation of verkle trees as used in Ethereum.",
-  "keywords": [
-    "verkle",
-    "tree",
-    "trie",
-    "ethereum"
-  ],
+  "keywords": ["verkle", "tree", "trie", "ethereum"],
   "homepage": "https://github.com/ethereumjs/ethereumjs-monorepo/tree/master/packages/verkle#readme",
   "bugs": {
     "url": "https://github.com/ethereumjs/ethereumjs-monorepo/issues?q=is%3Aissue+label%3A%22package%3A+verkle%22"
@@ -34,10 +29,7 @@
       "require": "./dist/cjs/index.js"
     }
   },
-  "files": [
-    "dist",
-    "src"
-  ],
+  "files": ["dist", "src"],
   "scripts": {
     "biome": "npx @biomejs/biome check",
     "biome:fix": "npx @biomejs/biome check --write",
@@ -56,8 +48,8 @@
     "tsc": "../../config/cli/ts-compile.sh"
   },
   "dependencies": {
-    "@theqrl/zondjs-rlp": "^6.0.0-alpha.1",
-    "@theqrl/zondjs-util": "^10.0.0-alpha.1",
+    "@theqrl/zondjs-rlp": "file:../build/theqrl-zondjs-rlp-6.0.0-alpha.1.tgz",
+    "@theqrl/zondjs-util": "file:../build/theqrl-zondjs-util-10.0.0-alpha.1.tgz",
     "debug": "^4.3.4",
     "lru-cache": "10.1.0",
     "micro-eth-signer": "0.12.1"
