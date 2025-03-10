@@ -6,11 +6,11 @@ import {
   pubToAddress,
 } from './account.js'
 import {
+  addressToBytes,
   bigIntToBytes,
   bytesToBigInt,
   bytesToHex,
   equalsBytes,
-  hexToBytes,
   setLengthLeft,
 } from './bytes.js'
 import { BIGINT_0 } from './constants.js'
@@ -97,7 +97,7 @@ export function createAddressFromString(str: string): Address {
   if (!isValidAddress(str)) {
     throw new Error(`Invalid address input=${str}`)
   }
-  return new Address(hexToBytes(str))
+  return new Address(addressToBytes(str))
 }
 
 /**

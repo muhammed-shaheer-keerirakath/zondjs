@@ -27,6 +27,20 @@ import { bytesToUnprefixedHex, utf8ToBytes } from './bytes.js'
 import type { PrefixedHexString } from './types.js'
 
 /**
+ * Returns a boolean on whether or not the the input starts with 'Z' and matches the optional length
+ * @param {string} value the string input value
+ * @param {number|undefined} length the optional length of the hex string in bytes
+ * @returns {boolean} Whether or not the string is a valid PrefixedHexString matching the optional length
+ */
+export function isAddressString(value: string, length?: number): value is PrefixedHexString {
+  if (typeof value !== 'string' || !value.match(/^Z[0-9A-Fa-f]*$/)) return false
+
+  if (typeof length !== 'undefined' && length > 0 && value.length !== 2 + 2 * length) return false
+
+  return true
+}
+
+/**
  * Returns a boolean on whether or not the the input starts with '0x' and matches the optional length
  * @param {string} value the string input value
  * @param {number|undefined} length the optional length of the hex string in bytes
@@ -38,6 +52,18 @@ export function isHexString(value: string, length?: number): value is PrefixedHe
   if (typeof length !== 'undefined' && length > 0 && value.length !== 2 + 2 * length) return false
 
   return true
+}
+
+/**
+ * Removes 'Z' from a given `String` if present
+ * @param str the string value
+ * @returns the string without Z prefix
+ */
+export const stripAddressPrefix = (str: string): string => {
+  if (typeof str !== 'string')
+    throw new Error(`[stripHexPrefix] input must be type 'string', received ${typeof str}`)
+
+  return isAddressString(str) ? str.slice(1) : str
 }
 
 /**

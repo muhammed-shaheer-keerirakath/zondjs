@@ -28,6 +28,11 @@ export type NumericString = `${number}`
 /*
  * A type that represents a `0x`-prefixed hex string.
  */
+export type PrefixedAddressString = `Z${string}`
+
+/*
+ * A type that represents a `0x`-prefixed hex string.
+ */
 export type PrefixedHexString = `0x${string}`
 
 /**

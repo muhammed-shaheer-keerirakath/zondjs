@@ -6,7 +6,7 @@ import {
 } from 'ethereum-cryptography/utils.js'
 
 import { assertIsArray, assertIsBytes, assertIsHexString } from './helpers.js'
-import { isHexString, padToEven, stripHexPrefix } from './internal.js'
+import { isHexString, padToEven, stripAddressPrefix, stripHexPrefix } from './internal.js'
 
 import type { PrefixedHexString, TransformableToBytes } from './types.js'
 
@@ -16,6 +16,17 @@ const BIGINT_0 = BigInt(0)
  * @deprecated
  */
 export const bytesToUnprefixedHex = _bytesToUnprefixedHex
+
+/**
+ * Converts a {@link PrefixedAddressString} to a {@link Uint8Array}
+ * @param {PrefixedAddressString} address The Z-prefixed address string to convert
+ * @returns {Uint8Array} The converted bytes
+ * @throws If the input is not a valid Z-prefixed address string
+ */
+export const addressToBytes = (address: string) => {
+  if (!address.startsWith('Z')) throw new Error('input string must be Z prefixed')
+  return nobleH2B(padToEven(stripAddressPrefix(address)))
+}
 
 /**
  * Converts a {@link PrefixedHexString} to a {@link Uint8Array}
