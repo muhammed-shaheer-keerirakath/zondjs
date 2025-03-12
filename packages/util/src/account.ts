@@ -15,10 +15,10 @@ import {
   utf8ToBytes,
 } from './bytes.js'
 import { BIGINT_0, KECCAK256_NULL, KECCAK256_RLP } from './constants.js'
-import { assertIsBytes, assertIsHexString, assertIsString } from './helpers.js'
-import { stripHexPrefix } from './internal.js'
+import { assertIsAddressString, assertIsBytes, assertIsString } from './helpers.js'
+import { stripAddressPrefix } from './internal.js'
 
-import type { BigIntLike, BytesLike, PrefixedHexString } from './types.js'
+import type { BigIntLike, BytesLike, PrefixedAddressString, PrefixedHexString } from './types.js'
 
 export interface AccountData {
   nonce?: BigIntLike
@@ -421,7 +421,7 @@ export function createPartialAccountFromRLP(serialized: Uint8Array) {
 /**
  * Checks if the address is a valid. Accepts checksummed addresses too.
  */
-export const isValidAddress = function (zAddress: string): zAddress is PrefixedHexString {
+export const isValidAddress = function (zAddress: string): zAddress is PrefixedAddressString {
   try {
     assertIsString(zAddress)
   } catch (e: any) {
@@ -444,11 +444,11 @@ export const isValidAddress = function (zAddress: string): zAddress is PrefixedH
  * Usage of this EIP is therefore discouraged unless you have a very targeted use case.
  */
 export const toChecksumAddress = function (
-  hexAddress: string,
+  zAddress: string,
   eip1191ChainId?: BigIntLike,
-): PrefixedHexString {
-  assertIsHexString(hexAddress)
-  const address = stripHexPrefix(hexAddress).toLowerCase()
+): PrefixedAddressString {
+  assertIsAddressString(zAddress)
+  const address = stripAddressPrefix(zAddress).toLowerCase()
 
   let prefix = ''
   if (eip1191ChainId !== undefined) {
@@ -468,7 +468,7 @@ export const toChecksumAddress = function (
     }
   }
 
-  return `0x${ret}`
+  return `Z${ret}`
 }
 
 /**

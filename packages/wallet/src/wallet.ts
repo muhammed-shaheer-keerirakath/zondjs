@@ -1,4 +1,5 @@
 // cspell:ignore uuidv kdfparams dklen xprv xpub
+import { base58check } from '@scure/base'
 import {
   bytesToHex,
   bytesToUnprefixedHex,
@@ -14,127 +15,104 @@ import {
   toChecksumAddress,
   unprefixedHexToBytes,
   utf8ToBytes,
-} from "@theqrl/zondjs-util";
-import { base58check } from "@scure/base";
-import * as aes from "ethereum-cryptography/aes.js";
-import { keccak256 } from "ethereum-cryptography/keccak.js";
-import { pbkdf2 } from "ethereum-cryptography/pbkdf2.js";
-import { scrypt } from "ethereum-cryptography/scrypt.js";
-import { sha256 } from "ethereum-cryptography/sha256.js";
-import { v4 as uuidv4 } from "uuid";
+} from '@theqrl/zondjs-util'
+import * as aes from 'ethereum-cryptography/aes.js'
+import { keccak256 } from 'ethereum-cryptography/keccak.js'
+import { pbkdf2 } from 'ethereum-cryptography/pbkdf2.js'
+import { scrypt } from 'ethereum-cryptography/scrypt.js'
+import { sha256 } from 'ethereum-cryptography/sha256.js'
+import { v4 as uuidv4 } from 'uuid'
 
-import type { PrefixedHexString } from "@theqrl/zondjs-util";
+import type { PrefixedAddressString, PrefixedHexString } from '@theqrl/zondjs-util'
 
-const bs58check = base58check(sha256);
+const bs58check = base58check(sha256)
 
 interface KDFParamsV1 {
-  N: number;
-  P: number;
-  R: number;
-  DkLen: number;
+  N: number
+  P: number
+  R: number
+  DkLen: number
 }
-function scryptV1(
-  password: Uint8Array,
-  salt: Uint8Array,
-  kdfparams: KDFParamsV1,
-) {
-  const { N, P, R, DkLen } = kdfparams;
-  return scrypt(password, salt, N, P, R, DkLen);
+function scryptV1(password: Uint8Array, salt: Uint8Array, kdfparams: KDFParamsV1) {
+  const { N, P, R, DkLen } = kdfparams
+  return scrypt(password, salt, N, P, R, DkLen)
 }
 function scryptV3(password: string, kdfparams: ScryptKDFParams) {
-  const { salt, n, p, r, dklen } = kdfparams;
-  return scrypt(utf8ToBytes(password), salt, n, p, r, dklen);
+  const { salt, n, p, r, dklen } = kdfparams
+  return scrypt(utf8ToBytes(password), salt, n, p, r, dklen)
 }
 function scryptV3Out(password: string, kdfparams: ScryptKDFParamsOut) {
-  const { salt, n, p, r, dklen } = kdfparams;
-  return scrypt(
-    utf8ToBytes(password),
-    unprefixedHexToBytes(salt),
-    n,
-    p,
-    r,
-    dklen,
-  );
+  const { salt, n, p, r, dklen } = kdfparams
+  return scrypt(utf8ToBytes(password), unprefixedHexToBytes(salt), n, p, r, dklen)
 }
 
 // parameters for the toV3() method
 
 interface V3Params {
-  kdf: string;
-  cipher: string;
-  salt: string | Uint8Array;
-  iv: string | Uint8Array;
-  uuid: string | Uint8Array;
-  dklen: number;
-  c: number;
-  n: number;
-  r: number;
-  p: number;
+  kdf: string
+  cipher: string
+  salt: string | Uint8Array
+  iv: string | Uint8Array
+  uuid: string | Uint8Array
+  dklen: number
+  c: number
+  n: number
+  r: number
+  p: number
 }
 
 interface V3ParamsStrict {
-  kdf: string;
-  cipher: string;
-  salt: Uint8Array;
-  iv: Uint8Array;
-  uuid: Uint8Array;
-  dklen: number;
-  c: number;
-  n: number;
-  r: number;
-  p: number;
+  kdf: string
+  cipher: string
+  salt: Uint8Array
+  iv: Uint8Array
+  uuid: Uint8Array
+  dklen: number
+  c: number
+  n: number
+  r: number
+  p: number
 }
 
 function validateHexString(paramName: string, str: string, length?: number) {
-  if (str.toLowerCase().startsWith("0x")) {
-    str = str.slice(2);
+  if (str.toLowerCase().startsWith('0x')) {
+    str = str.slice(2)
   }
   if (!str && length === undefined) {
-    return str;
+    return str
   }
   if ((length as number) % 2) {
-    throw new Error(`Invalid length argument, must be an even number`);
+    throw new Error(`Invalid length argument, must be an even number`)
   }
-  if (typeof length === "number" && str.length !== length) {
-    throw new Error(
-      `Invalid ${paramName}, string must be ${length} hex characters`,
-    );
+  if (typeof length === 'number' && str.length !== length) {
+    throw new Error(`Invalid ${paramName}, string must be ${length} hex characters`)
   }
   if (!/^([0-9a-f]{2})+$/i.test(str)) {
-    const howMany =
-      typeof length === "number"
-        ? length
-        : "empty or a non-zero even number of";
-    throw new Error(
-      `Invalid ${paramName}, string must be ${howMany} hex characters`,
-    );
+    const howMany = typeof length === 'number' ? length : 'empty or a non-zero even number of'
+    throw new Error(`Invalid ${paramName}, string must be ${howMany} hex characters`)
   }
-  return str;
+  return str
 }
 
 function validateBytes(paramName: string, bytes: Uint8Array, length?: number) {
   if (!(bytes instanceof Uint8Array)) {
     const howManyHex =
-      typeof length === "number"
-        ? `${length * 2}`
-        : "empty or a non-zero even number of";
-    const howManyBytes = typeof length === "number" ? ` (${length} bytes)` : "";
+      typeof length === 'number' ? `${length * 2}` : 'empty or a non-zero even number of'
+    const howManyBytes = typeof length === 'number' ? ` (${length} bytes)` : ''
     throw new Error(
       `Invalid ${paramName}, must be a string (${howManyHex} hex characters) or Uint8Array${howManyBytes}`,
-    );
+    )
   }
-  if (typeof length === "number" && bytes.length !== length) {
-    throw new Error(`Invalid ${paramName}, Uint8Array must be ${length} bytes`);
+  if (typeof length === 'number' && bytes.length !== length) {
+    throw new Error(`Invalid ${paramName}, Uint8Array must be ${length} bytes`)
   }
-  return bytes;
+  return bytes
 }
 
-function mergeToV3ParamsWithDefaults(
-  params?: Partial<V3Params>,
-): V3ParamsStrict {
+function mergeToV3ParamsWithDefaults(params?: Partial<V3Params>): V3ParamsStrict {
   const v3Defaults: V3ParamsStrict = {
-    cipher: "aes-128-ctr",
-    kdf: "scrypt",
+    cipher: 'aes-128-ctr',
+    kdf: 'scrypt',
     salt: randomBytes(32),
     iv: randomBytes(16),
     uuid: randomBytes(16),
@@ -143,87 +121,85 @@ function mergeToV3ParamsWithDefaults(
     n: 262144,
     r: 8,
     p: 1,
-  };
+  }
 
   if (!params) {
-    return v3Defaults;
+    return v3Defaults
   }
 
-  if (typeof params.salt === "string") {
-    params.salt = unprefixedHexToBytes(validateHexString("salt", params.salt));
+  if (typeof params.salt === 'string') {
+    params.salt = unprefixedHexToBytes(validateHexString('salt', params.salt))
   }
-  if (typeof params.iv === "string") {
-    params.iv = unprefixedHexToBytes(validateHexString("iv", params.iv, 32));
+  if (typeof params.iv === 'string') {
+    params.iv = unprefixedHexToBytes(validateHexString('iv', params.iv, 32))
   }
-  if (typeof params.uuid === "string") {
-    params.uuid = unprefixedHexToBytes(
-      validateHexString("uuid", params.uuid, 32),
-    );
+  if (typeof params.uuid === 'string') {
+    params.uuid = unprefixedHexToBytes(validateHexString('uuid', params.uuid, 32))
   }
 
   if (params.salt) {
-    validateBytes("salt", params.salt);
+    validateBytes('salt', params.salt)
   }
   if (params.iv) {
-    validateBytes("iv", params.iv, 16);
+    validateBytes('iv', params.iv, 16)
   }
   if (params.uuid) {
-    validateBytes("uuid", params.uuid, 16);
+    validateBytes('uuid', params.uuid, 16)
   }
 
   return {
     ...v3Defaults,
     ...(params as V3ParamsStrict),
-  };
+  }
 }
 
 // KDF
 
 const enum KDFFunctions {
-  PBKDF = "pbkdf2",
-  Scrypt = "scrypt",
+  PBKDF = 'pbkdf2',
+  Scrypt = 'scrypt',
 }
 
 interface ScryptKDFParams {
-  dklen: number;
-  n: number;
-  p: number;
-  r: number;
-  salt: Uint8Array;
+  dklen: number
+  n: number
+  p: number
+  r: number
+  salt: Uint8Array
 }
 
 interface ScryptKDFParamsOut {
-  dklen: number;
-  n: number;
-  p: number;
-  r: number;
-  salt: string;
+  dklen: number
+  n: number
+  p: number
+  r: number
+  salt: string
 }
 
 interface PBKDFParams {
-  c: number;
-  dklen: number;
-  prf: string;
-  salt: Uint8Array;
+  c: number
+  dklen: number
+  prf: string
+  salt: Uint8Array
 }
 
 interface PBKDFParamsOut {
-  c: number;
-  dklen: number;
-  prf: string;
-  salt: string;
+  c: number
+  dklen: number
+  prf: string
+  salt: string
 }
 
-type KDFParams = ScryptKDFParams | PBKDFParams;
-type KDFParamsOut = ScryptKDFParamsOut | PBKDFParamsOut;
+type KDFParams = ScryptKDFParams | PBKDFParams
+type KDFParamsOut = ScryptKDFParamsOut | PBKDFParamsOut
 
 function kdfParamsForPBKDF(opts: V3ParamsStrict): PBKDFParams {
   return {
     dklen: opts.dklen,
     salt: opts.salt,
     c: opts.c,
-    prf: "hmac-sha256",
-  };
+    prf: 'hmac-sha256',
+  }
 }
 
 function kdfParamsForScrypt(opts: V3ParamsStrict): ScryptKDFParams {
@@ -233,56 +209,56 @@ function kdfParamsForScrypt(opts: V3ParamsStrict): ScryptKDFParams {
     n: opts.n,
     p: opts.p,
     r: opts.r,
-  };
+  }
 }
 
 // JSON keystore types
 
 // https://github.com/ethereum/homestead-guide/blob/master/old-docs-for-reference/go-ethereum-wiki.rst/Passphrase-protected-key-store-spec.rst
 interface V1Keystore {
-  Address: string;
+  Address: string
   Crypto: {
-    CipherText: string;
-    IV: string;
+    CipherText: string
+    IV: string
     KeyHeader: {
-      Kdf: string;
+      Kdf: string
       KdfParams: {
-        DkLen: number;
-        N: number;
-        P: number;
-        R: number;
-        SaltLen: number;
-      };
-      Version: string;
-    };
-    MAC: string;
-    Salt: string;
-  };
-  Id: string;
-  Version: string;
+        DkLen: number
+        N: number
+        P: number
+        R: number
+        SaltLen: number
+      }
+      Version: string
+    }
+    MAC: string
+    Salt: string
+  }
+  Id: string
+  Version: string
 }
 
 // https://github.com/ethereum/wiki/wiki/Web3-Secret-Storage-Definition
 interface V3Keystore {
   crypto: {
-    cipher: string;
+    cipher: string
     cipherparams: {
-      iv: string;
-    };
-    ciphertext: string;
-    kdf: string;
-    kdfparams: KDFParamsOut;
-    mac: string;
-  };
-  id: string;
-  version: number;
+      iv: string
+    }
+    ciphertext: string
+    kdf: string
+    kdfparams: KDFParamsOut
+    mac: string
+  }
+  id: string
+  version: number
 }
 
 interface EthSaleKeystore {
-  encseed: string;
-  ethaddr: string;
-  btcaddr: string;
-  email: string;
+  encseed: string
+  ethaddr: string
+  btcaddr: string
+  email: string
 }
 
 // wallet implementation
@@ -293,19 +269,15 @@ export class Wallet {
     private publicKey: Uint8Array | undefined = undefined,
   ) {
     if (privateKey && publicKey) {
-      throw new Error(
-        "Cannot supply both a private and a public key to the constructor",
-      );
+      throw new Error('Cannot supply both a private and a public key to the constructor')
     }
 
     if (privateKey && !isValidPrivate(privateKey)) {
-      throw new Error(
-        "Private key does not satisfy the curve requirements (ie. it is invalid)",
-      );
+      throw new Error('Private key does not satisfy the curve requirements (ie. it is invalid)')
     }
 
     if (publicKey && !isValidPublic(publicKey)) {
-      throw new Error("Invalid public key");
+      throw new Error('Invalid public key')
     }
   }
 
@@ -318,16 +290,16 @@ export class Wallet {
    */
   public static generate(icapDirect = false): Wallet {
     if (icapDirect) {
-      const max = BigInt("0x088f924eeceeda7fe92e1f5b0fffffffffffffff");
+      const max = BigInt('0x088f924eeceeda7fe92e1f5b0fffffffffffffff')
       for (;;) {
-        const privateKey = randomBytes(32);
-        const hex = bytesToUnprefixedHex(privateToAddress(privateKey));
-        if (BigInt("0x" + hex) <= max) {
-          return new Wallet(privateKey);
+        const privateKey = randomBytes(32)
+        const hex = bytesToUnprefixedHex(privateToAddress(privateKey))
+        if (BigInt('0x' + hex) <= max) {
+          return new Wallet(privateKey)
         }
       }
     } else {
-      return new Wallet(randomBytes(32));
+      return new Wallet(randomBytes(32))
     }
   }
 
@@ -336,14 +308,14 @@ export class Wallet {
    */
   public static generateVanityAddress(pattern: RegExp | string): Wallet {
     if (!(pattern instanceof RegExp)) {
-      pattern = new RegExp(pattern);
+      pattern = new RegExp(pattern)
     }
 
     for (;;) {
-      const privateKey = randomBytes(32);
-      const address = privateToAddress(privateKey);
+      const privateKey = randomBytes(32)
+      const address = privateToAddress(privateKey)
       if (pattern.test(bytesToUnprefixedHex(address))) {
-        return new Wallet(privateKey);
+        return new Wallet(privateKey)
       }
     }
   }
@@ -354,49 +326,44 @@ export class Wallet {
    * This method only accepts uncompressed Ethereum-style public keys, unless
    * the `nonStrict` flag is set to true.
    */
-  public static fromPublicKey(
-    publicKey: Uint8Array,
-    nonStrict = false,
-  ): Wallet {
+  public static fromPublicKey(publicKey: Uint8Array, nonStrict = false): Wallet {
     if (nonStrict) {
-      publicKey = importPublic(publicKey);
+      publicKey = importPublic(publicKey)
     }
-    return new Wallet(undefined, publicKey);
+    return new Wallet(undefined, publicKey)
   }
 
   /**
    * Create an instance based on a BIP32 extended public key (xpub)
    */
   public static fromExtendedPublicKey(extendedPublicKey: string): Wallet {
-    if (extendedPublicKey.slice(0, 4) !== "xpub") {
-      throw new Error("Not an extended public key");
+    if (extendedPublicKey.slice(0, 4) !== 'xpub') {
+      throw new Error('Not an extended public key')
     }
-    const publicKey: Uint8Array = bs58check
-      .decode(extendedPublicKey)
-      .subarray(45);
+    const publicKey: Uint8Array = bs58check.decode(extendedPublicKey).subarray(45)
     // Convert to an Ethereum public key
-    return Wallet.fromPublicKey(publicKey, true);
+    return Wallet.fromPublicKey(publicKey, true)
   }
 
   /**
    * Create an instance based on a raw private key
    */
   public static fromPrivateKey(privateKey: Uint8Array): Wallet {
-    return new Wallet(privateKey);
+    return new Wallet(privateKey)
   }
 
   /**
    * Create an instance based on a BIP32 extended private key (xprv)
    */
   public static fromExtendedPrivateKey(extendedPrivateKey: string): Wallet {
-    if (extendedPrivateKey.slice(0, 4) !== "xprv") {
-      throw new Error("Not an extended private key");
+    if (extendedPrivateKey.slice(0, 4) !== 'xprv') {
+      throw new Error('Not an extended private key')
     }
-    const tmp: Uint8Array = bs58check.decode(extendedPrivateKey);
+    const tmp: Uint8Array = bs58check.decode(extendedPrivateKey)
     if (tmp[45] !== 0) {
-      throw new Error("Invalid extended private key");
+      throw new Error('Invalid extended private key')
     }
-    return Wallet.fromPrivateKey(tmp.subarray(46));
+    return Wallet.fromPrivateKey(tmp.subarray(46))
   }
 
   /**
@@ -405,35 +372,31 @@ export class Wallet {
    * @param input A JSON serialized string, or an object representing V1 Keystore.
    * @param password The keystore password.
    */
-  public static async fromV1(
-    input: string | V1Keystore,
-    password: string,
-  ): Promise<Wallet> {
-    const json: V1Keystore =
-      typeof input === "object" ? input : JSON.parse(input);
-    if (json.Version !== "1") {
-      throw new Error("Not a V1 Wallet");
+  public static async fromV1(input: string | V1Keystore, password: string): Promise<Wallet> {
+    const json: V1Keystore = typeof input === 'object' ? input : JSON.parse(input)
+    if (json.Version !== '1') {
+      throw new Error('Not a V1 Wallet')
     }
-    if (json.Crypto.KeyHeader.Kdf !== "scrypt") {
-      throw new Error("Unsupported key derivation scheme");
+    if (json.Crypto.KeyHeader.Kdf !== 'scrypt') {
+      throw new Error('Unsupported key derivation scheme')
     }
 
-    const kdfparams = json.Crypto.KeyHeader.KdfParams;
-    const salt = unprefixedHexToBytes(json.Crypto.Salt);
-    const derivedKey = await scryptV1(utf8ToBytes(password), salt, kdfparams);
-    const ciphertext = unprefixedHexToBytes(json.Crypto.CipherText);
-    const mac = keccak256(concatBytes(derivedKey.subarray(16, 32), ciphertext));
+    const kdfparams = json.Crypto.KeyHeader.KdfParams
+    const salt = unprefixedHexToBytes(json.Crypto.Salt)
+    const derivedKey = await scryptV1(utf8ToBytes(password), salt, kdfparams)
+    const ciphertext = unprefixedHexToBytes(json.Crypto.CipherText)
+    const mac = keccak256(concatBytes(derivedKey.subarray(16, 32), ciphertext))
     if (bytesToUnprefixedHex(mac) !== json.Crypto.MAC) {
-      throw new Error("Key derivation failed - possibly wrong passphrase");
+      throw new Error('Key derivation failed - possibly wrong passphrase')
     }
 
     const seed = aes.decrypt(
       ciphertext,
       keccak256(derivedKey.subarray(0, 16)).subarray(0, 16),
       unprefixedHexToBytes(json.Crypto.IV),
-      "aes-128-cbc",
-    );
-    return new Wallet(seed);
+      'aes-128-cbc',
+    )
+    return new Wallet(seed)
   }
 
   /**
@@ -448,24 +411,22 @@ export class Wallet {
     nonStrict = false,
   ): Promise<Wallet> {
     const json: V3Keystore =
-      typeof input === "object"
-        ? input
-        : JSON.parse(nonStrict ? input.toLowerCase() : input);
+      typeof input === 'object' ? input : JSON.parse(nonStrict ? input.toLowerCase() : input)
 
     if (json.version !== 3) {
-      throw new Error("Not a V3 wallet");
+      throw new Error('Not a V3 wallet')
     }
 
-    let derivedKey: Uint8Array, kdfparams: any;
-    if (json.crypto.kdf === "scrypt") {
-      kdfparams = json.crypto.kdfparams;
+    let derivedKey: Uint8Array, kdfparams: any
+    if (json.crypto.kdf === 'scrypt') {
+      kdfparams = json.crypto.kdfparams
       // FIXME: support progress reporting callback
-      derivedKey = await scryptV3Out(password, kdfparams);
-    } else if (json.crypto.kdf === "pbkdf2") {
-      kdfparams = json.crypto.kdfparams;
+      derivedKey = await scryptV3Out(password, kdfparams)
+    } else if (json.crypto.kdf === 'pbkdf2') {
+      kdfparams = json.crypto.kdfparams
 
-      if (kdfparams.prf !== "hmac-sha256") {
-        throw new Error("Unsupported parameters to PBKDF2");
+      if (kdfparams.prf !== 'hmac-sha256') {
+        throw new Error('Unsupported parameters to PBKDF2')
       }
 
       derivedKey = await pbkdf2(
@@ -473,16 +434,16 @@ export class Wallet {
         unprefixedHexToBytes(kdfparams.salt),
         kdfparams.c,
         kdfparams.dklen,
-        "sha256",
-      );
+        'sha256',
+      )
     } else {
-      throw new Error("Unsupported key derivation scheme");
+      throw new Error('Unsupported key derivation scheme')
     }
 
-    const ciphertext = unprefixedHexToBytes(json.crypto.ciphertext);
-    const mac = keccak256(concatBytes(derivedKey.subarray(16, 32), ciphertext));
+    const ciphertext = unprefixedHexToBytes(json.crypto.ciphertext)
+    const mac = keccak256(concatBytes(derivedKey.subarray(16, 32), ciphertext))
     if (bytesToUnprefixedHex(mac) !== json.crypto.mac) {
-      throw new Error("Key derivation failed - possibly wrong passphrase");
+      throw new Error('Key derivation failed - possibly wrong passphrase')
     }
 
     const seed = aes.decrypt(
@@ -490,8 +451,8 @@ export class Wallet {
       derivedKey.subarray(0, 16),
       unprefixedHexToBytes(json.crypto.cipherparams.iv),
       json.crypto.cipher,
-    );
-    return new Wallet(seed);
+    )
+    return new Wallet(seed)
   }
 
   /*
@@ -506,17 +467,13 @@ export class Wallet {
     input: string | EthSaleKeystore,
     password: string,
   ): Promise<Wallet> {
-    const json: EthSaleKeystore =
-      typeof input === "object" ? input : JSON.parse(input);
+    const json: EthSaleKeystore = typeof input === 'object' ? input : JSON.parse(input)
 
-    const encseed = unprefixedHexToBytes(json.encseed);
+    const encseed = unprefixedHexToBytes(json.encseed)
 
     // key derivation
-    const pass = utf8ToBytes(password);
-    const derivedKey = (await pbkdf2(pass, pass, 2000, 32, "sha256")).subarray(
-      0,
-      16,
-    );
+    const pass = utf8ToBytes(password)
+    const derivedKey = (await pbkdf2(pass, pass, 2000, 32, 'sha256')).subarray(0, 16)
 
     // seed decoding (IV is first 16 bytes)
     // NOTE: crypto (derived from openssl) when used with aes-*-cbc will handle PKCS#7 padding internally
@@ -525,15 +482,15 @@ export class Wallet {
       encseed.subarray(16),
       derivedKey,
       encseed.subarray(0, 16),
-      "aes-128-cbc",
+      'aes-128-cbc',
       true,
-    );
+    )
 
-    const wallet = new Wallet(keccak256(seed));
+    const wallet = new Wallet(keccak256(seed))
     if (bytesToUnprefixedHex(wallet.getAddress()) !== json.ethaddr) {
-      throw new Error("Decoded key mismatch - possibly wrong passphrase");
+      throw new Error('Decoded key mismatch - possibly wrong passphrase')
     }
-    return wallet;
+    return wallet
   }
 
   // private getters
@@ -543,9 +500,9 @@ export class Wallet {
    */
   private get pubKey(): Uint8Array {
     if (this.publicKey === undefined || this.publicKey === null) {
-      this.publicKey = privateToPublic(this.privateKey!);
+      this.publicKey = privateToPublic(this.privateKey!)
     }
-    return this.publicKey;
+    return this.publicKey
   }
 
   /**
@@ -553,9 +510,9 @@ export class Wallet {
    */
   private get privKey(): Uint8Array {
     if (this.privateKey === undefined || this.privateKey === null) {
-      throw new Error("This is a public key only wallet");
+      throw new Error('This is a public key only wallet')
     }
-    return this.privateKey;
+    return this.privateKey
   }
 
   // public instance methods
@@ -565,47 +522,47 @@ export class Wallet {
    *
    */
   public getPrivateKey(): Uint8Array {
-    return this.privKey;
+    return this.privKey
   }
 
   public getPrivateKeyString(): PrefixedHexString {
-    return bytesToHex(this.privKey);
+    return bytesToHex(this.privKey)
   }
 
   /**
    * Returns the wallet's public key.
    */
   public getPublicKey(): Uint8Array {
-    return this.pubKey;
+    return this.pubKey
   }
 
   /**
    * Returns the wallet's public key as a "0x" prefixed hex string
    */
   public getPublicKeyString(): PrefixedHexString {
-    return bytesToHex(this.getPublicKey());
+    return bytesToHex(this.getPublicKey())
   }
 
   /**
    * Returns the wallet's address.
    */
   public getAddress(): Uint8Array {
-    return publicToAddress(this.pubKey);
+    return publicToAddress(this.pubKey)
   }
 
   /**
    * Returns the wallet's address as a "0x" prefixed hex string
    */
   public getAddressString(): PrefixedHexString {
-    return bytesToHex(this.getAddress());
+    return bytesToHex(this.getAddress())
   }
 
   /**
    * Returns the wallet's private key as a "0x" prefixed hex string checksummed
    * according to [EIP 55](https://github.com/ethereum/EIPs/issues/55).
    */
-  public getChecksumAddressString(): PrefixedHexString {
-    return toChecksumAddress(this.getAddressString());
+  public getChecksumAddressString(): PrefixedAddressString {
+    return toChecksumAddress(this.getAddressString())
   }
 
   /**
@@ -614,36 +571,33 @@ export class Wallet {
    * @param password The password used to encrypt the Keystore.
    * @param opts The options for the keystore. See [its spec](https://github.com/ethereum/wiki/wiki/Web3-Secret-Storage-Definition) for more info.
    */
-  public async toV3(
-    password: string,
-    opts?: Partial<V3Params>,
-  ): Promise<V3Keystore> {
+  public async toV3(password: string, opts?: Partial<V3Params>): Promise<V3Keystore> {
     if (this.privateKey === undefined || this.privateKey === null) {
-      throw new Error("This is a public key only wallet");
+      throw new Error('This is a public key only wallet')
     }
 
-    const v3Params: V3ParamsStrict = mergeToV3ParamsWithDefaults(opts);
+    const v3Params: V3ParamsStrict = mergeToV3ParamsWithDefaults(opts)
 
-    let kdfParams: KDFParams;
-    let derivedKey: Uint8Array;
+    let kdfParams: KDFParams
+    let derivedKey: Uint8Array
     switch (v3Params.kdf) {
       case KDFFunctions.PBKDF:
-        kdfParams = kdfParamsForPBKDF(v3Params);
+        kdfParams = kdfParamsForPBKDF(v3Params)
         derivedKey = await pbkdf2(
           utf8ToBytes(password),
           kdfParams.salt,
           kdfParams.c,
           kdfParams.dklen,
-          "sha256",
-        );
-        break;
+          'sha256',
+        )
+        break
       case KDFFunctions.Scrypt:
-        kdfParams = kdfParamsForScrypt(v3Params);
+        kdfParams = kdfParamsForScrypt(v3Params)
         // FIXME: support progress reporting callback
-        derivedKey = await scryptV3(password, kdfParams);
-        break;
+        derivedKey = await scryptV3(password, kdfParams)
+        break
       default:
-        throw new Error("Unsupported kdf");
+        throw new Error('Unsupported kdf')
     }
 
     const ciphertext = aes.encrypt(
@@ -652,8 +606,8 @@ export class Wallet {
       v3Params.iv,
       v3Params.cipher,
       false,
-    );
-    const mac = keccak256(concatBytes(derivedKey.subarray(16, 32), ciphertext));
+    )
+    const mac = keccak256(concatBytes(derivedKey.subarray(16, 32), ciphertext))
 
     return {
       version: 3,
@@ -671,7 +625,7 @@ export class Wallet {
         },
         mac: bytesToUnprefixedHex(mac),
       },
-    };
+    }
   }
 
   /**
@@ -689,20 +643,17 @@ export class Wallet {
      * Alternative manual way with padding and Date fields: http://stackoverflow.com/a/7244288/4964819
      *
      */
-    const ts = timestamp !== undefined ? new Date(timestamp) : new Date();
+    const ts = timestamp !== undefined ? new Date(timestamp) : new Date()
     return [
-      "UTC--",
-      ts.toJSON().replace(/:/g, "-"),
-      "--",
+      'UTC--',
+      ts.toJSON().replace(/:/g, '-'),
+      '--',
       bytesToUnprefixedHex(this.getAddress()),
-    ].join("");
+    ].join('')
   }
 
-  public async toV3String(
-    password: string,
-    opts?: Partial<V3Params>,
-  ): Promise<string> {
-    return JSON.stringify(await this.toV3(password, opts));
+  public async toV3String(password: string, opts?: Partial<V3Params>): Promise<string> {
+    return JSON.stringify(await this.toV3(password, opts))
   }
 
   /**
@@ -711,7 +662,7 @@ export class Wallet {
    * @param publicKey the public key to verify against the private key of the wallet
    */
   public verifyPublicKey(publicKey: Uint8Array): boolean {
-    if (this.privateKey === undefined) return false;
-    return equalsBytes(privateToPublic(this.privateKey), publicKey);
+    if (this.privateKey === undefined) return false
+    return equalsBytes(privateToPublic(this.privateKey), publicKey)
   }
 }

@@ -1,4 +1,15 @@
-import { isHexString } from './internal.js'
+import { isAddressString, isHexString } from './internal.js'
+
+/**
+ * Throws if a string is not hex prefixed
+ * @param {string} input string to check hex prefix of
+ */
+export const assertIsAddressString = function (input: string): void {
+  if (!isAddressString(input)) {
+    const msg = `This method only supports Z-prefixed address strings but input was: ${input}`
+    throw new Error(msg)
+  }
+}
 
 /**
  * Throws if a string is not hex prefixed
