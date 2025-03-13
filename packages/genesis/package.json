@@ -54,8 +54,8 @@
     "tsc": "../../config/cli/ts-compile.sh"
   },
   "dependencies": {
-    "@theqrl/zondjs-common": "file:../build/theqrl-zondjs-common-5.0.0-alpha.1.tgz",
-    "@theqrl/zondjs-util": "file:../build/theqrl-zondjs-util-10.0.0-alpha.1.tgz"
+    "@theqrl/zondjs-common": "^5.0.0-alpha.1",
+    "@theqrl/zondjs-util": "^10.0.0-alpha.1"
   },
   "engines": {
     "node": ">=18"

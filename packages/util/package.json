@@ -86,7 +86,7 @@
     "tsc": "../../config/cli/ts-compile.sh"
   },
   "dependencies": {
-    "@theqrl/zondjs-rlp": "file:../build/theqrl-zondjs-rlp-6.0.0-alpha.1.tgz",
+    "@theqrl/zondjs-rlp": "^6.0.0-alpha.1",
     "ethereum-cryptography": "^3.1.0"
   },
   "devDependencies": {

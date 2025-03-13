@@ -58,9 +58,9 @@
   },
   "dependencies": {
     "@scure/base": "^1.1.7",
-    "@theqrl/zondjs-common": "file:../build/theqrl-zondjs-common-5.0.0-alpha.1.tgz",
-    "@theqrl/zondjs-rlp": "file:../build/theqrl-zondjs-rlp-6.0.0-alpha.1.tgz",
-    "@theqrl/zondjs-util": "file:../build/theqrl-zondjs-util-10.0.0-alpha.1.tgz",
+    "@theqrl/zondjs-common": "^5.0.0-alpha.1",
+    "@theqrl/zondjs-rlp": "^6.0.0-alpha.1",
+    "@theqrl/zondjs-util": "^10.0.0-alpha.1",
     "debug": "^4.3.3",
     "ethereum-cryptography": "^3.1.0",
     "eventemitter3": "^5.0.1",
@@ -69,8 +69,8 @@
     "snappyjs": "^0.6.1"
   },
   "devDependencies": {
-    "@theqrl/zondjs-block": "file:../build/theqrl-zondjs-block-6.0.0-alpha.1.tgz",
-    "@theqrl/zondjs-tx": "file:../build/theqrl-zondjs-tx-6.0.0-alpha.1.tgz",
+    "@theqrl/zondjs-block": "^6.0.0-alpha.1",
+    "@theqrl/zondjs-tx": "^6.0.0-alpha.1",
     "@types/debug": "^4.1.9",
     "@types/k-bucket": "^5.0.0",
     "@types/node": "^22.7.6",

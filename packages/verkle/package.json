@@ -48,8 +48,8 @@
     "tsc": "../../config/cli/ts-compile.sh"
   },
   "dependencies": {
-    "@theqrl/zondjs-rlp": "file:../build/theqrl-zondjs-rlp-6.0.0-alpha.1.tgz",
-    "@theqrl/zondjs-util": "file:../build/theqrl-zondjs-util-10.0.0-alpha.1.tgz",
+    "@theqrl/zondjs-rlp": "^6.0.0-alpha.1",
+    "@theqrl/zondjs-util": "^10.0.0-alpha.1",
     "debug": "^4.3.4",
     "lru-cache": "10.1.0",
     "micro-eth-signer": "0.12.1"
