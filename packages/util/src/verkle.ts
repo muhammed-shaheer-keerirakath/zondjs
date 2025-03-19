@@ -167,7 +167,7 @@ export const VERKLE_CODE_CHUNK_SIZE = 31
 export const VERKLE_HEADER_STORAGE_OFFSET = 64
 export const VERKLE_CODE_OFFSET = 128
 export const VERKLE_NODE_WIDTH = 256
-export const VERKLE_MAIN_STORAGE_OFFSET = BigInt(256) ** BigInt(VERKLE_CODE_CHUNK_SIZE)
+export const VERKLE_MAIN_STORAGE_OFFSET = BigInt(256 ** VERKLE_CODE_CHUNK_SIZE)
 
 /**
  * @dev Returns the tree key for a given verkle tree stem, and sub index.
