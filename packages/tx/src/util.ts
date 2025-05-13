@@ -1,3 +1,11 @@
+/* eslint-disable implicit-dependencies/no-implicit */
+/* eslint-disable import/no-extraneous-dependencies */
+import { toHex } from "@theqrl/web3-utils";
+import {
+  type AccessListUint8Array,
+  type Common,
+  toUint8Array,
+} from "@theqrl/web3-zond-accounts";
 import {
   MAX_INTEGER,
   MAX_UINT64,
@@ -24,13 +32,13 @@ import type {
   TransactionType,
   TypedTxData,
 } from "./types.js";
-import type { Common } from "@theqrl/zondjs-common";
 
 export function checkMaxInitCodeSize(common: Common, length: number) {
-  const maxInitCodeSize = common.param("maxInitCodeSize");
+  const maxInitCodeSize = common.param("vm", "maxInitCodeSize");
   if (maxInitCodeSize && BigInt(length) > maxInitCodeSize) {
     throw new Error(
       `the initcode size of this transaction is too large: it is ${length} while the max is ${common.param(
+        "vm",
         "maxInitCodeSize",
       )}`,
     );
@@ -40,30 +48,29 @@ export function checkMaxInitCodeSize(common: Common, length: number) {
 export class AccessLists {
   public static getAccessListData(accessList: AccessListBytes | AccessList) {
     let AccessListJSON;
-    let bufferAccessList;
+    let uint8arrayAccessList;
     if (isAccessList(accessList)) {
       AccessListJSON = accessList;
-      const newAccessList: AccessListBytes = [];
-
-      for (let i = 0; i < accessList.length; i++) {
+      const newAccessList: AccessListUint8Array = [];
+      for (let i = 0; i < accessList.length; i += 1) {
         const item: AccessListItem = accessList[i];
-        const addressBytes = hexToBytes(item.address);
+        const addressBytes = toUint8Array(toHex(item.address));
         const storageItems: Uint8Array[] = [];
-        for (let index = 0; index < item.storageKeys.length; index++) {
-          storageItems.push(hexToBytes(item.storageKeys[index]));
+        for (let index = 0; index < item.storageKeys.length; index += 1) {
+          storageItems.push(toUint8Array(item.storageKeys[index]));
         }
         newAccessList.push([addressBytes, storageItems]);
       }
-      bufferAccessList = newAccessList;
+      uint8arrayAccessList = newAccessList;
     } else {
-      bufferAccessList = accessList ?? [];
+      uint8arrayAccessList = accessList ?? [];
       // build the JSON
       const json: AccessList = [];
-      for (let i = 0; i < bufferAccessList.length; i++) {
-        const data = bufferAccessList[i];
+      for (let i = 0; i < uint8arrayAccessList.length; i += 1) {
+        const data = uint8arrayAccessList[i];
         const address = bytesToHex(data[0]);
         const storageKeys: PrefixedHexString[] = [];
-        for (let item = 0; item < data[1].length; item++) {
+        for (let item = 0; item < data[1].length; item += 1) {
           storageKeys.push(bytesToHex(data[1][item]));
         }
         const jsonItem: AccessListItem = {
@@ -77,7 +84,7 @@ export class AccessLists {
 
     return {
       AccessListJSON,
-      accessList: bufferAccessList,
+      accessList: uint8arrayAccessList,
     };
   }
 
@@ -132,8 +139,11 @@ export class AccessLists {
     accessList: AccessListBytes,
     common: Common,
   ): number {
-    const accessListStorageKeyCost = common.param("accessListStorageKeyGas");
-    const accessListAddressCost = common.param("accessListAddressGas");
+    const accessListStorageKeyCost = common.param(
+      "vm",
+      "accessListStorageKeyGas",
+    );
+    const accessListAddressCost = common.param("vm", "accessListAddressGas");
 
     let slots = 0;
     for (let index = 0; index < accessList.length; index++) {
@@ -266,7 +276,7 @@ export class AuthorizationLists {
     authorityList: AuthorizationListBytes,
     common: Common,
   ): number {
-    const perAuthBaseCost = common.param("perAuthBaseGas");
+    const perAuthBaseCost = common.param("vm", "perAuthBaseGas");
     return authorityList.length * Number(perAuthBaseCost);
   }
 }
@@ -283,9 +293,6 @@ export function validateNotArray(values: { [key: string]: any }) {
     "to",
     "value",
     "data",
-    "v",
-    "r",
-    "s",
     "type",
     "baseFee",
     "maxFeePerGas",

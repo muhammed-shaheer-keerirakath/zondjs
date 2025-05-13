@@ -38,7 +38,7 @@ export type PrefixedHexString = `0x${string}`
 /**
  * A type that represents an input that can be converted to an Address.
  */
-export type AddressLike = Address | Uint8Array | PrefixedHexString
+export type AddressLike = Address | Uint8Array | PrefixedHexString | PrefixedAddressString
 
 export interface TransformableToBytes {
   toBytes?(): Uint8Array

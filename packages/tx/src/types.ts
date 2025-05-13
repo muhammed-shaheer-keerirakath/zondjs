@@ -1,11 +1,14 @@
 import { bytesToBigInt, toBytes } from "@theqrl/zondjs-util";
 
 import type { FeeMarket1559Tx } from "./1559/tx.js";
-import type { AccessList2930Tx } from "./2930/tx.js";
-import type { Blob4844Tx } from "./4844/tx.js";
-import type { EOACode7702Tx } from "./7702/tx.js";
+// import type { AccessList2930Tx } from "./2930/tx.js";
+// import type { Blob4844Tx } from "./4844/tx.js";
+// import type { EOACode7702Tx } from "./7702/tx.js";
 import type { LegacyTx } from "./legacy/tx.js";
-import type { Common, Hardfork, ParamsDict } from "@theqrl/zondjs-common";
+// eslint-disable-next-line implicit-dependencies/no-implicit
+import type { Common } from "@theqrl/web3-zond-accounts";
+// eslint-disable-next-line implicit-dependencies/no-implicit
+import type { Hardfork, ParamsDict } from "@theqrl/zondjs-common";
 import type {
   Address,
   AddressLike,
@@ -145,7 +148,7 @@ export interface TransactionCache {
     value: bigint;
     hardfork: string | Hardfork;
   };
-  senderPubKey?: Uint8Array;
+  // senderPubKey?: Uint8Array;
 }
 
 /**
@@ -153,18 +156,18 @@ export interface TransactionCache {
  */
 export enum TransactionType {
   Legacy = 0,
-  AccessListEIP2930 = 1,
+  // AccessListEIP2930 = 1,
   FeeMarketEIP1559 = 2,
-  BlobEIP4844 = 3,
-  EOACodeEIP7702 = 4,
+  // BlobEIP4844 = 3,
+  // EOACodeEIP7702 = 4,
 }
 
 export interface Transaction {
   [TransactionType.Legacy]: LegacyTx;
   [TransactionType.FeeMarketEIP1559]: FeeMarket1559Tx;
-  [TransactionType.AccessListEIP2930]: AccessList2930Tx;
-  [TransactionType.BlobEIP4844]: Blob4844Tx;
-  [TransactionType.EOACodeEIP7702]: EOACode7702Tx;
+  // [TransactionType.AccessListEIP2930]: AccessList2930Tx;
+  // [TransactionType.BlobEIP4844]: Blob4844Tx;
+  // [TransactionType.EOACodeEIP7702]: EOACode7702Tx;
 }
 
 export type TypedTransaction = Transaction[TransactionType];
@@ -173,23 +176,23 @@ export function isLegacyTx(tx: TypedTransaction): tx is LegacyTx {
   return tx.type === TransactionType.Legacy;
 }
 
-export function isAccessList2930Tx(
-  tx: TypedTransaction,
-): tx is AccessList2930Tx {
-  return tx.type === TransactionType.AccessListEIP2930;
-}
+// export function isAccessList2930Tx(
+//   tx: TypedTransaction,
+// ): tx is AccessList2930Tx {
+//   return tx.type === TransactionType.AccessListEIP2930;
+// }
 
 export function isFeeMarket1559Tx(tx: TypedTransaction): tx is FeeMarket1559Tx {
   return tx.type === TransactionType.FeeMarketEIP1559;
 }
 
-export function isBlob4844Tx(tx: TypedTransaction): tx is Blob4844Tx {
-  return tx.type === TransactionType.BlobEIP4844;
-}
+// export function isBlob4844Tx(tx: TypedTransaction): tx is Blob4844Tx {
+//   return tx.type === TransactionType.BlobEIP4844;
+// }
 
-export function isEOACode7702Tx(tx: TypedTransaction): tx is EOACode7702Tx {
-  return tx.type === TransactionType.EOACodeEIP7702;
-}
+// export function isEOACode7702Tx(tx: TypedTransaction): tx is EOACode7702Tx {
+//   return tx.type === TransactionType.EOACodeEIP7702;
+// }
 
 export interface TransactionInterface<
   T extends TransactionType = TransactionType,
@@ -200,9 +203,11 @@ export interface TransactionInterface<
   readonly to?: Address;
   readonly value: bigint;
   readonly data: Uint8Array;
-  readonly v?: bigint;
-  readonly r?: bigint;
-  readonly s?: bigint;
+  // readonly v?: bigint;
+  // readonly r?: bigint;
+  // readonly s?: bigint;
+  readonly signature?: Uint8Array;
+  readonly publicKey?: Uint8Array;
   readonly cache: TransactionCache;
   supports(capability: Capability): boolean;
   type: TransactionType;
@@ -280,10 +285,10 @@ export interface EIP7702CompatibleTx<
 
 export interface TxData {
   [TransactionType.Legacy]: LegacyTxData;
-  [TransactionType.AccessListEIP2930]: AccessList2930TxData;
+  // [TransactionType.AccessListEIP2930]: AccessList2930TxData;
   [TransactionType.FeeMarketEIP1559]: FeeMarketEIP1559TxData;
-  [TransactionType.BlobEIP4844]: BlobEIP4844TxData;
-  [TransactionType.EOACodeEIP7702]: EOACode7702TxData;
+  // [TransactionType.BlobEIP4844]: BlobEIP4844TxData;
+  // [TransactionType.EOACodeEIP7702]: EOACode7702TxData;
 }
 
 export type TypedTxData = TxData[TransactionType];
@@ -293,12 +298,12 @@ export function isLegacyTxData(txData: TypedTxData): txData is LegacyTxData {
   return txType === TransactionType.Legacy;
 }
 
-export function isAccessList2930TxData(
-  txData: TypedTxData,
-): txData is AccessList2930TxData {
-  const txType = Number(bytesToBigInt(toBytes(txData.type)));
-  return txType === TransactionType.AccessListEIP2930;
-}
+// export function isAccessList2930TxData(
+//   txData: TypedTxData,
+// ): txData is AccessList2930TxData {
+//   const txType = Number(bytesToBigInt(toBytes(txData.type)));
+//   return txType === TransactionType.AccessListEIP2930;
+// }
 
 export function isFeeMarket1559TxData(
   txData: TypedTxData,
@@ -307,19 +312,19 @@ export function isFeeMarket1559TxData(
   return txType === TransactionType.FeeMarketEIP1559;
 }
 
-export function isBlob4844TxData(
-  txData: TypedTxData,
-): txData is BlobEIP4844TxData {
-  const txType = Number(bytesToBigInt(toBytes(txData.type)));
-  return txType === TransactionType.BlobEIP4844;
-}
+// export function isBlob4844TxData(
+//   txData: TypedTxData,
+// ): txData is BlobEIP4844TxData {
+//   const txType = Number(bytesToBigInt(toBytes(txData.type)));
+//   return txType === TransactionType.BlobEIP4844;
+// }
 
-export function isEOACode7702TxData(
-  txData: TypedTxData,
-): txData is EOACode7702TxData {
-  const txType = Number(bytesToBigInt(toBytes(txData.type)));
-  return txType === TransactionType.EOACodeEIP7702;
-}
+// export function isEOACode7702TxData(
+//   txData: TypedTxData,
+// ): txData is EOACode7702TxData {
+//   const txType = Number(bytesToBigInt(toBytes(txData.type)));
+//   return txType === TransactionType.EOACodeEIP7702;
+// }
 
 /**
  * Legacy {@link Transaction} Data
@@ -358,22 +363,31 @@ export type LegacyTxData = {
   /**
    * EC recovery ID.
    */
-  v?: BigIntLike;
+  // v?: BigIntLike;
 
   /**
    * EC signature parameter.
    */
-  r?: BigIntLike;
+  // r?: BigIntLike;
 
   /**
    * EC signature parameter.
    */
-  s?: BigIntLike;
+  // s?: BigIntLike;
+
+  /**
+   * Dilithium5 signature.
+   */
+  signature?: BigIntLike | Uint8Array;
+
+  /**
+   * Dilithium5 public key.
+   */
+  publicKey?: BigIntLike | Uint8Array;
 
   /**
    * The transaction type
    */
-
   type?: BigIntLike;
 };
 
@@ -450,10 +464,10 @@ export interface EOACode7702TxData extends FeeMarketEIP1559TxData {
 
 export interface TxValuesArray {
   [TransactionType.Legacy]: LegacyTxValuesArray;
-  [TransactionType.AccessListEIP2930]: AccessList2930TxValuesArray;
+  // [TransactionType.AccessListEIP2930]: AccessList2930TxValuesArray;
   [TransactionType.FeeMarketEIP1559]: FeeMarketEIP1559TxValuesArray;
-  [TransactionType.BlobEIP4844]: BlobEIP4844TxValuesArray;
-  [TransactionType.EOACodeEIP7702]: EOACode7702TxValuesArray;
+  // [TransactionType.BlobEIP4844]: BlobEIP4844TxValuesArray;
+  // [TransactionType.EOACodeEIP7702]: EOACode7702TxValuesArray;
 }
 
 /**
@@ -464,19 +478,25 @@ type LegacyTxValuesArray = Uint8Array[];
 /**
  * Bytes values array for an {@link AccessList2930Tx}
  */
-type AccessList2930TxValuesArray = [
-  Uint8Array,
-  Uint8Array,
-  Uint8Array,
-  Uint8Array,
-  Uint8Array,
-  Uint8Array,
-  Uint8Array,
-  AccessListBytes,
-  Uint8Array?,
-  Uint8Array?,
-  Uint8Array?,
-];
+// type AccessList2930TxValuesArray = [
+//   Uint8Array,
+//   Uint8Array,
+//   Uint8Array,
+//   Uint8Array,
+//   Uint8Array,
+//   Uint8Array,
+//   Uint8Array,
+//   AccessListBytes,
+//   Uint8Array?,
+//   Uint8Array?,
+//   Uint8Array?,
+// ];
+
+/*
+ * An Access List as a tuple of [address: Uint8Array, storageKeys: Uint8Array[]]
+ */
+export type AccessListUint8ArrayItem = [Uint8Array, Uint8Array[]];
+export type AccessListUint8Array = AccessListUint8ArrayItem[];
 
 /**
  * Bytes values array for a {@link FeeMarket1559Tx}
@@ -490,8 +510,7 @@ type FeeMarketEIP1559TxValuesArray = [
   Uint8Array,
   Uint8Array,
   Uint8Array,
-  AccessListBytes,
-  Uint8Array?,
+  AccessListUint8Array,
   Uint8Array?,
   Uint8Array?,
 ];
@@ -499,21 +518,21 @@ type FeeMarketEIP1559TxValuesArray = [
 /**
  * Bytes values array for a {@link EOACode7702Transaction}
  */
-type EOACode7702TxValuesArray = [
-  Uint8Array,
-  Uint8Array,
-  Uint8Array,
-  Uint8Array,
-  Uint8Array,
-  Uint8Array,
-  Uint8Array,
-  Uint8Array,
-  AccessListBytes,
-  AuthorizationListBytes,
-  Uint8Array?,
-  Uint8Array?,
-  Uint8Array?,
-];
+// type EOACode7702TxValuesArray = [
+//   Uint8Array,
+//   Uint8Array,
+//   Uint8Array,
+//   Uint8Array,
+//   Uint8Array,
+//   Uint8Array,
+//   Uint8Array,
+//   Uint8Array,
+//   AccessListBytes,
+//   AuthorizationListBytes,
+//   Uint8Array?,
+//   Uint8Array?,
+//   Uint8Array?,
+// ];
 
 /**
  * Bytes values array for a {@link Blob4844Tx}

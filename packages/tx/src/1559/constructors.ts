@@ -38,9 +38,9 @@ export function create1559FeeMarketTxFromBytesArray(
   values: TxValuesArray,
   opts: TxOptions = {},
 ) {
-  if (values.length !== 9 && values.length !== 12) {
+  if (values.length !== 9 && values.length !== 11) {
     throw new Error(
-      "Invalid EIP-1559 transaction. Only expecting 9 values (for unsigned tx) or 12 values (for signed tx).",
+      "Invalid EIP-1559 transaction. Only expecting 9 values (for unsigned tx) or 11 values (for signed tx).",
     );
   }
 
@@ -54,21 +54,17 @@ export function create1559FeeMarketTxFromBytesArray(
     value,
     data,
     accessList,
-    v,
-    r,
-    s,
+    publicKey,
+    signature,
   ] = values;
 
-  validateNotArray({ chainId, v });
+  validateNotArray({ chainId });
   validateNoLeadingZeroes({
     nonce,
     maxPriorityFeePerGas,
     maxFeePerGas,
     gasLimit,
     value,
-    v,
-    r,
-    s,
   });
 
   return new FeeMarket1559Tx(
@@ -82,9 +78,8 @@ export function create1559FeeMarketTxFromBytesArray(
       value,
       data,
       accessList: accessList ?? [],
-      v: v !== undefined ? bytesToBigInt(v) : undefined, // EIP2930 supports v's with value 0 (empty Uint8Array)
-      r,
-      s,
+      publicKey,
+      signature,
     },
     opts,
   );
