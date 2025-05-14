@@ -8,7 +8,7 @@ import {
 import { assertIsArray, assertIsBytes, assertIsHexString } from './helpers.js'
 import { isHexString, padToEven, stripAddressPrefix, stripHexPrefix } from './internal.js'
 
-import type { PrefixedHexString, TransformableToBytes } from './types.js'
+import type { AddressLike, PrefixedHexString, TransformableToBytes } from './types.js'
 
 const BIGINT_0 = BigInt(0)
 
@@ -228,6 +228,7 @@ export type ToBytesInputTypes =
   | TransformableToBytes
   | null
   | undefined
+  | AddressLike
 
 /**
  * Attempts to turn a value into a `Uint8Array`.

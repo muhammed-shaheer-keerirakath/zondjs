@@ -1,129 +1,95 @@
-import { RLP } from "@theqrl/zondjs-rlp";
+/* eslint-disable implicit-dependencies/no-implicit */
+/* eslint-disable import/no-extraneous-dependencies */
+import { Dilithium } from '@theqrl/wallet.js'
+import { hexToBytes, uint8ArrayConcat } from '@theqrl/web3-utils'
+import { Common, toUint8Array, uint8ArrayToBigInt } from '@theqrl/web3-zond-accounts'
+import { Chain, Hardfork } from '@theqrl/zondjs-common'
+import { RLP } from '@theqrl/zondjs-rlp'
 import {
-  BIGINT_2,
-  BIGINT_8,
   MAX_INTEGER,
+  MAX_UINT64,
   bigIntToHex,
   bigIntToUnpaddedBytes,
   bytesToBigInt,
   toBytes,
-  unpadBytes,
-} from "@theqrl/zondjs-util";
-import { keccak256 } from "ethereum-cryptography/keccak.js";
+} from '@theqrl/zondjs-util'
+import { keccak256 } from 'ethereum-cryptography/keccak.js'
 
-import * as Legacy from "../capabilities/legacy.js";
-import {
-  getBaseJSON,
-  sharedConstructor,
-  valueBoundaryCheck,
-} from "../features/util.js";
-import { paramsTx } from "../index.js";
-import { Capability, TransactionType } from "../types.js";
+import * as Legacy from '../capabilities/legacy.js'
+import { getBaseJSON, sharedConstructor } from '../features/util.js'
+import { TransactionType } from '../types.js'
+import { checkMaxInitCodeSize } from '../util.js'
 
-import { createLegacyTx } from "./constructors.js";
+import { createLegacyTx } from './constructors.js'
 
 import type {
   TxData as AllTypesTxData,
   TxValuesArray as AllTypesTxValuesArray,
+  Capability,
   JSONTx,
   TransactionCache,
   TransactionInterface,
   TxOptions,
-} from "../types.js";
-import type { Common } from "@theqrl/zondjs-common";
-import type { Address } from "@theqrl/zondjs-util";
+} from '../types.js'
+import type { Address, BigIntLike } from '@theqrl/zondjs-util'
 
-export type TxData = AllTypesTxData[TransactionType.Legacy];
-export type TxValuesArray = AllTypesTxValuesArray[TransactionType.Legacy];
+export type TxData = AllTypesTxData[TransactionType.Legacy]
+export type TxValuesArray = AllTypesTxValuesArray[TransactionType.Legacy]
 
-function meetsEIP155(_v: bigint, chainId: bigint) {
-  const v = Number(_v);
-  const chainIdDoubled = Number(chainId) * 2;
-  return v === chainIdDoubled + 35 || v === chainIdDoubled + 36;
-}
-
-/**
- * Validates tx's `v` value and extracts the chain id
- */
-function validateVAndExtractChainID(
-  common: Common,
-  _v?: bigint,
-): BigInt | undefined {
-  let chainIdBigInt;
-  const v = _v !== undefined ? Number(_v) : undefined;
-  // Check for valid v values in the scope of a signed legacy tx
-  if (v !== undefined) {
-    // v is 1. not matching the EIP-155 chainId included case and...
-    // v is 2. not matching the classic v=27 or v=28 case
-    if (v < 37 && v !== 27 && v !== 28) {
-      throw new Error(
-        `Legacy txs need either v = 27/28 or v >= 37 (EIP-155 replay protection), got v = ${v}`,
-      );
-    }
-  }
-
-  // No unsigned tx and EIP-155 activated and chain ID included
-  if (
-    v !== undefined &&
-    v !== 0 &&
-    common.gteHardfork("spuriousDragon") &&
-    v !== 27 &&
-    v !== 28
-  ) {
-    if (!meetsEIP155(BigInt(v), common.chainId())) {
-      throw new Error(
-        `Incompatible EIP155-based V ${v} and chain id ${common.chainId()}. See the Common parameter of the Transaction constructor to set the chain id.`,
-      );
-    }
-    // Derive the original chain ID
-    let numSub;
-    if ((v - 35) % 2 === 0) {
-      numSub = 35;
-    } else {
-      numSub = 36;
-    }
-    // Use derived chain ID to create a proper Common
-    chainIdBigInt = BigInt(v - numSub) / BIGINT_2;
-  }
-  return chainIdBigInt;
-}
+const TRANSACTION_TYPE_UINT8ARRAY = hexToBytes(TransactionType.Legacy.toString(16).padStart(2, '0'))
 
 /**
  * An Ethereum non-typed (legacy) transaction
  */
 export class LegacyTx implements TransactionInterface<TransactionType.Legacy> {
   /* Tx public data fields */
-  public type: number = TransactionType.Legacy; // Legacy tx type
+  public type: number = TransactionType.Legacy // Legacy tx type
 
   // Tx data part (part of the RLP)
-  public readonly gasPrice: bigint;
-  public readonly nonce!: bigint;
-  public readonly gasLimit!: bigint;
-  public readonly value!: bigint;
-  public readonly data!: Uint8Array;
-  public readonly to?: Address;
+  public readonly gasPrice: bigint
+  public readonly nonce!: bigint
+  public readonly gasLimit!: bigint
+  public readonly to?: Address
+  public readonly value!: bigint
+  public readonly data!: Uint8Array
 
   // Props only for signed txs
-  public readonly v?: bigint;
-  public readonly r?: bigint;
-  public readonly s?: bigint;
+  public readonly signature?: Uint8Array
+  public readonly publicKey?: Uint8Array
 
   // End of Tx data part
 
   /* Other handy tx props */
-  public readonly common!: Common;
-  private keccakFunction: (msg: Uint8Array) => Uint8Array;
+  public readonly common!: Common
 
-  readonly txOptions!: TxOptions;
+  readonly cache: TransactionCache = {}
 
-  readonly cache: TransactionCache = {};
+  readonly txOptions!: TxOptions
 
   /**
    * List of tx type defining EIPs,
    * e.g. 1559 (fee market) and 2930 (access lists)
    * for FeeMarket1559Tx objects
    */
-  protected activeCapabilities: number[] = [];
+  protected activeCapabilities: number[] = []
+
+  /**
+   * The default chain the tx falls back to if no Common
+   * is provided and if the chain can't be derived from
+   * a passed in chainId (only EIP-2718 typed txs) or
+   * EIP-155 signature (legacy txs).
+   *
+   * @hidden
+   */
+  protected DEFAULT_CHAIN = Chain.Mainnet
+
+  /**
+   * The default HF if the tx type is active on that HF
+   * or the first greater HF where the tx is active.
+   *
+   * @hidden
+   */
+  protected DEFAULT_HARDFORK: string | Hardfork = Hardfork.Shanghai
 
   /**
    * This constructor takes the values, validates them, assigns them and freezes the object.
@@ -133,49 +99,23 @@ export class LegacyTx implements TransactionInterface<TransactionType.Legacy> {
    * varying data types.
    */
   public constructor(txData: TxData, opts: TxOptions = {}) {
-    sharedConstructor(this, txData, opts);
+    sharedConstructor(this, txData, opts)
 
-    this.gasPrice = bytesToBigInt(toBytes(txData.gasPrice));
-    valueBoundaryCheck({ gasPrice: this.gasPrice });
+    this._validateCannotExceedMaxInteger({ value: this.value })
 
-    // Everything from BaseTransaction done here
-    this.common.updateParams(opts.params ?? paramsTx); // TODO should this move higher?
+    // gzond limits gasLimit to 2^64-1
+    this._validateCannotExceedMaxInteger({ gasLimit: this.gasLimit }, 64)
 
-    const chainId = validateVAndExtractChainID(this.common, this.v);
-    if (chainId !== undefined && chainId !== this.common.chainId()) {
-      throw new Error(
-        `Common chain ID ${this.common.chainId} not matching the derived chain ID ${chainId}`,
-      );
+    // EIP-2681 limits nonce to 2^64-1 (cannot equal 2^64-1)
+    this._validateCannotExceedMaxInteger({ nonce: this.nonce }, 64, true)
+    const createContract = this.to === undefined || this.to === null
+    const allowUnlimitedInitCodeSize = opts.allowUnlimitedInitCodeSize ?? false
+    const common = opts.common ?? this._getCommon()
+    if (createContract && !allowUnlimitedInitCodeSize) {
+      checkMaxInitCodeSize(common, this.data.length)
     }
 
-    this.keccakFunction = this.common.customCrypto.keccak256 ?? keccak256;
-
-    if (this.gasPrice * this.gasLimit > MAX_INTEGER) {
-      throw new Error(
-        "gas limit * gasPrice cannot exceed MAX_INTEGER (2^256-1)",
-      );
-    }
-
-    if (this.common.gteHardfork("spuriousDragon")) {
-      if (!this.isSigned()) {
-        this.activeCapabilities.push(Capability.EIP155ReplayProtection);
-      } else {
-        // EIP155 spec:
-        // If block.number >= 2,675,000 and v = CHAIN_ID * 2 + 35 or v = CHAIN_ID * 2 + 36
-        // then when computing the hash of a transaction for purposes of signing or recovering
-        // instead of hashing only the first six elements (i.e. nonce, gasprice, startgas, to, value, data)
-        // hash nine elements, with v replaced by CHAIN_ID, r = 0 and s = 0.
-        // v and chain ID meet EIP-155 conditions
-        if (meetsEIP155(this.v!, this.common.chainId())) {
-          this.activeCapabilities.push(Capability.EIP155ReplayProtection);
-        }
-      }
-    }
-
-    const freeze = opts?.freeze ?? true;
-    if (freeze) {
-      Object.freeze(this);
-    }
+    this.gasPrice = bytesToBigInt(toBytes(txData.gasPrice))
   }
 
   /**
@@ -195,15 +135,15 @@ export class LegacyTx implements TransactionInterface<TransactionType.Legacy> {
    * on all supported capabilities.
    */
   supports(capability: Capability) {
-    return this.activeCapabilities.includes(capability);
+    return this.activeCapabilities.includes(capability)
   }
 
   isSigned(): boolean {
-    return Legacy.isSigned(this);
+    return Legacy.isSigned(this)
   }
 
   getEffectivePriorityFee(baseFee?: bigint): bigint {
-    return Legacy.getEffectivePriorityFee(this.gasPrice, baseFee);
+    return Legacy.getEffectivePriorityFee(this.gasPrice, baseFee)
   }
 
   /**
@@ -227,10 +167,9 @@ export class LegacyTx implements TransactionInterface<TransactionType.Legacy> {
       this.to !== undefined ? this.to.bytes : new Uint8Array(0),
       bigIntToUnpaddedBytes(this.value),
       this.data,
-      this.v !== undefined ? bigIntToUnpaddedBytes(this.v) : new Uint8Array(0),
-      this.r !== undefined ? bigIntToUnpaddedBytes(this.r) : new Uint8Array(0),
-      this.s !== undefined ? bigIntToUnpaddedBytes(this.s) : new Uint8Array(0),
-    ];
+      this.publicKey !== undefined ? this.publicKey : Uint8Array.from([]),
+      this.signature !== undefined ? this.signature : Uint8Array.from([]),
+    ]
   }
 
   /**
@@ -243,7 +182,7 @@ export class LegacyTx implements TransactionInterface<TransactionType.Legacy> {
    * representation for external signing use {@link Transaction.getMessageToSign}.
    */
   serialize(): Uint8Array {
-    return RLP.encode(this.raw());
+    return RLP.encode(this.raw())
   }
 
   /**
@@ -259,39 +198,20 @@ export class LegacyTx implements TransactionInterface<TransactionType.Legacy> {
    * const serializedMessage = RLP.encode(message)) // use this for the HW wallet input
    * ```
    */
-  getMessageToSign(): Uint8Array[] {
-    const message = [
-      bigIntToUnpaddedBytes(this.nonce),
-      bigIntToUnpaddedBytes(this.gasPrice),
-      bigIntToUnpaddedBytes(this.gasLimit),
-      this.to !== undefined ? this.to.bytes : new Uint8Array(0),
-      bigIntToUnpaddedBytes(this.value),
-      this.data,
-    ];
-
-    if (this.supports(Capability.EIP155ReplayProtection)) {
-      message.push(bigIntToUnpaddedBytes(this.common.chainId()));
-      message.push(unpadBytes(toBytes(0)));
-      message.push(unpadBytes(toBytes(0)));
+  getMessageToSign(hashMessage = true): Uint8Array {
+    const base = this.raw().slice(0, 9)
+    const message = uint8ArrayConcat(TRANSACTION_TYPE_UINT8ARRAY, RLP.encode(base))
+    if (hashMessage) {
+      return keccak256(message)
     }
-
-    return message;
-  }
-
-  /**
-   * Returns the hashed serialized unsigned tx, which can be used
-   * to sign the transaction (e.g. for sending to a hardware wallet).
-   */
-  getHashedMessageToSign() {
-    const message = this.getMessageToSign();
-    return this.keccakFunction(RLP.encode(message));
+    return message
   }
 
   /**
    * The amount of gas paid for the data in this tx
    */
   getDataGas(): bigint {
-    return Legacy.getDataGas(this);
+    return Legacy.getDataGas(this)
   }
 
   // TODO figure out if this is necessary
@@ -299,7 +219,7 @@ export class LegacyTx implements TransactionInterface<TransactionType.Legacy> {
    * If the tx's `to` is to the creation address
    */
   toCreationAddress(): boolean {
-    return Legacy.toCreationAddress(this);
+    return Legacy.toCreationAddress(this)
   }
 
   /**
@@ -309,13 +229,13 @@ export class LegacyTx implements TransactionInterface<TransactionType.Legacy> {
    * to be paid for access lists (EIP-2930) and authority lists (EIP-7702).
    */
   getIntrinsicGas(): bigint {
-    return Legacy.getIntrinsicGas(this);
+    return Legacy.getIntrinsicGas(this)
   }
   /**
    * The up front amount that an account must have for this transaction to be valid
    */
   getUpfrontCost(): bigint {
-    return this.gasLimit * this.gasPrice + this.value;
+    return this.gasLimit * this.gasPrice + this.value
   }
 
   /**
@@ -325,7 +245,7 @@ export class LegacyTx implements TransactionInterface<TransactionType.Legacy> {
    * Use {@link Transaction.getMessageToSign} to get a tx hash for the purpose of signing.
    */
   hash(): Uint8Array {
-    return Legacy.hash(this);
+    return Legacy.hash(this)
   }
 
   /**
@@ -333,47 +253,36 @@ export class LegacyTx implements TransactionInterface<TransactionType.Legacy> {
    */
   getMessageToVerifySignature() {
     if (!this.isSigned()) {
-      const msg = Legacy.errorMsg(this, "This transaction is not signed");
-      throw new Error(msg);
+      const msg = Legacy.errorMsg(this, 'This transaction is not signed')
+      throw new Error(msg)
     }
-    return this.getHashedMessageToSign();
+    return this.getMessageToSign()
   }
 
   /**
    * Returns the public key of the sender
    */
   getSenderPublicKey(): Uint8Array {
-    return Legacy.getSenderPublicKey(this);
+    return Legacy.getSenderPublicKey(this)
   }
 
-  addSignature(
-    v: bigint,
-    r: Uint8Array | bigint,
-    s: Uint8Array | bigint,
-    convertV: boolean = false,
-  ): LegacyTx {
-    r = toBytes(r);
-    s = toBytes(s);
-    if (convertV && this.supports(Capability.EIP155ReplayProtection)) {
-      v += this.common.chainId() * BIGINT_2 + BIGINT_8;
-    }
-
-    const opts = { ...this.txOptions, common: this.common };
+  addSignature(signature: Uint8Array, publicKey: Uint8Array, _convertV: boolean = false): LegacyTx {
+    const opts = { ...this.txOptions, common: this.common }
 
     return createLegacyTx(
       {
+        type: TransactionType.Legacy,
         nonce: this.nonce,
         gasPrice: this.gasPrice,
         gasLimit: this.gasLimit,
         to: this.to,
         value: this.value,
         data: this.data,
-        v,
-        r: bytesToBigInt(r),
-        s: bytesToBigInt(s),
+        publicKey,
+        signature,
       },
       opts,
-    );
+    )
   }
 
   /**
@@ -382,38 +291,171 @@ export class LegacyTx implements TransactionInterface<TransactionType.Legacy> {
   toJSON(): JSONTx {
     // TODO this is just copied. Make this execution-api compliant
 
-    const baseJSON = getBaseJSON(this) as JSONTx;
-    baseJSON.gasPrice = bigIntToHex(this.gasPrice);
+    const baseJSON = getBaseJSON(this) as JSONTx
+    baseJSON.gasLimit = bigIntToHex(this.gasLimit)
 
-    return baseJSON;
+    return baseJSON
   }
 
   getValidationErrors(): string[] {
-    return Legacy.getValidationErrors(this);
+    return Legacy.getValidationErrors(this)
   }
 
   isValid(): boolean {
-    return Legacy.isValid(this);
+    return Legacy.isValid(this)
   }
 
   verifySignature(): boolean {
-    return Legacy.verifySignature(this);
+    return Legacy.verifySignature(this)
   }
 
   getSenderAddress(): Address {
-    return Legacy.getSenderAddress(this);
+    return Legacy.getSenderAddress(this)
   }
 
-  sign(seed: Uint8Array, extraEntropy: Uint8Array | boolean = true): LegacyTx {
-    return <LegacyTx>Legacy.sign(this, seed, extraEntropy);
+  sign(seed: Uint8Array, _extraEntropy: Uint8Array | boolean = true): LegacyTx {
+    if (seed.length !== 48) {
+      const msg = Legacy.errorMsg(this, 'Private key must be 48 bytes in length.')
+      throw new Error(msg)
+    }
+
+    const msgHash = this.getMessageToSign()
+    // eslint-disable-next-line ethereumjs/noBuffer
+    const buf = Buffer.from(seed)
+    const acc = new Dilithium(buf)
+    const signature = acc.sign(msgHash)
+    const tx = this._processSignatureAndPublicKey(signature, acc.getPK())
+
+    return tx
+  }
+
+  public _processSignatureAndPublicKey(signature: Uint8Array, publicKey: Uint8Array) {
+    const opts = { ...this.txOptions, common: this.common }
+
+    return createLegacyTx(
+      {
+        type: TransactionType.Legacy,
+        nonce: this.nonce,
+        gasPrice: this.gasPrice,
+        gasLimit: this.gasLimit,
+        to: this.to,
+        value: this.value,
+        data: this.data,
+        publicKey,
+        signature,
+      },
+      opts,
+    )
+  }
+
+  /**
+   * Does chain ID checks on common and returns a common
+   * to be used on instantiation
+   * @hidden
+   *
+   * @param common - {@link Common} instance from tx options
+   * @param chainId - Chain ID from tx options (typed txs) or signature (legacy tx)
+   */
+  protected _getCommon(common?: Common, chainId?: BigIntLike) {
+    // Chain ID provided
+    if (chainId !== undefined) {
+      const chainIdBigInt = uint8ArrayToBigInt(toUint8Array(chainId))
+      if (common) {
+        if (common.chainId() !== chainIdBigInt) {
+          const msg = Legacy.errorMsg(this, 'The chain ID does not match the chain ID of Common')
+          throw new Error(msg)
+        }
+        // Common provided, chain ID does match
+        // -> Return provided Common
+        return common.copy()
+      }
+      if (Common.isSupportedChainId(chainIdBigInt)) {
+        // No Common, chain ID supported by Common
+        // -> Instantiate Common with chain ID
+        return new Common({
+          chain: chainIdBigInt,
+          hardfork: this.DEFAULT_HARDFORK,
+        })
+      }
+      // No Common, chain ID not supported by Common
+      // -> Instantiate custom Common derived from DEFAULT_CHAIN
+      return Common.custom(
+        {
+          name: 'custom-chain',
+          networkId: chainIdBigInt,
+          chainId: chainIdBigInt,
+        },
+        { baseChain: this.DEFAULT_CHAIN, hardfork: this.DEFAULT_HARDFORK },
+      )
+    }
+    // No chain ID provided
+    // -> return Common provided or create new default Common
+    return (
+      common?.copy() ?? new Common({ chain: this.DEFAULT_CHAIN, hardfork: this.DEFAULT_HARDFORK })
+    )
+  }
+
+  /**
+   * Validates that an object with BigInt values cannot exceed the specified bit limit.
+   * @param values Object containing string keys and BigInt values
+   * @param bits Number of bits to check (64 or 256)
+   * @param cannotEqual Pass true if the number also cannot equal one less the maximum value
+   */
+  protected _validateCannotExceedMaxInteger(
+    values: { [key: string]: bigint | undefined },
+    bits = 256,
+    cannotEqual = false,
+  ) {
+    for (const [key, value] of Object.entries(values)) {
+      switch (bits) {
+        case 64:
+          if (cannotEqual) {
+            if (value !== undefined && value >= MAX_UINT64) {
+              const msg = Legacy.errorMsg(
+                this,
+                `${key} cannot equal or exceed MAX_UINT64 (2^64-1), given ${value}`,
+              )
+              throw new Error(msg)
+            }
+          } else if (value !== undefined && value > MAX_UINT64) {
+            const msg = Legacy.errorMsg(
+              this,
+              `${key} cannot exceed MAX_UINT64 (2^64-1), given ${value}`,
+            )
+            throw new Error(msg)
+          }
+          break
+        case 256:
+          if (cannotEqual) {
+            if (value !== undefined && value >= MAX_INTEGER) {
+              const msg = Legacy.errorMsg(
+                this,
+                `${key} cannot equal or exceed MAX_INTEGER (2^256-1), given ${value}`,
+              )
+              throw new Error(msg)
+            }
+          } else if (value !== undefined && value > MAX_INTEGER) {
+            const msg = Legacy.errorMsg(
+              this,
+              `${key} cannot exceed MAX_INTEGER (2^256-1), given ${value}`,
+            )
+            throw new Error(msg)
+          }
+          break
+        default: {
+          const msg = Legacy.errorMsg(this, 'unimplemented bits value')
+          throw new Error(msg)
+        }
+      }
+    }
   }
 
   /**
    * Return a compact error string representation of the object
    */
   public errorStr() {
-    let errorStr = Legacy.getSharedErrorPostfix(this);
-    errorStr += ` gasPrice=${this.gasPrice}`;
-    return errorStr;
+    let errorStr = Legacy.getSharedErrorPostfix(this)
+    errorStr += ` gasPrice=${this.gasPrice}`
+    return errorStr
   }
 }

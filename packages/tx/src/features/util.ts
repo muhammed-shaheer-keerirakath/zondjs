@@ -1,26 +1,15 @@
-import { Common, Mainnet } from "@theqrl/zondjs-common";
-import {
-  Address,
-  MAX_INTEGER,
-  MAX_UINT64,
-  bigIntToHex,
-  bytesToBigInt,
-  bytesToHex,
-  toBytes,
-} from "@theqrl/zondjs-util";
+/* eslint-disable implicit-dependencies/no-implicit */
+/* eslint-disable import/no-extraneous-dependencies */
+import { toHex } from '@theqrl/web3-utils'
+import { isAddressString } from '@theqrl/web3-validator'
+import { Common, toUint8Array, uint8ArrayToBigInt } from '@theqrl/web3-zond-accounts'
+import { Mainnet } from '@theqrl/zondjs-common'
+import { Address, MAX_INTEGER, MAX_UINT64, bigIntToHex, bytesToHex } from '@theqrl/zondjs-util'
 
-import { paramsTx } from "../params.js";
-import { checkMaxInitCodeSize, validateNotArray } from "../util.js";
-
-import type {
-  TransactionInterface,
-  TransactionType,
-  TxData,
-  TxOptions,
-} from "../types.js";
+import type { TransactionInterface, TransactionType, TxData, TxOptions } from '../types.js'
 
 export function getCommon(common?: Common): Common {
-  return common?.copy() ?? new Common({ chain: Mainnet });
+  return common?.copy() ?? new Common({ chain: Mainnet })
 }
 
 /**
@@ -41,43 +30,35 @@ export function valueBoundaryCheck(
         if (cannotEqual) {
           if (value !== undefined && value >= MAX_UINT64) {
             // TODO: error msgs got raised to a error string handler first, now throws "generic" error
-            throw new Error(
-              `${key} cannot equal or exceed MAX_UINT64 (2^64-1), given ${value}`,
-            );
+            throw new Error(`${key} cannot equal or exceed MAX_UINT64 (2^64-1), given ${value}`)
           }
         } else {
           if (value !== undefined && value > MAX_UINT64) {
-            throw new Error(
-              `${key} cannot exceed MAX_UINT64 (2^64-1), given ${value}`,
-            );
+            throw new Error(`${key} cannot exceed MAX_UINT64 (2^64-1), given ${value}`)
           }
         }
-        break;
+        break
       case 256:
         if (cannotEqual) {
           if (value !== undefined && value >= MAX_INTEGER) {
-            throw new Error(
-              `${key} cannot equal or exceed MAX_INTEGER (2^256-1), given ${value}`,
-            );
+            throw new Error(`${key} cannot equal or exceed MAX_INTEGER (2^256-1), given ${value}`)
           }
         } else {
           if (value !== undefined && value > MAX_INTEGER) {
-            throw new Error(
-              `${key} cannot exceed MAX_INTEGER (2^256-1), given ${value}`,
-            );
+            throw new Error(`${key} cannot exceed MAX_INTEGER (2^256-1), given ${value}`)
           }
         }
-        break;
+        break
       default: {
-        throw new Error("unimplemented bits value");
+        throw new Error('unimplemented bits value')
       }
     }
   }
 }
 
 type Mutable<T> = {
-  -readonly [P in keyof T]: T[P];
-};
+  -readonly [P in keyof T]: T[P]
+}
 
 // This is (temp) a shared method which reflects `super` logic which were called from all txs and thus
 // represents the constructor of baseTransaction
@@ -87,56 +68,39 @@ export function sharedConstructor(
   txData: TxData[TransactionType],
   opts: TxOptions = {},
 ) {
-  // LOAD base tx super({ ...txData, type: TransactionType.Legacy }, opts)
-  tx.common = getCommon(opts.common);
-  tx.common.updateParams(opts.params ?? paramsTx);
+  const { nonce, gasLimit, to, value, data, signature, publicKey, type } = txData
+  tx.type = Number(uint8ArrayToBigInt(toUint8Array(type)))
 
-  validateNotArray(txData); // is this necessary?
+  tx.txOptions = opts
 
-  const { nonce, gasLimit, to, value, data, v, r, s } = txData;
-
-  tx.txOptions = opts; // TODO: freeze?
-
-  // Set the tx properties
-  const toB = toBytes(to === "" ? "0x" : to);
-  tx.to = toB.length > 0 ? new Address(toB) : undefined; // TODO mark this explicitly as null if create-contract-tx?
-
-  const vB = toBytes(v);
-  const rB = toBytes(r);
-  const sB = toBytes(s);
-
-  tx.nonce = bytesToBigInt(toBytes(nonce));
-  tx.gasLimit = bytesToBigInt(toBytes(gasLimit));
-  tx.to = toB.length > 0 ? new Address(toB) : undefined;
-  tx.value = bytesToBigInt(toBytes(value));
-  tx.data = toBytes(data === "" ? "0x" : data);
-
-  // Set signature values (if the tx is signed)
-  tx.v = vB.length > 0 ? bytesToBigInt(vB) : undefined;
-  tx.r = rB.length > 0 ? bytesToBigInt(rB) : undefined;
-  tx.s = sB.length > 0 ? bytesToBigInt(sB) : undefined;
-
-  // Start validating the data
-
-  // Validate value/r/s
-  valueBoundaryCheck({ value: tx.value, r: tx.r, s: tx.s });
-
-  // geth limits gasLimit to 2^64-1
-  valueBoundaryCheck({ gasLimit: tx.gasLimit }, 64);
-
-  // EIP-2681 limits nonce to 2^64-1 (cannot equal 2^64-1)
-  valueBoundaryCheck({ nonce: tx.nonce }, 64, true);
-
-  const createContract = tx.to === undefined || tx.to === null;
-  const allowUnlimitedInitCodeSize = opts.allowUnlimitedInitCodeSize ?? false;
-
-  if (
-    createContract &&
-    tx.common.isActivatedEIP(3860) &&
-    allowUnlimitedInitCodeSize === false
-  ) {
-    checkMaxInitCodeSize(tx.common, tx.data.length);
+  let toB: Uint8Array
+  if (typeof to === 'string') {
+    if (to === '') {
+      toB = toUint8Array('0x')
+    } else if (isAddressString(to)) {
+      toB = toUint8Array(toHex(to))
+    } else {
+      throw new Error(
+        `Cannot convert string to Uint8Array. only supports address strings and this string was given: ${to}`,
+      )
+    }
+  } else {
+    // @ts-ignore
+    toB = toUint8Array(to)
   }
+
+  const signatureB = toUint8Array(signature === ''.toString() ? '0x' : signature)
+  const publicKeyB = toUint8Array(publicKey === ''.toString() ? '0x' : publicKey)
+
+  tx.nonce = uint8ArrayToBigInt(toUint8Array(nonce === ''.toString() ? '0x' : nonce))
+  tx.gasLimit = uint8ArrayToBigInt(toUint8Array(gasLimit === ''.toString() ? '0x' : gasLimit))
+  tx.to = toB.length > 0 ? new Address(toB) : undefined
+  tx.value = uint8ArrayToBigInt(toUint8Array(value === ''.toString() ? '0x' : value))
+  // @ts-ignore
+  tx.data = toUint8Array(data === ''.toString() ? '0x' : data)
+
+  tx.signature = signatureB.length > 0 ? signatureB : undefined
+  tx.publicKey = publicKeyB.length > 0 ? publicKeyB : undefined
 }
 
 export function getBaseJSON(tx: TransactionInterface) {
@@ -147,10 +111,9 @@ export function getBaseJSON(tx: TransactionInterface) {
     to: tx.to !== undefined ? tx.to.toString() : undefined,
     value: bigIntToHex(tx.value),
     data: bytesToHex(tx.data),
-    v: tx.v !== undefined ? bigIntToHex(tx.v) : undefined,
-    r: tx.r !== undefined ? bigIntToHex(tx.r) : undefined,
-    s: tx.s !== undefined ? bigIntToHex(tx.s) : undefined,
+    signature: tx.signature !== undefined ? bytesToHex(tx.signature) : undefined,
+    publicKey: tx.publicKey !== undefined ? bytesToHex(tx.publicKey) : undefined,
     chainId: bigIntToHex(tx.common.chainId()),
-    yParity: tx.v === 0n || tx.v === 1n ? bigIntToHex(tx.v) : undefined,
-  };
+    yParity: undefined,
+  }
 }
